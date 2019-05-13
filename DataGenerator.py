@@ -4,6 +4,7 @@ import random
 import datetime
 from datetime import timedelta
 import string
+import os
 
 def get_standardised_date():
     return datetime.date(1970,1,1) + timedelta(days = random.randint(1,3600))
@@ -44,12 +45,12 @@ def make_fake_dictionary_file(number_of_words, file_name):
             wordRecord = build_dictionaryEntry_standard(i)
             dictionary_file.write(wordRecord)
 
-
-    
-    
-    
-
 # entry point
-make_fake_dictionary_file(50,"FrenchDictionary.dic")
+
+fileDrive = "c://"
+filePath = "Github/PythonSandbox"
+fileName = "FrenchDictionary.dic"
+absFilePath = os.path.join(fileDrive,filePath,fileName)    
+make_fake_dictionary_file(50,absFilePath)
 
 
