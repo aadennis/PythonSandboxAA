@@ -3,7 +3,7 @@ To execute tests from command line, go to the parent of folders
     src and test, and run:
     pytest.exe test -v
 """
-from src.utility import Utility
+from Utilities.src.utility import Utility
 import unittest
 
 
