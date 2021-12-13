@@ -121,3 +121,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Exif tool for linux
+Image-ExifTool-12.37/
+
