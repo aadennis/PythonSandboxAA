@@ -22,15 +22,15 @@ class ParseIntTestCase(unittest.TestCase):
 class FilesAreSameTestCase(unittest.TestCase):
 
     def test_is_true_if_files_are_same(self):
-        file_1 = "test/file1.txt"
-        file_2 = "test/file1_copy.txt"
+        file_1 = "Utilities/test/file1.txt"
+        file_2 = "Utilities/test/file1_copy.txt"
         util = Utility()
         result = util.files_are_same(file_1, file_2)
         assert(result)
 
     def test_is_false_if_files_are_not_same(self):
-        file_1 = "test/file1.txt"
-        file_2 = "test/not_file1_copy.txt"
+        file_1 = "Utilities/test/file1.txt"
+        file_2 = "Utilities/test/not_file1_copy.txt"
         util = Utility()
         result = util.files_are_same(file_1, file_2)
         assert(not result)
