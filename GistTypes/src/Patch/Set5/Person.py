@@ -8,7 +8,8 @@ class Person:
         self.first_name = first_name
 
     def get_name(self):
-        full_name = f"The name of this person is [{self.first_name}][{self.last_name}]"
+        full_name = \
+        f"The name of this person is [{self.first_name}][{self.last_name}]"
         return full_name
 
     def get_ssn(self):
