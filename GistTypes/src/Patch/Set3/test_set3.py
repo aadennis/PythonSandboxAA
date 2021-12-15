@@ -6,7 +6,7 @@ def test_make_person():
     with patch.object(Person, 'get_name', return_value = MOCK_NAME_AS_SENTENCE):
         name_as_sentence = make_person("Harry")
         print(name_as_sentence)
-        assert name_as_sentence == MOCK_NAME_AS_SENTENCE
+        assert name_as_sentence == MOCK_NAME_AS_SENTENCE + "x"
 
 
 test_make_person()
