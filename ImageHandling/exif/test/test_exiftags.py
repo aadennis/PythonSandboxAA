@@ -40,6 +40,7 @@ class TestExiftagsTestCase:
         exif_tags = ExifTags(tmp_path / "palette_no_tags.jpg")
         assert exif_tags is not None
 
+    @pytest.mark.skip("requires mocking - exiftool exe is not checked in")
     def test_get_tag_set_from_file(self, tmp_path):
         """
             The set of tags in a known file should match the expected format
@@ -50,6 +51,7 @@ class TestExiftagsTestCase:
         response = response.replace("\\r", "")
         assert expected_response == response
 
+    @pytest.mark.skip("requires mocking - exiftool exe is not checked in")
     def test_cannot_add_tags_if_tagset_exists(self, tmp_path):
         """
             Expect failure when trying to add tags to a file which already has 1 or more tags
@@ -58,6 +60,7 @@ class TestExiftagsTestCase:
         with pytest.raises(AssertionError):
             exif_tags.set_tag_set("Should not succeed")
 
+    @pytest.mark.skip("requires mocking - exiftool exe is not checked in")
     def test_add_tags_if_no_existing_tagset(self, tmp_path):
         """
             Expect success when adding tags to a file which has zero tags
