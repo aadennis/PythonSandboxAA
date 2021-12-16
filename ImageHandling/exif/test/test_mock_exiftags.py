@@ -2,7 +2,6 @@
 # pip install pytest-mock # sic
 import shutil
 import pytest
-from pytest_mock import mocker
 from ImageHandling.exif.src.exiftags import ExifTags
 
 #@pytest.fixture(autouse=True)
