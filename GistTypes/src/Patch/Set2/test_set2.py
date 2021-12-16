@@ -13,5 +13,5 @@ def test_f_a():
         # assert
         assert main.f_a() == MOCK_RETVAL + 1
 
-test_f_a()
+
 
