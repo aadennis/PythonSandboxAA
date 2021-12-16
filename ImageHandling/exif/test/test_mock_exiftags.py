@@ -1,7 +1,6 @@
 # pip install -U mock
 # pip install pytest-mock # sic
 import shutil
-import mock
 import pytest
 from pytest_mock import mocker
 from ImageHandling.exif.src.exiftags import ExifTags
