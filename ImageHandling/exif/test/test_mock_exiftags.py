@@ -18,14 +18,15 @@ class TestitAll:
             target_file = tmp_path / i
             shutil.copyfile(f"ImageHandling/exif/test/assets/image_files/{i}", target_file)
 
-    @pytest.mark.skip("todo")
     def test_mock_get_tag_set(self, mocker, tmp_path):
-        nt = ExifTags.NO_TAGS
-        mocker.patch('ImageHandling.exif.src.exiftags.ExifTags.run_subprocess', return_value = nt)
-        mocker.patch('ImageHandling.exif.src.exiftags.ExifTags.get_tag_set')
+        # arrange
+        expected_response = "response from exif tool"
+        mocker.patch('ImageHandling.exif.src.exiftags.ExifTags.run_subprocess', return_value = expected_response)
         exif_tags = ExifTags(tmp_path / "palette_no_tags.jpg")
-        response = exif_tags.set_tag_set("alf")
-        exif_tags.get_tag_set.assert_called_once()
+        # act
+        response = exif_tags.get_tag_set()
         response = response.replace("\\r", "")
-        expected_response = "asdfadf"
+        
+        # assert
+        exif_tags.run_subprocess.assert_called_once()
         assert expected_response == response
