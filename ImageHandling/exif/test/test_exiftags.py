@@ -31,8 +31,9 @@ def skip_test_check():
     result = exiftool_exists()
     if not result:
         msg = "Exif tool not found. Test skipped"
-        pytest.skip(msg)
         print(msg)
+        pytest.skip(msg)
+        
 
 
 # pylint: disable=R0201
