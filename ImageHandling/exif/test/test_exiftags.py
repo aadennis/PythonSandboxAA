@@ -5,8 +5,32 @@
 """
 # https://docs.python.org/3/library/unittest.html
 import shutil
+from _pytest.outcomes import skip
 import pytest
+import sys
+import os
 from ImageHandling.exif.src.exiftags import ExifTags
+
+def exiftool_exists():
+    """
+    Paired with skip_test_check, 
+    naive check of whether exif tool is on the current environment.
+    This is determined by the existence of EXIFTOOL=Y, which should
+    only be true on a local environment, as exif tool should never be
+    committed onto GitHub. Set this value using EXIFTOOL=Y; export EXIFTOOL
+    on the local server, never the GitHub server
+    """
+
+    try:
+        os.environ['EXIFTOOL']
+    except:
+        return False
+    return True
+
+def skip_test_check():
+    result = exiftool_exists()
+    if not result:
+        pytest.skip("Exif tool not found. Test skipped")
 
 
 # pylint: disable=R0201
@@ -40,11 +64,12 @@ class TestExiftagsTestCase:
         exif_tags = ExifTags(tmp_path / "palette_no_tags.jpg")
         assert exif_tags is not None
 
-    @pytest.mark.skip("requires mocking - exiftool exe is not checked in")
+    #@pytest.mark.skip("requires mocking - exiftool exe is not checked in")
     def test_get_tag_set_from_file(self, tmp_path):
         """
             The set of tags in a known file should match the expected format
         """
+        skip_test_check()
         expected_response = "b'Subject                         : aaaaTattyRumPunches;other tags\\n'"
         exif_tags = ExifTags(tmp_path / "tpaste.jpg")
         response = exif_tags.get_tag_set()
@@ -71,3 +96,4 @@ class TestExiftagsTestCase:
         tag_set = exif_tags.get_tag_set()
         tag_set = tag_set.replace("\\r", "")
         assert expected_tag_set == tag_set
+        
