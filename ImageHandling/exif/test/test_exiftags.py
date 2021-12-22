@@ -8,7 +8,7 @@ import shutil
 from _pytest.outcomes import skip
 import pytest
 import os
-from ImageHandling.exif.src.exiftags import ExifTags
+from ImageHandling.exif.src.exiftags import ExifTags, ExifTagsList
 
 def exiftool_exists():
     """
@@ -48,8 +48,9 @@ class TestExiftagsTestCase:
         for i in ["palette_no_tags.jpg", "tpaste.jpg"]:
             print(f"function-level test setup - tmp_path:\n {tmp_path}")
             target_file = tmp_path / i
+            target_file2 = f"{tmp_path}/copy_{i}"
             shutil.copyfile(f"ImageHandling/exif/test/assets/image_files/{i}", target_file)
-
+            shutil.copyfile(f"ImageHandling/exif/test/assets/image_files/{i}", target_file2)
     def test_file_not_exists(self):
         """
             Expect the requested file not to exist
@@ -119,5 +120,14 @@ class TestExiftagsTestCase:
         tag_set = exif_tags.get_tag_set()
         tag_set = tag_set.replace("\\r", "")
         print(f"returning.... {tag_set}")
+
+    def test_add_same_tagset_to_all_jpgs_in_folder(self, tmp_path):
+        """
+            Add the same set of tags to all jpgs in the test folder.
+            todo: this is just a syntax check - do a meaningful test.
+        """
+        skip_test_check()
+        expected_tag_set = "Calvin Klein"
+        etl = ExifTagsList(tmp_path)
 
         
