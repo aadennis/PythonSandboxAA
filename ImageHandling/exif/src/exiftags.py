@@ -37,25 +37,41 @@ class ExifTags():
         self.image_file = image_file
 
 
-    def set_tag_set(self, tag_set):
+    def set_tag_set(self, tag_set, additional_tags='N'):
         """
         Add a tag, or a set of tags to the file passed to the ctor.
-        Any existing tags are truncated.
-        todo: rn this truncates existing tags - needs to just add unless
-        truncate has been requested.
-        For now, we run get_tag_set, and if the file has tags, we
-        raise an exception and exit, else we write.
+        Default is that you cannot add tags if the file already has
+        tag(s) (additional_tags='N')
+        Additional tags will only be added if Y is passed, given the
+        danger of a bulk update resulting in an unintended overwrite.
         """
         current_tag_set = self.get_tag_set()
         if current_tag_set != self.NO_TAGS:
             print(f"Current: {current_tag_set}")
             print(f"no tags: {self.NO_TAGS}")
-            raise AssertionError(f"[{self.image_file}] already has a tag set. Exiting...")
-        write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
-        response = Utility().run_subprocess(args_for_subprocess=write_args)
-        if not response ==  self.WRITE_SUCCESS:
-            raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
-        return self.SUCCESS
+            
+            if additional_tags != 'Y':
+                raise AssertionError(f"[{self.image_file}] already has a tag set. Exiting...")
+            write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
+            response = Utility().run_subprocess(args_for_subprocess=write_args)
+            if not response ==  self.WRITE_SUCCESS:
+                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
+            # additional tags...
+            print("Into additional tags")
+            updated_tag_set = f"{tag_set};{current_tag_set}"
+            updated_tag_set = updated_tag_set.replace(self.NO_TAGS,"")
+            print(f"upd: {updated_tag_set}")
+            write_args=[self.EXIF_TOOL_NAME,f"-Subject={updated_tag_set}", self.image_file]
+            response = Utility().run_subprocess(args_for_subprocess=write_args)
+            if not response ==  self.WRITE_SUCCESS:
+                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
+            return self.SUCCESS
+        else: # no existing tags
+            print("no existing tags")
+            write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
+            response = Utility().run_subprocess(args_for_subprocess=write_args)
+            if not response ==  self.WRITE_SUCCESS:
+                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
 
 
     def get_tag_set(self):
@@ -64,4 +80,18 @@ class ExifTags():
         This is also useful for checking that the write went ok.
         """
         read_args=[self.EXIF_TOOL_NAME,"-Subject", self.image_file]
-        return Utility().run_subprocess(args_for_subprocess=read_args)
+        tag_set = Utility().run_subprocess(args_for_subprocess=read_args)
+        print(f"a. where we are: {tag_set}")
+        a = tag_set.replace("b'Subject                         :","").replace("\\n'","")
+        print(f"b. where we are: {a}")
+        return a
+
+if __name__ == '__main__':
+    e_t = ExifTags("/tmp/twitter-cover.jpg")
+
+    a = e_t.get_tag_set()
+    print(f"other stuff:[{a}]")
+    e_t.set_tag_set("tag1XA; tag2XA", "Y")
+
+
+
