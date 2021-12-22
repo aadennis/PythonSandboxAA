@@ -1,6 +1,7 @@
 import hashlib
 import io
 import os
+import subprocess
 
 class Utility(object):
     def parse_int(self, candidate_int):
@@ -41,5 +42,14 @@ class Utility(object):
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"no file [{filepath}]")
     
-
+    # pylint: disable=R0201
+    def run_subprocess(self, args_for_subprocess):
+        """
+            Execute subprocess.check_output().
+            This is a separate method to allow mocking and to avoid needing to
+            commit 3rd party software to Github just to allow testing by
+            Actions.
+            todo - move to utilities
+        """
+        return str(subprocess.check_output(args=args_for_subprocess))
 
