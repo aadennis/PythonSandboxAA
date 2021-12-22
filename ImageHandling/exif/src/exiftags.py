@@ -9,7 +9,7 @@ instructions in readme.md (todo).
 Testing on Github Actions uses mocks.
 """
 
-import subprocess
+
 from sys import platform
 from Utilities.src.utility import Utility
 
@@ -52,7 +52,7 @@ class ExifTags():
             print(f"no tags: {self.NO_TAGS}")
             raise AssertionError(f"[{self.image_file}] already has a tag set. Exiting...")
         write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
-        response = self.run_subprocess(args_for_subprocess=write_args)
+        response = Utility().run_subprocess(args_for_subprocess=write_args)
         if not response ==  self.WRITE_SUCCESS:
             raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
         return self.SUCCESS
@@ -64,15 +64,4 @@ class ExifTags():
         This is also useful for checking that the write went ok.
         """
         read_args=[self.EXIF_TOOL_NAME,"-Subject", self.image_file]
-        return self.run_subprocess(args_for_subprocess=read_args)
-
-    # pylint: disable=R0201
-    def run_subprocess(self, args_for_subprocess):
-        """
-            Execute subprocess.check_output().
-            This is a separate method to allow mocking and to avoid needing to
-            commit 3rd party software to Github just to allow testing by
-            Actions.
-            todo - move to utilities
-        """
-        return str(subprocess.check_output(args=args_for_subprocess))
+        return Utility().run_subprocess(args_for_subprocess=read_args)

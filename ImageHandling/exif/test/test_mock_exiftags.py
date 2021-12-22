@@ -2,6 +2,7 @@
 # pip install pytest-mock # sic
 import shutil
 import pytest
+from Utilities.src.utility import Utility
 from ImageHandling.exif.src.exiftags import ExifTags
 
 #@pytest.fixture(autouse=True)
@@ -21,12 +22,12 @@ class TestitAll:
     def test_mock_get_tag_set(self, mocker, tmp_path):
         # arrange
         expected_response = "response from exif tool"
-        mocker.patch('ImageHandling.exif.src.exiftags.ExifTags.run_subprocess', return_value = expected_response)
+        mocker.patch('Utilities.src.utility.Utility.run_subprocess', return_value = expected_response)
         exif_tags = ExifTags(tmp_path / "palette_no_tags.jpg")
         # act
         response = exif_tags.get_tag_set()
         response = response.replace("\\r", "")
         
         # assert
-        exif_tags.run_subprocess.assert_called_once()
+        Utility().run_subprocess.assert_called_once()
         assert expected_response == response

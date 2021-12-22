@@ -7,7 +7,6 @@
 import shutil
 from _pytest.outcomes import skip
 import pytest
-import sys
 import os
 from ImageHandling.exif.src.exiftags import ExifTags
 
@@ -17,7 +16,7 @@ def exiftool_exists():
     naive check of whether exif tool is on the current environment.
     This is determined by the existence of EXIFTOOL=Y, which should
     only be true on a local environment, as exif tool should never be
-    committed onto GitHub. Set this value using EXIFTOOL=Y; export EXIFTOOL
+    committed onto GitHub. Set this value using export EXIFTOOL=Y
     on the local server, never the GitHub server
     """
 
@@ -98,4 +97,5 @@ class TestExiftagsTestCase:
         tag_set = exif_tags.get_tag_set()
         tag_set = tag_set.replace("\\r", "")
         assert expected_tag_set == tag_set
+
         
