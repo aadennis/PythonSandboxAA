@@ -128,6 +128,8 @@ class TestExiftagsTestCase:
         """
         skip_test_check()
         expected_tag_set = "Calvin Klein"
-        etl = ExifTagsList(tmp_path)
-
+        tag_set = "trawler;fishing"
+        append_ok = "Y"
+        ExifTagsList(tmp_path, tag_set, append_ok)
+        
         

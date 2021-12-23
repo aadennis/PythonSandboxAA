@@ -86,23 +86,19 @@ class ExifTagsList():
     Handler for a set of files in a single directory, on which EXIF actions
     are to be performed.
     Only supports jpg rn.
+    See class ExifTags for actions performed on the files within each iteration.
     """
-    def __init__(self, image_folder):
+    def __init__(self, image_folder, tag_set, append_ok = "N"):
         # all subsequent methods depend on this folder
         fileList = []
         folder = f'{image_folder}/*.jpg'
         for filepath in glob.iglob(folder):
             e_t = ExifTags(filepath)
-            a = e_t.get_tag_set()
-            e_t.set_tag_set("More of this; less of those", "Y")
+            e_t.set_tag_set(tag_set, append_ok)
             print(filepath)
 
 
 if __name__ == '__main__':
-    etl = ExifTagsList("/tmp/work")
-
-    #e_t = ExifTags("/tmp/twitter-cover.jpg")
-    # a = e_t.get_tag_set()
-    # print(f"other stuff:[{a}]")
-    # e_t.set_tag_set("tag1XA; tag2XA", "Y")
-
+    tag_set = "trawler;fishing"
+    append_ok = "Y"
+    etl = ExifTagsList("/tmp/work", tag_set, append_ok)
