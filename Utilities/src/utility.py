@@ -47,9 +47,8 @@ class Utility(object):
         """
             Execute subprocess.check_output().
             This is a separate method to allow mocking and to avoid needing to
-            commit 3rd party software to Github just to allow testing by
-            Actions.
-            todo - move to utilities
+            commit 3rd party software (specifically ExifTool) to Github. 
+            just to allow testing by Actions.
         """
         return str(subprocess.check_output(args=args_for_subprocess))
 
