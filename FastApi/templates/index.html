@@ -1,21 +1,35 @@
 <!-- 
-
-
+https://www.geeksforgeeks.org/tailwind-css-min-width/
  -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <title>Sample Form</title>
- </head>
- <body>
- <form method="post">
-     <input type="number" name="num" value="1234"/>
-     <input type="submit">
- </form>
- 
- <p>Result: {{ result }}</p>
- 
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Samplex Form</title>
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <form method="post">
+        <input type="number" name="num" value="1234" />
+        <input type="submit">
+    </form>
+
+    <!-- <p>Result: {{ result }} -->
+    </p>
+    {% for item in result %}
+    <hr />
+    <h2 class="mb-4 font-semibold">
+        {{item.first_name}}
+    </h2>
+    <ul class="list-disc">
+        <li>{{item.id}}</li>
+        <li>{{item.trade}}</li>
+    </ul>
+    {% endfor %}
+  
+
+</body>
+
+</html>
