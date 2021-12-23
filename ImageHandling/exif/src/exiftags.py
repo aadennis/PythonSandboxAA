@@ -37,6 +37,13 @@ class ExifTags():
         Utility().file_exists(image_file)
         self.image_file = image_file
 
+    def write_tags(self, tag_set):
+        write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
+        response = Utility().run_subprocess(args_for_subprocess=write_args)
+        if not response ==  self.WRITE_SUCCESS:
+            raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
+        return self.SUCCESS
+
 
     def set_tag_set(self, tag_set, additional_tags='N'):
         """
@@ -53,27 +60,14 @@ class ExifTags():
             
             if additional_tags != 'Y':
                 raise AssertionError(f"[{self.image_file}] already has a tag set. Exiting...")
-            write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
-            response = Utility().run_subprocess(args_for_subprocess=write_args)
-            if not response ==  self.WRITE_SUCCESS:
-                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
             # additional tags...
-            print("Into additional tags")
             updated_tag_set = f"{tag_set};{current_tag_set}"
             updated_tag_set = updated_tag_set.replace(self.NO_TAGS,"")
-            print(f"upd: {updated_tag_set}")
-            write_args=[self.EXIF_TOOL_NAME,f"-Subject={updated_tag_set}", self.image_file]
-            response = Utility().run_subprocess(args_for_subprocess=write_args)
-            if not response ==  self.WRITE_SUCCESS:
-                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
-            return self.SUCCESS
+            self.write_tags(updated_tag_set)
+            
         else: # no existing tags
-            print("no existing tags")
-            write_args=[self.EXIF_TOOL_NAME,f"-Subject={tag_set}", self.image_file]
-            response = Utility().run_subprocess(args_for_subprocess=write_args)
-            if not response ==  self.WRITE_SUCCESS:
-                raise AssertionError(f"Expected {self.WRITE_SUCCESS}, Got {response}")
-
+          self.write_tags(tag_set)
+        return self.SUCCESS
 
     def get_tag_set(self):
         """
