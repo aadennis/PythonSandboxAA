@@ -16,19 +16,31 @@
         <input type="submit">
     </form>
 
-    <!-- <p>Result: {{ result }} -->
-    </p>
-    {% for item in result %}
-    <hr />
-    <h2>
-        {{item.first_name}}
-    </h2>
-    <ul>
-        <li>{{item.id}}</li>
-        <li>{{item.trade}}</li>
-    </ul>
-    {% endfor %}
-  
+    <!-- https://getbootstrap.com/docs/5.1/content/tables/#overview -->
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">first_name</th>
+                <th scope="col">last_name</th>
+                <th scope="col">email</th>
+                <th scope="col">ip_address</th>
+                <th scope="col">trade</th>
+            </tr>
+            <tbody>
+                {% for item in result %}
+                <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.first_name}}</td>
+                    <td>{{item.last_name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.ip_address}}</td>
+                    <td>{{item.trade}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
 
 </body>
 
