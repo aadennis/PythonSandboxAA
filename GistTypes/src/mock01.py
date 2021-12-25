@@ -1,7 +1,7 @@
 # https://docs.python.org/3/library/unittest.mock.html#quick-guide
 from unittest.mock import MagicMock
 
-class ProductionClass: 
+class ProductionClass:
     def method(self, a,b,c, key):
         return 22
 
