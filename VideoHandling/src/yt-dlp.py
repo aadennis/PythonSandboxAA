@@ -1,7 +1,8 @@
 # https://github.com/yt-dlp/yt-dlp
 # python3 ./yt-dlp.py
-# If target_leaf (see code) does not exist, it will be created
-# in wsl/linux, to create a symlink to the usual place...
+# If target_leaf (see code) does not exist, it will be created.
+# 
+# In wsl/linux, to create a symlink to the usual place...
 # 1. ln_target='/mnt/e/Zoolz/C/Videos/YouTube/Others'
 # 2. sudo ln -s $ln_target /wintemp
 # So... ls -l /wintemp 
