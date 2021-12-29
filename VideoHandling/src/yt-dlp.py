@@ -30,7 +30,7 @@ def download_yt_video():
     link = input("Paste the YouTube URL (only the part aafter 'v='): ")  
     target_leaf = input(f"What is the folder under {SAVE_PATH} to save the video? (return = none): ")      
     output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
-    command_line = f"{ytexe} {yt_prefix}{link} -o '{output_template}'.mp4"
+    command_line = f"{ytexe} -v {yt_prefix}{link} -o '{output_template}'.mp4"
     print(f"[cmd line]: {command_line}")
 
     os.system(command_line)
