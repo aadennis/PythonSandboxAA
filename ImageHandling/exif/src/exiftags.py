@@ -12,6 +12,8 @@ Testing on Github Actions uses mocks.
 
 from sys import platform
 import glob
+import os
+from datetime import datetime
 from Utilities.src.utility import Utility
 
 
@@ -81,6 +83,47 @@ class ExifTags():
         print(f"b. where we are: {a}")
         return a
 
+
+
+    def get_photo_date(self):
+        """
+        given an image, returns the date the photo was taken, using these rules:
+            if exif available, use that (case 1)
+            else if Image DateTime available, use that (case 2)
+            else use the modified date (case 3)
+            Formats:
+            case 1 - exif: 2014:12:12 22:27:52 
+            case 2 - exif: 2014:12:12 22:27:52
+            case 3 - modified time fallback: 2017-08-05 10:01:31 
+                (created time seems a nonsense)
+        """
+        #with open(self.image,'rb') as fh:
+        read_args=[self.EXIF_TOOL_NAME,"-DateTimeOriginal", self.image_file] 
+        print(f"file name:{self.image_file}")
+        tags = Utility().run_subprocess(args_for_subprocess=read_args)
+        #tags = exifread.process_file(fh, stop_tag="EXIF DateTimeOriginal") # also "Image DateTime"
+        try:
+            if "EXIF DateTimeOriginal" in tags:
+                a = tags["EXIF DateTimeOriginal"]
+            elif "Image DateTime" in tags:
+                a = tags["Image DateTime"]
+            else: # no usable EXIF tags - use strftime
+                # office lens jpegs etc may not have exif data - try modified date...
+                filecreation_time = os.path.getmtime(self.image_file)
+                txt = datetime.fromtimestamp(filecreation_time)
+                return txt.strftime("%Y/%m/%d")
+        except KeyError:
+            print("got a KeyError")
+        ax = a.values
+        year = ax[0:4]
+        month = ax[5:7]
+        day = ax[8:10]
+        
+        txt = "{}/{}/{}".format(year, month, day)
+        print(txt)
+        return txt
+
+
 class ExifTagsList():
     """
     Handler for a set of files in a single directory, on which EXIF actions
@@ -96,6 +139,7 @@ class ExifTagsList():
             e_t = ExifTags(filepath)
             e_t.set_tag_set(tag_set, append_ok)
             print(filepath)
+
 
 
 if __name__ == '__main__':

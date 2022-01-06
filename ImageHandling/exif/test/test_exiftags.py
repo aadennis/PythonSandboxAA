@@ -7,8 +7,9 @@
 import shutil
 from _pytest.outcomes import skip
 import pytest
+from datetime import datetime
 import os
-from ImageHandling.exif.src.exiftags import ExifTags, ExifTagsList
+from ImageHandling.exif.src.exiftags import ExifTags #, ExifTagsList
 
 def exiftool_exists():
     """
@@ -130,6 +131,14 @@ class TestExiftagsTestCase:
         expected_tag_set = "Calvin Klein"
         tag_set = "trawler;fishing"
         append_ok = "Y"
-        ExifTagsList(tmp_path, tag_set, append_ok)
+        #ExifTagsList(tmp_path, tag_set, append_ok)
+
+    def test_get_photo_date_returns_date(self, tmp_path):
+        skip_test_check()
+        a = ExifTags(tmp_path / "tpaste.jpg")
+        today = datetime.now().strftime('%Y/%m/%d')
+        print(today)
+        assert today == a.get_photo_date()
+
         
         
