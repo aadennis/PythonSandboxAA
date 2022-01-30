@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 
-from src.model import spell_number
+from src.model import double_number
 
 app = FastAPI()
 templates = Jinja2Templates(directory='templates/')
@@ -27,7 +27,7 @@ def form_post(request: Request):
 
 @app.post('/form')
 def form_post(request: Request, num: int = Form(...)):
-    result = spell_number(num)
+    result = double_number(num)
     return templates.TemplateResponse('form.html', context={'request': request, 'result': result, 'num': num})
 
 
@@ -39,7 +39,7 @@ def form_post(request: Request):
 
 @app.post('/checkbox')
 def form_post(request: Request, num: int = Form(...), multiply_by_2: bool = Form(False)):
-    result = spell_number(num, multiply_by_2)
+    result = double_number(num, multiply_by_2)
     return templates.TemplateResponse('checkbox.html', context={'request': request, 'result': result, 'num': num})
 
 
@@ -52,11 +52,11 @@ def form_post(request: Request):
 @app.post('/download')
 def form_post(request: Request, num: int = Form(...), multiply_by_2: bool = Form(False), action: str = Form(...)):
     if action == 'convert':
-        result = spell_number(num, multiply_by_2)
+        result = double_number(num, multiply_by_2)
         return templates.TemplateResponse('download.html', context={'request': request, 'result': result, 'num': num})
     elif action == 'download':
         # Requires aiofiles
-        result = spell_number(num, multiply_by_2)
+        result = double_number(num, multiply_by_2)
         filepath = save_to_text(result, num)
         return FileResponse(filepath, media_type='application/octet-stream', filename='{}.txt'.format(num))
         
