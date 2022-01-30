@@ -50,14 +50,16 @@ def form_post(request: Request):
 
 
 @app.post('/tidetimes')
-def form_post(request: Request, tide_1: int = Form(...), multiply_by_2: bool = Form(False), action: str = Form(...)):
+def form_post(request: Request, is_high_tide: bool = Form(False),
+tide_1: int = Form(...), tide_2: int = Form(...), tide_3: int = Form(...), tide_4: int = Form(...),
+tide_date: str = Form(...), action: str = Form(...)):
     if action == 'convert':
-        result = double_number(tide_1, multiply_by_2)
+        result = double_number(tide_1, tide_2, tide_3, tide_4, is_high_tide, tide_date)
         return templates.TemplateResponse('tidetimes.html', context={'request': request, 'result': result, 'tide_1': tide_1})
     elif action == 'save':
         print("Saved this I did")
         # Requires aiofiles
-        result = double_number(tide_1, multiply_by_2)
+        result = double_number(tide_1, tide_2, tide_3, tide_4, is_high_tide, tide_date)
         filepath = save_to_text(result, tide_1)
         return FileResponse(filepath, media_type='application/octet-stream', filename='{}.txt'.format(tide_1))
         
