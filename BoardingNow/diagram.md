@@ -1,15 +1,5 @@
 ##### See https://mermaid-js.github.io/mermaid/#/flowchart and other pointers on that site
-```mermaid
-  journey
-    title My working day
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 3: Me
-```   
+
 ```mermaid
   graph TD
     R[(root)] --> S1(src)
@@ -23,19 +13,4 @@
     T1 --> ToDo
     D1 --> D2[holds runtime data files]
     Tp1 --> TpTT[tidetimes.html]
-    
-
-
 ``` 
-#  
-```mermaid
-  graph TD
-    A[root] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
-
-```
-
-
