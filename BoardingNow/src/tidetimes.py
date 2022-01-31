@@ -2,14 +2,14 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
 
-from src.model import double_number
+from src.model import save_tide
 
 app = FastAPI()
 templates = Jinja2Templates(directory='templates/')
 
 
 def save_to_text(content, filename):
-    filepath = 'data/{}.txt'.format(filename)
+    filepath = f'data/{filename}.txt' #.format(filename)
     with open(filepath, 'w') as f:
         f.write(content)
     return filepath
@@ -27,7 +27,7 @@ def form_post(request: Request):
 
 @app.post('/form')
 def form_post(request: Request, num: int = Form(...)):
-    result = double_number(num)
+    result = save_tide(num)
     return templates.TemplateResponse('form.html', context={'request': request, 'result': result, 'num': num})
 
 
@@ -39,7 +39,7 @@ def form_post(request: Request):
 
 @app.post('/checkbox')
 def form_post(request: Request, num: int = Form(...), multiply_by_2: bool = Form(False)):
-    result = double_number(num, multiply_by_2)
+    result = save_tide(num, multiply_by_2)
     return templates.TemplateResponse('checkbox.html', context={'request': request, 'result': result, 'num': num})
 
 
@@ -52,14 +52,11 @@ def form_post(request: Request):
 @app.post('/tidetimes')
 def form_post(request: Request, is_high_tide: bool = Form(False),
 tide_1: int = Form(...), tide_2: int = Form(...), tide_3: int = Form(...), tide_4: int = Form(...),
-tide_date: str = Form(...), action: str = Form(...)):
+tide_date: str = Form(...), tide_file: str = Form(...), action: str = Form(...)):
     if action == 'convert':
-        result = double_number(tide_1, tide_2, tide_3, tide_4, is_high_tide, tide_date)
+        result = save_tide(tide_1, tide_2, tide_3, tide_4, is_high_tide, tide_date)
         return templates.TemplateResponse('tidetimes.html', context={'request': request, 'result': result, 'tide_1': tide_1})
     elif action == 'save':
-        print("Saved this I did")
-        # Requires aiofiles
-        result = double_number(tide_1, tide_2, tide_3, tide_4, is_high_tide, tide_date)
-        filepath = save_to_text(result, tide_1)
-        return FileResponse(filepath, media_type='application/octet-stream', filename='{}.txt'.format(tide_1))
+        file_path = save_tide(tide_1, tide_2, tide_3, tide_4, tide_date, is_high_tide, tide_file)
+        return FileResponse(file_path, media_type='application/octet-stream', filename=tide_file.format(tide_1))
         
