@@ -1,4 +1,8 @@
-##### See https://mermaid-js.github.io/mermaid/#/flowchart and other pointers on that site
+See https://mermaid-js.github.io/mermaid/#/flowchart and other pointers for Mermaid tutorials.
+This live site generates e.g. svg from the markdown: https://mermaid.live/
+Version this .md file, and optionally version the svg,etc. output, although that
+can always be regenerated from this source.
+
 
 ```mermaid
   graph TD
