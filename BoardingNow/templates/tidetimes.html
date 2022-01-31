@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sample Form</title>
+    <title>Local Tides Editor</title>
 </head>
 
 <body>
@@ -28,19 +28,19 @@
         <hr />
         <div id="tides">
             <label for="tide_1">Tide 1</label>
-            <input type="number" name="tide_1" value="{{ tide_1|default('0156') }}" />
+            <input type="number" name="tide_1" value="{{ tide_1|default('0156327') }}" />
             <label for="tide_2">Tide 2</label>
-            <input type="number" name="tide_2" value="{{ tide_2|default('0756') }}" />
+            <input type="number" name="tide_2" value="{{ tide_2|default('0756421') }}" />
             <label for="tide_3">Tide 3</label>
-            <input type="number" name="tide_3" value="{{ tide_3|default('1356') }}"  />
+            <input type="number" name="tide_3" value="{{ tide_3|default('1356212') }}"  />
             <label for="tide_4">Tide 4</label>
-            <input type="number" name="tide_4" value="{{ tide_4|default('1956') }}"  />
+            <input type="number" name="tide_4" value="{{ tide_4|default('1956101') }}"  />
 
         </div>
         <hr />
         <div id="save_location">
             <label for="tide_file">Output File</label>
-            <input type="text" id="tide_file" name="tide_file" value="c:/temp/foo.txt">
+            <input type="text" id="tide_file" name="tide_file" value="data/tidetimes.csv">
             <input type="submit" name="action" value="save">
         </div>
 
