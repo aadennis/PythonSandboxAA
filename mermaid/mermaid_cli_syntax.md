@@ -10,7 +10,7 @@ c:\temp\xdiagram.md
 ```mermaid
 graph
   R[(root)] --> S1(src)
-    R --> T1(test)
+    R --> T1(testx)
     R --> D1(data)
     R --> Tp1(templates)
     S1 --> C1[rest.py]
