@@ -1,5 +1,5 @@
 # PythonSandbox
-(as ht into aadennis as vscode -  test3)
+(as ht into aadennis as git bash on Win -  test3)
 ## January 2022
 Current focus:  
 1. Github Actions  
