@@ -1,5 +1,5 @@
 # PythonSandbox
-(as ht into aadennis as git bash on Win -  test3) hat14
+(as ht into aadennis as git bash on Win -  test3) v2
 ## January 2022
 Current focus:  
 1. Github Actions  
