@@ -125,3 +125,5 @@ dmypy.json
 #Exif tool for linux
 Image-ExifTool-12.37/
 
+VideoHandling/src/yt-dlp.py
+VideoHandling/src/yt-dlpZone.Identifier
