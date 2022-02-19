@@ -7,6 +7,13 @@ class Utilities():
     def __init__(self):
         pass
 
+    DEBUG = False
+
+    def myprint(self, msg):
+        if not self.DEBUG:
+            return
+        print(msg)
+
     @staticmethod
     def expand_abbreviations(abbreviated_text):
         """
@@ -16,7 +23,7 @@ h/H => High
 anything else => Low
 / => :
 """
-        print(abbreviated_text)
+        Utilities().myprint(abbreviated_text)
         return abbreviated_text.upper().replace('H', 'High').replace('L', 'Low').replace('/', ':')
 
     def get_tidal_range(self, raw_tidal_data):
@@ -30,7 +37,7 @@ anything else => Low
         for i in raw_tidal_data.split(","):
             if self.is_float(i):
                 tide_list.append(float(i))
-        print(tide_list)
+        self.myprint(tide_list)
         min_tide = min(tide_list)
         max_tide = max(tide_list)
         return max_tide - min_tide
@@ -121,12 +128,12 @@ anything else => Low
         if tide == NO_TIDE:
             return "NA,NA,NA"
         high_low = self.get_high_low_marker(ctr, hl_marker)
-        print(f"point a {tide}/{high_low}")
+        self.myprint(f"point a {tide}/{high_low}")
         raw_time  = tide[0:4]
         formatted_time = str(datetime.datetime.strptime(raw_time, "%H%M"))[11:]
         height = str(float(tide[4:])/100)
         tide_instance = "{},{},{}".format(height, high_low, formatted_time)
-        print(tide_instance)
+        self.myprint(tide_instance)
         return tide_instance
 
 
@@ -144,8 +151,8 @@ anything else => Low
         CURRENT_YEAR = "2022"
         month = tide_date[0:2]
         day = tide_date[2:4]
-        print(month)
-        print(day)
+        self.myprint(month)
+        self.myprint(day)
         
         candidate_date = CURRENT_YEAR + str(month) + str(day)
         try:

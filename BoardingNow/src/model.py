@@ -4,8 +4,12 @@ import datetime
 import re
 
 TIDE_COUNT = 4  # max of 4 tides in 1 day
+DEBUG = False
 
-
+def myprint(msg):
+    if not DEBUG:
+        return
+    print(msg)
 
 def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int, is_high_tide: bool, tide_file: str):
     """
@@ -25,19 +29,19 @@ def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int
     tides_formatted = []
 
     formatted_tide = Utilities().get_tide_date(tide_date)
-    print(f"formatted_tide date: {formatted_tide} ")
+    myprint(f"formatted_tide date: {formatted_tide} ")
     for iteration, i in enumerate(tides):
-        print(f"iteration {iteration}")
+        myprint(f"iteration {iteration}")
         tides_formatted.append("{:07}".format(i))
     
-    print(tides_formatted)
+    myprint(tides_formatted)
     for iteration, i in enumerate(tides_formatted):
-        print(f"iteration b {iteration}")
+        myprint(f"iteration b {iteration}")
         formatted_tide += ',' + Utilities().get_tide_instance(iteration, is_high_tide, i)
-        print(formatted_tide)
+        myprint(formatted_tide)
 
     formatted_tide += ',' +  str(Utilities().get_tidal_range(formatted_tide)) + "\n"
-    print(f"formatted tides for day: {formatted_tide}")      
+    myprint(f"formatted tides for day: {formatted_tide}")      
     tide_file = "data/tidetimes.csv"
     with io.open(tide_file, "a") as f:
         f.writelines(formatted_tide)
