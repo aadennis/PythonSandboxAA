@@ -42,7 +42,7 @@ def download_yt_video():
         verbose = ""
 
     output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
-    command_line = f"{ytexe} {verbose} {yt_prefix}{link} -o {output_template}.mp4'"
+    command_line = f"{ytexe} {verbose} {yt_prefix}{link} -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
 
     os.system(command_line)
