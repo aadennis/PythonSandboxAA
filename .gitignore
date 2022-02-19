@@ -125,6 +125,7 @@ dmypy.json
 #Exif tool for linux
 Image-ExifTool-12.37/
 
-VideoHandling/src/yt-dlp.py
+# See https://github.com/yt-dlp/yt-dlp#installation for latest versions
+VideoHandling/src/yt-dlp
 VideoHandling/src/yt-dlpZone.Identifier
 VideoHandling/src/yt-dlp.exe

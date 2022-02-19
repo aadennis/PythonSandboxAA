@@ -7,12 +7,19 @@
 # 2. sudo ln -s $ln_target /wintemp
 # So... ls -l /wintemp 
 # lrwxrwxrwx 1 root root 36 Dec 29 16:36 /wintemp -> /mnt/e/Zoolz/C/Videos/YouTube/Others
-
+#
+# The script requires these binaries (not checked-in) in the same folder as yt-dlp.py:
+# yt-dlp for linux
+# yt-dlp.exe for windows
+# These are here: https://github.com/yt-dlp/yt-dlp#installation
+# Or static version are here: D:\onedrive\Software\Utilities\VideoTools\yt-dlp
+# 
+# Testing:
+# My own Youtube video (6mb) is here: FFs4JIUbXJU
 
 import datetime
 from sys import platform
 import os
-
 
 def download_yt_video():
     ytexe = "yt-dlp.exe"
@@ -29,8 +36,13 @@ def download_yt_video():
 
     link = input("Paste the YouTube URL (only the part aafter 'v='): ")  
     target_leaf = input(f"What is the folder under {SAVE_PATH} to save the video? (return = none): ")      
+    do_debug = input("Debug On? (Yy for Yes; else No): ").capitalize()
+    verbose = "-v"
+    if do_debug != "Y":
+        verbose = ""
+
     output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
-    command_line = f"{ytexe} -v {yt_prefix}{link} -o e:/temp/x.mp4" # '{output_template}.mp4'"
+    command_line = f"{ytexe} {verbose} {yt_prefix}{link} -o {output_template}.mp4'"
     print(f"[cmd line]: {command_line}")
 
     os.system(command_line)
