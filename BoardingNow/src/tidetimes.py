@@ -1,3 +1,11 @@
+# Windows (Powershell)
+# cd .\Sandbox\git\aadennis\
+# .\virtualenvs\venv\Scripts\activate
+# cd .\PythonSandboxAA\BoardingNow\
+# uvicorn src.tidetimes:app --reload
+# http://127.0.0.1:8000/tidetimes
+
+
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse

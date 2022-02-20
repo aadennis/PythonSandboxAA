@@ -40,7 +40,7 @@ anything else => Low
         self.myprint(tide_list)
         min_tide = min(tide_list)
         max_tide = max(tide_list)
-        return max_tide - min_tide
+        return round(max_tide - min_tide,2)
 
     @staticmethod
     def is_float(candidate_float):
@@ -132,7 +132,7 @@ anything else => Low
         raw_time  = tide[0:4]
         formatted_time = str(datetime.datetime.strptime(raw_time, "%H%M"))[11:]
         height = str(float(tide[4:])/100)
-        tide_instance = "{},{},{}".format(height, high_low, formatted_time)
+        tide_instance = "{},{},{}".format(high_low, formatted_time, height)
         self.myprint(tide_instance)
         return tide_instance
 
