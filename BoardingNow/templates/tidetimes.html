@@ -9,49 +9,52 @@
 </head>
 
 <body>
-    <H1>An editor for local tide times</H1>
-    <H2>Instructions</H2>
-    <ul>
-        <li>First tide: Indicate whether the first water mark of the day is High (checked) or Low</li>
-        <li>Tide date: For example, '1201' means '1 December'. Current year is assumed</li>
-        <li>Output file: The full path of the file where the tide data is to be stored. The file is appended to. It is
-            not overwritten</li>
-        <li>Tide 1 to 4: Enter [time, tide height] (e.g. '0421327', meaning time - 04:21, height - 3.27 metres)</li>
-        <li>Note that Tide 4 is optional, as there may only be 3 tides in a day
+    <div class="container">
+        <H1>An editor for local tide times</H1>
+        <H2>Instructions</H2>
         <ul>
-            <li>Defect/workaround: if Tide 4 is n/a, for now, you must enter "9". To do: allow blanks</li>
+            <li>First tide: Indicate whether the first water mark of the day is High (checked) or Low</li>
+            <li>Tide date: For example, '1201' means '1 December'. Current year is assumed</li>
+            <li>Output file: The full path of the file where the tide data is to be stored. The file is appended to. It
+                is
+                not overwritten</li>
+            <li>Tide 1 to 4: Enter [time, tide height] (e.g. '0421327', meaning time - 04:21, height - 3.27 metres)</li>
+            <li>Note that Tide 4 is optional, as there may only be 3 tides in a day
+                <ul>
+                    <li>Defect/workaround: if Tide 4 is n/a, for now, you must enter "9". To do: allow blanks</li>
+                </ul>
+            <li>Save: Save the data you have entered to the Output file.</li>
+            <li>Sample data: fill the boxes with sample data for testing/training.")</li>
         </ul>
-        <li>Save: Save the data you have entered to the Output file.</li>
-        <li>Sample data: fill the boxes with sample data for testing/training.")</li>
-    </ul>
 
-    <!-- http://127.0.0.1:8000/tidetimes -->
-    <form method="post">
-        <label for="is_high_tide">First tide is High tide?</label>
-        <input type="checkbox" id="is_high_tide" name="is_high_tide" checked/>
-        <label for="tide_date">Tide date</label>
-        <input type="text" id="tide_date" name="tide_date" value="{{ tide_date|default(1201) }}"/>
-        <hr />
-        <div id="tides">
-            <label for="tide_1">Tide 1</label>
-            <input type="number" name="tide_1" value="{{ tide_1|default('0156327') }}" />
-            <label for="tide_2">Tide 2</label>
-            <input type="number" name="tide_2" value="{{ tide_2|default('0756421') }}" />
-            <label for="tide_3">Tide 3</label>
-            <input type="number" name="tide_3" value="{{ tide_3|default('1356212') }}"  />
-            <label for="tide_4">Tide 4</label>
-            <input type="number" name="tide_4" value="{{ tide_4|default('1956101') }}"  />
+        <!-- http://127.0.0.1:8000/tidetimes -->
+        <form method="post">
+            <label for="is_high_tide">First tide is High tide?</label>
+            <input type="checkbox" id="is_high_tide" name="is_high_tide" checked />
+            <label for="tide_date">Tide date</label>
+            <input type="text" id="tide_date" name="tide_date" value="{{ tide_date|default(1201) }}" />
+            <hr />
+            <div id="tides">
+                <label for="tide_1">Tide 1</label>
+                <input type="number" name="tide_1" value="{{ tide_1|default('0156327') }}" />
+                <label for="tide_2">Tide 2</label>
+                <input type="number" name="tide_2" value="{{ tide_2|default('0756421') }}" />
+                <label for="tide_3">Tide 3</label>
+                <input type="number" name="tide_3" value="{{ tide_3|default('1356212') }}" />
+                <label for="tide_4">Tide 4</label>
+                <input type="number" name="tide_4" value="{{ tide_4|default('1956101') }}" />
 
-        </div>
-        <hr />
-        <div id="save_location">
-            <label for="tide_file">Output File</label>
-            <input type="text" id="tide_file" name="tide_file" value="data/tidetimes.csv">
-            <input type="submit" name="action" value="save">
-        </div>
+            </div>
+            <hr />
+            <div id="save_location">
+                <label for="tide_file">Output File</label>
+                <input type="text" id="tide_file" name="tide_file" value="data/tidetimes.csv">
+                <input type="submit" name="action" value="save">
+            </div>
 
-    </form>
-    <p>Result: {{ result }}</p>
+        </form>
+        <p>Result: {{ result }}</p>
+    </div>
 </body>
 
 </html>
