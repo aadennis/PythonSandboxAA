@@ -57,7 +57,7 @@ If you have 2 screens, the images are those of the master screen. For me right n
 The file src/image_handling.ini controls the configuration for a session:
 ![image](https://user-images.githubusercontent.com/61011995/155171823-09b32c41-e37c-4957-b00f-58e3ed93b511.png)  
 In the following...
-* The shots will be save to ```c:\temp\work```.   
+* The shots will be saved to ```c:\temp\work```.   
 * There will be a delay of 2 seconds between taking/saving each screenshot.  
 * The screenshot filenames will be watch_1, watch_2, etc.  
 * At 4000 images, the script will stop running:  
