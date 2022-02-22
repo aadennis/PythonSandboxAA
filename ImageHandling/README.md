@@ -56,10 +56,11 @@ If you have 2 screens, the images are those of the master screen. For me right n
 ### Example 1 - every n seconds, save a screenshot to folder y  
 The file src/image_handling.ini controls the configuration for a session:
 ![image](https://user-images.githubusercontent.com/61011995/155171823-09b32c41-e37c-4957-b00f-58e3ed93b511.png)  
-In the following, the shots will be save to ```c:\temp\work```.   
-There will be a delay of 2 seconds between taking/saving each screenshot.  
-The screenshot filenames will be watch_1, watch_2, etc.  
-At 4000 images, the script will stop running:  
+In the following...
+* The shots will be save to ```c:\temp\work```.   
+* There will be a delay of 2 seconds between taking/saving each screenshot.  
+* The screenshot filenames will be watch_1, watch_2, etc.  
+* At 4000 images, the script will stop running:  
 ![image](https://user-images.githubusercontent.com/61011995/155172230-91065cc8-7aff-45f4-9487-82fb12f193ce.png)  
 
 That means you call the script like this - no arguments:  
