@@ -19,4 +19,8 @@
 ![image](https://user-images.githubusercontent.com/61011995/154809922-e0bc4a36-6d60-40d0-9888-e0e11183dec2.png)
 
 
+Video is single video - default
+List is a list of videos, as indicated by the argument after the "list=" parameter below:
+
+![image](https://user-images.githubusercontent.com/61011995/156021871-99293b7d-287a-40a2-96f7-416e92fdcd6f.png)
 
