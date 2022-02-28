@@ -16,6 +16,8 @@
 # 
 # Testing:
 # My own Youtube video (6mb) is here: FFs4JIUbXJU
+# See here for the download options, and more generally within that, look for "playlist":
+# https://github.com/yt-dlp/yt-dlp#download-options
 
 import datetime
 from sys import platform
@@ -56,20 +58,24 @@ def download_yt_video():
 
     download_type = get_download_type()
     playlist_parameter = ""
+    output_template = ""
+   
+    link = input("Paste the YouTube URL (only the part after 'v=' or after 'list='): ")  
+    target_leaf = input(f"What is the folder under {SAVE_PATH} to save the video? (return = none): ")     
+
     if (is_single_video(download_type)):
         yt_prefix = "https://www.youtube.com/watch?v="
-    else: 
+        output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
+    else:  # list...
         yt_prefix = "https://www.youtube.com/watch?list="
         playlist_parameter = "--yes-playlist"
+        output_template = f"{SAVE_PATH}/{target_leaf}/%(playlist_index)s-%(title)s-%(id)s"
 
-    link = input("Paste the YouTube URL (only the part after 'v=' or after 'list='): ")  
-    target_leaf = input(f"What is the folder under {SAVE_PATH} to save the video? (return = none): ")      
     do_debug = input("Debug On? (Yy for Yes; else No): ").capitalize()
     verbose = "-v"
     if do_debug != "Y":
         verbose = ""
 
-    output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
     command_line = f"{ytexe} {verbose} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
 
