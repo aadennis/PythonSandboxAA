@@ -5,6 +5,9 @@
 
 # Server
 
+![image](https://user-images.githubusercontent.com/61011995/156147642-00e1f887-5b25-46f6-966d-9491aa94e797.png)
+
+
 ```uvicorn src.tidetimes:app --reload```
 
 ![image](https://user-images.githubusercontent.com/61011995/154820513-494e124a-2321-4f47-916c-db584c68871d.png)
