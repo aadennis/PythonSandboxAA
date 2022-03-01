@@ -30,6 +30,8 @@ def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int
     tides = [tide_1, tide_2, tide_3, tide_4]
     tides_formatted = []
 
+    tide_file = f"data/{tide_file}"
+
     formatted_tide_date = Utilities().get_tide_date(tide_date)
     myprint(f"formatted_tide date: {formatted_tide_date} ")
     for iteration, i in enumerate(tides):
@@ -45,7 +47,6 @@ def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int
 
     formatted_tide = formatted_tide_date + "," + str(Utilities().get_tidal_range(formatted_tide))  +  formatted_tide + "\n"
     myprint(f"formatted tides for day: {formatted_tide}")      
-    tide_file = "data/tidetimes.csv"
     with io.open(tide_file, "a") as f:
         f.writelines(formatted_tide)
 
