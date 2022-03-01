@@ -11,24 +11,29 @@
 <body>
     <div class="container">
         <H1>An editor for local tide times</H1>
-        <H2>Instructions</H2>
-        <ul>
-            <li>First tide: Indicate whether the first water mark of the day is High (checked) or Low</li>
-            <li>Tide date: For example, '1201' means '1 December'. Current year is assumed</li>
-            <li>Tide 1 to 4: Enter [time, tide height] (e.g. '0421327', meaning time - 04:21, height - 3.27 metres)</li>
-            <li>Note that Tide 4 is optional, as there may only be 3 tides in a day
-                <ul>
-                    <li>Defect/workaround: if Tide 4 is n/a, for now, you must enter "9". To do: allow blanks</li>
-                </ul>
-            <li>Output file: The name of the file where the tide data is to be stored. 
-                <ul>
-                    <li>The file is appended to. It is not overwritten. </li>
-                    <li>Enter only the file name, not its path. </li>
-                    <li>You can use the default name if you wish.</li>
-                </ul>
-            <li>Save: The output file is saved under the folder [data] in the app location on the server .</li>
-            <li>Sample data: Each of the boxes starts with pre-filled sample data, as a guide.</li>
-        </ul>
+        <details>
+            <summary>
+                <H3>Click for Instructions</H3>
+            </summary>
+            <ul>
+                <li>First tide: Indicate whether the first water mark of the day is High (checked) or Low</li>
+                <li>Tide date: For example, '1201' means '1 December'. Current year is assumed</li>
+                <li>Tide 1 to 4: Enter [time, tide height] (e.g. '0421327', meaning time - 04:21, height - 3.27 metres)
+                </li>
+                <li>Note that Tide 4 is optional, as there may only be 3 tides in a day
+                    <ul>
+                        <li>Defect/workaround: if Tide 4 is n/a, for now, you must enter "9". To do: allow blanks</li>
+                    </ul>
+                <li>Output file: The name of the file where the tide data is to be stored.
+                    <ul>
+                        <li>The file is appended to. It is not overwritten. </li>
+                        <li>Enter only the file name, not its path. </li>
+                        <li>You can use the default name if you wish.</li>
+                    </ul>
+                <li>Save: The output file is saved under the folder [data] in the app location on the server .</li>
+                <li>Sample data: Each of the boxes starts with pre-filled sample data, as a guide.</li>
+            </ul>
+        </details>
 
         <!-- http://127.0.0.1:8000/tidetimes -->
         <form method="post">
