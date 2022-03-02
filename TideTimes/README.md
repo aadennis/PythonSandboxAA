@@ -10,7 +10,7 @@
 
 ```uvicorn src.tidetimes:app --reload```
 
-![image](https://user-images.githubusercontent.com/61011995/154820513-494e124a-2321-4f47-916c-db584c68871d.png)
+![image](https://user-images.githubusercontent.com/11707983/156338701-7068b457-c6a2-4f7e-9a8e-56057025c041.png)
 
 
 ![image](https://user-images.githubusercontent.com/61011995/154820525-7fd9ad67-4415-4244-84d3-b751ca733978.png)
