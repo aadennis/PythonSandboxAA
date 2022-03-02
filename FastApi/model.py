@@ -1,13 +1,21 @@
-data = [
-    {"id":1,"first_name":"Part of Model","last_name":"Cohn","email":"lcohn0@g.co",
-        "ip_address":"229.77.172.67","trade":"Equipment Operator"},
-    {"id":2,"first_name":"Padget","last_name":"Bourbon","email":"pbourbon1@usatoday.com",
-        "ip_address":"216.136.157.57","trade":"Millwright"},
-    {"id":3,"first_name":"Jake","last_name":"Ecclestone","email":"jecclestone2@liveinternet.ru",
-        "ip_address":"155.255.88.47","trade":"Plumber"},
-    {"id":4,"first_name":"Adair","last_name":"Worgen","email":"aworgen3@ucoz.ru",
-        "ip_address":"82.192.233.142","trade":"Carpenter"},
-    {"id":5,"first_name":"Ellsworth","last_name":"McCarlich","email":"emccarlich4@mit.edu",
-        "ip_address":"43.123.149.96","trade":"Plasterers"}]
+import json
 
+data = []
 
+def load_people():
+        jsonFile = open("people.json", "r") # Open the JSON file for reading
+        data = json.load(jsonFile) # Read the JSON into the buffer
+        jsonFile.close() # Close the JSON file
+
+        ## Working with buffered content
+        # tmp = data["location"] 
+        # data["location"] = path
+        # data["mode"] = "replay"
+        return data
+        # data.append({"id":6,"first_name":"DooDah","last_name":"McCarlich","email":"emccarlich4@mit.edu",
+        #     "ip_address":"43.123.149.96","trade":"Plasterers"})
+
+        # ## Save our changes to JSON file
+        # jsonFile = open("people.json", "w+")
+        # jsonFile.write(json.dumps(data))
+        # jsonFile.close()

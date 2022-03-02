@@ -11,12 +11,13 @@
 
 from fastapi import FastAPI, Request, APIRouter, Form
 from fastapi.templating import Jinja2Templates
-from model import data
+import model
 
 app = FastAPI()
 api_router = APIRouter()
 
 templates = Jinja2Templates(directory="templates/")
+data = model.load_people()
 
 @app.get("/form")
 def form_post(request: Request):
