@@ -29,10 +29,14 @@ def form_post(request: Request):
     return templates.TemplateResponse('index.html', context={'request': request, 'result': data})
 
 
+
+
 @app.post("/form")
-def form_post(request: Request, action: str = Form(...)): 
-    data.append({"id":6,"first_name":"Didier","last_name":"Clique","email":"didier@radio.fr",
-        "ip_address":"56.123.149.96","trade":"Hock Taster"})
+async def form_post(request: Request, item_idx: str = Form(...), action: str = Form(...)): 
+
+    a = {"id":item_idx,"first_name":"Didier","last_name":"Clique","email":"didier@radio.fr","ip_address":"56.123.149.96","trade":"Hock Taster"}
+
+    data.append(a)
     if action == 'Save':
         model.save_people(data)
 
