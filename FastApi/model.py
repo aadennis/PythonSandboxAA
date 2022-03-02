@@ -1,6 +1,6 @@
 import json
 
-PEOPLE = "people.json"
+PEOPLE = "test/people.json"
 
 def load_people():
     jsonFile = open(PEOPLE, "r")
