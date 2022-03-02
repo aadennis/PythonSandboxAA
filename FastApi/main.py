@@ -30,9 +30,12 @@ def form_post(request: Request):
 
 
 @app.post("/form")
-def form_post(request: Request, action: str = Form(...)):
+def form_post(request: Request, action: str = Form(...)): 
     data.append({"id":6,"first_name":"Didier","last_name":"Clique","email":"didier@radio.fr",
         "ip_address":"56.123.149.96","trade":"Hock Taster"})
+    if action == 'Save':
+        model.save_people(data)
+
     return templates.TemplateResponse('index.html', context={'request': request, 'result': data})
 
 
