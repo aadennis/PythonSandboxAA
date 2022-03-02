@@ -9,23 +9,14 @@
 # https://python-poetry.org/docs/#installation
 """
 
-
-from fastapi import FastAPI, Request, APIRouter
+from fastapi import FastAPI, Request, APIRouter, Form
 from fastapi.templating import Jinja2Templates
 from model import data
-
 
 app = FastAPI()
 api_router = APIRouter()
 
 templates = Jinja2Templates(directory="templates/")
-
-# @app.get("/")
-# async def root():
-#     """
-#     Render the chunk of fake json data
-#     """
-#     return data
 
 @app.get("/form")
 def form_post(request: Request):
@@ -34,6 +25,13 @@ def form_post(request: Request):
     No BootStrap etc yet - just a quick POC.
     """
     # http://127.0.0.1:8000/form
+    return templates.TemplateResponse('index.html', context={'request': request, 'result': data})
+
+
+@app.post("/form")
+def form_post(request: Request, action: str = Form(...)):
+    data.append({"id":6,"first_name":"Didier","last_name":"Clique","email":"didier@radio.fr",
+        "ip_address":"56.123.149.96","trade":"Hock Taster"})
     return templates.TemplateResponse('index.html', context={'request': request, 'result': data})
 
 
