@@ -148,12 +148,16 @@ def move_all_onedrive_pictures_to_camera_roll():
 def move_onedrive_pictures_to_root(root_folder = "D:/onedrive/Pictures", target = "D:/onedrive/stuff"):
     """
     The onedrive/Pictures folder contains 7 named sub-folders, a set dictated by Microsoft.
-    This moves any content from those folders (and sub-sub-etc-folders, thanks to os.walk()),
-    to a randomly named flat folder created, by default, under  
+    This consolidates any content from those folders (and sub-sub-etc-folders, thanks to os.walk()),
+    to a single randomly named flat folder created, by default, under  
     D:/onedrive/stuff.
     It is then up to the user, to move by hand, those files to the appropriate folder.  
     If the files are mostly from October 2021, for example, then the appropriate folder would likely  
     be D:/onedrive/stuff/CRD_2021_10. That is just based on my setup.
+    You might be expecting an automation to take of distributing the files in the bucket to the 
+    appropriate year-month folder. However it is easiest to sort by date descending, and move each
+    month-year batch to the right folder. True for Windows at least, as OneDrive will recognise
+    that they are being moved, and not complain about many files being deleted.
     """
     
     random_leaf = str(random.randint(1,999999999999999))
@@ -210,5 +214,5 @@ source_dir = "c:/temp/aaa"
 source_dir = "D:/onedrive/Pictures/Camera Roll"
 #move_all_onedrive_pictures_to_camera_roll()
 
-# move_onedrive_pictures_to_root()
+move_onedrive_pictures_to_root()
 
