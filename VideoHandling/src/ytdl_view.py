@@ -2,9 +2,9 @@
 # cd .\Sandbox\git\aadennis\
 # .\virtualenvs\venv\Scripts\activate (Windows)
 # source .\virtualenvs\venv\Scripts\activate (Git Bash on Windows)
-# cd .\PythonSandboxAA\TideTimes\
-# uvicorn src.tidetimes:app --reload
-# http://127.0.0.1:8000/tidetimes
+# cd .\PythonSandboxAA\VideoHandling\
+# uvicorn src.ytdl_view:app --reload
+# http://127.0.0.1:8000/video
 
 
 from fastapi import FastAPI, Request, Form
@@ -16,14 +16,6 @@ from src.ytdl_model import save_video
 app = FastAPI()
 templates = Jinja2Templates(directory='src/templates/')
 
-
-def save_to_text(content, filename):
-    filepath = f'data/{filename}.txt'
-    with open(filepath, 'w') as f:
-        f.write(content)
-    return filepath
-
-
 @app.get('/')
 def read_form():
     return 'video download'
@@ -34,9 +26,8 @@ def form_post(request: Request):
     return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
 
 @app.post('/video')
-async def form_post(request: Request, action: str = Form(...)):
+async def form_post(request: Request, action: str = Form(...), video_code: str = Form(...), single_or_list: str = Form(...)):
     if action == 'Save':
-        file_path = save_video()
-        result = 'button pressed'
+        result = save_video(video_code, single_or_list)
         return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
         

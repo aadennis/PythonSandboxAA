@@ -1,5 +1,5 @@
 # https://github.com/yt-dlp/yt-dlp
-# python3 ./yt-dlp.py
+# Todo - redo docs
 # If target_leaf (see code) does not exist, it will be created.
 # 
 # In wsl/linux, to create a symlink to the usual place...
@@ -23,72 +23,39 @@ import datetime
 from sys import platform
 import os
 
-def save_video():
-    link = "FFs4JIUbXJU"
+def save_video(link, single_or_list):
     ytexe = "yt-dlp.exe"
-    yt_prefix = "https://www.youtube.com/watch?list="
+    yt_prefix = ""
+    playlist_parameter = ""
+
     if not os.path.exists(ytexe):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
         raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
-    yt_prefix = "https://www.youtube.com/watch?v="
-    output_template = f"data/%(title)s-%(id)s"
-    command_line = f"{ytexe} {yt_prefix}{link} -o {output_template}.mp4"
+    
+    if (is_single_video(single_or_list)):
+        yt_prefix = "https://www.youtube.com/watch?v="
+        output_template = f"data/%(title)s-%(id)s"
+    else:  # list...
+        yt_prefix = "https://www.youtube.com/watch?list="
+        playlist_parameter = "--yes-playlist"
+        output_template = f"data/%(playlist_index)s-%(title)s-%(id)s"
+
+    command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
-
     os.system(command_line)
+    return 
 
-def get_download_type():
-    """
-    This is one of V(single video), or L(list)
-    """
-    ans = input("Enter L/l to download a list, else a (single) video is assumed: ").capitalize()
-    if ans == "L":
-        return "L"
-    return "V"
+    #msg = "Completed download at {}".format(datetime.datetime.now())
+    #return msg
+    #print("See '[download] Destination' above for output folder and video name")
 
 def is_single_video(download_type):
     """
     A single video has been requested (true) or...
     A list has been requested (false).
     """
-    if (download_type == "V"):
+    if (download_type == "single"):
         return True
     return False
 
-
-def download_yt_video():
-    ytexe = "src/yt-dlp.exe"
-    yt_prefix = "https://www.youtube.com/watch?list="
-
-    if not os.path.exists(ytexe):
-        # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
-        raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
-
-    download_type = get_download_type()
-    playlist_parameter = ""
-    output_template = ""
-   
-    link = input("Paste the YouTube URL (only the part after 'v=' or after 'list='): ")  
-    target_leaf = input(f"What is the folder under {SAVE_PATH} to save the video? (return = none): ")     
-
-    if (is_single_video(download_type)):
-        yt_prefix = "https://www.youtube.com/watch?v="
-        output_template = f"{SAVE_PATH}/{target_leaf}/%(title)s-%(id)s"
-    else:  # list...
-        yt_prefix = "https://www.youtube.com/watch?list="
-        playlist_parameter = "--yes-playlist"
-        output_template = f"{SAVE_PATH}/{target_leaf}/%(playlist_index)s-%(title)s-%(id)s"
-
-    do_debug = input("Debug On? (Yy for Yes; else No): ").capitalize()
-    verbose = "-v"
-    if do_debug != "Y":
-        verbose = ""
-
-    command_line = f"{ytexe} {verbose} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
-    print(f"[cmd line]: {command_line}")
-
-    os.system(command_line)
-
-    print("Completed download at {}".format(datetime.datetime.now()))
-    print("See '[download] Destination' above for output folder and video name")
 
