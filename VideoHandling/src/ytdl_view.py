@@ -8,9 +8,10 @@
 # https://github.com/tiangolo/fastapi/issues/854
 
 from typing import Optional
+from urllib import response
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
-from starlette.responses import FileResponse
+from starlette.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from src.ytdl_model import save_video
@@ -19,7 +20,7 @@ app = FastAPI()
 static_things = FastAPI()
 templates = Jinja2Templates(directory='src/templates/')
 
-static_things.mount("/", StaticFiles(directory="src/static", html=True), name="static")
+app.mount("/static", app = StaticFiles(directory="static"), name="static")
 
 @app.get('/')
 def read_form():
@@ -29,6 +30,11 @@ def read_form():
 def form_post(request: Request):
     result = 'n/a'
     return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
+
+async def app2(scope, receive, send):
+    assert scope['type'] == 'http'
+    response = FileResponse('static/favicon.ico')
+    await response(scope, receive, send)
 
 @app.post('/video')
 async def form_post(request: Request, action: str = Form(...), 
