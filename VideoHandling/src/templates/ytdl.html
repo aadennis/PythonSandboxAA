@@ -14,19 +14,27 @@
 <body>
     <div class="container">
         <H1>Downloader for Youtube videos</H1>
-        <H5>This is just a wrapper to yt-dlp.exe. See <a href="https://github.com/yt-dlp/yt-dlp#readme">here</a> for details. </H5> 
+        <H5>This is just a wrapper to yt-dlp(.exe). See <a href="https://github.com/yt-dlp/yt-dlp#readme">here</a> for
+            details of yt-dlp. </H5>
         <details>
             <summary>
                 <H3>Click for Help</H3>
             </summary>
             <ul>
-                <li>Radio buttons: is it a single video or a list?</li>
+                <li>Radio buttons: is it a single video or a list of videos? Default: single video</li>
+                <li>"identifier of video or list"</li>
                 <ul>
-                    <li>Single video: Enter the string after "v=", and before any "&".</li>
-                    <li>List (of videos): Enter the string after "list=", and before any "&".</li>
-                    <li>The example below this Help is for a single video</li>
+                    <li>Single video: From the YouTube URL after the video, enter the string after "v=".</li>
+                    <li>List (of videos): From the YouTube URL, enter the string after "list=".</li>
                 </ul>
-                <li>Save: The output video(s) is saved under the folder [data] in the app location on the server .</li>
+                <li>"sub_folder if required"
+                    <ul>
+                        The output video(s) is saved under the folder [data] in the app location on the server.
+                        Enter a value here if you want to categorize. For Example, "Jump rope" will create a folder
+                        [data/Jump rope].
+                    </ul>
+                </li>
+                <li>Save: the video is saved to the data folder or a sub-folder of data. See above.</li>
             </ul>
         </details>
         <form method="post">

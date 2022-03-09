@@ -5,8 +5,9 @@
 # cd .\PythonSandboxAA\VideoHandling\
 # uvicorn src.ytdl_view:app --reload
 # http://127.0.0.1:8000/video
+# https://github.com/tiangolo/fastapi/issues/854
 
-
+from typing import Optional
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
@@ -26,8 +27,9 @@ def form_post(request: Request):
     return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
 
 @app.post('/video')
-async def form_post(request: Request, action: str = Form(...), video_code: str = Form(...), single_or_list: str = Form(...)):
+async def form_post(request: Request, action: str = Form(...), 
+    video_code: str = Form(...), sub_folder: Optional[str] = Form(None), single_or_list: str = Form(...)):
     if action == 'Save':
-        result = save_video(video_code, single_or_list)
+        result = save_video(video_code, single_or_list, sub_folder)
         return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
         

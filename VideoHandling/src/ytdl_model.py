@@ -23,7 +23,7 @@ import datetime
 from sys import platform
 import os
 
-def save_video(link, single_or_list):
+def save_video(link, single_or_list, sub_folder = ""):
     ytexe = "yt-dlp.exe"
     yt_prefix = ""
     playlist_parameter = ""
@@ -34,11 +34,11 @@ def save_video(link, single_or_list):
     
     if (is_single_video(single_or_list)):
         yt_prefix = "https://www.youtube.com/watch?v="
-        output_template = f"data/%(title)s-%(id)s"
+        output_template = f"data/{sub_folder}/%(title)s-%(id)s"
     else:  # list...
         yt_prefix = "https://www.youtube.com/watch?list="
         playlist_parameter = "--yes-playlist"
-        output_template = f"data/%(playlist_index)s-%(title)s-%(id)s"
+        output_template = f"data/{sub_folder}/%(playlist_index)s-%(title)s-%(id)s"
 
     command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
