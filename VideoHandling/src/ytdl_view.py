@@ -1,5 +1,5 @@
 # Windows (Powershell)
-# cd .\Sandbox\git\aadennis\
+# cd d:\Sandbox\git\aadennis\
 # .\virtualenvs\venv\Scripts\activate (Windows)
 # source .\virtualenvs\venv\Scripts\activate (Git Bash on Windows)
 # cd .\PythonSandboxAA\VideoHandling\
