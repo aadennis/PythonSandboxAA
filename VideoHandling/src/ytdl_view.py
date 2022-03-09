@@ -17,7 +17,6 @@ from fastapi.staticfiles import StaticFiles
 from src.ytdl_model import save_video
 
 app = FastAPI()
-static_things = FastAPI()
 templates = Jinja2Templates(directory='src/templates/')
 
 app.mount("/static", app = StaticFiles(directory="static"), name="static")
