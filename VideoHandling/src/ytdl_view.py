@@ -11,11 +11,15 @@ from typing import Optional
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from starlette.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from src.ytdl_model import save_video
 
 app = FastAPI()
+static_things = FastAPI()
 templates = Jinja2Templates(directory='src/templates/')
+
+static_things.mount("/", StaticFiles(directory="src/static", html=True), name="static")
 
 @app.get('/')
 def read_form():
@@ -33,3 +37,4 @@ async def form_post(request: Request, action: str = Form(...),
         result = save_video(video_code, single_or_list, sub_folder)
         return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
         
+
