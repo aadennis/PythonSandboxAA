@@ -32,12 +32,13 @@
         <form method="post">
             <div>
                 <input type="radio" id="single" name="single_or_list" value="single" checked>
-                <label for="single">Single</label>
+                <label for="single">Single video</label>
 
                 <input type="radio" id="list" name="single_or_list" value="list">
-                <label for="list">List</label>
+                <label for="list">List of videos</label>
             </div>
-            <input type="text" name="video_code" value="FFs4JIUbXJU" />
+            <input type="text" name="video_code" placeholder="identifier of video or list" />
+            <input type="text" name="sub_folder" placeholder="sub_folder if required">
             <input type="submit" name="action" value="Save" />
 
         </form>
