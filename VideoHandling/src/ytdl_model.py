@@ -32,7 +32,9 @@ def save_video(link, single_or_list, sub_folder = "default"):
     print(f"subfolder: {sub_folder}")
     if sub_folder == None:
         sub_folder = "default"
+    sub_folder = sub_folder.title().replace(' ','')
     data_folder = f"data/{sub_folder}"
+    
     print(data_folder)
     if not os.path.exists(ytexe):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 

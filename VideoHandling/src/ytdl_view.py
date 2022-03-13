@@ -27,7 +27,7 @@ def read_form():
 
 @app.get('/video')
 def form_post(request: Request):
-    result = 'n/a'
+    result = 'Awaiting [Save] action...'
     return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
 
 async def app2(scope, receive, send):
