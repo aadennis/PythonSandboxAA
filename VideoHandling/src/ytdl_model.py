@@ -18,6 +18,7 @@
 # My own Youtube video (6mb) is here: FFs4JIUbXJU
 # See here for the download options, and more generally within that, look for "playlist":
 # https://github.com/yt-dlp/yt-dlp#download-options
+# https://docs.yt-dlp.org/en/latest/README.html?highlight=stdout#embedding-yt-dlp
 
 import datetime
 from sys import platform
