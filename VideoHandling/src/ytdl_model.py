@@ -23,31 +23,37 @@ import datetime
 from sys import platform
 import os
 
-def save_video(link, single_or_list, sub_folder = ""):
+
+def save_video(link, single_or_list, sub_folder = "default"):
     ytexe = "yt-dlp.exe"
     yt_prefix = ""
     playlist_parameter = ""
 
+    print(f"subfolder: {sub_folder}")
+    if sub_folder == None:
+        sub_folder = "default"
+    data_folder = f"data/{sub_folder}"
+    print(data_folder)
     if not os.path.exists(ytexe):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
         raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
     
     if (is_single_video(single_or_list)):
         yt_prefix = "https://www.youtube.com/watch?v="
-        output_template = f"data/{sub_folder}/%(title)s-%(id)s"
+        output_template = f"{data_folder}/%(title)s-%(id)s"
     else:  # list...
         yt_prefix = "https://www.youtube.com/watch?list="
         playlist_parameter = "--yes-playlist"
-        output_template = f"data/{sub_folder}/%(playlist_index)s-%(title)s-%(id)s"
+        output_template = f"{data_folder}/%(playlist_index)s-%(title)s-%(id)s"
 
     command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
     os.system(command_line)
-    return 
+    dt = datetime.datetime.now().strftime("%H:%M:%S")
+   
+    msg = f"Completed download at {dt}. File(s) in {data_folder}"
+    return msg
 
-    #msg = "Completed download at {}".format(datetime.datetime.now())
-    #return msg
-    #print("See '[download] Destination' above for output folder and video name")
 
 def is_single_video(download_type):
     """
