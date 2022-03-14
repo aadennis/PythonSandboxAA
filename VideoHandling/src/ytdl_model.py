@@ -60,9 +60,7 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
         return ["Unable to download this video. Please check the id."]
 
     search_path = f"{data_folder}/*{link}*.mp4"
-    print(f"video_filepath is {search_path}")
     video_file = (glob.glob(search_path))[0].replace('\\','/')
-    print(video_file)
     dt = datetime.datetime.now().strftime("%H:%M:%S")
     return [f"Completed download to the server at {dt}.", f"File is [{video_file}]."]
 
