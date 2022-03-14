@@ -56,16 +56,20 @@
             <input type="submit" id= "save" name="action" value="Save" />
 
         </form>
-        <p id="p1">Result: {{ result }}</p>
+        <label id="p1">{{ result[0] }}</label><br/>
+        <label id="p2">{{ result[1] }}</label>
+        
     </div>
     <script>
         const saveBtn = document.getElementById('save');
         const p1 = document.getElementById('p1')
+        const p2 = document.getElementById('p2')
         const videoText = document.getElementById('video_code')
 
 
         function resetForm(msgType) {
             p1.innerHTML = 'Awaiting [Save] ' + msgType + '...'
+            p2.innerHTML = ''
         }
 
         saveBtn.addEventListener('click', () => {

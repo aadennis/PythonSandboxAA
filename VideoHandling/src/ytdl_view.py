@@ -5,6 +5,8 @@
 # cd .\PythonSandboxAA\VideoHandling\
 # uvicorn src.ytdl_view:app --reload
 # http://127.0.0.1:8000/video
+# Testing:
+# My own Youtube video (6mb) is here: FFs4JIUbXJU
 # https://github.com/tiangolo/fastapi/issues/854
 
 from typing import Optional
@@ -39,7 +41,7 @@ async def app2(scope, receive, send):
 async def form_post(request: Request, action: str = Form(...), 
     video_code: Optional[str] = Form(None), sub_folder: Optional[str] = Form(None), single_or_list: str = Form(...)):
     if action == 'Save':
-        result = save_video(video_code, single_or_list, sub_folder)
-        return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
+        results = save_video(video_code, single_or_list, sub_folder)
+        return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': results})
         
 
