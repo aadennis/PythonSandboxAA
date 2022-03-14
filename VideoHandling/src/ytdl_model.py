@@ -21,6 +21,7 @@
 # https://docs.yt-dlp.org/en/latest/README.html?highlight=stdout#embedding-yt-dlp
 
 import datetime
+import glob
 from sys import platform
 import os
 
@@ -52,14 +53,18 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
         playlist_parameter = "--yes-playlist"
         output_template = f"{data_folder}/%(playlist_index)s-%(title)s-%(id)s"
 
-    command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} -o {output_template}.mp4"
+    command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} --write-description -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
     status = os.system(command_line)
     if status != 0:
         return ["Unable to download this video. Please check the id."]
 
+    search_path = f"{data_folder}/*{link}*.mp4"
+    print(f"video_filepath is {search_path}")
+    video_file = (glob.glob(search_path))[0].replace('\\','/')
+    print(video_file)
     dt = datetime.datetime.now().strftime("%H:%M:%S")
-    return [f"Completed download at {dt}.", f"File(s) are in the folder [{data_folder}], on the server."]
+    return [f"Completed download to the server at {dt}.", f"File is [{video_file}]."]
 
 
 def is_single_video(download_type):
