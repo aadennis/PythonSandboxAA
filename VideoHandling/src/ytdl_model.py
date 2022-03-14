@@ -24,6 +24,7 @@ import datetime
 import glob
 from sys import platform
 import os
+import string
 
 
 def save_video(link, single_or_list, sub_folder:str = "default"):
@@ -37,7 +38,12 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
     print(f"subfolder: {sub_folder}")
     if sub_folder == None:
         sub_folder = "default"
-    sub_folder = sub_folder.title().replace(' ','')
+    # Only make changes to the case if there is more than 1 word...
+    words = sub_folder.split()
+    print(words)
+    print(len(words))
+    if len(words) > 1:
+        sub_folder = sub_folder.title().replace(' ','')
     data_folder = f"data/{sub_folder}"
     
     print(data_folder)
