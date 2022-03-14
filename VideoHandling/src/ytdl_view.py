@@ -29,8 +29,8 @@ def read_form():
 
 @app.get('/video')
 def form_post(request: Request):
-    result = 'Awaiting [Save] action...'
-    return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': result})
+    results = ['Awaiting [Save] action...']
+    return templates.TemplateResponse('ytdl.html', context={'request': request, 'result': results})
 
 async def app2(scope, receive, send):
     assert scope['type'] == 'http'
