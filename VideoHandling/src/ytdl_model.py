@@ -55,14 +55,21 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
 
     command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} --write-description -o {output_template}.mp4"
     print(f"[cmd line]: {command_line}")
+    start_time = datetime.datetime.now()
     status = os.system(command_line)
     if status != 0:
         return ["Unable to download this video. Please check the id."]
 
+    end_time = datetime.datetime.now()
+    gap = end_time - start_time
     search_path = f"{data_folder}/*{link}*.mp4"
     video_file = (glob.glob(search_path))[0].replace('\\','/')
-    dt = datetime.datetime.now().strftime("%H:%M:%S")
-    return [f"Completed download to the server at {dt}.", f"File is [{video_file}]."]
+    duration_in_seconds = gap.seconds
+    # testing on my network shows that a) a minimum of 2 seconds is needed to pull down a file.
+    # b) a 1 second duration points to an already-downloaded file.
+    if duration_in_seconds < 2:
+        return [f"(This file has already been downloaded to the server.)", f"File is [{video_file}]."]
+    return [f"Completed download to the server in [{duration_in_seconds}] seconds.", f"File is [{video_file}]."]
 
 
 def is_single_video(download_type):
