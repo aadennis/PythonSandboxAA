@@ -8,7 +8,7 @@ A GUI-based wrapper to the excellent yt-dlp utility.
 * With a user interface that allows me to focus on the important points [2]
 * And which has sensible defaults for options that I don't need to change [3]
 * **So that** I can spend more time downloading and viewing
-* And less time fighting with the command line 
+* And less time fighting with the command line  
 
 ###### [1] This is [yt-dlp](https://github.com/yt-dlp/yt-dlp#readme), of course. It is an excellent utility, and in doing...  
 ###### [2] my sad little GUI, I am taking liberties with the shoulders of giants. Certainly there are other wrappers out there, with better coding than mine, but this gave me a chance to practise a number of languages in a small way that is useful to me. 
