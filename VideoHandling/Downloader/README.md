@@ -17,7 +17,38 @@ A GUI-based wrapper to the excellent yt-dlp utility.
 ## Usage
 Whilst you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it would help you decide whether it was for you, before moving on to setup.  
 
-<img width="483" alt="image" src="https://user-images.githubusercontent.com/11707983/158271081-961dffb2-330d-43e4-8964-b61e14876708.png">
+<hr/>
+
+### Start the Uvicorn server 
+
+<img width="593" alt="image" src="https://user-images.githubusercontent.com/11707983/158346284-c9064547-b696-4304-a7b8-46710034157c.png">  
+<hr/>
+
+### Open a browser at http://127.0.0.1:8000/video  
+
+<img width="632" alt="image" src="https://user-images.githubusercontent.com/11707983/158346505-4c0f90be-6d8a-4b0c-95cc-78a987be93f5.png">  
+<hr/>
+
+### Enter a video id (expand Click for Help for more on this)
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158347454-bdc71bae-760f-4fc8-9741-c0696fcdc3c7.png">
+
+### Click [Save]
+
+![image](https://user-images.githubusercontent.com/11707983/158347717-94f17b1e-82c6-4e81-ad69-5d7b3b4a0fe8.png)
+
+<hr/>
+
+### After a few seconds (assuming a less-than-1gb), the download location is confirmed:
+
+![image](https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png)
+
+![image](https://user-images.githubusercontent.com/11707983/158348689-cb916436-e6e2-415b-bf71-55b05a30825c.png)
+
+### And from there you can play the mp4:
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348987-f772f8f5-8c7d-43f7-b090-eb045400e196.png">
+
 
 ### tbd
 ## Setup
