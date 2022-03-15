@@ -33,7 +33,7 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
     playlist_parameter = ""
 
     if not link:
-        return ["Please put an entry in the 'identifier...' box, before clicking [Save]."]
+        return ["Please put an entry in the 'identifier...' box, before clicking [Download]."]
 
     print(f"subfolder: {sub_folder}")
     if sub_folder == None:

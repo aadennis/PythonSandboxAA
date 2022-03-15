@@ -25,22 +25,22 @@
             </summary>
             <ul>
                 <li>Radio buttons: is it a single video or a list of videos? Default: single video</li>
-                <li>"identifier of video or list"</li>
+                <li>"identifier of video or list" - mandatory</li>
                 <ul>
                     <li>Single video: From the YouTube URL after the video, enter the string after "v=".</li>
                     <li>List (of videos): From the YouTube URL, enter the string after "list=".</li>
                 </ul>
-                <li>"sub_folder if required"
+                <li>"sub-folder if required" - optional
                     <ul>
                         The output video(s) is saved under the folder [data] in the app location on the server.<br />
-                        Enter a value here if you want a subfolder under [data].<br />
+                        Enter a value here if you want a sub-folder under [data].<br />
                         For Example, "JumpRope" will create a folder [data/JumpRope].<br />
-                        Spaces: If the subfolder you request has spaces, each word is capitalized, and the spaces
+                        Spaces: If the sub-folder you request has spaces, each word is capitalized, and the spaces
                         removed. <br />
                         For example, "jump rope" would become "JumpRope".<br />
                     </ul>
                 </li>
-                <li>Save: the video is saved to the data folder or a sub-folder of data. See above.</li>
+                <li>Download: the video is saved to the data folder or a sub-folder of data. See above.</li>
             </ul>
         </details>
         <form method="post">
@@ -52,8 +52,8 @@
                 <label for="list">List of videos</label>
             </div>
             <input type="text" id="video_code" name="video_code" placeholder="identifier of video or list" />
-            <input type="text" name="sub_folder" placeholder="sub_folder if required">
-            <input type="submit" id= "save" name="action" value="Save" />
+            <input type="text" name="sub_folder" placeholder="sub-folder if required">
+            <input type="submit" id= "save" name="action" value="Download" />
 
         </form>
         <label id="p1">{{ result[0] }}</label><br/>
@@ -68,12 +68,13 @@
 
 
         function resetForm(msgType) {
-            p1.innerHTML = 'Awaiting [Save] ' + msgType + '...'
+            p1.innerHTML = 'Waiting for you to press [Download]...'
             p2.innerHTML = ''
         }
 
         saveBtn.addEventListener('click', () => {
-           resetForm('result')
+          p1.innerHTML = 'Video is being downloaded...'
+          p2.innerHTML = ''
         });
 
         videoText.addEventListener('click', () => {
