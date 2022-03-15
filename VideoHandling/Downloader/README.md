@@ -15,7 +15,7 @@ A GUI-based wrapper to the excellent yt-dlp utility.
 ###### [3] Really, all I want to change between runs is the video id. OK, there are options for sub-folders to save to, and to save a list of videos (this right now 03.2022 a bit iffy), but if you took those options away, I would still be happy
 
 ## Usage
-Whilst you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it would help you decide whether it was for you, before moving on to setup.  
+As you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it would help you decide whether it was for you, before moving on to setup.  
 
 <hr/>
 
