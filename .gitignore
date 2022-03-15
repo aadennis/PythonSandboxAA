@@ -126,11 +126,11 @@ dmypy.json
 Image-ExifTool-12.37/
 
 # See https://github.com/yt-dlp/yt-dlp#installation for latest versions
-VideoHandling/src/yt-dlp
-VideoHandling/src/yt-dlpZone.Identifier
-VideoHandling/src/yt-dlp.exe
+VideoHandling/Downloader/src/yt-dlp
+VideoHandling/Downloader/src/yt-dlpZone.Identifier
+VideoHandling/Downloader/src/yt-dlp.exe
+VideoHandling/yt-dlp.exe
+VideoHandling/Downloader/data/
+
 TideTimes/data/
 virtualenvs/
-
-VideoHandling/yt-dlp.exe
-VideoHandling/data/
