@@ -26,33 +26,47 @@ Whilst you will need to do setup before you can use this wrapper, this may seem 
 
 ### Open a browser at http://127.0.0.1:8000/video  
 
-<img width="632" alt="image" src="https://user-images.githubusercontent.com/11707983/158346505-4c0f90be-6d8a-4b0c-95cc-78a987be93f5.png">  
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158349683-20dfde7a-e02b-44b3-8b17-1f45c771bb8e.png">  
 <hr/>
+
+
 
 ### Enter a video id (expand Click for Help for more on this)
 
-<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158347454-bdc71bae-760f-4fc8-9741-c0696fcdc3c7.png">
-
-### Click [Save]
-
-![image](https://user-images.githubusercontent.com/11707983/158347717-94f17b1e-82c6-4e81-ad69-5d7b3b4a0fe8.png)
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158350010-feee0a9b-383a-4e0b-b1f2-80337cd95fe9.png">
 
 <hr/>
 
-### After a few seconds (assuming a less-than-1gb), the download location is confirmed:
+### Click [Save]
 
-![image](https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png)
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158347717-94f17b1e-82c6-4e81-ad69-5d7b3b4a0fe8.png">
 
-![image](https://user-images.githubusercontent.com/11707983/158348689-cb916436-e6e2-415b-bf71-55b05a30825c.png)
+<hr/>
+
+### After a few seconds (assuming a file size of less than say 1gb), the download location is confirmed:
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png">
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348689-cb916436-e6e2-415b-bf71-55b05a30825c.png">
+
+<hr/>
 
 ### And from there you can play the mp4:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348987-f772f8f5-8c7d-43f7-b090-eb045400e196.png">
 
+<hr/>
 
-### tbd
+### As mentioned above, expanding Click for Help gives some more detail:
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158351609-7cb7b4e1-84b6-4052-bf88-ab77f664474f.png">
+
+<hr/>
+
 ## Setup
 tbd
+## Tests  
+tbd  
 ## Performance notes
 tbd
 
