@@ -70,13 +70,13 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 ## 2. Setup
 ### 2.1 Pre-requisites  
 **2.1.1 Server**  
-Windows - _todo - make it Windows/Linux agnostic_  
-Python3    
-clone the repo  
-pip install ‑r requirements.txt - preferably into a virtualenv  
-cd (your working root - the parent of PythonSandboxAA)  
-cd .\PythonSandboxAA\VideoHandling\Downloader  
-uvicorn src.ytdl_view:app --reload  
+* Windows - _todo - make it Windows/Linux agnostic_  
+* Python3    
+* clone the repo  
+* ```pip install ‑r requirements.txt``` - preferably into a virtualenv  
+* ```cd (your working root - the parent of PythonSandboxAA)  ```
+* ```cd .\PythonSandboxAA\VideoHandling\Downloader  ```
+* ```uvicorn src.ytdl_view:app --reload ``` 
 
 **2.1.2 Browser**  
 http://127.0.0.1:8000/video  
