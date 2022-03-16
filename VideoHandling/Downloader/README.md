@@ -86,8 +86,7 @@ If all of that is successful, you will see this or similar in your server log:
 ![image](https://user-images.githubusercontent.com/11707983/158587891-bf5740d4-d8f3-484e-b895-d898fafec416.png)  
 
 and this in your browser:  
-<img width="647" alt="image" src="https://user-images.githubusercontent.com/11707983/158587966-532808bf-375e-4860-ac23-b0f3b3dcf921.png">  
-
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158637484-d8dfdbfe-e169-448d-a9a2-8c172ae333cc.png">  
 
 
 ## 3. Tests  
