@@ -96,6 +96,7 @@ tbd
 ## 5. Language stack
 * Python 3
 * HTML
+* BootStrap
 * JavaScript
 * FastApi
 * Uvicorn
