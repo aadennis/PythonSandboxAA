@@ -94,7 +94,7 @@ and this in your browser:
   * It can be a browser, a binary executable, a Python Module, and so on.  
 * Convention: the item on the left-hand side, or source, of the arrow depends on the item on the right-hand side, or target. 
   * As an example, ```ytdl_model.py``` depends on ```yt-dlp.exe```.
-* And thank you, Git Engineering, for making Mermaid available on GitHub!  
+  * <small> (I would have preferred a top down dependency shape, but cannot get that right now in Mermaid. But just having Mermaid at all is great - thank you Git Engineering!)</small>
 
 ```mermaid
 flowchart LR
