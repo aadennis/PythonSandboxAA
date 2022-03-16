@@ -35,7 +35,7 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### 1.3 Enter a video id (expand Click for Help for more on this)
 
-*Note that the video id FFs4JIUbXJU can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.*
+*Note that the video id ```FFs4JIUbXJU``` can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.*
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158350010-feee0a9b-383a-4e0b-b1f2-80337cd95fe9.png">
 
@@ -112,7 +112,7 @@ flowchart LR
 
 ## 4. Tests  
 * No automated tests yet.
-* For manual tesing, note that the video id FFs4JIUbXJU can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.
+* For manual tesing, note that the video id ```FFs4JIUbXJU``` can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.
 ## 5. Performance notes
 * todo
 ## 6. Language stack
