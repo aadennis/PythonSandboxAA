@@ -17,23 +17,23 @@
 
 <hr/>
 
-## Usage
+## 1. Usage
 As you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it, would help you decide whether it was for you, before moving on to setup.  
 
 <hr/>
 
-### Start the Uvicorn server 
+### 1.1 Start the Uvicorn server 
 
 <img width="593" alt="image" src="https://user-images.githubusercontent.com/11707983/158346284-c9064547-b696-4304-a7b8-46710034157c.png">  
 <hr/>
 
-### Open a browser at http://127.0.0.1:8000/video  
+### 1.2 Open a browser at http://127.0.0.1:8000/video  
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158605014-bb4d0e79-d63c-4e7a-928d-104a927ddc7f.png">  
 <hr/>
 
 
-### Enter a video id (expand Click for Help for more on this)
+### 1.3 Enter a video id (expand Click for Help for more on this)
 
 *Note that the video id FFs4JIUbXJU can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.*
 
@@ -41,13 +41,13 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 <hr/>
 
-### Click [Save]
+### 1.4 Click [Save]
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158347717-94f17b1e-82c6-4e81-ad69-5d7b3b4a0fe8.png">
 
 <hr/>
 
-### After a few seconds (assuming a file size of less than say 1gb), the download location is confirmed:
+### 1.5 After a few seconds (assuming a file size of less than say 1gb), the download location is confirmed:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png">
 
@@ -55,21 +55,21 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 <hr/>
 
-### And from there you can play the mp4:
+### 1.6 And from there you can play the mp4:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348987-f772f8f5-8c7d-43f7-b090-eb045400e196.png">
 
 <hr/>
 
-### As mentioned above, expanding Click for Help gives some more detail:
+### 1.7 As mentioned above, expanding Click for Help gives some more detail:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158351609-7cb7b4e1-84b6-4052-bf88-ab77f664474f.png">
 
 <hr/>
 
-## Setup
-### Pre-requisites  
-**Server**  
+## 2. Setup
+### 2.1 Pre-requisites  
+**2.1.1 Server**  
 Windows - _todo - make it Windows/Linux agnostic_  
 Python3    
 clone the repo  
@@ -78,7 +78,7 @@ cd (your working root - the parent of PythonSandboxAA)
 cd .\PythonSandboxAA\VideoHandling\Downloader  
 uvicorn src.ytdl_view:app --reload  
 
-**Browser**  
+**2.1.2 Browser**  
 http://127.0.0.1:8000/video  
 
 If all of that is successful, you will see this or similar in your server log:    
@@ -90,11 +90,11 @@ and this in your browser:
 
 
 
-## Tests  
+## 3. Tests  
 tbd  
-## Performance notes
+## 4. Performance notes
 tbd
-## Language stack
+## 5. Language stack
 tbd
 
 
