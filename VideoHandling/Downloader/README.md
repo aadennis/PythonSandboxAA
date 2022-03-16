@@ -94,6 +94,11 @@ tbd
 ## 4. Performance notes
 tbd
 ## 5. Language stack
-tbd
+* Python 3
+* HTML
+* JavaScript
+* FastApi
+* Uvicorn
+
 
 
