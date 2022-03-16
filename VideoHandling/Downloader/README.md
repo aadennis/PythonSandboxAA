@@ -72,9 +72,9 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 **2.1.1 Server**  
 * Windows - _todo - make it Windows/Linux agnostic_  
 * Python3    
-* clone the repo  
+* clone the parent repo of this readme
 * ```pip install ‑r requirements.txt``` - preferably into a virtualenv  
-* ```cd (your working root - the parent of PythonSandboxAA)  ```
+* ```cd (your working root - the root of this repo)  ```
 * ```cd .\PythonSandboxAA\VideoHandling\Downloader  ```
 * ```uvicorn src.ytdl_view:app --reload ``` 
 
@@ -88,12 +88,34 @@ If all of that is successful, you will see this or similar in your server log:
 and this in your browser:  
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158637484-d8dfdbfe-e169-448d-a9a2-8c172ae333cc.png">  
 
+## 3. Item dependencies
 
-## 3. Tests  
-todo  
-## 4. Performance notes
-todo
-## 5. Language stack
+* "Item" is used very loosely, simply to convey dependencies.  
+  * It can be a browser, a binary executable, a Python Module, and so on.  
+* Convention: the item on the left-hand side, or source, of the arrow depends on the item on the right-hand side, or target. 
+  * As an example, ```ytdl_model.py``` depends on ```yt-dlp.exe```.
+* And thank you, Git Engineering, for making Mermaid available on GitHub!  
+
+```mermaid
+flowchart LR
+      v[ytdl_view.py]
+      m[ytdl_model.py]
+      x[yt-dlp.exe]
+      u[uvicorn call]
+      b[browser]
+      h[ytdl.html]
+      v --> m --> x
+      b --> h
+      h --> v
+      u --> v
+```
+
+## 4. Tests  
+* No automated tests yet.
+* For manual tesing, note that the video id FFs4JIUbXJU can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.
+## 5. Performance notes
+* todo
+## 6. Language stack
 * Python 3
 * HTML
 * BootStrap
@@ -101,14 +123,7 @@ todo
 * FastApi
 * Uvicorn
 
-```mermaid
-flowchart LR
-      v[view.py] --> m[model.py] --> x[yt_dlp.exe]
-      u[uvicorn call] --> v
-      b[browser] --> h[yt.html]
-      h --> v
-      u -- Left depends on right in all cases ---> v
-```
+
 
 
 
