@@ -18,7 +18,7 @@
 <hr/>
 
 ## Usage
-As you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it would help you decide whether it was for you, before moving on to setup.  
+As you will need to do setup before you can use this wrapper, this may seem the wrong sequence. However, I figured that first reading how you use it, would help you decide whether it was for you, before moving on to setup.  
 
 <hr/>
 
@@ -29,9 +29,8 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### Open a browser at http://127.0.0.1:8000/video  
 
-<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158349683-20dfde7a-e02b-44b3-8b17-1f45c771bb8e.png">  
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158605014-bb4d0e79-d63c-4e7a-928d-104a927ddc7f.png">  
 <hr/>
-
 
 
 ### Enter a video id (expand Click for Help for more on this)
