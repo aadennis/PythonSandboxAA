@@ -1,5 +1,6 @@
 # GUI for Youtube Downloader
-A GUI-based wrapper to the excellent yt-dlp utility.
+* What: A video downloader
+* How:  A GUI-based wrapper to the excellent yt-dlp utility
 
 ## Motivation
 
