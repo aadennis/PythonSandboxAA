@@ -102,8 +102,12 @@ todo
 * Uvicorn
 
 ```mermaid
-flowchart TD
-    A[do this stuff] --> B{to this stuff};
+flowchart LR
+      v[view.py] --> m[model.py] --> x[yt_dlp.exe]
+      u[uvicorn call] --> v
+      b[browser] --> h[yt.html]
+      h --> v
+      u -- Left depends on right in all cases ---> v
 ```
 
 
