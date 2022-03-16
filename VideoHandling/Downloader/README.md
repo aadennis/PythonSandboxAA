@@ -117,12 +117,13 @@ flowchart LR
 * todo
 ## 6. Language stack
 * Python 3
-* HTML
-* BootStrap
-* JavaScript
 * FastApi
   * Jinja2 templating
 * Uvicorn
+* HTML
+  * BootStrap
+* JavaScript
+
 
 
 
