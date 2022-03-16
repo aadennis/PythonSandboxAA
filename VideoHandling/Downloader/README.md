@@ -90,9 +90,9 @@ and this in your browser:
 
 
 ## 3. Tests  
-tbd  
+todo  
 ## 4. Performance notes
-tbd
+todo
 ## 5. Language stack
 * Python 3
 * HTML
