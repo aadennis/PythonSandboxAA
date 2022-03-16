@@ -68,7 +68,28 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 <hr/>
 
 ## Setup
-tbd
+### Pre-requisites  
+**Server**  
+Windows - _todo - make it Windows/Linux agnostic_  
+Python3    
+clone the repo  
+pip install ‑r requirements.txt - preferably into a virtualenv  
+cd (your working root - the parent of PythonSandboxAA)  
+cd .\PythonSandboxAA\VideoHandling\Downloader  
+uvicorn src.ytdl_view:app --reload  
+
+**Browser**  
+http://127.0.0.1:8000/video  
+
+If all of that is successful, you will see this or similar in your server log:    
+
+![image](https://user-images.githubusercontent.com/11707983/158587891-bf5740d4-d8f3-484e-b895-d898fafec416.png)  
+
+and this in your browser:  
+<img width="647" alt="image" src="https://user-images.githubusercontent.com/11707983/158587966-532808bf-375e-4860-ac23-b0f3b3dcf921.png">  
+
+
+
 ## Tests  
 tbd  
 ## Performance notes
