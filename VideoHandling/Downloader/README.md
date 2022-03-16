@@ -121,6 +121,7 @@ flowchart LR
 * BootStrap
 * JavaScript
 * FastApi
+ * Jinja2 templating
 * Uvicorn
 
 
