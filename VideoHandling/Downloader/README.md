@@ -112,7 +112,7 @@ flowchart LR
 
 ## 4. Tests  
 * No automated tests yet.
-* For manual tesing, note that the video id ```FFs4JIUbXJU``` can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.
+* For manual testing, note that the video id ```FFs4JIUbXJU``` can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.
 ## 5. Performance notes
 * todo
 ## 6. Language stack
