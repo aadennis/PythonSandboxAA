@@ -101,5 +101,10 @@ todo
 * FastApi
 * Uvicorn
 
+```mermaid
+flowchart TD
+    A[do this stuff] --> B{to this stuff};
+```
+
 
 
