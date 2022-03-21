@@ -8,6 +8,8 @@ class DocumentLine():
     """
     Categorises a line in a document - Heading1, Heading2, etc
     """
+    MAX_WORDS_FOR_HEADER = 10 # any more, and it is body text
+
     def __init__(self, line, line_index):
         """
         Todo
@@ -36,9 +38,9 @@ class DocumentLine():
         return "Body"
 
     def get_word_count(self):
-        a = self.line.split(' ')
-        print(a)
-        return len(self.line.split(' '))
+        if self.get_char_count() == 0:
+            return 0
+        return len(self.line.strip().split(' '))
 
     def get_char_count(self):
         """

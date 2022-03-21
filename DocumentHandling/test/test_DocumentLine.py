@@ -37,3 +37,15 @@ class TestDocumentLine:
         """
         line = DocumentLine("abc def 2\n\r", 1)
         assert line.get_char_count() == 7
+
+    def test_word_count_many(self):
+        line = DocumentLine("one two three 4", 1)
+        assert line.get_word_count() == 4
+
+    def test_word_count_zero(self):
+        line = DocumentLine("   ", 1)
+        assert line.get_word_count() == 0
+
+    def test_word_count_1word(self):
+        line = DocumentLine(" jasmine ", 1)
+        assert line.get_word_count() == 1
