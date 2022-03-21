@@ -2,7 +2,7 @@ import io
 
 
 """
-  Simple Document class
+  Represents a single line in a document. 
 """
 class DocumentLine():
     """
@@ -15,9 +15,11 @@ class DocumentLine():
         Ctor: 
         line - the current line - mandatory
         line_index - position of current line in file - mandatory
+        header_level - property managed by the Document class. Determined by sequence in the Document - private
         """
         self.line = line 
         self.line_index = line_index 
+        self.header_level = None
 
     def is_valid_line(self):
         """
@@ -56,6 +58,12 @@ class DocumentLine():
         """
         line_no_ws = self.line.translate(str.maketrans('', '', ' \n\t\r'))
         return len(line_no_ws)
+
+    def get_line(self):
+        return self.line
+
+    def get_lineindex(self):
+        return self.line_index
 
 
 

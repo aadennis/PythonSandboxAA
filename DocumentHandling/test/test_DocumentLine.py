@@ -90,3 +90,10 @@ class TestDocumentLine:
         line = DocumentLine("Jasmine and other flowers are tasty but not as much as chocolate \n", 1)
         assert line.get_paragraph_type() == "Body"
 
+    def test_get_line(self):
+        line = DocumentLine("Jasmine and other weeds",1)
+        assert line.get_line() == "Jasmine and other weeds"
+
+    def test_get_lineindex(self):
+        line = DocumentLine("Some weeds",22)
+        assert line.get_lineindex() == 22
