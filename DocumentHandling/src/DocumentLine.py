@@ -17,10 +17,17 @@ class DocumentLine():
         self.valid = self.is_valid_line() # e.g. zero content, when w-space excluded
         self.header = self.is_header() # default
         self.paragraph_type = self.set_paragraph_type() # default
-        self.word_count = self.set_word_count()
+        self.word_count = self.get_word_count()
 
     def is_valid_line(self):
-        return False
+        """
+        First strip out white-space.
+        If the line then has >= 1 characters, true, else false
+        
+        """
+        if self.get_char_count() == 0:
+            return False
+        return True
 
     def is_header(self):
         return False
@@ -28,8 +35,18 @@ class DocumentLine():
     def set_paragraph_type(self):
         return "Body"
 
-    def set_word_count(self):
-        return 42
+    def get_word_count(self):
+        a = self.line.split(' ')
+        print(a)
+        return len(self.line.split(' '))
+
+    def get_char_count(self):
+        """
+        Strip out white-space.
+        Return the character count after that
+        """
+        line_no_ws = self.line.translate(str.maketrans('', '', ' \n\t\r'))
+        return len(line_no_ws)
 
 
 
