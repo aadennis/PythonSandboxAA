@@ -24,10 +24,16 @@ class TestDocumentLine:
         assert not line.is_valid_line()
 
     def test_zero_char_count(self):
+        """
+        an empty string means zero char count
+        """
         line = DocumentLine("", 1)
         assert line.get_char_count() == 0
 
     def test_ws_only_char_count(self):
+        """
+        whitespace-only means zero char count
+        """
         line = DocumentLine("\n\r", 1)
         assert line.get_char_count() == 0
 
