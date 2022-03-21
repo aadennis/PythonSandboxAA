@@ -49,3 +49,25 @@ class TestDocumentLine:
     def test_word_count_1word(self):
         line = DocumentLine(" jasmine ", 1)
         assert line.get_word_count() == 1
+
+    def test_header_line_has_0_words(self):
+        line = DocumentLine(" \n", 1)
+        assert line.is_header() is False
+        
+    def test_header_line_has_1_word(self):
+        line = DocumentLine(" Jasmine \n", 1)
+        assert line.is_header() is True
+
+    def test_header_line_has_lt_max_words(self):
+        line = DocumentLine("Jasmine and other flowers are tasty\n", 1)
+        assert line.is_header() is True
+
+    def test_header_line_has_gt_max_words(self):
+        # 12 words
+        line = DocumentLine("Jasmine and other flowers are tasty but not as much as chocolate \n", 1)
+        assert line.is_header() is False
+
+    def test_header_line_has_eq_max_words(self):
+        # 10 words
+        line = DocumentLine("Other flowers are tasty but not as much as chocolate \n", 1)
+        assert line.is_header() is True

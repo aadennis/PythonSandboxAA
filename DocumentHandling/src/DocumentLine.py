@@ -32,7 +32,12 @@ class DocumentLine():
         return True
 
     def is_header(self):
-        return False
+        wc = self.get_word_count()
+        if wc == 0:
+            return False
+        if wc > self.MAX_WORDS_FOR_HEADER:
+            return False
+        return True
 
     def set_paragraph_type(self):
         return "Body"
