@@ -77,3 +77,16 @@ class TestDocumentLine:
         # 10 words
         line = DocumentLine("Other flowers are tasty but not as much as chocolate \n", 1)
         assert line.is_header() is True
+
+    def test_paragraph_style_is_none(self):
+        line = DocumentLine("\r\n", 1)
+        assert line.get_paragraph_type() == None
+
+    def test_paragraph_style_is_header(self):
+        line = DocumentLine("A header thing \n", 1)
+        assert line.get_paragraph_type() == "Header"
+
+    def test_paragraph_style_is_body(self):
+        line = DocumentLine("Jasmine and other flowers are tasty but not as much as chocolate \n", 1)
+        assert line.get_paragraph_type() == "Body"
+

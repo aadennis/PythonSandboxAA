@@ -12,14 +12,12 @@ class DocumentLine():
 
     def __init__(self, line, line_index):
         """
-        Todo
+        Ctor: 
+        line - the current line - mandatory
+        line_index - position of current line in file - mandatory
         """
-        self.line = line # the current line
-        self.line_index = line_index # position of current line in file
-        self.valid = self.is_valid_line() # e.g. zero content, when w-space excluded
-        self.header = self.is_header() # default
-        self.paragraph_type = self.set_paragraph_type() # default
-        self.word_count = self.get_word_count()
+        self.line = line 
+        self.line_index = line_index 
 
     def is_valid_line(self):
         """
@@ -39,7 +37,11 @@ class DocumentLine():
             return False
         return True
 
-    def set_paragraph_type(self):
+    def get_paragraph_type(self):
+        if not self.is_valid_line():
+            return None
+        if self.is_header():
+            return "Header"
         return "Body"
 
     def get_word_count(self):
