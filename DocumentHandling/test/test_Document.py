@@ -38,25 +38,17 @@ class TestDocument:
         assert documentLineSet[1].get_line() == "1. Header Two"
         assert documentLineSet[2].get_line() == 'Some body and then some repeat all that until more than max for header'
         
-    def test_header_levels(self):
+  
+    def test_set_header_levels(self):
 
+        # arrange
         documentLineSet = self.get_testset_1()
-        print(documentLineSet.keys())
+        doc = Document(documentLineSet)
 
         # act
-        doc = Document(documentLineSet)
-        
-        for i in documentLineSet:
-            current = documentLineSet[i]
-            if i+1 < len(documentLineSet):
-                next = documentLineSet[i+1]
-            current.set_header_level(doc.get_header_level(current, next))
-            print(f"Header: {doc.get_header_level(current, next)}")
+        doc.set_header_levels()        
 
+        # assert
         assert documentLineSet[0].get_header_level() == 'H1'
         assert documentLineSet[1].get_header_level() == 'H2'
-        assert documentLineSet[2].get_header_level() == ''
-            
-        
-        
-        
+        assert documentLineSet[2].get_header_level() == ''  

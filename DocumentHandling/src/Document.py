@@ -48,3 +48,12 @@ class Document():
             return 'H2'
         return ''
         
+    
+    def set_header_levels(self):
+        doc = Document(self.documentline_set)
+
+        for i in self.documentline_set:
+            current = self.documentline_set[i]
+            if i+1 < len(self.documentline_set):
+                next = self.documentline_set[i+1]
+            current.set_header_level(doc.get_header_level(current, next))
