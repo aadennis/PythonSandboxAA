@@ -9,7 +9,7 @@ class Document():
     """
     A Document manages Document Lines (cf). It is instantiated by passing it an array of Document Lines.
     """   
-    def __init__(self, documentline_set):
+    def __init__(self, documentline_set: dict):
         self.documentline_set = documentline_set
         
     def get_line(self, index):
