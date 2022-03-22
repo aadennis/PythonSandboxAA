@@ -4,7 +4,7 @@ A Document is a collection of Document Lines
 
 class Document():
     """
-    A Document is instantiated by passing it an array of Document Lines (cf).
+    A Document manages Document Lines (cf). It is instantiated by passing it an array of Document Lines.
     """   
     def __init__(self, documentline_set):
         self.documentline_set = documentline_set
