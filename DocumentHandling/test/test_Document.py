@@ -3,40 +3,41 @@ from src.Document import Document
 
 class TestDocument:
 
-
-    def test_lines_are_in_ok_order(self):
-
-        documentLineSet = {}
-        line = ['First Header', 'Header Two', 'Some body and then some repeat all that until more than max for header']
-        
-        documentLineSet[0] = DocumentLine(line[0],0)
-        documentLineSet[1] = DocumentLine(line[1],1)
-        documentLineSet[2] = DocumentLine(line[2],2)
-
-        a = Document(documentLineSet)
-        assert a.get_line_count() == 3
-        assert a.get_line(0) == line[0]
-        assert a.get_line(1) == line[1]
-        assert a.get_line(2) == line[2]
-        
-    def test_prefix_is_applied_to_header(self):
-        documentLineSet = {}
-        input_line = [
+    def get_testset_1(self):
+        dl = {}
+        line = [
             'First Header', 
             'Header Two', 
             'Some body and then some repeat all that until more than max for header'
         ]
         
-        documentLineSet[0] = DocumentLine(input_line[0],0)
-        documentLineSet[1] = DocumentLine(input_line[1],1)
-        documentLineSet[2] = DocumentLine(input_line[2],2)
+        dl[0] = DocumentLine(line[0],0)
+        dl[1] = DocumentLine(line[1],1)
+        dl[2] = DocumentLine(line[2],2)
+        return dl
+
+    def test_lines_are_in_ok_order(self):
+        # arrange
+        documentLineSet = self.get_testset_1()
+
+        # act
+        doc = Document(documentLineSet)
+
+        # asssert
+        assert doc.get_line_count() == 3
+        assert doc.get_line(0) == 'First Header'
+        assert doc.get_line(1) == 'Header Two'
+        assert doc.get_line(2) == 'Some body and then some repeat all that until more than max for header'
+        
+    def test_prefix_is_applied_to_header(self):
+        documentLineSet = self.get_testset_1()
         
         for i in documentLineSet:
             documentLineSet[i].set_prefix()
 
         assert documentLineSet[0].get_line() == "1. First Header"
         assert documentLineSet[1].get_line() == "1. Header Two"
-        assert documentLineSet[2].get_line() == input_line[2]
+        assert documentLineSet[2].get_line() == 'Some body and then some repeat all that until more than max for header'
         
         
 
