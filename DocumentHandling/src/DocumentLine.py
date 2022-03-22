@@ -66,6 +66,14 @@ class DocumentLine():
         return self.line_index
 
     """
+    Set the header level. This is done from the context of the document manager.
+    """
+    def set_header_level(self,level):
+        self.header_level = level
+
+    def get_header_level(self):
+        return self.header_level
+    """
     if the line is a header then set the prefix
     """
     def set_prefix(self):

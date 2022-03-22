@@ -2,7 +2,6 @@ from src.DocumentLine import DocumentLine
 from src.Document import Document
 
 class TestDocument:
-
     def get_testset_1(self):
         dl = {}
         line = [
@@ -23,7 +22,7 @@ class TestDocument:
         # act
         doc = Document(documentLineSet)
 
-        # asssert
+        # assert
         assert doc.get_line_count() == 3
         assert doc.get_line(0) == 'First Header'
         assert doc.get_line(1) == 'Header Two'
@@ -39,8 +38,25 @@ class TestDocument:
         assert documentLineSet[1].get_line() == "1. Header Two"
         assert documentLineSet[2].get_line() == 'Some body and then some repeat all that until more than max for header'
         
-        
+    def test_header_levels(self):
 
+        documentLineSet = self.get_testset_1()
+        print(documentLineSet.keys())
+
+        # act
+        doc = Document(documentLineSet)
+        
+        for i in documentLineSet:
+            current = documentLineSet[i]
+            if i+1 < len(documentLineSet):
+                next = documentLineSet[i+1]
+            current.set_header_level(doc.get_header_level(current, next))
+            print(f"Header: {doc.get_header_level(current, next)}")
+
+        assert documentLineSet[0].get_header_level() == 'H1'
+        assert documentLineSet[1].get_header_level() == 'H2'
+        assert documentLineSet[2].get_header_level() == ''
+            
         
         
         
