@@ -65,6 +65,14 @@ class DocumentLine():
     def get_lineindex(self):
         return self.line_index
 
+    """
+    if the line is a header then set the prefix
+    """
+    def set_prefix(self):
+        if self.is_header():
+            self.line = "1. " + self.line
+        self.line
+
 
 
     

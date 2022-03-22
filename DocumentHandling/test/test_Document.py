@@ -19,4 +19,27 @@ class TestDocument:
         assert a.get_line(1) == line[1]
         assert a.get_line(2) == line[2]
         
+    def test_prefix_is_applied_to_header(self):
+        documentLineSet = {}
+        input_line = [
+            'First Header', 
+            'Header Two', 
+            'Some body and then some repeat all that until more than max for header'
+        ]
+        
+        documentLineSet[0] = DocumentLine(input_line[0],0)
+        documentLineSet[1] = DocumentLine(input_line[1],1)
+        documentLineSet[2] = DocumentLine(input_line[2],2)
+        
+        for i in documentLineSet:
+            documentLineSet[i].set_prefix()
 
+        assert documentLineSet[0].get_line() == "1. First Header"
+        assert documentLineSet[1].get_line() == "1. Header Two"
+        assert documentLineSet[2].get_line() == input_line[2]
+        
+        
+
+        
+        
+        
