@@ -1,4 +1,5 @@
 # import pytest
+
 from src.DocumentLine import DocumentLine
 
 class TestDocumentLine:
@@ -108,3 +109,4 @@ class TestDocumentLine:
         line = DocumentLine(expected_text, 1)
         line.set_prefix()
         assert line.get_line() == expected_text
+

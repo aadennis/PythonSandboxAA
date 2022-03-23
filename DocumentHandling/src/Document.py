@@ -20,12 +20,17 @@ class Document():
         return len(self.documentline_set)
 
     """
-    If the line is a header then set the header type, which will be 'H1.' or 'H2.',
-    to be pre-pended to the text of the header. For example, 'The Heading' => 
+    Get the header level for the current line.
+    If the current line is body text, return empty string, as this is not a header
+    If the current line is a header, and the next line is also a header, return 'H1'
+    If the current line is a header, and the next line is not a header, return 'H2'
+    
+    Context:
+    The "header level" is one of 'H1', 'H2' or none ('').
+    This is pre-pended to the text of the header. For example, 'The Heading' => 
     'H1. The Heading'.
-    For context, the document manager (class Document) processes the lines in a document 
-    front to back (there is some argument for doing back to front, but I won't for now), and
-    thus: 
+    The document manager (class Document) processes the lines in a document 
+    front to back (there is some argument for doing back to front, but I won't for now).,
     If the current line is a header
         if current line+1 is a header (assumption that no body text comes between an H1 and and H2), 
             then the current line is H1.
@@ -91,7 +96,7 @@ class Document():
     """
     utility: read file into dictionary
     """
-    def file_to_dict(self, source_file):
+    def file_to_dict(source_file):
         file_as_dict = {}
         line_ctr = 0
         with io.open(source_file, 'r') as f:
@@ -99,6 +104,10 @@ class Document():
                 file_as_dict[line_ctr] = line
                 line_ctr += 1
         return file_as_dict
+
+    """
+    utility: save dictionary to file
+    """
 
     def dict_values_to_file(self, source_dict, target_file):
         with open(target_file, 'w') as f:

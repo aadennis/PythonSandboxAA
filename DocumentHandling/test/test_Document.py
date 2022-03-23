@@ -1,4 +1,6 @@
+import pytest
 import io
+import tempfile
 from tomlkit import item
 from src.DocumentLine import DocumentLine
 from src.Document import Document
@@ -110,47 +112,10 @@ class TestDocument:
         print(actual_formatted_doc)
         assert expected_formatted_doc == actual_formatted_doc
 
-
-    def test_prefix_is_applied_to_document(self):    
-        test_sets = [self.get_testset_2]
-
-        for i in test_sets:
-            
-            # arrange
-            documentLineSet = self.get_testset_2()
-            doc = Document(documentLineSet)
-            doc.set_header_levels()        
-
-            # act
-            h1_ctr = 0
-            h2_ctr = 0
-
-            with io.open("c:/temp/set1.txt","w") as f:
-
-                for key, value in doc.documentline_set.items():
-                    print(value.get_header_level())
-                    if value.get_header_level() == 'H1':
-                        h1_ctr += 1
-                        print("got one here")
-                        f.writelines(f"{h1_ctr}. {value.get_line()}\n")
-                        h2_ctr = 0 # reset h2 counter
-                    elif value.get_header_level() == 'H2':
-                        print("got two here")
-                        h2_ctr += 1
-                        f.writelines(f"{h1_ctr}.{h2_ctr} {value.get_line()}\n")
-                    else:
-                        f.writelines(f"{value.get_line()}\n")
-                    print(value.get_header_level())
-                    print(value.get_line())
-
-        assert 1 == 1            
-
     def test_file_to_dict(self):
         source_file = "test/data/input/large_document.txt"
-        documentLineSet = None
+        documentLineSet = Document.file_to_dict(source_file)
         doc = Document(documentLineSet)
-        file_as_dict = doc.file_to_dict(source_file)
-        print(file_as_dict)
         assert 1 == 1
 
     def test_dict_values_to_file(self):
@@ -161,3 +126,26 @@ class TestDocument:
         
         doc = Document(None)
         doc.dict_values_to_file(my_dict, target_file)
+
+    # POC - This works on Python 3.9 on windows. still to test on Linux
+    def test_stuff_with_temp_file(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            file_name = f"{tmpdir}/temp.txt"
+            print(file_name)
+            with (io.open(file_name,"w")) as fp:
+                fp.writelines("do this now\n")
+            file_name2 = f"{tmpdir}/temp.txt"
+            print(file_name2)
+            with (io.open(file_name2,"a")) as fp:
+                fp.writelines("do this now2\n")
+            with (io.open(file_name2,"r")) as fp:
+                a = fp.readlines()
+                print(a)
+            
+    @pytest.mark.skip(reason="Test broken - to fix")
+    def test_doc_on_file_formats_ok(self):
+        source_file = "test/data/input/large_document.txt"
+        documentLineSet = Document.file_to_dict(source_file)
+        doc = Document(documentLineSet)
+        a = doc.number_all_headers()
+        doc.dict_values_to_file(a, "c:/temp/a.txt")
