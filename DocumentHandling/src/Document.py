@@ -57,3 +57,27 @@ class Document():
             if i+1 < len(self.documentline_set):
                 next = self.documentline_set[i+1]
             current.set_header_level(doc.get_header_level(current, next))
+
+    """
+    Return the document, numbering every header, and leaving the non-header
+    lines as-is
+    """
+    def number_all_headers(self):
+        self.set_header_levels()
+        h1_ctr = 0
+        h2_ctr = 0
+        line_ctr = 0
+        out_doc = {}
+
+        for key, value in self.documentline_set.items():
+            if value.get_header_level() == 'H1':
+                h1_ctr += 1
+                out_doc[line_ctr] = {line_ctr: f"{h1_ctr}. {value.get_line()}\n"}
+                h2_ctr = 0 # reset h2 counter
+            elif value.get_header_level() == 'H2':
+                h2_ctr += 1
+                out_doc[line_ctr] = {line_ctr: f"{h1_ctr}.{h2_ctr} {value.get_line()}\n"}
+            else:
+                out_doc[line_ctr] = {line_ctr: f"{value.get_line()}\n"}
+            line_ctr += 1
+        return out_doc

@@ -1,3 +1,4 @@
+import io
 from tomlkit import item
 from src.DocumentLine import DocumentLine
 from src.Document import Document
@@ -98,8 +99,16 @@ class TestDocument:
         assert documentLineSet[1].get_header_level() == 'H2'
         assert documentLineSet[2].get_header_level() == ''  
 
+    def test_number_all_headers(self):
+        documentLineSet = self.get_testset_1()
+        doc = Document(documentLineSet)
+        a = doc.number_all_headers()
+        print(a)
+        assert 1 == 2
+
+
     def test_prefix_is_applied_to_document(self):    
-        test_sets = [self.get_testset_1, self.get_testset_2]
+        test_sets = [self.get_testset_2]
 
         for i in test_sets:
             
@@ -111,20 +120,23 @@ class TestDocument:
             # act
             h1_ctr = 0
             h2_ctr = 0
-            for key, value in doc.documentline_set.items():
-                print(value.get_header_level())
-                if value.get_header_level() == 'H1':
-                    h1_ctr += 1
-                    print("got one here")
-                    print(f"{h1_ctr}. {value.get_line()}")
-                    h2_ctr = 0 # reset h2 counter
-                elif value.get_header_level() == 'H2':
-                    print("got two here")
-                    h2_ctr += 1
-                    print(f"{h1_ctr}.{h2_ctr} {value.get_line()}")
-                else:
+
+            with io.open("c:/temp/set1.txt","w") as f:
+
+                for key, value in doc.documentline_set.items():
+                    print(value.get_header_level())
+                    if value.get_header_level() == 'H1':
+                        h1_ctr += 1
+                        print("got one here")
+                        f.writelines(f"{h1_ctr}. {value.get_line()}\n")
+                        h2_ctr = 0 # reset h2 counter
+                    elif value.get_header_level() == 'H2':
+                        print("got two here")
+                        h2_ctr += 1
+                        f.writelines(f"{h1_ctr}.{h2_ctr} {value.get_line()}\n")
+                    else:
+                        f.writelines(f"{value.get_line()}\n")
+                    print(value.get_header_level())
                     print(value.get_line())
-                print(value.get_header_level())
-                print(value.get_line())
 
         assert 1 == 1            
