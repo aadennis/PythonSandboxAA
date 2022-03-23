@@ -100,5 +100,9 @@ class Document():
                 line_ctr += 1
         return file_as_dict
 
+    def dict_values_to_file(self, source_dict, target_file):
+        with open(target_file, 'w') as f:
+            print(source_dict, file=f)
+
 
 

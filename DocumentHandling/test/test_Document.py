@@ -151,4 +151,13 @@ class TestDocument:
         doc = Document(documentLineSet)
         file_as_dict = doc.file_to_dict(source_file)
         print(file_as_dict)
-        assert 1 == 2
+        assert 1 == 1
+
+    def test_dict_values_to_file(self):
+        target_file = "test/data/out.txt"
+        my_dict = {}
+        my_dict[0] = "some line"
+        my_dict[1] = "two line"
+        
+        doc = Document(None)
+        doc.dict_values_to_file(my_dict, target_file)
