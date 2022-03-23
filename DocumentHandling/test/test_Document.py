@@ -99,12 +99,16 @@ class TestDocument:
         assert documentLineSet[1].get_header_level() == 'H2'
         assert documentLineSet[2].get_header_level() == ''  
 
+    """
+    Checks that all headers are correctly numbered, and that body text is unchanged.
+    """
     def test_number_all_headers(self):
+        expected_formatted_doc = {0: '1. First Header\n', 1: '1.1 Header Two\n', 2: 'Some body and then some repeat all that until more than max for header\n'}
         documentLineSet = self.get_testset_1()
         doc = Document(documentLineSet)
-        a = doc.number_all_headers()
-        print(a)
-        assert 1 == 2
+        actual_formatted_doc = doc.number_all_headers()
+        print(actual_formatted_doc)
+        assert expected_formatted_doc == actual_formatted_doc
 
 
     def test_prefix_is_applied_to_document(self):    
