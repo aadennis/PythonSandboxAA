@@ -1,3 +1,4 @@
+import io
 """
 A Document is a collection of Document Lines
 """
@@ -82,3 +83,22 @@ class Document():
                 out_doc[line_ctr] = current_line
             line_ctr += 1
         return out_doc
+
+    """
+    
+    """        
+
+    """
+    utility: read file into dictionary
+    """
+    def file_to_dict(self, source_file):
+        file_as_dict = {}
+        line_ctr = 0
+        with io.open(source_file, 'r') as f:
+            for line in f:
+                file_as_dict[line_ctr] = line
+                line_ctr += 1
+        return file_as_dict
+
+
+

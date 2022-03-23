@@ -144,3 +144,11 @@ class TestDocument:
                     print(value.get_line())
 
         assert 1 == 1            
+
+    def test_file_to_dict(self):
+        source_file = "test/data/input/large_document.txt"
+        documentLineSet = None
+        doc = Document(documentLineSet)
+        file_as_dict = doc.file_to_dict(source_file)
+        print(file_as_dict)
+        assert 1 == 2
