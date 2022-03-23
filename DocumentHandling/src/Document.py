@@ -70,14 +70,15 @@ class Document():
         out_doc = {}
 
         for key, value in self.documentline_set.items():
+            current_line = f"{value.get_line()}\n"
             if value.get_header_level() == 'H1':
                 h1_ctr += 1
-                out_doc[line_ctr] = f"{h1_ctr}. {value.get_line()}\n"
+                out_doc[line_ctr] = f"{h1_ctr}. {current_line}"
                 h2_ctr = 0 # reset h2 counter
             elif value.get_header_level() == 'H2':
                 h2_ctr += 1
-                out_doc[line_ctr] = f"{h1_ctr}.{h2_ctr} {value.get_line()}\n"
+                out_doc[line_ctr] = f"{h1_ctr}.{h2_ctr} {current_line}"
             else:
-                out_doc[line_ctr] = f"{value.get_line()}\n"
+                out_doc[line_ctr] = current_line
             line_ctr += 1
         return out_doc
