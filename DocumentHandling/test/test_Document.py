@@ -1,7 +1,11 @@
-import pytest
+"""
+Testing (Windows - PowerShell)
+cd D:\Sandbox\git\aadennis\PythonSandboxAA
+pytest .\DocumentHandling\ --verbose
+"""
+
 import io
 import tempfile
-from tomlkit import item
 from src.DocumentLine import DocumentLine
 from src.Document import Document
 
@@ -112,14 +116,14 @@ class TestDocument:
         print(actual_formatted_doc)
         assert expected_formatted_doc == actual_formatted_doc
 
-    def test_file_to_dict(self):
-        source_file = "test/data/input/large_document.txt"
-        documentLineSet = Document.file_to_dict(source_file)
+    def test_file_to_DocumentLineDict(self):
+        source_file = "DocumentHandling/test/data/input/large_document.txt"
+        documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         assert 1 == 1
 
     def test_dict_values_to_file(self):
-        target_file = "test/data/out.txt"
+        target_file = "DocumentHandling/test/data/out.txt"
         my_dict = {}
         my_dict[0] = "some line"
         my_dict[1] = "two line"
@@ -142,10 +146,9 @@ class TestDocument:
                 a = fp.readlines()
                 print(a)
             
-    @pytest.mark.skip(reason="Test broken - to fix")
     def test_doc_on_file_formats_ok(self):
-        source_file = "test/data/input/large_document.txt"
-        documentLineSet = Document.file_to_dict(source_file)
+        source_file = "DocumentHandling/test/data/input/small_document.txt"
+        documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         a = doc.number_all_headers()
         doc.dict_values_to_file(a, "c:/temp/a.txt")

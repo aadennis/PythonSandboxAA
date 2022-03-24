@@ -56,13 +56,11 @@ class Document():
         
     
     def set_header_levels(self):
-        doc = Document(self.documentline_set)
-
         for i in self.documentline_set:
             current = self.documentline_set[i]
             if i+1 < len(self.documentline_set):
                 next = self.documentline_set[i+1]
-            current.set_header_level(doc.get_header_level(current, next))
+            current.set_header_level(self.get_header_level(current, next))
 
     """
     The source document is updated so that every header is numbered, based on the Rules.
@@ -94,16 +92,16 @@ class Document():
     """        
 
     """
-    utility: read file into dictionary
+    utility: read file into dictionary of Document Lines
     """
-    def file_to_dict(source_file):
-        file_as_dict = {}
+    def file_to_DocumentLineDict(source_file):
         line_ctr = 0
+        dl_dict = {}
         with io.open(source_file, 'r') as f:
             for line in f:
-                file_as_dict[line_ctr] = line
+                dl_dict[line_ctr] = DocumentLine(line, line_ctr)
                 line_ctr += 1
-        return file_as_dict
+        return dl_dict
 
     """
     utility: save dictionary to file
