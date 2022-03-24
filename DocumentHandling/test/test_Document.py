@@ -1,8 +1,4 @@
-"""
-Testing (Windows - PowerShell)
-cd D:\Sandbox\git\aadennis\PythonSandboxAA
-pytest .\DocumentHandling\ --verbose
-"""
+
 
 import io
 import tempfile
@@ -146,9 +142,22 @@ class TestDocument:
                 a = fp.readlines()
                 print(a)
             
+    """
+    End to end test:
+    Read a document which contains headings and body.
+    The Rules are applied, resulting in numbered headers.
+    For example:
+    "Where do I begin?" => "1.2 Where do I begin?" 
+    , making some assumptions about what precedes this header.
+    """            
     def test_doc_on_file_formats_ok(self):
         source_file = "DocumentHandling/test/data/input/small_document.txt"
+        target_file = "c:/temp/a.txt"
+        expected_content = ["{0: '1. First Header\\n\\n', 1: '1.1 Header Two\\n\\n', 2: 'Some body and then some repeat all that until more than max for header\\n\\n'}\n"]
         documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         a = doc.number_all_headers()
-        doc.dict_values_to_file(a, "c:/temp/a.txt")
+        doc.dict_values_to_file(a, target_file)
+        with (io.open(target_file,'r')) as fp:
+            actual_content = fp.readlines()
+            assert expected_content == actual_content
