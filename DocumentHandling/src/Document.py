@@ -109,7 +109,8 @@ class Document():
 
     def dict_values_to_file(self, source_dict, target_file):
         with open(target_file, 'w') as f:
-            print(source_dict, file=f)
+            for i in source_dict:
+                f.writelines(source_dict[i])
 
 
 
