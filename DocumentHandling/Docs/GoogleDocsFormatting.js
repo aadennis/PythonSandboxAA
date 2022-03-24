@@ -2,18 +2,17 @@
 // https://developers.google.com/apps-script/reference/document/body#getchildindexchild
 // https://developers.google.com/apps-script/reference/document/body#getattributes
 // https://stackoverflow.com/questions/8273047/javascript-function-similar-to-python-range
+// Only interested in paragraphs...isParagraph(element)
+// Headings are...
+// H1 - 1-2 digits followed by space
+// H2 - 1-2 digits followed by 1-2 digits followed by space
+
+const re = /^\d{1,2}\.(\d{1,2})* .+/;
+const checkit = re.exec()
+
 
 function log(message) {
-  Logger.log(message)
-}
-
-function countWordsInLine(textLine) {
-  a = textLine.split(" ")
-
-  log("array from line: [" + a + "]")
-  b = a.length
-  log("length of line/array is: [" + b + "]")
-  return b
+  //Logger.log(message)
 }
 
 function isParagraph(element) {
@@ -59,86 +58,33 @@ function setHeading(element, index) {
 
 }
 
-function setLists() {
-  var body = DocumentApp.getActiveDocument().getBody();
-  body.appendParagraph("Some junk.");
-  body.insertHorizontalRule(0);
-  body.appendHorizontalRule()
-  body.appendParagraph("some more junk.");
-
-  // Append a new list item to the body.
-  var item1 = body.appendListItem('Item 1');
-  // Log the new list item's list ID.
-  Logger.log(item1.getListId());
-  // Append a second list item with the same list ID.
-  var item2 = body.appendListItem('Item 2');
-  item2.setListId(item1);
-}
-
-/*
-line 1
-line 2
-line 3
-*/
-
-function setA() {
-  var body = DocumentApp.getActiveDocument().getBody();
-  var numChildrenInBody = body.getNumChildren()
-  log("xThere are " + body.getNumChildren() + " elements in the document body.");
-
-  for (let i of Array(numChildrenInBody).keys()) {
-    element = body.getChild(i);
-    a = element.getText()
-    a = "x" + a
-    body.appendParagraph(element)
+function isHeading2(paragraph) {
+  const re = /^\d{1,2}\.(\d{1,2}) .+/;
+  let chk1 = re.exec(paragraph)
+  if (chk1 === null) {
+    return false
   }
+  return true
 }
 
-function taskA() {
+function testHeading2() {
+  ret = isHeading2('12. blah')
+  log(ret)
+}
 
-  var body = DocumentApp.getActiveDocument().getBody();
-  var numChildrenInBody = body.getNumChildren()
-  tempi = 0
-  for (let i of Array(numChildrenInBody).keys()) {
-    tempi += i
-    element = body.getChild(tempi);
-    a = element.getText();
-    log("text [" + a + "]; tempi [" + tempi + "]; i [" + i + "]");
-    log("tempi is " + tempi)
-    //body.appendParagraph(a) // this goes to the back of the doc
-    body.insertParagraph(tempi, a)
-
+function isHeading1(paragraph) {
+  const re = /^\d{1,2}\. .+/;
+  log(paragraph)
+  let chk1 = re.exec(paragraph)
+  if (chk1 === null) {
+    return false
   }
-
+  return true
 }
 
-function and2() {
-  var body = DocumentApp.getActiveDocument().getBody();
-  body.insertParagraph(0, "An editAsText sample.");
-  body.insertHorizontalRule(0);
-  body.insertParagraph(0, "An example.");
-  body.editAsText().deleteText(12, 25);
-  body.editAsText().insertText(12, "this is a thing")
-
-}
-
-function and3() {
-  // Get the body section of the active document.
-  var body = DocumentApp.getActiveDocument().getBody();
-  // Define the search parameters.
-  var searchType = DocumentApp.ElementType.PARAGRAPH;
-  var searchHeading = DocumentApp.ParagraphHeading.HEADING1;
-  var searchResult = null;
-  // Search until the paragraph is found.
-  while (searchResult = body.findElement(searchType, searchResult)) {
-    var par = searchResult.getElement().asParagraph();
-    if (par.getHeading() == searchHeading) {
-      // Found one, update and stop.
-      var a = par.getText()
-      par.setText('This is a HEADING1.' + a);
-
-    }
-  }
+function testHeading1() {
+  ret = isHeading1('12. blah')
+  log(ret)
 }
 
 /*
@@ -154,21 +100,36 @@ function setNumbering() {
   var h2_ctr = 0;
   var h1_style = {};
   var h2_style = {};
+  var nt_style = {};
+  
   h1_style[DocumentApp.Attribute.FONT_FAMILY] = 'Ubuntu';
   h1_style[DocumentApp.Attribute.BOLD] = true;
   h1_style[DocumentApp.Attribute.FONT_SIZE] = 18;
   h2_style[DocumentApp.Attribute.FONT_FAMILY] = 'Ubuntu';
   h2_style[DocumentApp.Attribute.BOLD] = true;
   h2_style[DocumentApp.Attribute.FONT_SIZE] = 14;
-  
+  nt_style[DocumentApp.Attribute.FONT_FAMILY] = 'Ubuntu';
+  nt_style[DocumentApp.Attribute.BOLD] = false;
+  nt_style[DocumentApp.Attribute.FONT_SIZE] = 10;
 
   var searchResult = null;
-  // Search until the paragraph is found.
+
   while (searchResult = body.findElement(searchType, searchResult)) {
     var par = searchResult.getElement().asParagraph();
-    if (par.getHeading() == NT) {
+    if (isHeading1(par.getText())) {
+      par.setHeading(H1)
+      par.setAttributes(h1_style);
       continue
     }
+     if (isHeading2(par.getText())) {
+      par.setHeading(H2)
+      par.setAttributes(h2_style);
+      continue
+    }
+    
+    par.setHeading(NT)
+    par.setAttributes(nt_style);
+    continue
     if (par.getHeading() == H1) {
       // tick on to the next H1 number, set h2_ctr = 0
       h1_ctr += 1
