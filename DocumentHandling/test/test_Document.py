@@ -11,12 +11,14 @@ class TestDocument:
         line = [
             'First Header', 
             'Header Two', 
+            '',
             'Some body and then some repeat all that until more than max for header'
         ]
         
         dl[0] = DocumentLine(line[0],0)
         dl[1] = DocumentLine(line[1],1)
         dl[2] = DocumentLine(line[2],2)
+        dl[3] = DocumentLine(line[3],3)
         return dl
 
     def get_testset_2(self):
@@ -71,10 +73,11 @@ class TestDocument:
         doc = Document(documentLineSet)
 
         # assert
-        assert doc.get_line_count() == 3
+        assert doc.get_line_count() == 4
         assert doc.get_line(0) == 'First Header'
         assert doc.get_line(1) == 'Header Two'
-        assert doc.get_line(2) == 'Some body and then some repeat all that until more than max for header'
+        assert doc.get_line(2) == ''        
+        assert doc.get_line(3) == 'Some body and then some repeat all that until more than max for header'
         
     def test_prefix_is_applied_to_header(self):
         documentLineSet = self.get_testset_1()
@@ -84,7 +87,7 @@ class TestDocument:
 
         assert documentLineSet[0].get_line() == "1. First Header"
         assert documentLineSet[1].get_line() == "1. Header Two"
-        assert documentLineSet[2].get_line() == 'Some body and then some repeat all that until more than max for header'
+        assert documentLineSet[3].get_line() == 'Some body and then some repeat all that until more than max for header'
         
   
     def test_set_header_levels(self):
@@ -105,7 +108,7 @@ class TestDocument:
     Checks that all headers are correctly numbered, and that body text is unchanged.
     """
     def test_number_all_headers(self):
-        expected_formatted_doc = {0: '1. First Header\n', 1: '1.1 Header Two\n', 2: 'Some body and then some repeat all that until more than max for header\n'}
+        expected_formatted_doc = {0: '1. First Header', 1: '1.1 Header Two', 2: 'Some body and then some repeat all that until more than max for header'}
         documentLineSet = self.get_testset_1()
         doc = Document(documentLineSet)
         actual_formatted_doc = doc.number_all_headers()
@@ -152,8 +155,9 @@ class TestDocument:
     """            
     def test_doc_on_file_formats_ok(self):
         source_file = "DocumentHandling/test/data/input/small_document.txt"
+        #source_file = "c:/temp/b.txt"
         target_file = "c:/temp/a.txt"
-        expected_content = ["{0: '1. First Header\\n\\n', 1: '1.1 Header Two\\n\\n', 2: 'Some body and then some repeat all that until more than max for header\\n\\n'}\n"]
+        expected_content = ['1. First Header\n', '1.1 Header Two\n', 'Some body and then some repeat all that until more than max for header\n']
         documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         a = doc.number_all_headers()

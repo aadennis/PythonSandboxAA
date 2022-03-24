@@ -74,7 +74,11 @@ class Document():
         out_doc = {}
 
         for key, value in self.documentline_set.items():
-            current_line = f"{value.get_line()}\n"
+            if value.get_line() == '':
+                continue
+            
+            current_line = f"{value.get_line()}"
+            
             if value.get_header_level() == 'H1':
                 h1_ctr += 1
                 out_doc[line_ctr] = f"{h1_ctr}. {current_line}"
