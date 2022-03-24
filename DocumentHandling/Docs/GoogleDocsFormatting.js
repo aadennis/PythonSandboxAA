@@ -4,12 +4,8 @@
 // https://stackoverflow.com/questions/8273047/javascript-function-similar-to-python-range
 // Only interested in paragraphs...isParagraph(element)
 // Headings are...
-// H1 - 1-2 digits followed by space
-// H2 - 1-2 digits followed by 1-2 digits followed by space
-
-const re = /^\d{1,2}\.(\d{1,2})* .+/;
-const checkit = re.exec()
-
+// H1 - 1-2 digits followed by dot and space
+// H2 - 1-2 digits followed by dot followed by 1-2 digits followed by space
 
 function log(message) {
   //Logger.log(message)
@@ -17,20 +13,6 @@ function log(message) {
 
 function isParagraph(element) {
   return element.getType() === DocumentApp.ElementType.PARAGRAPH
-}
-
-function isHeading2(paragraph) {
-  const re = /^\d{1,2}\.(\d{1,2}) .+/;
-  let chk1 = re.exec(paragraph)
-  if (chk1 === null) {
-    return false
-  }
-  return true
-}
-
-function testHeading2() {
-  ret = isHeading2('12. blah')
-  log(ret)
 }
 
 function isHeading1(paragraph) {
@@ -43,22 +25,31 @@ function isHeading1(paragraph) {
   return true
 }
 
-function testHeading1() {
-  ret = isHeading1('12. blah')
-  log(ret)
+function isHeading2(paragraph) {
+  const re = /^\d{1,2}\.(\d{1,2}) .+/;
+  let chk1 = re.exec(paragraph)
+  if (chk1 === null) {
+    return false
+  }
+  return true
 }
 
-/*
-Run this after a) setHeadings, b) manually applying Heading1
+
+/* MAIN
+Run this after the (Python) script that updates the content to 
+include heading numbering.
+Then, this walks each paragraph and applies the correct style 
+to Headings level 1 (h1_style), and level 2 (h2_style).
+Any remaining paragraphs are taken to be normal text, which
+has its own style (nt_style)
 */
-function setNumbering() {
+function formatHeadings() {
   var body = DocumentApp.getActiveDocument().getBody();
+
   var searchType = DocumentApp.ElementType.PARAGRAPH;
   var H1 = DocumentApp.ParagraphHeading.HEADING1;
   var H2 = DocumentApp.ParagraphHeading.HEADING2;
   var NT = DocumentApp.ParagraphHeading.NORMAL;
-  var h1_ctr = 0;
-  var h2_ctr = 0;
   var h1_style = {};
   var h2_style = {};
   var nt_style = {};
@@ -93,5 +84,18 @@ function setNumbering() {
     continue
     
   }
+}
+
+// -----------------
+// Tests
+
+function testHeading1() {
+  ret = isHeading1('12. blah')
+  log(ret)
+}
+
+function testHeading2() {
+  ret = isHeading2('12.3 blah')
+  log(ret)
 }
 
