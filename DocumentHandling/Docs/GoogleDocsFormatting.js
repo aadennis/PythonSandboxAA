@@ -19,45 +19,6 @@ function isParagraph(element) {
   return element.getType() === DocumentApp.ElementType.PARAGRAPH
 }
 
-// Is the element a Heading?
-// A Heading is a paragraph which has between 1 and 11 words. 
-// Any larger, we judge it must be a paragraph "proper"
-// Any smaller, continue
-function isHeading(element) {
-  this.element = element;
-  if (!isParagraph(element)) {
-    log("Not a heading as it is not a paragraph")
-    return false;
-  }
-  paragraphText = element.getText()
-  wordCount = countWordsInLine(paragraphText)
-  if (wordCount > 0 && wordCount < 12) {
-    log("It is a heading")
-    return true
-  }
-  log("It is not a heading")
-  return false
-}
-
-// Only paragraphs can have a heading set, and not, for
-// example, table of contents
-// Parameter "index" is for debugging, to keep a track of the current line
-// in the body
-function setHeading(element, index) {
-  log("Set Heading - element [" + index + "]")
-  if (!isParagraph(element)) {
-    return
-  }
-  if (isHeading(element)) {
-    log("Assigning HEADING2")
-    element.setHeading(DocumentApp.ParagraphHeading.HEADING2)
-  } else {
-    log("Assigning NORMAL")
-    element.setHeading(DocumentApp.ParagraphHeading.NORMAL)
-  }
-
-}
-
 function isHeading2(paragraph) {
   const re = /^\d{1,2}\.(\d{1,2}) .+/;
   let chk1 = re.exec(paragraph)
@@ -130,33 +91,7 @@ function setNumbering() {
     par.setHeading(NT)
     par.setAttributes(nt_style);
     continue
-    if (par.getHeading() == H1) {
-      // tick on to the next H1 number, set h2_ctr = 0
-      h1_ctr += 1
-      h2_ctr = 0;
-      var a = par.getText()
-      par.setText(h1_ctr + ". " + a);
-      par.setAttributes(h1_style);
-
-    }
-    if (par.getHeading() == H2) {
-      // tick on the H2 counter
-      h2_ctr += 1
-      var a = par.getText()
-      par.setText(h1_ctr + "." + h2_ctr + " " + a);
-      par.setAttributes(h2_style);
-    }
+    
   }
 }
 
-// main...
-function setHeadings() {
-  var body = DocumentApp.getActiveDocument().getBody();
-  var numChildrenInBody = body.getNumChildren()
-  log("There are " + body.getNumChildren() + " elements in the document body.");
-
-  for (let i of Array(numChildrenInBody).keys()) {
-    element = body.getChild(i);
-    setHeading(element, i);
-  }
-}
