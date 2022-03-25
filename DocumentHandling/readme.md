@@ -50,11 +50,22 @@ In "After", note that:
 - Python 3  
 - Windows (todo: Linux )   
 - Google Docs account to apply the Javascript part
-
+- checkout this repo
 
 
 ## Usage
-Open 
+##### no gui yet
+- Open Terminal/PowerShell
+- cd to your checkout area for this project. For example:
+  - D:\Sandbox\git\aadennis\PythonSandboxAA\DocumentHandling
+- py src/DocumentRunner.py
+- In the following prompts, right now, there is no error handling, so make sure the input and output locations are valid:
+  - Enter the full path of the source text file:
+  - Enter the full path of the target text file:
+
+
+
+
 
 
 

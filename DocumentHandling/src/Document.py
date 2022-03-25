@@ -3,7 +3,7 @@ import io
 A Document is a collection of Document Lines
 """
 
-from src.DocumentLine import DocumentLine
+from DocumentLine import DocumentLine
 
 
 class Document():
