@@ -15,7 +15,12 @@ class TestDocument:
             'First Header',
             'Header Two',
             '',
-            'Some body and then some repeat all that until more than max for header'
+            'Some body and then some repeat all that until more than max for header',
+            '2 First Header',
+            '2 Header Two',
+            '',
+            '2 Some body and then some repeat all that until more than max for header',
+            
         ]
 
         for i in range(0, len(line)):
@@ -95,15 +100,20 @@ class TestDocument:
         doc = Document(documentLineSet)
 
         # assert
-        assert doc.get_line_count() == 6
+        assert doc.get_line_count() == 10
         assert doc.get_line(0) == 'The Title'
         assert doc.get_line(1) == ''
+        
         assert doc.get_line(2) == 'First Header'
+
         assert doc.get_line(3) == 'Header Two'
         assert doc.get_line(4) == ''
+        
         assert doc.get_line(5) == 'Some body and then some repeat all that until more than max for header'
-
-
+        assert doc.get_line(6) == '2 First Header'
+        assert doc.get_line(7) == '2 Header Two'
+        assert doc.get_line(8) == ''
+        assert doc.get_line(9) == '2 Some body and then some repeat all that until more than max for header'
 
     def test_set_header_levels(self):
 
@@ -114,18 +124,38 @@ class TestDocument:
         # act
         doc.set_header_levels()
 
+        for i in documentLineSet:
+            print(documentLineSet[i].line)
+
         # assert
-        assert documentLineSet[0].get_header_level() == 'H1'
-        assert documentLineSet[1].get_header_level() == 'H2'
-        assert documentLineSet[2].get_header_level() == ''
+        expected_set = ['T','','H1', 'H2','','','H1', 'H2','','']
+        ctr = 0
+        for i in expected_set:
+            header_level = documentLineSet[ctr].get_header_level()
+            assert header_level == i, f"{ctr}: should be '{i}', got '{header_level}'"
+            ctr += 1
+
+        #     'The Title',
+        #     '',
+        #     'First Header',
+        #     'Header Two',
+        #     '',
+        #     'Some body and then some repeat all that until more than max for header',
+        #     '2 First Header',
+        #     '2 Header Two',
+        #     '',
+        #     '2 Some body and then some repeat all that until more than max for header',
 
     """
     Checks that all headers are correctly numbered, and that body text is unchanged.
     """
 
     def test_number_all_headers(self):
-        expected_formatted_doc = {0: '1. First Header', 1: '1.1 Header Two',
-                                  2: 'Some body and then some repeat all that until more than max for header'}
+        expected_formatted_doc = {
+            0: 'The Title', 1: '1. First Header', 2: '1.1 Header Two',
+            3: 'Some body and then some repeat all that until more than max for header',
+            4: '2. 2 First Header', 5: '2.1 2 Header Two',
+            6: '2 Some body and then some repeat all that until more than max for header'}
         documentLineSet = self.get_testset_1()
         doc = Document(documentLineSet)
         actual_formatted_doc = doc.number_all_headers()

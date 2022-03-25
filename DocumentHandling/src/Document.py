@@ -21,6 +21,7 @@ class Document():
 
     """
     Get the header level for the current line.
+    If the index is zero, this is the Title: return 'T'
     If the current line is body text, return empty string, as this is not a header
     If the current line is a header, and the next line is also a header, return 'H1'
     If the current line is a header, and the next line is not a header, return 'H2'
@@ -47,7 +48,9 @@ class Document():
     This method cannot be part of the DocumentLine class because it needs to know about another line to
     answer the question. Hence it is part of the Document class.
     """
-    def get_header_level(self, current_line: DocumentLine, next_line: DocumentLine):
+    def get_header_level(self, current_line: DocumentLine, next_line: DocumentLine, index: int = None):
+        if index == 0:
+            return 'T' # title
         if current_line.is_header():
             if next_line.is_header():
                 return 'H1'
@@ -55,17 +58,25 @@ class Document():
         return ''
         
     
+    """
+    Set the header levels for the set of document lines.
+    It is done at the level of Document not DocumentLine, because only
+    Document knows the context.
+    This results in header lines getting H1 or H2, Title getting T,
+    and no change for text lines.
+    """
     def set_header_levels(self):
         for i in self.documentline_set:
             current = self.documentline_set[i]
             if i+1 < len(self.documentline_set):
                 next = self.documentline_set[i+1]
-            current.set_header_level(self.get_header_level(current, next))
+            current.set_header_level(self.get_header_level(current, next, i))
 
     """
     The source document is updated so that every header is numbered, based on the Rules.
-    The non-header lines are unchanged, and the document returned with the updates.
     The first non-blank line is the Title. It does not get numbered.
+    The non-header lines are unchanged, and the document returned with the updates.
+    
     """
     def number_all_headers(self):
         self.set_header_levels()
@@ -77,16 +88,15 @@ class Document():
 
         for key, value in self.documentline_set.items():
             current_line = f"{value.get_line()}"
+
+            # ignore blank lines
             if current_line == '':
                 continue
-            
-            if first:
+
+            if first: # first non-blank line must be Title
                 first = False
                 out_doc[line_ctr] = current_line
-                line_ctr += 1
-                continue
-            
-            if value.get_header_level() == 'H1':
+            elif value.get_header_level() == 'H1':
                 h1_ctr += 1
                 out_doc[line_ctr] = f"{h1_ctr}. {current_line}"
                 h2_ctr = 0 # reset h2 counter
