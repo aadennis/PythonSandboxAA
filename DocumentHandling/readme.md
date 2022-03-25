@@ -47,11 +47,10 @@ In "After", note that:
 
 ## Setup
 ### Prerequisites
-- Python 3  
+- checkout this repo 
 - Windows (todo: Linux )   
-- Google Docs account to apply the Javascript part
-- checkout this repo
-
+- Python 3 to transform the content
+- Google Docs account to apply the styles using Javascript
 
 ## Usage
 ##### no gui yet
@@ -63,7 +62,14 @@ In "After", note that:
   - Enter the full path of the source text file:
   - Enter the full path of the target text file:
 
+<img width="611" alt="image" src="https://user-images.githubusercontent.com/11707983/160202096-c4eb7ec9-580a-465e-bfc5-a5293bcbfe96.png">
 
+There is no feedback. Go to the target location, where your file is waiting for you...
+
+![image](https://user-images.githubusercontent.com/11707983/160202268-033faac2-56fd-4039-9082-6195b44d6462.png)
+
+That concludes the content transformation.
+- Todo: Styling using JavaScript/Google Docs API
 
 
 
