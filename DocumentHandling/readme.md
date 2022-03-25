@@ -45,6 +45,16 @@ In "After", note that:
 5. If it is a Heading, but does not qualify as a Heading1, then it is a Heading 2
 6. All other text is body text
 
+## Setup
+### Prerequisites
+- Python 3  
+- Windows (todo: Linux )   
+- Google Docs account to apply the Javascript part
+
+
+
+## Usage
+Open 
 
 
 
