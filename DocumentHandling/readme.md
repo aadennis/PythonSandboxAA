@@ -1,20 +1,20 @@
 # Document handling: infer headings and styles from a plain text document
 
 ## Requirement
-As an editor  
-Given I have an unformatted document that includes shorter lines that can be inferred as Headings  
-I want to apply rules that result in those Headings being numbered as Level 1 or Level 2  
-So that I can pass it to a Document api (e.g. Google Docs API) to apply Styles  
+- As an editor  
+- Given I have an unformatted document that includes shorter lines that can be inferred as Headings  
+- I want to apply rules that result in those Headings being numbered as Level 1 or Level 2  
+- So that I can pass it to a Document api (e.g. Google Docs API) to apply Styles  
 
 
 The project has:  
-a part to update the content - Python which receives and outputs text with the numbered headings  
-a part to update the presentation - upload the document from the previous step into Google Docs, and apply the GDocs API JavaScript  
+1. a part to update the content - Python which receives and outputs text with the numbered headings  
+1. a part to update the presentation - upload the document from the previous step into Google Docs, and apply JavaScript using the GDocs API   
 
 Example - content stage  
 _Before:_
 ```
-The Title
+The Book I Nearly Wrote
 
 First Header
 Header Two
@@ -27,7 +27,7 @@ And then some body and then some repeat all that until more than max for header
 ```
 _After:_
 ```
-The Title
+The Book I Nearly Wrote
 1. First Header
 1.1 Header Two
 Some body and then some repeat all that until more than max for header
