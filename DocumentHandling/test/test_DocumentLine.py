@@ -99,14 +99,3 @@ class TestDocumentLine:
         line = DocumentLine("Some weeds",22)
         assert line.get_lineindex() == 22
 
-    def test_set_prefix_true_for_header(self):
-        line = DocumentLine("Some thorns", 1)
-        line.set_prefix()
-        assert line.get_line() == "1. Some thorns"
-
-    def test_set_prefix_false_for_body(self):
-        expected_text = "Jasmine and other flowers are tasty but not as much as chocolate \n"
-        line = DocumentLine(expected_text, 1)
-        line.set_prefix()
-        assert line.get_line() == expected_text
-

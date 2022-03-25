@@ -73,13 +73,7 @@ class DocumentLine():
 
     def get_header_level(self):
         return self.header_level
-    """
-    if the line is a header then set the prefix
-    """
-    def set_prefix(self):
-        if self.is_header():
-            self.line = "1. " + self.line
-        self.line
+
 
 
 

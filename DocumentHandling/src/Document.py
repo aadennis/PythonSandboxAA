@@ -65,6 +65,7 @@ class Document():
     """
     The source document is updated so that every header is numbered, based on the Rules.
     The non-header lines are unchanged, and the document returned with the updates.
+    The first non-blank line is the Title. It does not get numbered.
     """
     def number_all_headers(self):
         self.set_header_levels()
@@ -72,12 +73,18 @@ class Document():
         h2_ctr = 0
         line_ctr = 0
         out_doc = {}
+        first = True
 
         for key, value in self.documentline_set.items():
-            if value.get_line() == '':
+            current_line = f"{value.get_line()}"
+            if current_line == '':
                 continue
             
-            current_line = f"{value.get_line()}"
+            if first:
+                first = False
+                out_doc[line_ctr] = current_line
+                line_ctr += 1
+                continue
             
             if value.get_header_level() == 'H1':
                 h1_ctr += 1
