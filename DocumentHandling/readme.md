@@ -129,8 +129,8 @@ You can now go back to the document tab:
 The content has now been styled based on the functions in the JavaScript:  
 ![image](https://user-images.githubusercontent.com/11707983/160236201-2343a065-15d2-4fbb-964d-0cc210f3c880.png)
 
-Compare that again with the pre-foramtted version:
-<img width="357" alt="image" src="https://user-images.githubusercontent.com/11707983/160236280-b1582468-e7c5-4d50-8132-368439bd761c.png">
+Compare that again with the pre-foramtted version:  
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/11707983/160236280-b1582468-e7c5-4d50-8132-368439bd761c.png">
 
 
 
