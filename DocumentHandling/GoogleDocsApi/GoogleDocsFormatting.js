@@ -47,13 +47,18 @@ function formatHeadings() {
   var body = DocumentApp.getActiveDocument().getBody();
 
   var searchType = DocumentApp.ElementType.PARAGRAPH;
+  var T = DocumentApp.ParagraphHeading.TITLE;
   var H1 = DocumentApp.ParagraphHeading.HEADING1;
   var H2 = DocumentApp.ParagraphHeading.HEADING2;
   var NT = DocumentApp.ParagraphHeading.NORMAL;
+  var t_style = {};
   var h1_style = {};
   var h2_style = {};
   var nt_style = {};
   
+  t_style[DocumentApp.Attribute.FONT_FAMILY] = 'Ubuntu';
+  t_style[DocumentApp.Attribute.BOLD] = true;
+  t_style[DocumentApp.Attribute.FONT_SIZE] = 22;
   h1_style[DocumentApp.Attribute.FONT_FAMILY] = 'Ubuntu';
   h1_style[DocumentApp.Attribute.BOLD] = true;
   h1_style[DocumentApp.Attribute.FONT_SIZE] = 18;
@@ -65,9 +70,15 @@ function formatHeadings() {
   nt_style[DocumentApp.Attribute.FONT_SIZE] = 10;
 
   var searchResult = null;
-
+  var firstLine = true;
   while (searchResult = body.findElement(searchType, searchResult)) {
     var par = searchResult.getElement().asParagraph();
+    if (firstLine) {
+      firstLine = false
+      par.setHeading(T)
+      par.setAttributes(t_style);
+      continue
+    }
     if (isHeading1(par.getText())) {
       par.setHeading(H1)
       par.setAttributes(h1_style);
@@ -98,4 +109,3 @@ function testHeading2() {
   ret = isHeading2('12.3 blah')
   log(ret)
 }
-
