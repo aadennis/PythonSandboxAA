@@ -108,25 +108,25 @@ Paste that content over the default function, and press the Save icon:
 
 ![image](https://user-images.githubusercontent.com/11707983/160235122-8345c892-4699-48af-91e7-489df2d61f34.png)
 
-Saving updates the content in the dropdown on the menu. Select ```formatHeadings``` :
+Saving updates the content in the dropdown on the menu. Select ```formatHeadings``` :  
 
 ![image](https://user-images.githubusercontent.com/11707983/160235167-40b4074c-bef4-4096-80dc-7bf57fb3b8b3.png)
 
-Then press Run:
+Then press Run:  
 ![image](https://user-images.githubusercontent.com/11707983/160235177-e1ec9060-cb2c-41cb-8d38-b0b368aa6e47.png)
 
 You will be prompted to authorise the script. Those steps are outside the scope, right now: 
 
 <img width="411" alt="image" src="https://user-images.githubusercontent.com/11707983/160235213-27eb7285-b338-422f-b82d-296a59d30556.png">
 
-Once authorisation is complete, you see this in the AppsScript tab:
+Once authorisation is complete, you see this in the AppsScript tab:  
 ![image](https://user-images.githubusercontent.com/11707983/160235237-574db0f3-57cc-4783-b043-17176c690182.png)
 
 
-You can now go back to the document tab:
+You can now go back to the document tab:  
 ![image](https://user-images.githubusercontent.com/11707983/160235286-7f3a37eb-fa0b-49eb-b727-665db4e9371c.png)
 
-The content has now been styled based on the functions in the JavaScript:
+The content has now been styled based on the functions in the JavaScript:  
 <img width="360" alt="image" src="https://user-images.githubusercontent.com/11707983/160235323-dca3be6c-a8dc-417d-bf55-9481e6cb12a3.png">
 
 
