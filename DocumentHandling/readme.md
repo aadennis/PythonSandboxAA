@@ -70,7 +70,10 @@ In "After", note that:
 
 ![image](https://user-images.githubusercontent.com/11707983/160232012-1ca4d6ee-87eb-494a-b654-281d3dd2c332.png)
 
-- 
+Once everything is right, you get this:
+![image](https://user-images.githubusercontent.com/11707983/160232583-ca77a164-d9c6-4dd7-a754-67a2c7b9789d.png)
+
+
 - 
 - 
 - In the following prompts, right now, there is no error handling, so make sure the input and output locations are valid:
