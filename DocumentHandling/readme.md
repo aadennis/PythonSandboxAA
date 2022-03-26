@@ -53,6 +53,7 @@ In "After", note that:
 - Google Docs account to apply the styles using Javascript
 
 ## Usage
+### Content Phase  
 ##### no gui yet
 - Open Terminal/PowerShell
 - cd to your checkout area for this project. For example:
@@ -79,6 +80,11 @@ Go to the target location, where your file is waiting for you...
 
 That concludes the content transformation.
 - Todo: applying Styling using JavaScript/Google Docs API
+
+### Styling Phase
+
+The content output ("target.txt", say) is then uploaded into Google Docs.   
+Authentication and authorisation of actions using the Google API is outside the scope, for now.
 
 
 
