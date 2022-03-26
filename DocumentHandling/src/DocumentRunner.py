@@ -20,9 +20,14 @@ def NumberHeadings():
     
     source_path = os.path.join(folder, sourceDoc)
     target_path = os.path.join(folder, targetDoc)
-    print(folder)
-    print(sourceDoc)
-    print(targetDoc)
+    print(f"Source file location: [{source_path}]")
+    print(f"Target file location: [{target_path}]")
+
+    if not os.path.exists(source_path):
+        print("*****************************************************************")
+        print(f"Error: source file [{source_path}] does not exist, or cannot be reached. Exiting...")
+        print("*****************************************************************")
+        exit(1)
     
     documentLineSet = Document.file_to_DocumentLineDict(source_path)
     doc = Document(documentLineSet)
