@@ -73,12 +73,12 @@ In "After", note that:
 Once everything is right, you get this:
 ![image](https://user-images.githubusercontent.com/11707983/160232583-ca77a164-d9c6-4dd7-a754-67a2c7b9789d.png)
 
-There is no feedback. Go to the target location, where your file is waiting for you...
+Go to the target location, where your file is waiting for you...
 
 <img width="718" alt="image" src="https://user-images.githubusercontent.com/11707983/160232768-e3689d90-95af-4068-9bbe-1dc98b157f7d.png">
 
 That concludes the content transformation.
-- Todo: Styling using JavaScript/Google Docs API
+- Todo: applying Styling using JavaScript/Google Docs API
 
 
 
