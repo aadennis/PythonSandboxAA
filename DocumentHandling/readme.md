@@ -73,15 +73,6 @@ In "After", note that:
 Once everything is right, you get this:
 ![image](https://user-images.githubusercontent.com/11707983/160232583-ca77a164-d9c6-4dd7-a754-67a2c7b9789d.png)
 
-
-- 
-- 
-- In the following prompts, right now, there is no error handling, so make sure the input and output locations are valid:
-  - Enter the full path of the source text file:
-  - Enter the full path of the target text file:
-
-<img width="611" alt="image" src="https://user-images.githubusercontent.com/11707983/160202096-c4eb7ec9-580a-465e-bfc5-a5293bcbfe96.png">
-
 There is no feedback. Go to the target location, where your file is waiting for you...
 
 ![image](https://user-images.githubusercontent.com/11707983/160202268-033faac2-56fd-4039-9082-6195b44d6462.png)
