@@ -56,16 +56,21 @@ In "After", note that:
 ##### no gui yet
 - Open Terminal/PowerShell
 - cd to your checkout area for this project. For example:
-  - D:\Sandbox\git\aadennis\PythonSandboxAA\DocumentHandling
-- py src/DocumentRunner.py
-- The command line offers defaults:
+  - ```cd D:\Sandbox\git\aadennis\PythonSandboxAA\DocumentHandling ```   
+- ``` py src/DocumentRunner.py ```
+- The command line offers defaults (right now, to change those, edit ```DocumentRunner.py``` :
 ![image](https://user-images.githubusercontent.com/11707983/160231858-a610e336-9b77-4788-b2f6-20f00e0ba5c1.png)
-- If those defaults are not useful, make sure the input and output locations are valid, as there is no error handling right now:  
+- If you choose to enter your own locations, make sure they are valid. 
+  - Example of an error message:
+
+![image](https://user-images.githubusercontent.com/11707983/160232313-dfe2cefb-25d9-4839-af16-a28f60eb0e52.png)
+
+-   input and output locations are valid, as there is no error handling right now:  
 <img width="667" alt="image" src="https://user-images.githubusercontent.com/11707983/160231918-aaaa44dc-5b2b-4d20-add1-eefcd27c6faa.png">
 
 ![image](https://user-images.githubusercontent.com/11707983/160232012-1ca4d6ee-87eb-494a-b654-281d3dd2c332.png)
 
-
+- 
 - 
 - 
 - In the following prompts, right now, there is no error handling, so make sure the input and output locations are valid:
