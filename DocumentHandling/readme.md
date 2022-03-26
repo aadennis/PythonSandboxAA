@@ -39,7 +39,7 @@ And then some body and then some repeat all that until more than max for header
 
 In "After", note that:
 1. Empty lines are ignored and removed - that is assumed in the remaining points
-2. The first line is always the Title, regardless of length
+2. The first line is always the Title, regardless of length. Although not enforced, there must be a Title line, else the numbering will be out of sync
 3. A Heading1 (e.g. 1.) or a Heading2 (e.g. 1.1) is a paragraph that has 10 words or less. This is arbitrary, but generally works for my needs
 4. A Heading that is immediately followed by another Heading with no text between the 2 headings is a Heading1
 5. If it is a Heading, but does not qualify as a Heading1, then it is a Heading 2
