@@ -79,31 +79,27 @@ Go to the target location, where your file is waiting for you...
 <img width="718" alt="image" src="https://user-images.githubusercontent.com/11707983/160232768-e3689d90-95af-4068-9bbe-1dc98b157f7d.png">
 
 That concludes the content transformation.
-- Todo: applying Styling using JavaScript/Google Docs API
+
 
 ### Styling Phase
 
-The content output ("target.txt", say) is then uploaded into Google Docs.   
-Authentication and authorisation of actions using the Google API is outside the scope, for now.
+You will now upload the content output ("target.txt", say) into Google Docs:
 
-a
+
 ![image](https://user-images.githubusercontent.com/11707983/160234827-21fed24e-cb57-463b-8d30-701ee8e4bb2a.png)
 
-a
-<img width="532" alt="image" src="https://user-images.githubusercontent.com/11707983/160234851-7663fcbc-fb9a-44dd-b257-2289e1b6c6fc.png">
-
-a
 At this stage, the Google document is not styled, other than the default of "Normal text".
 
+<img width="532" alt="image" src="https://user-images.githubusercontent.com/11707983/160234851-7663fcbc-fb9a-44dd-b257-2289e1b6c6fc.png">
+
+Find the Script Editor:  
 ![image](https://user-images.githubusercontent.com/11707983/160234920-bf3ec899-1ef9-4ed8-86a4-327bb923d60e.png)
 
-a
-Opening Scripts, gives a default function in the default Code.gs, in an Untitled project. 
+Opening Scripts gives a default function in the default Code.gs, in an Untitled project: 
 
 ![image](https://user-images.githubusercontent.com/11707983/160234974-98e048bc-8520-47fc-b0bc-fd3f0caa86e3.png)
 
-a
-In GitHub, locate and copy the content of this JS file...
+In GitHub, locate and copy the content of this JS file...  
 https://github.com/aadennis/PythonSandboxAA/tree/master/DocumentHandling/GoogleDocsApi
 
 ![image](https://user-images.githubusercontent.com/11707983/160235031-f3279f23-f43b-4a3c-919c-361d5b4d60d4.png)
@@ -112,14 +108,14 @@ Paste that content over the default function, and press the Save icon:
 
 ![image](https://user-images.githubusercontent.com/11707983/160235122-8345c892-4699-48af-91e7-489df2d61f34.png)
 
-Saving updates the content in the dropdown on the menu. Select formatHeadings:
+Saving updates the content in the dropdown on the menu. Select ```formatHeadings``` :
 
 ![image](https://user-images.githubusercontent.com/11707983/160235167-40b4074c-bef4-4096-80dc-7bf57fb3b8b3.png)
 
 Then press Run:
 ![image](https://user-images.githubusercontent.com/11707983/160235177-e1ec9060-cb2c-41cb-8d38-b0b368aa6e47.png)
 
-You will be prompted to authorise the script. Those steps are outside the scope, right now.
+You will be prompted to authorise the script. Those steps are outside the scope, right now: 
 
 <img width="411" alt="image" src="https://user-images.githubusercontent.com/11707983/160235213-27eb7285-b338-422f-b82d-296a59d30556.png">
 
