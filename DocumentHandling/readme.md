@@ -127,6 +127,14 @@ Once authorisation is complete, you see this in the AppsScript tab:
 ![image](https://user-images.githubusercontent.com/11707983/160235237-574db0f3-57cc-4783-b043-17176c690182.png)
 
 
+You can now go back to the document tab:
+![image](https://user-images.githubusercontent.com/11707983/160235286-7f3a37eb-fa0b-49eb-b727-665db4e9371c.png)
+
+The content has now been styled based on the functions in the JavaScript:
+<img width="360" alt="image" src="https://user-images.githubusercontent.com/11707983/160235323-dca3be6c-a8dc-417d-bf55-9481e6cb12a3.png">
+
+
+
 
 
 
