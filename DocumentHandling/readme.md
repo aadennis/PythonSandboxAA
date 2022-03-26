@@ -75,7 +75,7 @@ Once everything is right, you get this:
 
 There is no feedback. Go to the target location, where your file is waiting for you...
 
-![image](https://user-images.githubusercontent.com/11707983/160202268-033faac2-56fd-4039-9082-6195b44d6462.png)
+<img width="718" alt="image" src="https://user-images.githubusercontent.com/11707983/160232768-e3689d90-95af-4068-9bbe-1dc98b157f7d.png">
 
 That concludes the content transformation.
 - Todo: Styling using JavaScript/Google Docs API
