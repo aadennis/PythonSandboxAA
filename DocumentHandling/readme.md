@@ -130,11 +130,7 @@ The content has now been styled based on the functions in the JavaScript:
 ![image](https://user-images.githubusercontent.com/11707983/160236201-2343a065-15d2-4fbb-964d-0cc210f3c880.png)
 
 Compare that again with the pre-foramtted version:
-<img width="532" alt="image" src="https://user-images.githubusercontent.com/11707983/160234851-7663fcbc-fb9a-44dd-b257-2289e1b6c6fc.png">
-
-
-
-
+<img width="357" alt="image" src="https://user-images.githubusercontent.com/11707983/160236280-b1582468-e7c5-4d50-8132-368439bd761c.png">
 
 
 
