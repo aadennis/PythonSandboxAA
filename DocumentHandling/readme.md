@@ -1,6 +1,23 @@
 # Document handling: infer headings and styles from a plain text document
 
-## Requirement
+<!-- vscode-markdown-toc -->
+* 1. [Requirement](#Requirement)
+* 2. [Setup](#Setup)
+	* 2.1. [Prerequisites](#Prerequisites)
+* 3. [Usage](#Usage)
+	* 3.1. [Content Phase](#ContentPhase)
+	* 3.2. [Styling Phase](#StylingPhase)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+
+
+
+##  1. <a name='Requirement'></a>Requirement
 - As an editor  
 - Given I have an unformatted document that includes shorter lines that can be inferred as Headings  
 - I want to apply rules that result in those Headings being numbered as Level 1 or Level 2  
@@ -45,15 +62,15 @@ In "After", note that:
 5. If it is a Heading, but does not qualify as a Heading1, then it is a Heading 2
 6. All other text is body text
 
-## Setup
-### Prerequisites
+##  2. <a name='Setup'></a>Setup
+###  2.1. <a name='Prerequisites'></a>Prerequisites
 - checkout this repo 
 - Windows (todo: Linux )   
 - Python 3 to transform the content
 - Google Docs account to apply the styles using Javascript
 
-## Usage
-### Content Phase  
+##  3. <a name='Usage'></a>Usage
+###  3.1. <a name='ContentPhase'></a>Content Phase  
 ##### no gui yet
 - Open Terminal/PowerShell
 - cd to your checkout area for this project. For example:
@@ -81,7 +98,7 @@ Go to the target location, where your file is waiting for you...
 That concludes the content transformation.
 
 
-### Styling Phase
+###  3.2. <a name='StylingPhase'></a>Styling Phase
 
 You will now upload the content output ("target.txt", say) into Google Docs:
 
