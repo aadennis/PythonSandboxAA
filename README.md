@@ -11,6 +11,6 @@ Current focus:
 1. Mermaid
 ## March 2022
 1. Refactoring command line apps to FastApi  
-  - TideTimes  
-2. YT Downloader
-3. Document Handling - rules inference for numbering headings
+  - TideTimes
+  - YT Downloader
+2. Document Handling - rules inference for numbering headings
