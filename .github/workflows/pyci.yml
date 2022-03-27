@@ -24,7 +24,7 @@ jobs:
         run: pytest DocumentHandling -v -s
       - name: pytest ImageHandling - exif
         run: pytest ImageHandling/exif -v -s
-      - name: pytest All
-        run: pytest -v -s
+      - name: pytest Utilties
+        run: pytest Utilities -v -s
                 
         
