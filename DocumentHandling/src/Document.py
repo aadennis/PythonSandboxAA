@@ -1,3 +1,4 @@
+import filecmp
 import hashlib
 import io
 """
@@ -139,15 +140,16 @@ class Document():
     This is taken from the Utility class.
     """
     def files_are_same(self, file1, file2):
-        digests = []
-        for file in [file1, file2]:
-            hash = hashlib.md5()
-            with io.open(file,'rb') as f:
-                buf = f.read()
-                hash.update(buf)
-                a = hash.hexdigest()
-                digests.append(a)
+        # digests = []
+        # for file in [file1, file2]:
+        #     hash = hashlib.md5()
+        #     with io.open(file,'rb') as f:
+        #         buf = f.read()
+        #         hash.update(buf)
+        #         a = hash.hexdigest()
+        #         digests.append(a)
 
-        return digests[0] == digests[1]
+        # return digests[0] == digests[1]
+        return filecmp.cmp(file1, file2)
 
 
