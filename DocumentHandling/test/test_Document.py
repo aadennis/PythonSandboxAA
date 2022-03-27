@@ -199,7 +199,6 @@ class TestDocument:
     def test_number_headings_E2E_title_filename(self):
         # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
-        actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
         expected_results = "DocumentHandling/test/data/expected_results/expected_formatted_doc.txt"
         output_root = "DocumentHandling/test/data/output"
 
@@ -210,4 +209,5 @@ class TestDocument:
         doc.dict_values_to_file(numbered_lines, output_root, True)
 
         # assert
+        actual_results = output_root + "/setting the scene.txt"
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
