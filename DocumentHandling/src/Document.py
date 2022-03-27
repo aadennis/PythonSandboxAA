@@ -141,6 +141,7 @@ class Document():
     def files_are_same(self, file1, file2):
         # return filecmp.cmp(file1, file2) - does not work for both Dos and Linux 
         # credit: https://stackoverflow.com/questions/23036576/python-compare-two-files-with-different-line-endings
+        # https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/
         
         l1 = l2 = True
         with open(file1, 'r') as f1, open(file2, 'r') as f2:
