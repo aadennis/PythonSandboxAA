@@ -197,6 +197,13 @@ class TestDocument:
         numbered_lines = doc.number_all_headers()
         doc.dict_values_to_file(numbered_lines, actual_results)
 
+        actual = Document.file_to_DocumentLineDict(actual_results)
+        expected = Document.file_to_DocumentLineDict(expected_results)
+        print(actual[0])
+        print(actual[15])
+        print(expected[0])
+        print(expected[15])
+        
         # assert
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
         
