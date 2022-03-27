@@ -193,7 +193,7 @@ class TestDocument:
         source_file = "c:/temp/b.txt"
         target_file = "c:/temp/a.txt"
         expected_content = ['1. First Header\n', '1.1 Header Two\n',
-                            'Some body and then some repeat all that until more than max for header\n']
+                            'Somex body and then some repeat all that until more than max for header\n']
         documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         a = doc.number_all_headers()
