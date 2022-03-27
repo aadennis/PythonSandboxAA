@@ -124,10 +124,13 @@ class Document():
         return dl_dict
 
     """
-    utility: save dictionary to file
+    Save the numbered headings and all other lines to file.
+    If use_title is True, then take the first line of the line dictionary
+    , that is, the title, and make that the file name, with .txt appended.
     """
-
     def dict_values_to_file(self, source_dict, target_file, use_title = False):
+        if use_title:
+            target_file = f"{source_dict[0]}.txt"
         with open(target_file, 'w') as f:
             for i in source_dict:
                 f.writelines(source_dict[i])
