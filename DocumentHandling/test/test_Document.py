@@ -4,7 +4,6 @@ import tempfile
 from src.DocumentLine import DocumentLine
 from src.Document import Document
 
-
 class TestDocument:
     def get_testset_1(self):
         dl = {}
@@ -24,7 +23,6 @@ class TestDocument:
 
         for i in range(0, len(line)):
             dl[i] = DocumentLine(line[i], i)
-
         return dl
 
     def get_testset_2(self):
@@ -187,17 +185,18 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-    #@pytest.mark.skip(reason="Github actions do not support Windows paths")
     def test_doc_on_file_formats_ok(self):
+        # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
-        #source_file = "c:/temp/b.txt"
-        target_file = "DocumentHandling/test/data/output/formatted_doc.txt"
-        expected_content = ['1. First Header\n', '1.1 Header Two\n',
-                            'Some body and then some repeat all that until more than max for header\n']
-        documentLineSet = Document.file_to_DocumentLineDict(source_file)
-        doc = Document(documentLineSet)
-        a = doc.number_all_headers()
-        doc.dict_values_to_file(a, target_file)
-        with (io.open(target_file, 'r')) as fp:
-            actual_content = fp.readlines()
-            assert expected_content == actual_content
+        actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
+        expected_results = "DocumentHandling/test/data/expected_results/expected_formatted_doc.txt"
+
+        # act
+        lines = Document.file_to_DocumentLineDict(source_file)
+        doc = Document(lines)
+        numbered_lines = doc.number_all_headers()
+        doc.dict_values_to_file(numbered_lines, actual_results)
+
+        # assert
+        assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
+        

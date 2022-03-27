@@ -1,3 +1,4 @@
+import hashlib
 import io
 """
 A Document is a collection of Document Lines
@@ -133,5 +134,20 @@ class Document():
             for i in source_dict:
                 f.writelines(source_dict[i])
 
+    """
+    utility: If files are same, return true, else return false.
+    This is taken from the Utility class.
+    """
+    def files_are_same(self, file1, file2):
+        digests = []
+        for file in [file1, file2]:
+            hash = hashlib.md5()
+            with io.open(file,'rb') as f:
+                buf = f.read()
+                hash.update(buf)
+                a = hash.hexdigest()
+                digests.append(a)
+
+        return digests[0] == digests[1]
 
 
