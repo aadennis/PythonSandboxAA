@@ -127,7 +127,7 @@ class TestDocument:
             print(documentLineSet[i].line)
 
         # assert
-        expected_set = ['T','','H1', 'H2','','','H1', 'H2','','']
+        expected_set = ['Tx','','H1', 'H2','','','H1', 'H2','','']
         ctr = 0
         for i in expected_set:
             header_level = documentLineSet[ctr].get_header_level()
@@ -193,7 +193,7 @@ class TestDocument:
         source_file = "c:/temp/b.txt"
         target_file = "c:/temp/a.txt"
         expected_content = ['1. First Header\n', '1.1 Header Two\n',
-                            'Somex body and then some repeat all that until more than max for header\n']
+                            'Some body and then some repeat all that until more than max for header\n']
         documentLineSet = Document.file_to_DocumentLineDict(source_file)
         doc = Document(documentLineSet)
         a = doc.number_all_headers()
