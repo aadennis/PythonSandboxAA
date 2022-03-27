@@ -178,7 +178,7 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-    def test_number_headings_E2E_default_name(self):
+    def test_number_headings_E2E_explicit_filename(self):
         # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
         actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
@@ -192,4 +192,22 @@ class TestDocument:
 
         # assert
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
-        
+
+    """
+    same as previous E2E test, but this time use the title as the output file name
+    """    
+    def test_number_headings_E2E_title_filename(self):
+        # arrange
+        source_file = "DocumentHandling/test/data/input/large_document.txt"
+        actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
+        expected_results = "DocumentHandling/test/data/expected_results/expected_formatted_doc.txt"
+        output_root = "DocumentHandling/test/data/output"
+
+        # act
+        lines = Document.file_to_DocumentLineDict(source_file)
+        doc = Document(lines)
+        numbered_lines = doc.number_all_headers()
+        doc.dict_values_to_file(numbered_lines, output_root, True)
+
+        # assert
+        assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
