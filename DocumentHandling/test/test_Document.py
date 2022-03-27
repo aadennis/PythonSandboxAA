@@ -187,11 +187,11 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-    @pytest.mark.skip(reason="Github actions do not support Windows paths")
+    #@pytest.mark.skip(reason="Github actions do not support Windows paths")
     def test_doc_on_file_formats_ok(self):
-        source_file = "DocumentHandling/test/data/input/small_document.txt"
-        source_file = "c:/temp/b.txt"
-        target_file = "c:/temp/a.txt"
+        source_file = "DocumentHandling/test/data/input/large_document.txt"
+        #source_file = "c:/temp/b.txt"
+        target_file = "DocumentHandling/test/data/output/formatted_doc.txt"
         expected_content = ['1. First Header\n', '1.1 Header Two\n',
                             'Some body and then some repeat all that until more than max for header\n']
         documentLineSet = Document.file_to_DocumentLineDict(source_file)
