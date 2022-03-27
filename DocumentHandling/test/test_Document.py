@@ -121,9 +121,6 @@ class TestDocument:
         # act
         doc.set_header_levels()
 
-        for i in documentLineSet:
-            print(documentLineSet[i].line)
-
         # assert
         expected_set = ['T','','H1', 'H2','','','H1', 'H2','','']
         ctr = 0
@@ -144,7 +141,6 @@ class TestDocument:
         documentLineSet = self.get_testset_1()
         doc = Document(documentLineSet)
         actual_formatted_doc = doc.number_all_headers()
-        print(actual_formatted_doc)
         assert expected_formatted_doc == actual_formatted_doc
 
     def test_file_to_DocumentLineDict(self):
@@ -166,16 +162,13 @@ class TestDocument:
     def test_stuff_with_temp_file(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             file_name = f"{tmpdir}/temp.txt"
-            print(file_name)
             with (io.open(file_name, "w")) as fp:
                 fp.writelines("do this now\n")
             file_name2 = f"{tmpdir}/temp.txt"
-            print(file_name2)
             with (io.open(file_name2, "a")) as fp:
                 fp.writelines("do this now2\n")
             with (io.open(file_name2, "r")) as fp:
                 a = fp.readlines()
-                print(a)
 
     """
     End to end test:
@@ -185,7 +178,7 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-    def test_doc_on_file_formats_ok(self):
+    def test_number_headings_E2E_default_name(self):
         # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
         actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
@@ -197,13 +190,6 @@ class TestDocument:
         numbered_lines = doc.number_all_headers()
         doc.dict_values_to_file(numbered_lines, actual_results)
 
-        actual = Document.file_to_DocumentLineDict(actual_results)
-        expected = Document.file_to_DocumentLineDict(expected_results)
-        print(actual[0])
-        print(actual[15])
-        print(expected[0])
-        print(expected[15])
-        
         # assert
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
         
