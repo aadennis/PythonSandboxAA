@@ -136,20 +136,18 @@ class Document():
                 f.writelines(source_dict[i])
 
     """
-    utility: If files are same, return true, else return false.
-    This is taken from the Utility class.
+    utility: If files are the same, return true, else return false.
     """
     def files_are_same(self, file1, file2):
-        # digests = []
-        # for file in [file1, file2]:
-        #     hash = hashlib.md5()
-        #     with io.open(file,'rb') as f:
-        #         buf = f.read()
-        #         hash.update(buf)
-        #         a = hash.hexdigest()
-        #         digests.append(a)
-
-        # return digests[0] == digests[1]
-        return filecmp.cmp(file1, file2)
-
+        # return filecmp.cmp(file1, file2) - does not work for both Dos and Linux 
+        # credit: https://stackoverflow.com/questions/23036576/python-compare-two-files-with-different-line-endings
+        
+        l1 = l2 = True
+        with open(file1, 'r') as f1, open(file2, 'r') as f2:
+            while l1 and l2:
+                l1 = f1.readline()
+                l2 = f2.readline()
+                if l1 != l2:
+                    return False
+        return True
 
