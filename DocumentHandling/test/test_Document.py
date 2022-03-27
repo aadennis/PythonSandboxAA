@@ -127,7 +127,7 @@ class TestDocument:
             print(documentLineSet[i].line)
 
         # assert
-        expected_set = ['Tx','','H1', 'H2','','','H1', 'H2','','']
+        expected_set = ['T','','H1', 'H2','','','H1', 'H2','','']
         ctr = 0
         for i in expected_set:
             header_level = documentLineSet[ctr].get_header_level()
