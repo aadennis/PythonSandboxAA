@@ -20,5 +20,8 @@ jobs:
           cat $GITHUB_ENV
       - name: set pythonpath
         run: echo "PYTHONPATH=." >> $GITHUB_ENV
-      - name: pytest run
+      - name: pytest run 
         run: pytest -v -s
+      - name: pytest DocumentHandling
+        run: pytest DocumentHandling -v -s
+        
