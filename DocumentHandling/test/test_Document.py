@@ -137,7 +137,6 @@ class TestDocument:
     """
     Checks that all headers are correctly numbered, and that body text is unchanged.
     """
-    @pytest.mark.skip(reason="Github actions do not support Windows paths")
     def test_number_all_headers(self):
         expected_formatted_doc = {
             0: 'The Title', 1: '1. First Header', 2: '1.1 Header Two',
@@ -188,7 +187,7 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-
+    @pytest.mark.skip(reason="Github actions do not support Windows paths")
     def test_doc_on_file_formats_ok(self):
         source_file = "DocumentHandling/test/data/input/small_document.txt"
         source_file = "c:/temp/b.txt"
