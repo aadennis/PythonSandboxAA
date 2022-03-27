@@ -110,9 +110,6 @@ class Document():
             line_ctr += 1
         return out_doc
 
-    """
-    
-    """        
 
     """
     utility: read file into dictionary of Document Lines
@@ -130,7 +127,7 @@ class Document():
     utility: save dictionary to file
     """
 
-    def dict_values_to_file(self, source_dict, target_file):
+    def dict_values_to_file(self, source_dict, target_file, use_title = False):
         with open(target_file, 'w') as f:
             for i in source_dict:
                 f.writelines(source_dict[i])
