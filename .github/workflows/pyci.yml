@@ -22,6 +22,8 @@ jobs:
         run: echo "PYTHONPATH=." >> $GITHUB_ENV
       - name: pytest DocumentHandling
         run: pytest DocumentHandling -v -s
+      - name: pytest ImageHandling - exif
+        run: pytest ImageHandling/exif -v -s
       - name: pytest All
         run: pytest -v -s
                 
