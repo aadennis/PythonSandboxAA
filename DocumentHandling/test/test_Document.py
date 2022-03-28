@@ -171,16 +171,14 @@ class TestDocument:
                 a = fp.readlines()
 
     
-  
+
     """
     End to end test:
     Read a document which contains headings and body.
-    The Rules are applied, resulting in numbered headers.
-    For example:
-    "Where do I begin?" => "1.2 Where do I begin?" 
-    , making some assumptions about what precedes this header.
+    Expected output is a file with its name taken from the title, 
+    where the title is the first non-blank line in the source document.
     """
-    def test_number_headings_E2E_title_filename(self):
+    def test_headings_are_numbered_in_dest_file(self):
         # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
         expected_results = "DocumentHandling/test/data/expected_results/expected_formatted_doc.txt"
@@ -189,21 +187,11 @@ class TestDocument:
         # act
         lines = Document.file_to_DocumentLineDict(source_file)
         doc = Document(lines)
-        numbered_lines = doc.number_all_headers()
-        doc.dict_values_to_file(numbered_lines, output_root)
+        doc.save_number_headings_to_file(output_root)
 
         # assert
         actual_results = output_root + "/setting the scene.txt"
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
 
-    def test_save_number_headings_to_file(self):
-        # arrange
-        source_file = "DocumentHandling/test/data/input/large_document.txt"
-        output_root = "DocumentHandling/test/data/output"
-        lines = Document.file_to_DocumentLineDict(source_file)
-        doc = Document(lines)
-
-        #act
-        doc.save_number_headings_to_file(output_root)
 
 
