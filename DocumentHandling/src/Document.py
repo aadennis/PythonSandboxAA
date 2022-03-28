@@ -110,6 +110,14 @@ class Document():
             line_ctr += 1
         return out_doc
 
+    """
+    The title (first non-blank line in the source file) is used as the name of the file.
+    """    
+    def save_number_headings_to_file(self, output_root):
+        numbered_lines = self.number_all_headers()
+        self.dict_values_to_file(numbered_lines, output_root)
+
+
 
     """
     utility: read file into dictionary of Document Lines
@@ -125,15 +133,12 @@ class Document():
 
     """
     Save the numbered headings and all other lines to file.
-    If use_title is True, then take the first line of the line dictionary
+    Take the first line of the line dictionary
     , that is, the title, and make that the file name, with .txt appended.
-    The target_file must be reduced (if use_title is true), to the path
-    where the file is to be saved. That is a bit smelly.
     """
-    def dict_values_to_file(self, source_dict, target_file, use_title = False):
-        if use_title:
-            temp_title =  source_dict[0].replace('\n', '')
-            target_file = f"{target_file}/{temp_title}.txt"
+    def dict_values_to_file(self, source_dict, output_root):
+        t = source_dict[0].replace('\n', '')
+        target_file = f"{output_root}/{t}.txt"
         with open(target_file, 'w') as f:
             for i in source_dict:
                 f.writelines(source_dict[i])

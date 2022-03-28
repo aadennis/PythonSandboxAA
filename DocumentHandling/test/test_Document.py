@@ -150,13 +150,13 @@ class TestDocument:
         assert 1 == 1
 
     def test_dict_values_to_file(self):
-        target_file = "DocumentHandling/test/data/out.txt"
+        output_root = "DocumentHandling/test/data"
         my_dict = {}
         my_dict[0] = "some line"
         my_dict[1] = "two line"
 
         doc = Document(None)
-        doc.dict_values_to_file(my_dict, target_file)
+        doc.dict_values_to_file(my_dict, output_root)
 
     # POC - This works on Python 3.9 on windows. still to test on Linux
     def test_stuff_with_temp_file(self):
@@ -170,6 +170,8 @@ class TestDocument:
             with (io.open(file_name2, "r")) as fp:
                 a = fp.readlines()
 
+    
+  
     """
     End to end test:
     Read a document which contains headings and body.
@@ -178,24 +180,6 @@ class TestDocument:
     "Where do I begin?" => "1.2 Where do I begin?" 
     , making some assumptions about what precedes this header.
     """
-    def test_number_headings_E2E_explicit_filename(self):
-        # arrange
-        source_file = "DocumentHandling/test/data/input/large_document.txt"
-        actual_results = "DocumentHandling/test/data/output/formatted_doc.txt"
-        expected_results = "DocumentHandling/test/data/expected_results/expected_formatted_doc.txt"
-
-        # act
-        lines = Document.file_to_DocumentLineDict(source_file)
-        doc = Document(lines)
-        numbered_lines = doc.number_all_headers()
-        doc.dict_values_to_file(numbered_lines, actual_results)
-
-        # assert
-        assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
-
-    """
-    same as previous E2E test, but this time use the title as the output file name
-    """    
     def test_number_headings_E2E_title_filename(self):
         # arrange
         source_file = "DocumentHandling/test/data/input/large_document.txt"
@@ -206,8 +190,20 @@ class TestDocument:
         lines = Document.file_to_DocumentLineDict(source_file)
         doc = Document(lines)
         numbered_lines = doc.number_all_headers()
-        doc.dict_values_to_file(numbered_lines, output_root, True)
+        doc.dict_values_to_file(numbered_lines, output_root)
 
         # assert
         actual_results = output_root + "/setting the scene.txt"
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
+
+    def test_save_number_headings_to_file(self):
+        # arrange
+        source_file = "DocumentHandling/test/data/input/large_document.txt"
+        output_root = "DocumentHandling/test/data/output"
+        lines = Document.file_to_DocumentLineDict(source_file)
+        doc = Document(lines)
+
+        #act
+        doc.save_number_headings_to_file(output_root)
+
+
