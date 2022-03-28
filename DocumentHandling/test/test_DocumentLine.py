@@ -1,6 +1,6 @@
 # import pytest
 
-from src.DocumentLine import DocumentLine
+from DocumentHandling.src.DocumentLine import DocumentLine
 
 class TestDocumentLine:
     def test_1_or_more_words(self):

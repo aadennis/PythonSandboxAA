@@ -1,8 +1,8 @@
 import pytest
 import io
 import tempfile
-from src.DocumentLine import DocumentLine
-from src.Document import Document
+from DocumentHandling.src.DocumentLine import DocumentLine
+from DocumentHandling.src.Document import Document
 
 class TestDocument:
     def get_testset_1(self):

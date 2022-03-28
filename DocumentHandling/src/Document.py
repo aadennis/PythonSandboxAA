@@ -1,13 +1,10 @@
-import filecmp
-import hashlib
 import io
+from DocumentHandling.src.DocumentLine import DocumentLine
+
+
 """
 A Document is a collection of Document Lines
 """
-
-from src.DocumentLine import DocumentLine
-
-
 class Document():
     """
     A Document manages Document Lines (cf). It is instantiated by passing it an array of Document Lines.
