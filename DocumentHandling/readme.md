@@ -31,27 +31,27 @@ The project has:
 Example - content stage  
 _Before:_
 ```
-The Book I Nearly Wrote
-
-First Header
-Header Two
-
-Some body and then some repeat all that until more than max for header
-2 First Header
-2 Header Two
-
-And then some body and then some repeat all that until more than max for header
+The Hare and the Tortoise
+The Hare
+His amusement
+The Hare was much amused at the idea of running a race with the Tortoise
+The Tortoise
+Slow and steady
+The Tortoise did not feel it was a done deal, and ambled slowly along the road
+In passing
+In the distance, he saw an outline rising and falling, being the silhouette of the hare, as he slept.
 ```
 _After:_
 ```
-The Book I Nearly Wrote
-1. First Header
-1.1 Header Two
-Some body and then some repeat all that until more than max for header
-2. First Header
-2.1 Header Two
-2.2 Header again
-And then some body and then some repeat all that until more than max for header
+The Hare and the Tortoise
+1. The Hare
+1.1 His amusement
+The Hare was much amused at the idea of running a race with the Tortoise
+2. The Tortoise
+2.1 Slow and steady
+The Tortoise did not feel it was a done deal, and ambled slowly along the road
+2.2 In passing
+In the distance, he saw an outline rising and falling, being the silhouette of the hare, as he slept.
 ```
 
 In "After", note that:
