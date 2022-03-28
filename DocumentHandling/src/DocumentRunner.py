@@ -26,7 +26,9 @@ def NumberHeadings():
     
     lines = Document.file_to_DocumentLineDict(source_path)
     doc = Document(lines)
-    doc.save_number_headings_to_file(folder)
+    title = doc.save_number_headings_to_file(folder)
+    target_path = f"{folder}/{title}.txt"
+    print(f"target file location: [{target_path}]")
 
 if __name__ == '__main__':
     NumberHeadings()
