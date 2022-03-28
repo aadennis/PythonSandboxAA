@@ -18,6 +18,9 @@ class Document():
     def get_line_count(self):
         return len(self.documentline_set)
 
+    def get_title(self)        :
+        return self.get_line(0).replace('\n', '')
+
     """
     Get the header level for the current line.
     If the index is zero, this is the Title: return 'T'
@@ -108,12 +111,14 @@ class Document():
         return out_doc
 
     """
-    The title (first non-blank line in the source file) is used as the name of the file.
+    The document is transformed in a copy to the output_root.
+    Title (first non-blank line in the source file) is used as the name of the file,
+    and Title is returned to the caller.
     """    
     def save_number_headings_to_file(self, output_root):
         numbered_lines = self.number_all_headers()
         self.dict_values_to_file(numbered_lines, output_root)
-
+        return self.get_title()
 
 
     """

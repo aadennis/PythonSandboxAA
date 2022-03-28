@@ -187,10 +187,11 @@ class TestDocument:
         # act
         lines = Document.file_to_DocumentLineDict(source_file)
         doc = Document(lines)
-        doc.save_number_headings_to_file(output_root)
+        title = doc.save_number_headings_to_file(output_root)
 
         # assert
         actual_results = output_root + "/setting the scene.txt"
+        assert title == "setting the scene"
         assert Document.files_are_same(self, expected_results, actual_results), "Actual file content is not as expected."
 
 
