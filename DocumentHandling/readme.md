@@ -87,11 +87,12 @@ In "After", note that:
 
 
 Once everything is right, you get this:
-![image](https://user-images.githubusercontent.com/11707983/160232583-ca77a164-d9c6-4dd7-a754-67a2c7b9789d.png)
+
+<img width="515" alt="image" src="https://user-images.githubusercontent.com/11707983/160422632-7743b123-a5c4-4e73-bd26-e2c27f3aaf8c.png">
 
 Go to the target location, where your file is waiting for you...
 
-<img width="718" alt="image" src="https://user-images.githubusercontent.com/11707983/160232768-e3689d90-95af-4068-9bbe-1dc98b157f7d.png">
+<img width="348" alt="image" src="https://user-images.githubusercontent.com/11707983/160422837-0aee449d-8220-4c32-b94d-9a17971bc6da.png">
 
 That concludes the content transformation.
 
