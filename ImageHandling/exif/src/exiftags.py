@@ -26,7 +26,7 @@ class ExifTags():
 
     if platform == 'win32':
         WRITE_SUCCESS = "b'    1 image files updated\\r\\n'"
-        EXIF_TOOL_NAME = "PythonSandbox/ImageHandling/exif/third_party/exiftool.exe"
+        EXIF_TOOL_NAME = "ImageHandling/exif/src/third_party/exiftool.exe"
     else: # linux
         WRITE_SUCCESS = "b'    1 image files updated\\n'"
         EXIF_TOOL_NAME = "ImageHandling/exif/third_party/Image-ExifTool-12.37/exiftool"
