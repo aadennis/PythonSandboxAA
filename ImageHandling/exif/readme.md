@@ -13,8 +13,9 @@ linux: https://www.exiftool.org/Image-ExifTool-12.x.tar.gz
 Windows: https://www.exiftool.org/exiftool-12.x.zip  
 
 ### Important!!
-The code expects to find the working exes here:
-PythonSandboxAA\ImageHandling\exif\src\third_party
+1. The code expects to find the working exes here:
+  - PythonSandboxAA\ImageHandling\exif\src\third_party
+2. The tests expect an environment variable ```EXIFTOOL="Y"```. Else the tests are skipped.
 
 Note to self: exiftool backups are here:  
 D:\software\PhotoSoftware\Exif\linux\Image-ExifTool-12.37  
