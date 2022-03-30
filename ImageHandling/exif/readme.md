@@ -12,6 +12,10 @@ The latest versions are here (replace "x" with a number above 12.35):
 linux: https://www.exiftool.org/Image-ExifTool-12.x.tar.gz  
 Windows: https://www.exiftool.org/exiftool-12.x.zip  
 
+### Important!!
+The code expects to find the working exes here:
+PythonSandboxAA\ImageHandling\exif\src\third_party
+
 Note to self: exiftool backups are here:  
 D:\software\PhotoSoftware\Exif\linux\Image-ExifTool-12.37  
 D:\software\PhotoSoftware\Exif\Windows\exiftool.exe  
