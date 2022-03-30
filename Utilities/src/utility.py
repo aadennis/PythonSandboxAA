@@ -50,5 +50,11 @@ class Utility(object):
             commit 3rd party software (specifically ExifTool) to Github. 
             just to allow testing by Actions.
         """
-        return str(subprocess.check_output(args=args_for_subprocess))
-
+        print(args_for_subprocess[0])
+        result = subprocess.run(args_for_subprocess, capture_output=True)
+        sout = str(result.stdout)
+        serr = str(result.stdout)
+        print(sout)
+        print(serr)
+        
+        return sout
