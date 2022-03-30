@@ -135,3 +135,4 @@ VideoHandling/Downloader/data/
 TideTimes/data/
 virtualenvs/
 DocumentHandling/test/data/output/
+ImageHandling/exif/src/third_party/exiftool.exe
