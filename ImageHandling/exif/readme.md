@@ -21,3 +21,16 @@ Note to self: exiftool backups are here:
 D:\software\PhotoSoftware\Exif\linux\Image-ExifTool-12.37  
 D:\software\PhotoSoftware\Exif\Windows\exiftool.exe  
 
+### ExifTool defaults
+All this, AFAICT:
+When you add a tag to a file, a copy is made before adding that tag. If the extension is say .jpg, then the file copy keeps the same name, but has .jpg_original as its new extension. For example:
+
+<img width="574" alt="image" src="https://user-images.githubusercontent.com/11707983/161144778-2cf4f6d7-bb38-4bac-a627-e3933aac50fe.png">
+
+In terms of performance, I found it simplest to wait until the tag updates are done, then run this:
+<img width="231" alt="image" src="https://user-images.githubusercontent.com/11707983/161145128-6ca31828-1185-4c16-9f35-da04e08c49d5.png">
+
+git bash seemed to hang, hence PowerShell.
+
+
+
