@@ -21,23 +21,25 @@ def convert_fileset_from_png_to_jpg(folder):
     joint = folder + "/" + PNG_WILDCARD
 
     f = glob.glob(joint)
-    # print(f)
+    count = len(f)
+    print(f"there are [{count}] items in folder [{folder}] with wildcard [{PNG_WILDCARD}]")
 
+    ctr = 0
     for src_filename in f:
+        if ctr%20 == 0:
+            print(f"Processing file [{ctr}] of [{count}]")
+        ctr += 1
 
         src_base = os.path.basename(src_filename)
         file_root = os.path.splitext(src_base)[0]
 
         target_name = dir + "/" + file_root + JPG
 
-        print(src_filename)
-        print(target_name)
-
         im = Image.open(src_filename)
         rgb_im = im.convert('RGB')
         rgb_im.save(target_name)
-
+    print("Done.")
 
 if __name__ == "__main__":
-    dir = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2021_10"
+    dir = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2021_11"
     convert_fileset_from_png_to_jpg(dir)
