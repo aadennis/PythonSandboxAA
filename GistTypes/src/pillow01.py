@@ -9,20 +9,20 @@ print(dir)
 joint = dir + "/" + wildcard
 
 f = glob.glob(joint)
-#print(f)
+# print(f)
 
-for i in f:
-   print(i)
-   a = os.path.basename(i)
-   b = os.path.splitext(a)[0]
+for src_filename in f:
 
-   print(b)
+    src_base = os.path.basename(src_filename)
+    b = os.path.splitext(src_base)[0]
 
+    target_name = dir + "/" + b + ".jpg"
 
-# im = Image.open("a.png")
-# rgb_im = im.convert('RGB')
-# rgb_im.save('b.jpg')
+    print(b)
+    print(src_filename)
+    print(target_name)
 
-
-
+    im = Image.open(src_filename)
+    rgb_im = im.convert('RGB')
+    rgb_im.save(target_name)
 
