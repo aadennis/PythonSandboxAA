@@ -39,4 +39,4 @@ The function ```GistTypes\src\convert_fileset_from_png_to_jpg.py``` handles that
 ### OneDrive album display limits
 Yes you can create a OneDrive photo album with say 1,000 photos. However, it seems it will only display 100 at a time. On a PC, anyway.
 100 seems crazily limiting. Typically my albums are a month of photos, and average 700. Yes I could break them down, but I so do not want to.
-
+Yup, it's an issue: https://techcommunity.microsoft.com/t5/onedrive-for-business/onedrive-shared-view-of-folder-limits-to-100-files/m-p/78826/page/2
