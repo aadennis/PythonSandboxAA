@@ -143,6 +143,7 @@ class ExifTagsList():
 
 
 if __name__ == '__main__':
-    tag_set = "trawler;fishing"
+    folder = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2021_11"
+    tag_set = "CRD_2021_11"
     append_ok = "Y"
-    etl = ExifTagsList("/tmp/work", tag_set, append_ok)
+    etl = ExifTagsList(folder, tag_set, append_ok)
