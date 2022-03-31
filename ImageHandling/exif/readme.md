@@ -32,5 +32,7 @@ In terms of performance, I found it simplest to wait until the tag updates are d
 
 git bash seemed to hang, hence PowerShell.  
 
-
+### IOS files are png...
+At least, when they are moved to Windows. And png files have no tags (in the sense that I use them here, for cataloging).
+The function GistTypes\src\convert_fileset_from_png_to_jpg.py handles that by converting the png to jpg. Although you could rename the png to jpg, you will find that the tag metadata slots are not available. You must run the conversion, which is done courtesy of Pillow.
 
