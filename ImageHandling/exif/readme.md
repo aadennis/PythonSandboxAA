@@ -36,3 +36,7 @@ git bash seemed to hang, hence PowerShell.
 At least, when they are moved to Windows. And png files have no tags (in the sense that I use them here, for cataloging).
 The function GistTypes\src\convert_fileset_from_png_to_jpg.py handles that by converting the png to jpg. Although you could rename the png to jpg, you will find that the tag metadata slots are not available. You must run the conversion, which is done courtesy of Pillow.
 
+### OneDrive album display limits
+Yes you can create a OneDrive photo album with say 1,000 photos. However, it seems it will only display 100 at a time. On a PC, anyway.
+100 seems crazily limiting. Typically my albums are a month of photos, and average 700. Yes I could break them down, but I so do not want to.
+
