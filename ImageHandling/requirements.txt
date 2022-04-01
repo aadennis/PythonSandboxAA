@@ -27,6 +27,7 @@ packaging==21.3
 pluggy==1.0.0
 py==1.11.0
 pydantic==1.9.0
+PyExifTool==0.5.3
 Pygments==2.11.2
 pyparsing==3.0.7
 PySocks==1.7.1
