@@ -18,18 +18,18 @@ that they are being moved, and not complain about many files being deleted.
 
 ## Usage
 ### Dependencies
-Checkout this repo
-Python3
-Windows (not tested under linux)
-cd (git repo root)
-cd PythonSandboxAA/FileHandling/src
+Checkout this repo  
+Python3  
+Windows (not tested under linux)  
+cd (git repo root)  
+cd PythonSandboxAA/FileHandling/src  
 
 Example 1: this will read a root_folder "D:/onedrive/Pictures" and move all files found, including in subfolders, to the single folder = "D:/onedrive/stuff/Bucketx", 
-where "Bucketx" is a generated random name
-```py FileHandling.py ```
+where "Bucketx" is a generated random name  
+```py FileHandling.py ```  
 
-Example 2: this will read a root_folder "D:/onedrive/MyPictures" and move all files found, including in subfolders, to the single folder = "e:/mybackupx/Bucketx". Note that changing the folder to e: etc is dangerous, because OneDrive will record a deletion, not a move.
-If you pass the source or destination, they must be full paths.
-src_folder = "D:/onedrive/MyPictures"
-dest_folder = "e:/mybackupx"
-```py FileHandling.py -s src_folder -d dest_folder```
+Example 2: this will read a root_folder "D:/onedrive/MyPictures" and move all files found, including in subfolders, to the single folder = "e:/mybackupx/Bucketx".   Note that changing the folder to e: etc is dangerous, because OneDrive will record a deletion, not a move.  
+If you pass the source or destination, they must be full paths.  
+```src_folder = "D:/onedrive/MyPictures"  
+dest_folder = "e:/mybackupx"  
+py FileHandling.py -s src_folder -d dest_folder```  
