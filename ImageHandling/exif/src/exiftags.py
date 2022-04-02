@@ -57,9 +57,6 @@ class ExifTags():
         """
         current_tag_set = self.get_tag_set()
         if current_tag_set != self.NO_TAGS:
-            print(f"Current: {current_tag_set}")
-            print(f"no tags: {self.NO_TAGS}")
-            
             if additional_tags != 'Y':
                 raise AssertionError(f"[{self.image_file}] already has a tag set. Exiting...")
             # additional tags...
@@ -78,9 +75,7 @@ class ExifTags():
         """
         read_args=[self.EXIF_TOOL_NAME,"-Subject", self.image_file]
         tag_set = Utility().run_subprocess(args_for_subprocess=read_args)
-        print(f"a. where we are: {tag_set}")
         a = tag_set.replace("b'Subject                         :","").replace("\\n'","")
-        print(f"b. where we are: {a}")
         return a
 
 
