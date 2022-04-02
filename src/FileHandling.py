@@ -15,6 +15,8 @@ https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python
 
 handles files and folders.
 """
+import argparse
+from argparse import ArgumentParser
 from io import FileIO
 import os
 import datetime
@@ -23,11 +25,14 @@ from datetime import datetime
 from datetime import timedelta
 from os import listdir
 from os.path import isfile, join
+import sys
 import exifread
 from PIL import Image
 from time import sleep, strftime
 import random
 import shutil
+
+from numpy import array, source
 
 def new_folder_for_each_month_in_year(rootb, yearb): # deprecated / redundant for a few years
     """
@@ -169,50 +174,51 @@ def move_onedrive_pictures_to_root(root_folder = "D:/onedrive/Pictures", target 
         for file in files:
             src_file_path = os.path.join(rootx, file)
             target_file_path = os.path.join(target_folder, file)
-            print("source full [{}]".format(src_file_path))
-            print("target full [{}]".format(target_file_path))
+            print("source folder [{}]".format(src_file_path))
+            print("target folder [{}]".format(target_file_path))
             shutil.move(src_file_path, target_file_path)
 
 
-# main / testing...
-root = "D:/onedrive/stuff"
+def get_folders(folder: dict):
+    """
+    If source and desination folders are not specified on the command line, use
+    defaults. You can default the source, the destination, or both.
+    """
+    parser = ArgumentParser(description="[Getting command line arguments]")    
+    parser.add_argument("-s", "--source_folder", help="source folder: where OneDrive has saved your pictures")
+    parser.add_argument("-d", "--dest_folder", help="destination folder: where to move your pictures")
 
-year = "1996"
-d = datetime.now()
+    args=parser.parse_args()
 
-#print date
-print(d)
+    DEFAULT_SRC_DIR = "D:/onedrive/Pictures"
+    DEFAULT_DEST_DIR = "D:/onedrive/Stuff"
+    source_dir = ""
+    dest_dir = ""
 
-#get the day of month
-print(d.strftime("%d"))
+    if args.source_folder:
+        source_dir = args.source_folder
+    else:
+        source_dir = DEFAULT_SRC_DIR
 
-# new_folder_for_each_month_in_year(root, year)
+    if args.dest_folder:
+        dest_dir = args.dest_folder
+    else:
+        dest_dir = DEFAULT_DEST_DIR
 
-one_month_folder = "{}/{}".format(root, "CRD_12_2014")
-print(one_month_folder)
 
-s = '1/12/2014'
-sd = datetime.strptime(s,"%d/%m/%Y") + timedelta(days = 0)
-ed = datetime.strptime(s,"%d/%m/%Y") + timedelta(days = 30)
+    print(f"source dir to use: [{source_dir}]")
+    print(f"dest dir to use: [{dest_dir}]")
 
-#get_files_created_between_dates(one_month_folder, sd, ed)
+    folder['source_dir'] = source_dir
+    folder['dest_dir'] = dest_dir
 
-# image = "D:/onedrive/data/photos/_Albums/CameraRollDump/CRD_12_2014/Conversation 2 English.jpg"
-# a = get_photo_date(image)
-# print(a)
+# entry point
+if __name__ != "__main__":
+    exit()
 
-source_dir = "D:/onedrive/Pictures/Camera Roll"
-#source_dir = "D:/onedrive/Pictures"
-target_dir = root #/CRD_2014_01
-# get_files_from_src_dir(source_dir, target_dir)
+folder = {}
+get_folders(folder)
+print(folder['source_dir'])
+print(folder['dest_dir'])
 
-# rename_folders(root)
-
-# new_folder_for_each_month_in_all_years(root)
-
-source_dir = "c:/temp/aaa"
-source_dir = "D:/onedrive/Pictures/Camera Roll"
-#move_all_onedrive_pictures_to_camera_roll()
-
-move_onedrive_pictures_to_root()
-
+move_onedrive_pictures_to_root(folder['source_dir'], folder['dest_dir'])
