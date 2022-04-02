@@ -136,3 +136,4 @@ TideTimes/data/
 virtualenvs/
 DocumentHandling/test/data/output/
 ImageHandling/exif/src/third_party/exiftool.exe
+VideoHandling/Downloader/src/yt-dlp - new.exe
