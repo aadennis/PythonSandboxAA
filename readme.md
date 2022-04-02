@@ -11,18 +11,18 @@ The onedrive/Pictures folder contains 7 named sub-folders, a set dictated by Mic
 This consolidates any content from those folders (and sub-sub-etc-folders), to a single, randomly named flat folder.  
 It is then up to the user to move, by hand, those files to an appropriate folder.  
 For me, "appropriate" is, in the first instance, month and year.  
-If the files are mostly from October 2021, for example, then the appropriate folder would likely be D:/onedrive/stuff/CRD_2021_10. That is just based on my setup.
+If the files are mostly from October 2021, for example, then the appropriate folder would likely be ```D:/onedrive/stuff/CRD_2021_10.```  That is just based on my setup.
 You might be expecting automation to take of distributing the files in the bucket to the appropriate year-month folder. 
 However, I find it is safest to sort by date descending, review, and move each year-month batch to the right folder. For Windows at least, OneDrive will recognise 
 that they are being moved, and not complain about many files being deleted.
 
 ## Usage
 ### Dependencies
-Checkout this repo  
-Python3  
-Windows (not tested under linux)  
-cd (git repo root)  
-cd PythonSandboxAA/FileHandling/src  
+1. Checkout this repo  
+1. Python3  
+1. Windows (not tested under linux)  
+``` cd (git repo root)  ```  
+``` cd PythonSandboxAA/FileHandling/src  ```
 
 Example 1: this will read a root_folder "D:/onedrive/Pictures" and move all files found, including in subfolders, to the single folder = "D:/onedrive/stuff/Bucketx", 
 where "Bucketx" is a generated random name  
