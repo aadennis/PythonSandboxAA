@@ -23,11 +23,11 @@
                 <H3>Click for Help</H3>
             </summary>
             <ul>
-                <li>Radio buttons: is it a single video or a list of videos? Default: single video</li>
-                <li>"identifier of video or list" - mandatory</li>
+                <li>Radio buttons: is this a request for a Youtube video, or for a Tiktok video? Default: Youtube video</li>
+                <li>"x" - mandatory</li>
                 <ul>
-                    <li>Single video: From the YouTube URL after the video, enter the string after "v=".</li>
-                    <li>List (of videos): From the YouTube URL, enter the string after "list=".</li>
+                    <li>Youtube video: From the YouTube URL after the video, enter the string after "v=".</li>
+                    <li>Tiktok video: Enter the whole of the Tiktok URL.</li>
                 </ul>
                 <li>"sub-folder if required" - optional
                     <ul>
@@ -45,10 +45,10 @@
         <form method="post">
             <div>
                 <input type="radio" id="single" name="single_or_list" value="single" checked>
-                <label for="single">Single video</label>
+                <label for="single">A Youtube video</label>
 
                 <input type="radio" id="list" name="single_or_list" value="list">
-                <label for="list">List of videos</label>
+                <label for="list">A Tiktok video</label>
             </div>
             <input type="text" id="video_code" name="video_code" placeholder="identifier of video or list" />
             <input type="text" name="sub_folder" placeholder="sub-folder if required">

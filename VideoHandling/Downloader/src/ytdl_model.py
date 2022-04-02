@@ -46,21 +46,21 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
         sub_folder = sub_folder.title().replace(' ','')
     data_folder = f"data/{sub_folder}"
     
-    print(data_folder)
+    print(f"!!!!!!!!!!!!!!data_folder: {data_folder}")
     if not os.path.exists(ytexe):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
         raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
     
-    if (is_single_video(single_or_list)):
+    if (is_single_video(single_or_list)): # todo - change labels for Tiktok support
         yt_prefix = "https://www.youtube.com/watch?v="
         output_template = f"{data_folder}/%(title)s-%(id)s"
-    else:  # list...
-        yt_prefix = "https://www.youtube.com/watch?list="
-        playlist_parameter = "--yes-playlist"
-        output_template = f"{data_folder}/%(playlist_index)s-%(title)s-%(id)s"
+    else:  # Tiktok - whole of url...
+        yt_prefix = ""
+        playlist_parameter = ""
+        output_template = f"{data_folder}/%(title)s-%(id)s"
 
     command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} --write-description -o {output_template}.mp4"
-    print(f"[cmd line]: {command_line}")
+    print(f"!!!!!!!!!![cmd line]: {command_line}")
     start_time = datetime.datetime.now()
     status = os.system(command_line)
     if status != 0:
@@ -69,6 +69,8 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
     end_time = datetime.datetime.now()
     gap = end_time - start_time
     search_path = f"{data_folder}/*{link}*.mp4"
+    print(f"!!!!!!!!!!!!!!search_path: {search_path}")
+
     video_file = (glob.glob(search_path))[0].replace('\\','/')
     duration_in_seconds = gap.seconds
     # testing on my network shows that a) a minimum of 2 seconds is needed to pull down a file.
