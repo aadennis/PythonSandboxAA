@@ -27,7 +27,10 @@ import os
 import string
 
 
-def save_video(link, single_or_list, sub_folder:str = "default"):
+def save_video(link, video_type, sub_folder:str = "default"):
+    """
+    video_type: represents 1 of YouTube or TikTok
+    """
     ytexe = "yt-dlp.exe"
     yt_prefix = ""
     playlist_parameter = ""
@@ -49,12 +52,12 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
     print(f"!!!!!!!!!!!!!!data_folder: {data_folder}")
     if not os.path.exists(ytexe):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
-        raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
+        raise FileNotFoundError("no yt-dlp exe found: [{}]. Exiting...".format(ytexe))
     
     search_link = ""
     # this is largely about the output template...
     # https://github.com/yt-dlp/yt-dlp#output-template
-    if (is_single_video(single_or_list)): # todo - change labels for Tiktok support
+    if (is_single_video(video_type)): # todo - change labels for Tiktok support
         yt_prefix = "https://www.youtube.com/watch?v="
         output_template = f"{data_folder}/%(title)s-%(id)s"
         search_link = link
@@ -88,8 +91,8 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
 
 def is_single_video(download_type):
     """
-    A single video has been requested (true) or...
-    A list has been requested (false).
+    A YouTube video has been requested (true) or...
+    A Tiktok video has been requested (false).
     """
     if (download_type == "single"):
         return True
