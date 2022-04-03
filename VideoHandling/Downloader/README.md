@@ -32,12 +32,12 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 <img width="424" alt="image" src="https://user-images.githubusercontent.com/11707983/161426344-19da7fe8-3880-43a3-bf14-f50e0ed88129.png">
 <hr/>
 
-### 1.3x Choose Youtube video or Tiktok video
+### 1.3 Choose Youtube video or Tiktok video
 
 <img width="380" alt="image" src="https://user-images.githubusercontent.com/11707983/161426460-9ea5d1a2-89ea-4e3c-a918-c56b953f9f5c.png">
 <hr/>
 
-### 1.3 Enter a video id (expand Click for Help for more on this)
+### 1.4 Enter a video id (expand Click for Help for more on this)
 
 *Note that the video id ```FFs4JIUbXJU``` can be used for testing Youtube: I wrote it, so no copyright issues, and it is only a few mb.*
 
@@ -45,13 +45,13 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 <hr/>
 
-### 1.4 Click [Save]
+### 1.5 Click [Save]
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158347717-94f17b1e-82c6-4e81-ad69-5d7b3b4a0fe8.png">
 
 <hr/>
 
-### 1.5 After a few seconds (assuming a file size of less than say 1gb), the download location is confirmed:
+### 1.6 After a few seconds (assuming a file size of less than say 1gb), the download location is confirmed:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png">
 
@@ -59,13 +59,13 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 <hr/>
 
-### 1.6 And from there you can play the mp4:
+### 1.7 And from there you can play the mp4:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348987-f772f8f5-8c7d-43f7-b090-eb045400e196.png">
 
 <hr/>
 
-### 1.7 As mentioned above, expanding Click for Help gives some more detail:
+### 1.8 As mentioned above, expanding Click for Help gives some more detail:
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158351609-7cb7b4e1-84b6-4052-bf88-ab77f664474f.png">
 
