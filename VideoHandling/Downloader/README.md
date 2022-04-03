@@ -39,7 +39,11 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### 1.4 Enter a video id (expand Click for Help for more on this)
 
-*Note that the video id ```FFs4JIUbXJU``` can be used for testing Youtube: I wrote it, so no copyright issues, and it is only a few mb.*
+_For testing, you can use 2 videos I recorded, so a) no copyright issues, b) they are only a few mb_ :    
+
+  - _Youtube: ```FFs4JIUbXJU```_
+  - _TikTok: ```https://www.tiktok.com/@dennisexmouth/video/7082461545849998598```_
+
 
 <img width="407" alt="image" src="https://user-images.githubusercontent.com/11707983/161426493-01847035-94cd-4504-a15a-779b0498396e.png">
 
