@@ -57,7 +57,7 @@ def save_video(link, video_type, sub_folder:str = "default"):
     search_link = ""
     # this is largely about the output template...
     # https://github.com/yt-dlp/yt-dlp#output-template
-    if (is_single_video(video_type)): # todo - change labels for Tiktok support
+    if (is_youtube(video_type)): 
         yt_prefix = "https://www.youtube.com/watch?v="
         output_template = f"{data_folder}/%(title)s-%(id)s"
         search_link = link
@@ -84,12 +84,12 @@ def save_video(link, video_type, sub_folder:str = "default"):
     # testing on my network shows that a) a minimum of 2 seconds is needed to pull down a file.
     # b) a 1 second duration points to an already-downloaded file.
     # Later... this may not be true for TikTok, given the files are so small - todo.
-    if duration_in_seconds < 2:
+    if duration_in_seconds < 2 and is_youtube(video_type):
         return [f"(This file has already been downloaded to the server.)", f"File is [{video_file}]."]
     return [f"Completed download to the server in [{duration_in_seconds}] seconds.", f"File is [{video_file}]."]
 
 
-def is_single_video(download_type):
+def is_youtube(download_type):
     """
     A YouTube video has been requested (true) or...
     A Tiktok video has been requested (false).
