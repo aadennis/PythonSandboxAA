@@ -94,7 +94,7 @@ def is_single_video(download_type):
     A YouTube video has been requested (true) or...
     A Tiktok video has been requested (false).
     """
-    if (download_type == "single"):
+    if (download_type == "YouTube"):
         return True
     return False
 
