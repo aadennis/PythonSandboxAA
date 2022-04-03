@@ -29,7 +29,12 @@ import string
 
 def save_video(link, video_type, sub_folder:str = "default"):
     """
-    video_type: represents 1 of YouTube or TikTok
+    Download and save the requested video (link).
+    Video_type: represents 1 of YouTube or TikTok. The actions differ for each.
+    Sub_folder: the caller can request a named folder to store the video. Else
+    the video will be stored in the default folder, under the data folder in the 
+    application.
+    The YouTube executable must exist. See https://github.com/yt-dlp/yt-dlp.
     """
     ytexe = "yt-dlp.exe"
     yt_prefix = ""
