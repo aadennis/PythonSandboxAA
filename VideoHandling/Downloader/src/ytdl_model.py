@@ -51,13 +51,16 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
         # non-checked-in static copy: D:\software\VideoSoftware\YoutubeDownloader\yt-dlp 
         raise FileNotFoundError("no file found: [{}]. Exiting...".format(ytexe))
     
+    search_link = ""
     if (is_single_video(single_or_list)): # todo - change labels for Tiktok support
         yt_prefix = "https://www.youtube.com/watch?v="
         output_template = f"{data_folder}/%(title)s-%(id)s"
+        search_link = link
     else:  # Tiktok - whole of url...
         yt_prefix = ""
         playlist_parameter = ""
         output_template = f"{data_folder}/%(title)s-%(id)s"
+        search_link = link.split('/')[-1] # for Tiktok just want the long number as uid
 
     command_line = f"{ytexe} {yt_prefix}{link} {playlist_parameter} --write-description -o {output_template}.mp4"
     print(f"!!!!!!!!!![cmd line]: {command_line}")
@@ -68,7 +71,7 @@ def save_video(link, single_or_list, sub_folder:str = "default"):
 
     end_time = datetime.datetime.now()
     gap = end_time - start_time
-    search_path = f"{data_folder}/*{link}*.mp4"
+    search_path = f"{data_folder}/*{search_link}*.mp4"
     print(f"!!!!!!!!!!!!!!search_path: {search_path}")
 
     video_file = (glob.glob(search_path))[0].replace('\\','/')
