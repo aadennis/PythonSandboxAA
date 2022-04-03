@@ -74,6 +74,9 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 * Python3    
 * clone the parent repo of this readme
 * ```pip install ‑r requirements.txt``` - preferably into a virtualenv  
+  * If you have a virtual env, then if in PowerShell, you can...
+    *  cd D:\Sandbox\git\aadennis
+    *  . ./virtualenvs/venv/Scripts/activate
 * ```cd (your working root - the root of this repo)  ```
 * ```cd .\PythonSandboxAA\VideoHandling\Downloader  ```
 * ```uvicorn src.ytdl_view:app --reload ``` 
