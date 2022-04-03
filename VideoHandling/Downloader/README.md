@@ -71,7 +71,7 @@ _For testing, you can use 2 videos I recorded, so a) no copyright issues, b) the
 
 ### 1.8 As mentioned above, expanding Click for Help gives some more detail:
 
-<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158351609-7cb7b4e1-84b6-4052-bf88-ab77f664474f.png">
+<img width="830" alt="image" src="https://user-images.githubusercontent.com/11707983/161445229-05c37da1-23b9-4cd6-906b-5373635283cb.png">
 
 <hr/>
 
