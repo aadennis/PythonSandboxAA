@@ -29,15 +29,19 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### 1.2 Open a browser at http://127.0.0.1:8000/video  
 
-<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158605014-bb4d0e79-d63c-4e7a-928d-104a927ddc7f.png">  
+<img width="424" alt="image" src="https://user-images.githubusercontent.com/11707983/161426344-19da7fe8-3880-43a3-bf14-f50e0ed88129.png">
 <hr/>
 
+### 1.3x Choose Youtube video or Tiktok video
+
+<img width="380" alt="image" src="https://user-images.githubusercontent.com/11707983/161426460-9ea5d1a2-89ea-4e3c-a918-c56b953f9f5c.png">
+<hr/>
 
 ### 1.3 Enter a video id (expand Click for Help for more on this)
 
-*Note that the video id ```FFs4JIUbXJU``` can be used for testing: I wrote it, so no copyright issues, and it is only a few mb.*
+*Note that the video id ```FFs4JIUbXJU``` can be used for testing Youtube: I wrote it, so no copyright issues, and it is only a few mb.*
 
-<img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158350010-feee0a9b-383a-4e0b-b1f2-80337cd95fe9.png">
+<img width="407" alt="image" src="https://user-images.githubusercontent.com/11707983/161426493-01847035-94cd-4504-a15a-779b0498396e.png">
 
 <hr/>
 
