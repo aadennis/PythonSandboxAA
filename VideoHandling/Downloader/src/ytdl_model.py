@@ -27,7 +27,7 @@ import os
 import string
 
 
-def save_video(link, video_type, sub_folder:str = "default"):
+def save_video(link:str, video_type, sub_folder:str = "default"):
     """
     Download and save the requested video (link).
     Video_type: represents 1 of YouTube or TikTok. The actions differ for each.
@@ -42,6 +42,8 @@ def save_video(link, video_type, sub_folder:str = "default"):
 
     if not link:
         return ["Please put an entry in the 'identifier...' box, before clicking [Download]."]
+
+    link = link.strip()
 
     if is_youtube(video_type) and link.find("https://www.tiktok.com") >= 0:
         return ["You have chosen 'A YouTube video', but entered a TikTok url. Please check and retry."]
