@@ -78,16 +78,14 @@ _For testing, you can use 2 videos I recorded, so a) no copyright issues, b) the
 ## 2. Setup
 ### 2.1 Pre-requisites  
 **2.1.1 Server**  
+**Platform / language**
 * Windows - _todo - make it Windows/Linux agnostic_  
 * Python3    
-* clone the parent repo of this readme
+**Actions**
+* clone this repository
 * ```pip install ‑r requirements.txt``` - preferably into a virtualenv  
-  * If you have a virtual env, then if in PowerShell, you can...
-    *  cd D:\Sandbox\git\aadennis
-    *  . ./virtualenvs/venv/Scripts/activate
-* ```cd (your working root - the root of this repo)  ```
-* ```cd .\PythonSandboxAA\VideoHandling\Downloader  ```
-* ```uvicorn src.ytdl_view:app --reload ``` 
+* ```cd (your work root)\PythonSandboxAA\VideoHandling\Downloader  ```
+* ```./Script/run_uvicorn.ps1``` (edit the $rootdir as required for your location)
 
 **2.1.2 Browser**  
 http://127.0.0.1:8000/video  
