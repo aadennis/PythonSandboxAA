@@ -14,7 +14,7 @@ For me, "appropriate" is, in the first instance, month and year.
 If the files are mostly from October 2021, for example, then the appropriate folder would likely be ```D:/onedrive/stuff/CRD_2021_10.```  That is just based on my setup.
 You might be expecting automation to take of distributing the files in the bucket to the appropriate year-month folder. 
 However, I find it is safest to sort by date descending, review, and move each year-month batch to the right folder. For Windows at least, OneDrive will recognise 
-that they are being moved, and not complain about many files being deleted.
+that they are being moved, and not complain about many files being deleted, provided that the files remain in a folder under the OneDrive root folder.
 
 ## Usage
 ### Dependencies
