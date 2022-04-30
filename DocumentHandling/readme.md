@@ -75,7 +75,7 @@ In "After", note that:
 - Open Terminal/PowerShell
 - cd to your checkout area for this project. For example:
   - ```cd D:\Sandbox\git\aadennis\PythonSandboxAA\DocumentHandling ```   
-- ``` py DocumentHandling/src/DocumentRunner.py ```
+- ``` py src/DocumentRunner.py ```
 - The command line offers defaults for the file folder, and for the source file (right now, to change those, edit ```DocumentRunner.py``` :
 - 
 <img width="509" alt="image" src="https://user-images.githubusercontent.com/11707983/160418765-c53a425f-f334-470d-9b06-d002c06a0531.png">
