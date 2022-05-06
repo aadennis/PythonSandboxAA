@@ -5,12 +5,16 @@
 
 # Server
 
-![image](https://user-images.githubusercontent.com/61011995/156147642-00e1f887-5b25-46f6-966d-9491aa94e797.png)
+Raw data - D:\onedrive\data\Sea\TideData
 
+```cd D:\Sandbox\git\aadennis``` 
+
+```.\virtualenvs\venv\Scripts\activate```
+
+```cd .\PythonSandboxAA\TideTimes```
 
 ```uvicorn src.tidetimes:app --reload```
 
-![image](https://user-images.githubusercontent.com/11707983/156338701-7068b457-c6a2-4f7e-9a8e-56057025c041.png)
 
 
 ![image](https://user-images.githubusercontent.com/61011995/154820525-7fd9ad67-4415-4244-84d3-b751ca733978.png)
