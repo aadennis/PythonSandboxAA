@@ -24,8 +24,9 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### 1.1 Start the Uvicorn server 
 
-<img width="593" alt="image" src="https://user-images.githubusercontent.com/11707983/158346284-c9064547-b696-4304-a7b8-46710034157c.png">  
-<hr/>
+```cd (your work root)\PythonSandboxAA\VideoHandling\Downloader ```
+
+```./Script/run_uvicorn.ps1```
 
 ### 1.2 Open a browser at http://127.0.0.1:8000/video  
 
