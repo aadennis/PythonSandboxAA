@@ -24,9 +24,12 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ### 1.1 Start the Uvicorn server 
 
-```cd (your work root)\PythonSandboxAA\VideoHandling\Downloader ```
+```$workRoot = "D:\Sandbox\git\aadennis\PythonSandboxAA" (as an example)
+
+```cd $workRoot\PythonSandboxAA\VideoHandling\Downloader ```
 
 ```./Script/run_uvicorn.ps1```
+
 
 ### 1.2 Open a browser at http://127.0.0.1:8000/video  
 
@@ -61,6 +64,12 @@ _For testing, you can use 2 videos I recorded, so a) no copyright issues, b) the
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348220-f0dacb0f-4648-46b4-9276-49cdfd410b5f.png">
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/11707983/158348689-cb916436-e6e2-415b-bf71-55b05a30825c.png">
+
+A helper to navigate to the data folder, assuming you are followed 1.1 above, is:
+
+```start data```
+
+
 
 <hr/>
 
