@@ -26,7 +26,7 @@ As you will need to do setup before you can use this wrapper, this may seem the 
 
 ```$workRoot = "D:\Sandbox\git\aadennis\PythonSandboxAA" ``` (as an example)
 
-```cd $workRoot\PythonSandboxAA\VideoHandling\Downloader ```
+```cd $workRoot\VideoHandling\Downloader ```
 
 ```./Script/run_uvicorn.ps1```
 
