@@ -80,9 +80,14 @@ Then the second stage takes the first stage output using command line options, t
 
 This all means that the GUI becomes redundant. Shame, but I learnt a bit, and this is more efficient, if I am doing it every month, as I have been, and intend to keep doing, as long as I use the sea :-)
 
-I realise there is no example of the actual source:
+An example of the source document, from which I read the data:
 
 <img width="421" alt="image" src="https://user-images.githubusercontent.com/11707983/171932968-b13250a1-a13e-4c65-87d4-5ff3a985ee14.png">
+
+I aim to use Microsoft Word for the dictation. In the next shot, note the mis-hearing of "new line" even though it was fine for record 1. However, it is picking up the digits, and the commas correctly:
+
+<img width="844" alt="image" src="https://user-images.githubusercontent.com/11707983/171958930-75857711-e3f9-4ed2-8cd2-8c752aa414c2.png">
+
 
 
 
