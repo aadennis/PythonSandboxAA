@@ -57,8 +57,8 @@ Limited example of current output:
 Note the first column (tide date), the second column (tidal range), and the references to Low and High
 
 Tide date: this could be replaced by 1 instead of 01/06/2022 etc, with 6 and 2022 being passed in, in a post-dictation stage. Indeed the number is redundant, but helps me keep my place in the physical booklet.  
-Tidal range: again, do this is a second stage
-Low and High: record this only on when the first tide type (Low or High) of the day differs from the previous day.
+Tidal range: again, do this as a second stage function
+Low and High: record this only when the first tide type (Low or High) of the day differs from the previous day.
 
 Those points give this, as an example for the dictation output using the sample records above:  
 ```
