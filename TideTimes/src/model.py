@@ -70,3 +70,12 @@ class Model:
         ]
 
         return lines
+
+# If a line (ultimately from a csv) begins with #, it is a comment.
+# Else it is data
+    def is_comment_line(self, line):
+        pattern = re.compile("#")
+        match = pattern.match(line)
+        if not match:
+            return False
+        return match.string == line

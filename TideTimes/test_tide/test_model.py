@@ -4,7 +4,13 @@ import tempfile
 from src.model import Model
 
 class TestModel:
-    def test_set_1(self):
-        a = Model().get_the_lines()
-        assert 1 == 1
+    def test_is_comment_line(self):
+        line = "# this is a comment"
+        is_comment = Model().is_comment_line(line)
+        assert is_comment == True
+
+    def test_is_data_line(self):
+        line = "Any line that does not start with # is data"
+        is_comment = Model().is_comment_line(line)
+        assert is_comment == False
         
