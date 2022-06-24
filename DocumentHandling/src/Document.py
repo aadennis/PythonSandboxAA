@@ -1,5 +1,5 @@
 import io
-from src.DocumentLine import DocumentLine
+from .DocumentLine import DocumentLine
 
 
 """
