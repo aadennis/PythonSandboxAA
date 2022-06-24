@@ -12,42 +12,61 @@ def myprint(msg):
         return
     print(msg)
 
-def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int, is_high_tide: bool, tide_file: str):
-    """
-    Format tide data for a single day.
-    'is_high_tide' is True if the first tide of the day (tide_1) is High, else False.
-    Subsequent tides toggle between Low and High.
-    There is not always a Tide 4 during a calendar day. Right now, this absence is
-    indicated by a "9" in the input, and gets translated to "NA".
-    Tide_n consists of [time, tide height] (to save keystrokes). For example,
-    '0421327', means time - 04:21, height - 3.27 metres.
-    Full example:
-    Date,tidalrange,type1,time1,height1,type2,time2,height2,type3,time3,height3,type4,time4,height4
-    30/01/2022,2.77,04:33:00,High,3.44,10:53:00,Low,0.76,17:10:00,High,3.42,23:24:00,Low,0.67
-    """
-    if not Utilities().is_valid_date(tide_date):
-        raise ValueError("date is not valid")
-    tides = [tide_1, tide_2, tide_3, tide_4]
-    tides_formatted = []
+class Model:
 
-    tide_file = f"data/{tide_file}"
+    def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int, is_high_tide: bool, tide_file: str):
+        """
+        Format tide data for a single day.
+        'is_high_tide' is True if the first tide of the day (tide_1) is High, else False.
+        Subsequent tides toggle between Low and High.
+        There is not always a Tide 4 during a calendar day. Right now, this absence is
+        indicated by a "9" in the input, and gets translated to "NA".
+        Tide_n consists of [time, tide height] (to save keystrokes). For example,
+        '0421327', means time - 04:21, height - 3.27 metres.
+        Full example:
+        Date,tidalrange,type1,time1,height1,type2,time2,height2,type3,time3,height3,type4,time4,height4
+        30/01/2022,2.77,04:33:00,High,3.44,10:53:00,Low,0.76,17:10:00,High,3.42,23:24:00,Low,0.67
+        """
+        if not Utilities().is_valid_date(tide_date):
+            raise ValueError("date is not valid")
+        tides = [tide_1, tide_2, tide_3, tide_4]
+        tides_formatted = []
 
-    formatted_tide_date = Utilities().get_tide_date(tide_date)
-    myprint(f"formatted_tide date: {formatted_tide_date} ")
-    for iteration, i in enumerate(tides):
-        myprint(f"iteration {iteration}")
-        tides_formatted.append("{:07}".format(i))
-    
-    myprint(tides_formatted)
-    formatted_tide = ""
-    for iteration, i in enumerate(tides_formatted):
-        myprint(f"iteration b {iteration}")
-        formatted_tide += ',' + Utilities().get_tide_instance(iteration, is_high_tide, i)
-        myprint(formatted_tide)
+        tide_file = f"data/{tide_file}"
 
-    formatted_tide = formatted_tide_date + "," + str(Utilities().get_tidal_range(formatted_tide))  +  formatted_tide + "\n"
-    myprint(f"formatted tides for day: {formatted_tide}")      
-    with io.open(tide_file, "a") as f:
-        f.writelines(formatted_tide)
+        formatted_tide_date = Utilities().get_tide_date(tide_date)
+        myprint(f"formatted_tide date: {formatted_tide_date} ")
+        for iteration, i in enumerate(tides):
+            myprint(f"iteration {iteration}")
+            tides_formatted.append("{:07}".format(i))
+        
+        myprint(tides_formatted)
+        formatted_tide = ""
+        for iteration, i in enumerate(tides_formatted):
+            myprint(f"iteration b {iteration}")
+            formatted_tide += ',' + Utilities().get_tide_instance(iteration, is_high_tide, i)
+            myprint(formatted_tide)
 
-    return tide_file
+        formatted_tide = formatted_tide_date + "," + str(Utilities().get_tidal_range(formatted_tide))  +  formatted_tide + "\n"
+        myprint(f"formatted tides for day: {formatted_tide}")      
+        with io.open(tide_file, "a") as f:
+            f.writelines(formatted_tide)
+
+        return tide_file
+
+    def get_the_lines(self):
+        lines = [
+            'The Title',
+            '',
+            'First Header',
+            'Header Two',
+            '',
+            'Some body and then some repeat all that until more than max for header',
+            '2 First Header',
+            '2 Header Two',
+            '',
+            '2 Some body and then some repeat all that until more than max for header',
+            
+        ]
+
+        return lines
