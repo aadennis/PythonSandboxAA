@@ -24,7 +24,9 @@ jobs:
         run: pytest DocumentHandling -v -s
       - name: pytest ImageHandling - exif
         run: pytest ImageHandling/exif -v -s
-      - name: pytest Utilties
+      - name: pytest Utilities
         run: pytest Utilities -v -s
+      - name: pytest TideTimes
+        run: pytest TideTimes -v -s
                 
         
