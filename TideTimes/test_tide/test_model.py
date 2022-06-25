@@ -23,4 +23,9 @@ class TestModel:
         line = "hIGh"
         is_tide = Model().is_tide(line)
         assert is_tide
+
+    def test_data_is_not_tide(self):
+        line = "xhIGh"
+        is_tide = Model().is_tide(line)
+        assert not is_tide
         

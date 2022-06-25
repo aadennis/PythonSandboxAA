@@ -91,7 +91,8 @@ class Model:
         match = pattern_low.match(candidate_tide)
         if not match:
             match = pattern_high.match(candidate_tide)
-        print("thing is " + match.string)
+        if not match:
+            return False
         result = match.string.lower()
         if result == "low" or result == "high":
             return True
