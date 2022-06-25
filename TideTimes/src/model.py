@@ -98,6 +98,18 @@ class Model:
         else: # low matched
             return 'low'
 
+# A tide_day record starts with 1 to 31, and is followed by a comma.
+# If that is not true, return none. Else parse the elements, and
+# return an object
+# (more validation required than that)
+    def get_tide_day(self, candidate_tide_day):
+        elements = candidate_tide_day.split(",")
+        tide_date = (int) (elements[0])
+        if tide_date > 0 and tide_date < 32:
+            return tide_date
+        return None
+
+
         
         
         

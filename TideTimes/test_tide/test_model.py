@@ -33,3 +33,13 @@ class TestModel:
         line = "None of these"
         tide_type = Model().get_tide_type(line)
         assert tide_type == None
+
+    def test_is_data_record(self):
+        line = "7,The rest"
+        tide_date = Model().get_tide_day(line)
+        assert tide_date == 7
+
+    def test_is_not_data_record(self):
+        line = "73,The rest"
+        tide_date = Model().get_tide_day(line)
+        assert tide_date == None
