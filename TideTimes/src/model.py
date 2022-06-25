@@ -81,21 +81,23 @@ class Model:
             return False
         return match.string == line
 
-# If a line begins with (CI) low or high, then it is a data record 
-# related to the binary tide types of Low or High. In this case, return True.
-# Else, return False
-# We don't care if subsequent letters don't match. so e.g. "lowx" is a tide.
-    def is_tide(self, candidate_tide):
+# A valid tide_type starts with (CI) 'low' or 'high'.
+# If neither is true, return None
+# Else return 'low' or 'high' (CS)
+# We don't care if subsequent letters don't match. so e.g. "lowx" is a valid tide.
+    def get_tide_type(self, candidate_tide_type):
         pattern_low = re.compile('low', re.IGNORECASE)
         pattern_high = re.compile('high', re.IGNORECASE)
-        match = pattern_low.match(candidate_tide)
+        match = pattern_low.match(candidate_tide_type)
         if not match:
-            match = pattern_high.match(candidate_tide)
-        if not match:
-            return False
-        result = match.string.lower()
-        if result == "low" or result == "high":
-            return True
-        return False
+            match = pattern_high.match(candidate_tide_type)
+            if not match: # neither high nor low matched
+                return None
+            else:
+                return 'high'
+        else: # low matched
+            return 'low'
+
+        
         
         

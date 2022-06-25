@@ -15,17 +15,21 @@ class TestModel:
         assert is_comment == False
 
     def test_is_tide_high(self):
-        line = "lOw"
-        is_tide = Model().is_tide(line)
-        assert is_tide
-
-    def test_is_tide_low(self):
-        line = "hIGh"
-        is_tide = Model().is_tide(line)
-        assert is_tide
-
-    def test_data_is_not_tide(self):
-        line = "xhIGh"
-        is_tide = Model().is_tide(line)
-        assert not is_tide
+        line = "hiGh"
+        tide_type = Model().get_tide_type(line)
+        assert tide_type == 'high'
         
+    def test_is_tide_low(self):
+        line = "lOw"
+        tide_type = Model().get_tide_type(line)
+        assert tide_type == 'low'
+
+    def test_is_tide_low2(self):
+        line = "lOwAtLeastTheFirstCharsMatch"
+        tide_type = Model().get_tide_type(line)
+        assert tide_type == 'low'
+
+    def test_is_not_tide(self):
+        line = "None of these"
+        tide_type = Model().get_tide_type(line)
+        assert tide_type == None
