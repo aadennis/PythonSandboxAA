@@ -73,9 +73,28 @@ class Model:
 
 # If a line (ultimately from a csv) begins with #, it is a comment.
 # Else it is data
+# https://docs.python.org/3/howto/regex.html#regex-howto
     def is_comment_line(self, line):
         pattern = re.compile("#")
         match = pattern.match(line)
         if not match:
             return False
         return match.string == line
+
+# If a line begins with (CI) low or high, then it is a data record 
+# related to the binary tide types of Low or High. In this case, return True.
+# Else, return False
+# We don't care if subsequent letters don't match. so e.g. "lowx" is a tide.
+    def is_tide(self, candidate_tide):
+        pattern_low = re.compile('low', re.IGNORECASE)
+        pattern_high = re.compile('high', re.IGNORECASE)
+        match = pattern_low.match(candidate_tide)
+        if not match:
+            match = pattern_high.match(candidate_tide)
+        print("thing is " + match.string)
+        result = match.string.lower()
+        if result == "low" or result == "high":
+            return True
+        return False
+        
+        

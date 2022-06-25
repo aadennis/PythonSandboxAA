@@ -13,4 +13,14 @@ class TestModel:
         line = "Any line that does not start with # is data"
         is_comment = Model().is_comment_line(line)
         assert is_comment == False
+
+    def test_is_tide_high(self):
+        line = "lOw"
+        is_tide = Model().is_tide(line)
+        assert is_tide
+
+    def test_is_tide_low(self):
+        line = "hIGh"
+        is_tide = Model().is_tide(line)
+        assert is_tide
         
