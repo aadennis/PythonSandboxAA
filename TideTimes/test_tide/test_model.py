@@ -43,3 +43,8 @@ class TestModel:
         line = "73,The rest"
         tide_date = Model().get_tide_day(line)
         assert tide_date == None
+
+    def test_is_not_data_record_2(self):
+        line = "x,The rest"
+        tide_date = Model().get_tide_day(line)
+        assert tide_date == None
