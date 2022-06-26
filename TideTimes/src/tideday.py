@@ -19,9 +19,10 @@ class TideDay:
     tide_month = None
     tide_type = None
     tide_times = []
-    
+   
 
     def __init__(self, tide_day_record, month, year, tide_type):
+        self.tide_times = []
         self.validate_record(tide_day_record, month, year, tide_type)
         
     # validate the data passed to the constructor.
@@ -48,11 +49,27 @@ class TideDay:
         self.tide_year = (int) (year)
         self.tide_type = tide_type
 
-    def GetFormattedDay(self, tide_times):
-        day = self.tide_date
-        formatted_date = "{:02d}/{:02d}/{:02d}".format(self.tide_date), format(self.tide_month), format(self.tide_type)
-        tidal_range = Utilities.get_tidal_range2(tide_times)
-        return "01/06/2022,3.15,Low,02:29:00,0.54,High,08:31:00,3.51,Low,14:43:00,0.6,High,20:41:00,3.69"
+    def GetFormattedDay(self):
+        """
+        Return a record for a tide day that is ready to be plugged into the expected format in the tides 
+        spreadsheet. 
+        Params:
+        tide_times - an array of the 4 tides in a day.
+        Full example of the returned record:
+        "01/06/2022,3.15,Low,02:29:00,0.54,High,08:31:00,3.51,Low,14:43:00,0.6,High,20:41:00,3.69"
+        """
+        print(self.tide_date)
+        print(self.tide_month)
+        print(self.tide_year)
+        print(self.tide_times)
+        
+        formatted_date = "{:02d}/{:02d}/{:02d}".format(self.tide_date, self.tide_month, self.tide_year)
+        tidal_range = Utilities().get_tidal_range2(self.tide_times)
+        formatted_record = f"{formatted_date},{tidal_range}"
+        for index,i in enumerate(self.tide_times):
+            formatted_record += Utilities().get_tide_instance2(index, self.tide_type, i)
+            
+        return formatted_record
 
 # Utilities...
         # if an int, return True. Else false

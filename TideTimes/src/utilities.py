@@ -154,7 +154,7 @@ anything else => Low
         return high_low
 
 
-    def get_tide_instance(self, ctr: int, hl_marker: bool, tide: int):
+    def get_tide_instance(self, ctr: int, hl_marker: bool, tide):
         """
         A tide instance is the combination of:
         time, whether high or low, the height.
@@ -192,7 +192,7 @@ anything else => Low
         print(raw_time)
         formatted_time = str(datetime.datetime.strptime(raw_time, "%H%M"))[11:]
         height = str(float(tide[4:])/100)
-        tide_instance = "{},{},{}".format(high_low, formatted_time, height)
+        tide_instance = ",{},{},{}".format(high_low, formatted_time, height)
         self.myprint(tide_instance)
         return tide_instance
 

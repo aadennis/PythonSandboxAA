@@ -17,6 +17,12 @@ class TestTideDay:
         assert td.tide_month == 3
         assert td.tide_type == "low"
 
+    def test_GetFormattedDay(self):
+        line = "29,0138013,0746407,1401000,2011390"
+        td = TideDay(line,3,2022,"low")
+
+        assert td.GetFormattedDay() == "29/03/2022,4.07,High,01:38:00,0.13,Low,07:46:00,4.07,High,14:01:00,0.0,Low,20:11:00,3.9"
+
     def test_is_not_valid_tideday_record(self):
         with pytest.raises(ValueError):
             line = "29,a138013,0746407,1401000,2011390"

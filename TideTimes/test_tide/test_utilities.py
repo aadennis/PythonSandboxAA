@@ -31,6 +31,6 @@ class TestUtilities:
         for index in range(0,4):
             tide_type = Utilities().get_tide_instance2(index, first_tide, "1903445")
             if index%2 == 0:
-                assert tide_type == "High,19:03:00,4.45"
+                assert tide_type == ",High,19:03:00,4.45"
             else:
-                assert tide_type == "Low,19:03:00,4.45"
+                assert tide_type == ",Low,19:03:00,4.45"
