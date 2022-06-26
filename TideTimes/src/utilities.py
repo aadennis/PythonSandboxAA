@@ -42,6 +42,24 @@ anything else => Low
         max_tide = max(tide_list)
         return round(max_tide - min_tide,2)
 
+    def get_tidal_range2(self, raw_tidal_data):
+        """
+        Given a comma-separated string, being the 4 tides in a tide-day, extract
+        the tide heights (ignoring the time data). 
+        For info, the tide height is the last 3 of seven digits in each field:
+            1.time of day: 4 digits, e.g. 0134 = 01h34m
+            2.tide height: 3 digits, e.g. 113 = 1.13 metres;
+        The Tidal Range is then defined as the difference between the highest tide during the
+        day, and the lowest.
+        """
+        tide_list = []
+        for i in raw_tidal_data.split(","):
+            if self.is_float(i):
+                tide_list.append(float(i))
+        self.myprint(tide_list)
+        min_tide = min(tide_list)
+        max_tide = max(tide_list)
+        return round(max_tide - min_tide,2)
     @staticmethod
     def is_float(candidate_float):
         """

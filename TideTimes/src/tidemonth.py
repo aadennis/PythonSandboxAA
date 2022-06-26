@@ -1,5 +1,6 @@
 # TODO - REMOVE THIS FILE
 import io
+from .tideday import TideDay
 from src.utilities import Utilities
 import datetime
 import re
@@ -17,6 +18,8 @@ class TideMonth:
     month = None
     year = None
     tide_type = None
+    formatted_tideday = []
+
 
     def __init__(self, tide_for_month, month: int = 6, year: int = 2022 ):
         self.month = month
@@ -24,9 +27,15 @@ class TideMonth:
         for i in tide_for_month:
             if self.is_comment_line(i):
                 continue
+
             temp_tide_type = self.get_tide_type(i)
             if temp_tide_type:
                 self.tide_type = temp_tide_type
+                continue
+
+            td = TideDay(i, self.month, self.year, self.tide_type)
+            self.formatted_tideday.append(td.GetFormattedDay())
+            
 
 
 
