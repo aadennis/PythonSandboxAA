@@ -7,6 +7,9 @@ class Utilities():
     def __init__(self):
         pass
 
+    LOW_TIDE_FIRST = ["low", "high","low", "high"]
+    HIGH_TIDE_FIRST = ["high","low", "high","low"]
+
     DEBUG = False
 
     def myprint(self, msg):
@@ -61,6 +64,21 @@ anything else => Low
         min_tide = min(tide_list)
         max_tide = max(tide_list)
         return round(max_tide - min_tide,2)
+
+    
+    def get_tide_position(self, first_tide, index):
+        """
+        Given the current index in the tide day (0-3),
+        return the correct tide relative to the first tide of the day.
+        For example, if the first_tide is 'low', then for an index of 0, return 'low'.
+        For an index of 1, return 'high', 2 => low, 3 => high.
+        """
+        if first_tide == 'low':
+            return self.LOW_TIDE_FIRST[index]
+        else: # high tide is first
+            return self.HIGH_TIDE_FIRST[index]
+
+
 
     @staticmethod
     def is_float(candidate_float):
@@ -156,6 +174,27 @@ anything else => Low
         self.myprint(tide_instance)
         return tide_instance
 
+    def get_tide_instance2(self, ctr: int, hl_marker: bool, tide: int):
+        """
+        A tide instance is the combination of:
+        time, whether high or low, the height.
+        Output example: High,3.27,01:56:00.
+        Special case / magic number: if tide is "9", then
+        return "NA,NA,NA"
+        """
+        NO_TIDE = "0000009"
+        if tide == NO_TIDE:
+            return "NA,NA,NA"
+        tide = str(tide)
+        high_low = self.get_high_low_marker(ctr, hl_marker)
+        self.myprint(f"point a {tide}/{high_low}")
+        raw_time  = tide[0:4]
+        print(raw_time)
+        formatted_time = str(datetime.datetime.strptime(raw_time, "%H%M"))[11:]
+        height = str(float(tide[4:])/100)
+        tide_instance = "{},{},{}".format(high_low, formatted_time, height)
+        self.myprint(tide_instance)
+        return tide_instance
 
     def get_tide_date(self, ddmm):
         CURRENT_YEAR = "2022"
