@@ -63,7 +63,7 @@ class TideDay:
         tidal_range = Utilities().get_tidal_range2(self.tide_times)
         formatted_record = f"{formatted_date},{tidal_range}"
         for index,i in enumerate(self.tide_times):
-            tide_type_asbool = True if self.tide_type == 'High' else False
+            tide_type_asbool = True if self.tide_type == 'high' else False
             formatted_record += Utilities().get_tide_instance2(index, tide_type_asbool, i)
             
         return formatted_record
