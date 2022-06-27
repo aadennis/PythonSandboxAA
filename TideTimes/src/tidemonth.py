@@ -18,12 +18,12 @@ class TideMonth:
     month = None
     year = None
     tide_type = None
-    formatted_tideday = []
+    formatted_tideday = None
 
-
-    def __init__(self, tide_for_month, month: int = 6, year: int = 2022 ):
+    def __init__(self, tide_for_month, month: int, year: int = 2022 ):
         self.month = month
         self.year = year
+        self.formatted_tideday = []
         for i in tide_for_month:
             if self.is_comment_line(i):
                 continue
@@ -36,12 +36,8 @@ class TideMonth:
             td = TideDay(i, self.month, self.year, self.tide_type)
             self.formatted_tideday.append(td.GetFormattedDay())
             
-
-
-
-        
-        
-        
+    def get_formatted_tide_month(self):
+        return self.formatted_tideday
 
     def save_tide(tide_1: int, tide_2: int, tide_3: int, tide_4: int, tide_date: int, is_high_tide: bool, tide_file: str):
         """

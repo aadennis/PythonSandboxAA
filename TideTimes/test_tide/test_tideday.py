@@ -21,7 +21,7 @@ class TestTideDay:
         line = "29,0138013,0746407,1401000,2011390"
         td = TideDay(line,3,2022,"low")
 
-        assert td.GetFormattedDay() == "29/03/2022,4.07,High,01:38:00,0.13,Low,07:46:00,4.07,High,14:01:00,0.0,Low,20:11:00,3.9"
+        assert td.GetFormattedDay() == "29/03/2022,4.07,Low,01:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
 
     def test_is_not_valid_tideday_record(self):
         with pytest.raises(ValueError):

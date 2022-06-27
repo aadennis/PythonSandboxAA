@@ -139,7 +139,6 @@ anything else => Low
         day.
         That principle is reversed for High tides.
         """
-        logging.info("ctr/ hl_marker: {}/{}".format(index, hl_marker))
         high_low = None
         if index%2 == 0:
             if hl_marker:

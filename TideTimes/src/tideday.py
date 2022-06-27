@@ -20,7 +20,6 @@ class TideDay:
     tide_type = None
     tide_times = []
    
-
     def __init__(self, tide_day_record, month, year, tide_type):
         self.tide_times = []
         self.validate_record(tide_day_record, month, year, tide_type)
@@ -58,16 +57,13 @@ class TideDay:
         Full example of the returned record:
         "01/06/2022,3.15,Low,02:29:00,0.54,High,08:31:00,3.51,Low,14:43:00,0.6,High,20:41:00,3.69"
         """
-        print(self.tide_date)
-        print(self.tide_month)
-        print(self.tide_year)
-        print(self.tide_times)
         
         formatted_date = "{:02d}/{:02d}/{:02d}".format(self.tide_date, self.tide_month, self.tide_year)
         tidal_range = Utilities().get_tidal_range2(self.tide_times)
         formatted_record = f"{formatted_date},{tidal_range}"
         for index,i in enumerate(self.tide_times):
-            formatted_record += Utilities().get_tide_instance2(index, self.tide_type, i)
+            tide_type_asbool = True if self.tide_type == 'High' else False
+            formatted_record += Utilities().get_tide_instance2(index, tide_type_asbool, i)
             
         return formatted_record
 
