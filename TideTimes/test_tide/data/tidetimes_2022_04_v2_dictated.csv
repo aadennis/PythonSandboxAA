@@ -14,7 +14,7 @@ Low
 # Tide then flips to have High as the first tide of the day.
 High
 # A flip also results in just 3 tides in one calendar day...
-9,0521129,1203249,1741144,NA
+9,0521129,1203249,1741144,9
 10,0027261,0646149,1313229,1928157
 # ...
 Low
