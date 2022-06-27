@@ -37,11 +37,12 @@ class TideDay:
             raise ValueError(f"Tide type should be low or high, not {tide_type}")
         
         for i in range(1,5):
-            if not self.parse_int(self.items[i]):
-                raise ValueError(f"Tide data must be expressed as an integer, not: {self.items[i]}")
-            if not len(self.items[i]) == 7 and not self.items[i] == '9':
-                raise ValueError(f"Each data thing must be 7 digits long, or be '9', representing 'no tide for this time'")
-            self.tide_times.append(self.items[i])
+            current_field = str.strip(self.items[i])
+            if not self.parse_int(current_field):
+                raise ValueError(f"Tide data must be expressed as an integer, not: {current_field}")
+            if not len(current_field) == 7 and not current_field == '9':
+                raise ValueError(f"Each data thing must be 7 digits long, or be '9', representing 'no tide for this time'. Got [{current_field}]")
+            self.tide_times.append(current_field)
             
         self.tide_date = (int) (self.items[0])
         self.tide_month = (int) (month)

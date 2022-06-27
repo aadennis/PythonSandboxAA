@@ -1,8 +1,6 @@
-# TODO - REMOVE THIS FILE
 import io
 from .tideday import TideDay
 from src.utilities import Utilities
-import datetime
 import re
 
 TIDE_COUNT = 4  # max of 4 tides in 1 day
