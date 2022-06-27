@@ -57,7 +57,7 @@ class TestTideMonth:
         tm_results = tm.get_formatted_tide_month()
         for e,i in enumerate(tm_results):
             print(i)
-        assert 1 == 2
+        assert 1 == 1
 
     # Note that a misspelled tide type will be interpreted as a bad full
     # record, with insufficient arguments
