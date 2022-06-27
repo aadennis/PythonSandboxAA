@@ -39,8 +39,8 @@ class TideDay:
         for i in range(1,5):
             if not self.parse_int(self.items[i]):
                 raise ValueError(f"Tide data must be expressed as an integer, not: {self.items[i]}")
-            if not len(self.items[i]) == 7:
-                raise ValueError(f"Each data thing must be 7 digits long")
+            if not len(self.items[i]) == 7 and not self.items[i] == '9':
+                raise ValueError(f"Each data thing must be 7 digits long, or be '9', representing 'no tide for this time'")
             self.tide_times.append(self.items[i])
             
         self.tide_date = (int) (self.items[0])

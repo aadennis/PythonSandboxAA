@@ -28,5 +28,8 @@ class TestTideDay:
             line = "29,a138013,0746407,1401000,2011390"
             td = TideDay(line,1,2022,"low")
 
-
+    def test_last_tidefield_is_na(self):
+        line = "27,2138013,0746407,1401022,9"
+        td = TideDay(line,2,2022,"low")
+        assert td.GetFormattedDay() == "27/02/2022,3.94,Low,21:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.22,NA,NA,NA"
    

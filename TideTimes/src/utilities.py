@@ -54,10 +54,13 @@ anything else => Low
             2.tide height: 3 digits, e.g. 113 = 1.13 metres;
         The Tidal Range is then defined as the difference between the highest tide during the
         day, and the lowest.
-        "NA" tides, effectively null tides, should be ignored, but are not yet.
+        "NA" tides, effectively null tides, are denoted by '9' in the (normally 7 digit) field, and are
+        not included in the calculation
         """
         tide_list = []
         for i in raw_tidal_data:
+            if i == '9':
+                continue
             tide = float(f"{i[4:5]}.{i[5:8]}")
             tide_list.append(tide)
         self.myprint(tide_list)
@@ -181,9 +184,9 @@ anything else => Low
         Special case / magic number: if tide is "9", then
         return "NA,NA,NA"
         """
-        NO_TIDE = "0000009"
+        NO_TIDE = "9"
         if tide == NO_TIDE:
-            return "NA,NA,NA"
+            return ",NA,NA,NA"
         tide = str(tide)
         high_low = self.get_high_low_marker(ctr, hl_marker)
         self.myprint(f"point a {tide}/{high_low}")
