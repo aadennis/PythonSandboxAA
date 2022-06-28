@@ -89,5 +89,21 @@ I aim to use Microsoft Word for the dictation. In the next shot, note the mis-he
 <img width="844" alt="image" src="https://user-images.githubusercontent.com/11707983/171958930-75857711-e3f9-4ed2-8cd2-8c752aa414c2.png">
 
 
+A working example of a file dictated in MS Word on a pc. Some tidy up was required. For example, [newline] was sometimes interpreted
+as a command, sometimes as the literal "new line". And single digits were sometimes spelt out. For example "1" -> "One".
+
+<img width="522" alt="image" src="https://user-images.githubusercontent.com/11707983/176112621-cc19378c-63cb-4f57-a720-a04edbef061d.png">
+
+Dictated files are stored here:
+
+```OD/data/Sea/tidedata/dictated_tides```
+
+Final output for use in the spreadsheet (not discussed here?) - those are here:
+
+```OD/data/Sea/tidedata/spreadsheet_input```
+
+
+
+
 
 
