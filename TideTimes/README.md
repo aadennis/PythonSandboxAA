@@ -102,6 +102,10 @@ Final output for use in the spreadsheet (not discussed here?) - those are here:
 
 ```OD/data/Sea/tidedata/spreadsheet_input```
 
+Video of issues when using MS Word Dictation for data entry:
+
+https://www.youtube.com/watch?v=Dzir2im7N7o
+
 
 
 
