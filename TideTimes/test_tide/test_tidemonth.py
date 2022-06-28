@@ -50,6 +50,8 @@ class TestTideMonth:
         tide_month_data =[]
 
         file_path =  "TideTimes/test_tide/data/tidetimes_2022_04_v2_dictated.csv"
+        file_path =  "TideTimes/test_tide/data/tidetimes_2022_06_dictated.csv"
+        
         with io.open(file_path, 'r') as f:
             for line in f:
                 tide_month_data.append(line)
