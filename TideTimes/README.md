@@ -1,6 +1,8 @@
 # Tide Times
 ## A UI to capture tide times for a single location
 
+https://youtu.be/p9PPx82QUo0 
+
 ### Usage
 
 # Server
