@@ -31,7 +31,7 @@ PyExifTool==0.5.3
 Pygments==2.11.2
 pyparsing==3.0.7
 PySocks==1.7.1
-pytest==7.1.1
+pytest==7.2.0
 pytest-mock==3.7.0
 python-dotenv==0.19.2
 python-multipart==0.0.5
