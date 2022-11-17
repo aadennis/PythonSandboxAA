@@ -7,7 +7,7 @@
 -  I want all pictures taken (photos, screenshots, movies) consolidated into a single folder
 -  So that from that folder, I can assign pictures to  appropriate albums
 ### Detail
-The onedrive/Pictures folder contains 7 named sub-folders, a set dictated by Microsoft. 
+The onedrive/Pictures folder contains 7 named sub-folders (from 11.2022, this includes WhatsApp as separate folders), a set dictated by Microsoft. 
 This consolidates any content from those folders (and sub-sub-etc-folders), to a single, randomly named flat folder.  
 It is then up to the user to move, by hand, those files to an appropriate folder.  
 For me, "appropriate" is, in the first instance, month and year.  
