@@ -11,7 +11,7 @@ class TestTideMonth:
         tide_month_data = ["Low","#hight"]
         tm = TideMonth(tide_month_data, 6)
         assert tm.month == 6
-        assert tm.year == 2022
+        assert tm.year == 2023
 
     def test_tide_type_low(self):
         tide_month_data = ["Low","#hight"]
@@ -24,13 +24,15 @@ class TestTideMonth:
         assert tm.tide_type == "high"
 
     def test_1day_tide(self):
+        # The year in the expected results is a constant in the Code UT... I know.
         tide_month_data = ["Low","# just a comment", 
         "29,0338013,0746407,1401000,2011390"]
         tm = TideMonth(tide_month_data, 6)
         tm_result = tm.get_formatted_tide_month()
-        assert tm_result[0] == "29/06/2022,4.07,Low,03:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
+        assert tm_result[0] == "29/06/2023,4.07,Low,03:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
 
     def test_tide_change(self):
+        # The month and year in the expected results are constants in the Code UT... I know.
         tide_month_datax = [
             "Low","# just a comment", 
             "3,0138013,0746407,1401000,2011390",
@@ -40,7 +42,7 @@ class TestTideMonth:
             ]
         tm = TideMonth(tide_month_datax, 1)
         tm_results = tm.get_formatted_tide_month()
-        assert tm_results[0] == "03/06/2022,4.07,Low,01:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
+        assert tm_results[0] == "03/01/2023,4.07,Low,01:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
 
     def test_read_monthfile(self):
         print("File Path:", Path(__file__).absolute()) 

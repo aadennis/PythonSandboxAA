@@ -40,6 +40,10 @@ class TideDay:
             current_field = str.strip(self.items[i])
             if not self.parse_int(current_field):
                 raise ValueError(f"Tide data must be expressed as an integer, not: {current_field}")
+            if len(current_field) == 6:
+                # this is the format used on the tides at the Coastwatch hut e.g. 3.6m not 3.61m
+                # add trailing 0 to cater for the missing precision
+                current_field += "0"
             if not len(current_field) == 7 and not current_field == '9':
                 raise ValueError(f"Each data thing must be 7 digits long, or be '9', representing 'no tide for this time'. Got [{current_field}]")
             self.tide_times.append(current_field)
