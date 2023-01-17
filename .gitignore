@@ -143,3 +143,4 @@ TideTimes/data/tidetimes_2022_04_v2_dictated.csv
 ImageHandling/src/image_handling.ini
 
 PyAudio-0.2.11.tar.gz
+VideoHandling/Downloader/src/yt-dlp_2022-09.exe

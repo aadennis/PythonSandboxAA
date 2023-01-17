@@ -38,7 +38,7 @@ class TestTideMonth:
             "High",
             "5,0158015,0855407,1504020,2031415",
             ]
-        tm = TideMonth(tide_month_datax, 6)
+        tm = TideMonth(tide_month_datax, 1)
         tm_results = tm.get_formatted_tide_month()
         assert tm_results[0] == "03/06/2022,4.07,Low,01:38:00,0.13,High,07:46:00,4.07,Low,14:01:00,0.0,High,20:11:00,3.9"
 
@@ -49,13 +49,12 @@ class TestTideMonth:
 
         tide_month_data =[]
 
-        file_path =  "TideTimes/test_tide/data/tidetimes_2022_04_v2_dictated.csv"
-        file_path =  "TideTimes/test_tide/data/tidetimes_2022_08_dictated.csv"
+        file_path =  "../TideTimes/test_tide/data/dict_tide_01_2023.csv.txt"
         
         with io.open(file_path, 'r') as f:
             for line in f:
                 tide_month_data.append(line)
-        tm = TideMonth(tide_month_data, 9)
+        tm = TideMonth(tide_month_data, 1)
         tm_results = tm.get_formatted_tide_month()
         for e,i in enumerate(tm_results):
             print(i)

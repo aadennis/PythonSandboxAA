@@ -18,7 +18,7 @@ class TideMonth:
     tide_type = None
     formatted_tideday = None
 
-    def __init__(self, tide_for_month, month: int, year: int = 2022 ):
+    def __init__(self, tide_for_month, month: int, year: int = 2023 ):
         self.month = month
         self.year = year
         self.formatted_tideday = []
@@ -45,7 +45,7 @@ class TideMonth:
         There is not always a Tide 4 during a calendar day. Right now, this absence is
         indicated by a "9" in the input, and gets translated to "NA".
         Tide_n consists of [time, tide height] (to save keystrokes). For example,
-        '0421327', means time - 04:21, height - 3.27 metres.
+        '0421327', means time - 04:21, height - 3.3 metres. (Note that new charts use 9.9 metres, not 9.99 metres)
         Full example:
         Date,tidalrange,type1,time1,height1,type2,time2,height2,type3,time3,height3,type4,time4,height4
         30/01/2022,2.77,04:33:00,High,3.44,10:53:00,Low,0.76,17:10:00,High,3.42,23:24:00,Low,0.67
