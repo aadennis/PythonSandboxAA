@@ -62,7 +62,9 @@ In "After", note that:
 5. If it is a Heading, but does not qualify as a Heading1, then it is a Heading 2
 6. All other text is body text
 
-<img width="300" alt="Google script output" src="https://user-images.githubusercontent.com/216411935-d61ad782-7542-47ca-a969-15975cc1806d.png">
+<img width="300" alt="Google script output" src="https://user-images.githubusercontent.com/11707983/216411935-d61ad782-7542-47ca-a969-15975cc1806d.png">
+
+![a](https://user-images.githubusercontent.com/11707983/216413629-9c326654-0e17-4c61-98f7-69fc5649e463.png)
 
 
 ##  2. <a name='Setup'></a>Setup
