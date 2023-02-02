@@ -115,6 +115,8 @@ At this stage, the Google document is not styled, other than the default of "Nor
 Find the Script Editor:  
 ![image](https://user-images.githubusercontent.com/11707983/160234920-bf3ec899-1ef9-4ed8-86a4-327bb923d60e.png)
 
+(02.2023: Apps Script is now opened from the Add-ons menu)
+
 Opening Scripts gives a default function in the default Code.gs, in an Untitled project: 
 
 ![image](https://user-images.githubusercontent.com/11707983/160234974-98e048bc-8520-47fc-b0bc-fd3f0caa86e3.png)
