@@ -1,6 +1,3 @@
-import io
-
-
 """
   Represents a single line in a document. 
 """
