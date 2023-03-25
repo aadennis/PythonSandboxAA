@@ -27,7 +27,28 @@ Save one copy under
 So the data is independent of the current dev box, save another copy in the development environment,  here:  
 ```PythonSandboxAA\TideTimes\test_tide\data```   
 
+This test file takes the dictated file, and transforms it to the format that the spreadsheet will accept as input:   
+```PythonSandboxAA\TideTimes\test_tide\test_tidemonth.py```   
 
+The function in this file that does the transform:
+```test_read_monthfile```  
+
+<img width="543" alt="image" src="https://user-images.githubusercontent.com/11707983/227745501-b112e83f-a7c8-4949-a29e-e5ffbe69b3ea.png">
+
+Yes, this is dirty, smelly and lazy, but I can't imagine anyone other than me wants this.
+
+Continuing, edit the month (and year) within the green as appropriate.  
+
+This is the location and command to run:  
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/11707983/227745462-22892656-595b-4aaf-a78b-1bf6fad5ff0e.png">
+
+In the source file, there must be only 1 newline at the end, else it fails:  
+<img width="222" alt="image" src="https://user-images.githubusercontent.com/11707983/227745323-69705393-34e5-4276-afaa-2cd001095053.png">
+
+The output goes to the screen. Ignore the assert 1 == 2 failure - that is just to force the screen output.   
+<img width="572" alt="image" src="https://user-images.githubusercontent.com/11707983/227745557-974b7801-2523-4da7-8167-d605358687c4.png">  
+Copy and paste that into a csv file in Notepad++ etc.  
+Then read that into the Google Sheets Tides 2023 spreadsheet.  
 
 
 <hr/>
