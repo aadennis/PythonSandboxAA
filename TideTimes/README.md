@@ -47,7 +47,9 @@ In the source file, there must be only 1 newline at the end, else it fails:
 
 The output goes to the screen. Ignore the assert 1 == 2 failure - that is just to force the screen output.   
 <img width="572" alt="image" src="https://user-images.githubusercontent.com/11707983/227745557-974b7801-2523-4da7-8167-d605358687c4.png">  
-Copy and paste that into a csv file in Notepad++ etc.  
+Copy and paste that into a csv file in Notepad++ etc.    
+<img width="408" alt="image" src="https://user-images.githubusercontent.com/11707983/227745719-24d36970-5fcc-467f-b845-baa078598b8a.png">
+  
 Then read that into the Google Sheets Tides 2023 spreadsheet.  
 
 
