@@ -1,7 +1,9 @@
 # Tide Times
-## A UI to capture tide times for a single location
+## A workflow to capture tide times for a single location
 
 March 2023  
+
+# Formatting the source
 The source for the monthly tide times is a document like this:
 
 <img width="200" alt="image" src="https://user-images.githubusercontent.com/11707983/227743954-d0ab25bd-84da-4497-8e14-912efcfbab16.png">
@@ -18,7 +20,7 @@ You dictate from there into a csv like this:
 And so on.   
 The first column is the date of the month. The next four columns each consist of 4 digits, (for instance, 2133 means the time 21:33), then 2 digits (for instance, 33 means a tide height of 3.3 metres).  4 + 2 = 6 digits per column. The exception to 6 digits per column is the special value "9", which means "just 3 high and low tides today". It is not a null value.  
 
-
+# Saving the dictated transcription
 
 An example of the name of one of these dictated files:  
 ```tide_dictated_2023_03.csv```  
@@ -26,6 +28,8 @@ Save one copy under
 ```(OD)\data\Sea\TideData\tidetimes_dictated```  
 So the data is independent of the current dev box, save another copy in the development environment,  here:  
 ```PythonSandboxAA\TideTimes\test_tide\data```   
+
+# Transforming the transcription to the formatted output
 
 This test file takes the dictated file, and transforms it to the format that the spreadsheet will accept as input:   
 ```PythonSandboxAA\TideTimes\test_tide\test_tidemonth.py```   
