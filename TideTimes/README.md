@@ -54,8 +54,7 @@ The output goes to the screen. Ignore the assert 1 == 2 failure - that is just t
 Copy and paste that into a csv file in Notepad++ etc.    
 <img width="408" alt="image" src="https://user-images.githubusercontent.com/11707983/227745719-24d36970-5fcc-467f-b845-baa078598b8a.png">
   
-Then read that into the Google Sheets Tides 2023 spreadsheet.  
-
+Then save that to ``` (OD)\data\Sea\TideData\spreadsheet_input``` before reading it into the Google Sheets Tides 2023 spreadsheet.    
 
 <hr/>
 Everything under here is archive - ignore and put somewhere else
