@@ -1,0 +1,41 @@
+# Examples of output from the prompt "Write an advertising slogan for a soft drink"
+
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\n\"Refreshingly Delicious: Taste the Difference of Our Soft Drink!\""
+    }
+  ],
+  "created": 1681660204,
+  "id": "cmpl-75yvcgsvFQ6QLtLD7kt5pFGN5FWdg",
+  "model": "text-davinci-003",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 17,
+    "prompt_tokens": 8,
+    "total_tokens": 25
+  }
+}
+
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\n\"Refreshingly Delicious: Enjoy the Taste of _____!\""
+    }
+  ],
+  "created": 1681660121,
+  "id": "cmpl-75yuHvca4w59IGJrKxTtYo94d5P0I",
+  "model": "text-davinci-003",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 8,
+    "total_tokens": 24
+  }
+}
