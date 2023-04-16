@@ -36,7 +36,10 @@ from numpy import array, source
 
 def new_folder_for_each_month_in_year(rootb, yearb): # deprecated / redundant for a few years
     """
-    asdfasdf
+    example:
+    rootb = "X:/onedrive/data/photos/_Albumx/CameraRollDump"
+    yearb = "2024"
+    new_folder_for_each_month_in_year(rootb, yearb)
     """
     for i in range(1, 12 + 1):
         # to give, e.g. D:/onedrive/data/photos/_Albums/CameraRollDump/CRD_2014_01
@@ -165,6 +168,8 @@ def move_onedrive_pictures_to_root(root_folder = "D:/onedrive/Pictures", target 
     that they are being moved, and not complain about many files being deleted.
     """
     
+    # desktop.ini may interfere with copying, and not required:
+
     random_leaf = str(random.randint(1,999999999999999))
     target_folder = "{}/bucket_{}".format(target, random_leaf)
     os.mkdir(target_folder)
@@ -222,3 +227,4 @@ print(folder['source_dir'])
 print(folder['dest_dir'])
 
 move_onedrive_pictures_to_root(folder['source_dir'], folder['dest_dir'])
+
