@@ -199,7 +199,7 @@ anything else => Low
         return tide_instance
 
     def get_tide_date(self, ddmm):
-        CURRENT_YEAR = "2022"
+        CURRENT_YEAR = "2023"
         return "{}/{}/{}".format(ddmm[2:4],ddmm[0:2], CURRENT_YEAR)
 
 
@@ -209,7 +209,7 @@ anything else => Low
             Later, we assume the year to always be the current year,
             right now that is a constant.
         """
-        CURRENT_YEAR = "2022"
+        CURRENT_YEAR = "2023"
         month = tide_date[0:2]
         day = tide_date[2:4]
         self.myprint(month)

@@ -51,12 +51,12 @@ class TestTideMonth:
 
         tide_month_data =[]
 
-        file_path =  "../TideTimes/test_tide/data/dict_tide_01_2023.csv.txt"
+        file_path =  "./test_tide/data/tide_dictated_2023_04.csv"
         
         with io.open(file_path, 'r') as f:
             for line in f:
                 tide_month_data.append(line)
-        tm = TideMonth(tide_month_data, 1)
+        tm = TideMonth(tide_month_data, 4)
         tm_results = tm.get_formatted_tide_month()
         for e,i in enumerate(tm_results):
             print(i)
