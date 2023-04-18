@@ -1,5 +1,7 @@
 # pip install openai openai-whisper
 # choco install ffmpeg
+# python may have trouble finding ffmpeg.exe. As quick win, I have 
+# stuffed it in the python.exe folder
 # playing - chat.openai.com/chat
 # https://pypi.org/project/openai/
 import openai
