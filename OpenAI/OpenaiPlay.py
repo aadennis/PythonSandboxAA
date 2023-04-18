@@ -1,9 +1,11 @@
-# pip install openai
+# pip install openai openai-whisper
+# choco install ffmpeg
 # playing - chat.openai.com/chat
 # https://pypi.org/project/openai/
 import openai
 import os
 import util
+import whisper
 
 class OpenAiPlay(object):
     def __init__(self):
@@ -34,6 +36,10 @@ class OpenAiPlay(object):
             transcript = openai.Audio.transcribe(file=audio_file, model='whisper-1', prompt='High\nLow')
             print(transcript)
 
+    def whisper_api_test(self, speech_file):
+        model = whisper.load_model("base")
+        result = model.transcribe(speech_file)
+        print(result["text"])
 
 
 
@@ -47,4 +53,6 @@ oap = OpenAiPlay()
 audio_file = "OpenAI/test_artefacts/definitive_test_input.mp3"
 audio_file = "OpenAI/test_artefacts/short_tide.m4a"
 
-oap.whisper_test(audio_file)
+# oap.whisper_test(audio_file)
+oap.whisper_api_test(audio_file)
+
