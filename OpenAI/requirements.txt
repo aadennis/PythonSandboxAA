@@ -5,7 +5,7 @@ async-timeout==4.0.2
 atomicwrites==1.4.0
 attrs==21.4.0
 Babel==2.10.3
-certifi==2022.6.15
+certifi==2022.12.07
 charset-normalizer==2.1.0
 colorama==0.4.5
 docutils==0.18.1
@@ -37,7 +37,7 @@ py==1.11.0
 Pygments==2.12.0
 pyparsing==3.0.9
 pyperclip==1.8.2
-pytest==7.1.2
+pytest==7.2.0
 python-dateutil==2.8.2
 pytz==2022.1
 PyYAML==6.0
