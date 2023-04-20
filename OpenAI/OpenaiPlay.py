@@ -40,7 +40,7 @@ class OpenAiPlay(object):
 
     def whisper_api_test(self, speech_file):
         model = whisper.load_model("base")
-        result = model.transcribe(speech_file)
+        result = model.transcribe(speech_file, fp16=False)
         print(result["text"])
 
 
