@@ -21,7 +21,7 @@ class OpenAiWhisperPlay(object):
         print(thefile)
 
         model = whisper.load_model("base")
-        result = model.transcribe(thefile, verbose=True, fp16=False)
+        result = model.transcribe(thefile, verbose=True, fp16=False, language="en")
 
 
 oap = OpenAiWhisperPlay()
