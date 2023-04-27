@@ -1,13 +1,10 @@
-# pip install openai, openai-whisper
+# pip install openai, openai-whisper, ffmpeg-python
 # https://pypi.org/project/openai-whisper/
 # rogue missing file:
 # https://stackoverflow.com/questions/73845566/openai-whisper-filenotfounderror-winerror-2-the-system-cannot-find-the-file
-# pip install ffmpeg
-# AttributeError: module 'ffmpeg' has no attribute 'input'
-# AttributeError: module 'ffmpeg' has no attribute 'Error'
-import openai
-import os
-import util
+# AttributeError: module 'ffmpeg' has no attribute 'input' or 'Error - probably due 
+# to ffmpeg installation not ffmpeg-python
+# on Windows
 import whisper
 from pathlib import Path 
 
