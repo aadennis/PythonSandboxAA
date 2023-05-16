@@ -1,8 +1,6 @@
 import datetime
 
-# Embed the input string as a constant inside the Python code.
 TIMES = "0515 0530 0603 0633 0703 0733 1228 1243 1258 1635 1651 1710 1725 1755 2004 2020 2034 2104 2204 2304 2345 0004"
-# Define the time interval constant.
 MINUTES_INTERVAL = -6
 
 # Convert the input string to a list of datetime objects.
