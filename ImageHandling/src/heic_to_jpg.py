@@ -16,6 +16,7 @@ from pillow_heif import register_heif_opener
 
 path = "c:/temp/"
 files = os.listdir(path)
+heic_found = False
 register_heif_opener()
 
 for file in files:
@@ -23,7 +24,11 @@ for file in files:
     file_prefix = filename[0]
     file_extension = filename[1]
     if file_extension.upper() == ".HEIC":
+        heic_found = True
         print(f"Converting: {file}")
         im = Image.open(path+file)
         rgb_im = im.convert("RGB")
         rgb_im.save(path+file_prefix+'_from_heic'+'.jpg')
+
+if not heic_found:
+    print(f"No heic files found in folder [{path}]")
