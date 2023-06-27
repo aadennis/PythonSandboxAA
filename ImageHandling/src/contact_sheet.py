@@ -7,7 +7,7 @@ from PIL import Image
 from pillow_heif import register_heif_opener
 
 def is_image_file(full_path_name):
-    for file_type in ("jpg", "jpeg","png"):
+    for file_type in ("jpg", "jpeg","png","heic"):
         if full_path_name.lower().endswith(file_type):
             return True
     return False
@@ -87,6 +87,7 @@ def make_contact_sheet(img_folder,  output_file, column_count = 3):
 img_folder = "tests/TestImageFiles"
 img_type = ".jpg"
 output_file = "c:/temp/contact_sheet.jpg"
+register_heif_opener()
 
 # act
 contact_sheet = make_contact_sheet(img_folder, output_file)
