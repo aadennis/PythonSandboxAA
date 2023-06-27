@@ -6,11 +6,14 @@ import math
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-def make_contact_sheet(img_folder, img_type):
+def make_contact_sheet(img_folder, img_type, column_count = 3):
     """\
     Make a contact sheet using all the files of the given
-    file type in the given folder. Right now, the number of columns is
-    a constant. The number of rows is ceil(file_count / number of columns).
+    file type in the given folder. The number of rows displayed is
+    a function of the number of display columns requested by the user - 
+     see the function signature for the current default. 
+    Basically the number of display rows is ceil(file_count / 
+    number of columns).
     That means for instance, if you have 5 images in a folder, and the 
     number of columns (constant) is 3, then you get 2 rows: the first row
     has 3 images, and the second row has 2, with a blank at the right hand side.
@@ -20,13 +23,13 @@ def make_contact_sheet(img_folder, img_type):
     img_type     Image type. For example, jpg, png, tiff.
                  The script dumbly uses the img_type, so make sure
                  it is a valid type. The script handles mixed-case OK.
+    column_count The number of columns to be displayed. Default is 3.
 
     Right now, you have no control over size, margins etc.
     Returns a PIL image object.
     """
 
     # Set size, margins, padding
-    maxcols = 3
     photow = 100
     photoh = 100
     marl = mart = marr = marb = padding = 5
@@ -43,10 +46,10 @@ def make_contact_sheet(img_folder, img_type):
         if file.lower().endswith(img_type):
             file_count += 1
 
-    nrows = math.ceil(file_count/maxcols)
-    padw = (maxcols - 1) * padding
+    nrows = math.ceil(file_count/column_count)
+    padw = (column_count - 1) * padding
     padh = (nrows - 1) * padding
-    isize = (maxcols * photow + marw + padw, nrows * photoh + marh + padh)
+    isize = (column_count * photow + marw + padw, nrows * photoh + marh + padh)
     white = (255, 255, 255)
     contact_sheet = Image.new('RGB', isize, white)
 
@@ -62,7 +65,7 @@ def make_contact_sheet(img_folder, img_type):
         bbox = (left, upper, right, lower)
         contact_sheet.paste(img, bbox)
         icol += 1
-        if (icol >= maxcols):
+        if (icol >= column_count):
             icol = 0
             irow += 1
 
