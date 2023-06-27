@@ -6,7 +6,7 @@ import math
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-def make_contact_sheet(img_folder, img_type, column_count = 3):
+def make_contact_sheet(img_folder, img_type,  output_file, column_count = 3):
     """\
     Make a contact sheet using all the files of the given
     file type in the given folder. The number of rows displayed is
@@ -69,6 +69,8 @@ def make_contact_sheet(img_folder, img_type, column_count = 3):
             icol = 0
             irow += 1
 
+    print(f"Contact sheet is saved as [{output_file}]")
+    contact_sheet.save(output_file)
     # Done - return the contact sheet
     return contact_sheet
 
@@ -76,8 +78,7 @@ def make_contact_sheet(img_folder, img_type, column_count = 3):
 # arrange
 img_folder = "tests/TestImageFiles"
 img_type = ".jpg"
-contact_sheet_file = "c:/temp/outish.jpg"
+output_file = "c:/temp/contact_sheet.jpg"
 
 # act
-contact_sheet = make_contact_sheet(img_folder,img_type, 3)
-contact_sheet.save(contact_sheet_file)
+contact_sheet = make_contact_sheet(img_folder,img_type, output_file)
