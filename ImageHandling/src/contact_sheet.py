@@ -6,7 +6,13 @@ import math
 from PIL import Image
 from pillow_heif import register_heif_opener
 
-def make_contact_sheet(img_folder, img_type,  output_file, column_count = 3):
+def is_image_file(full_path_name):
+    for file_type in ("jpg", "jpeg","png"):
+        if full_path_name.lower().endswith(file_type):
+            return True
+    return False
+
+def make_contact_sheet(img_folder,  output_file, column_count = 3):
     """\
     Make a contact sheet using all the files of the given
     file type in the given folder. The number of rows displayed is
@@ -36,15 +42,15 @@ def make_contact_sheet(img_folder, img_type,  output_file, column_count = 3):
     marw = marl + marr
     marh = mart + marb
 
-    file_path = img_folder + "/*" + img_type
-
     # count the images, so we know how to arrange the rows 
     # and columns
+    file_list = []
     files = os.listdir(img_folder)
     file_count = 0
     for file in files:
-        if file.lower().endswith(img_type):
+        if is_image_file(file):
             file_count += 1
+            file_list.append(file)
 
     nrows = math.ceil(file_count/column_count)
     padw = (column_count - 1) * padding
@@ -56,7 +62,9 @@ def make_contact_sheet(img_folder, img_type,  output_file, column_count = 3):
     # Iterate over the (initially) empty contact sheet image.
     icol = 0
     irow = 0
-    for img_in_path in glob.iglob(file_path):
+
+    for file in file_list:
+        img_in_path = img_folder + "/" + file
         img = Image.open(img_in_path).resize((photow, photoh))
         left = marl + icol * (photow + padding)
         right = left + photow
@@ -81,4 +89,4 @@ img_type = ".jpg"
 output_file = "c:/temp/contact_sheet.jpg"
 
 # act
-contact_sheet = make_contact_sheet(img_folder,img_type, output_file)
+contact_sheet = make_contact_sheet(img_folder, output_file)
