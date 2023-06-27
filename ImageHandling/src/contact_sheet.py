@@ -76,7 +76,8 @@ def make_contact_sheet(img_folder, img_type, column_count = 3):
 # arrange
 img_folder = "tests/TestImageFiles"
 img_type = ".jpg"
-contact_sheet = make_contact_sheet(img_folder,img_type)
 contact_sheet_file = "c:/temp/outish.jpg"
+
 # act
+contact_sheet = make_contact_sheet(img_folder,img_type, 3)
 contact_sheet.save(contact_sheet_file)
