@@ -12,7 +12,7 @@ def is_image_file(full_path_name):
             return True
     return False
 
-def make_contact_sheet(img_folder,  output_file, column_count = 3):
+def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count = 3):
     """\
     Make a contact sheet using all the files of the given
     file type in the given folder. The number of rows displayed is
@@ -36,8 +36,7 @@ def make_contact_sheet(img_folder,  output_file, column_count = 3):
     """
 
     # Set size, margins, padding
-    photow = 100
-    photoh = 100
+    photow = photoh = 100
     marl = mart = marr = marb = padding = 5
     marw = marl + marr
     marh = mart + marb
@@ -51,6 +50,8 @@ def make_contact_sheet(img_folder,  output_file, column_count = 3):
         if is_image_file(file):
             file_count += 1
             file_list.append(file)
+            if file_count > max_images:
+                break
 
     nrows = math.ceil(file_count/column_count)
     padw = (column_count - 1) * padding
@@ -85,9 +86,10 @@ def make_contact_sheet(img_folder,  output_file, column_count = 3):
 #--------------------------------------------
 # arrange
 img_folder = "tests/TestImageFiles"
-img_type = ".jpg"
-output_file = "c:/temp/contact_sheet.jpg"
+# img_folder = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2023_01"
+output_file = "c:/temp/stuff.jpg"
+max_images = 300
 register_heif_opener()
 
 # act
-contact_sheet = make_contact_sheet(img_folder, output_file)
+contact_sheet = make_contact_sheet(img_folder, output_file, max_images= max_images)
