@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Run Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "D:/Sandbox/git/aadennis/PythonSandboxAA"
+            }
+        },
+        {
+            "name": "Python: pytest",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "PYTHONPATH": "D:/Sandbox/git/aadennis/PythonSandboxAA"
+            },
+            "envFile": "${workspaceRoot}/.env",
+            "console": "integratedTerminal",
+        }
+    ]
+}
