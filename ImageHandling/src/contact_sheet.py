@@ -35,6 +35,11 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
     Returns a PIL image object.
     """
 
+  
+
+    #required for HEIC support
+    register_heif_opener()
+
     # Set size, margins, padding
     photow = photoh = 100
     marl = mart = marr = marb = padding = 5
@@ -52,8 +57,15 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
             file_list.append(file)
             if file_count > max_images:
                 break
+  
+    
 
     nrows = math.ceil(file_count/column_count)
+    print(f"Processing [{file_count}] images")
+    print(f"max_images: {max_images}")
+    print(f"column_count: {column_count}")
+    print(f"estimated row_count: {nrows}")
+
     padw = (column_count - 1) * padding
     padh = (nrows - 1) * padding
     isize = (column_count * photow + marw + padw, nrows * photoh + marh + padh)
@@ -65,6 +77,7 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
     irow = 0
 
     for file in file_list:
+       
         img_in_path = img_folder + "/" + file
         img = Image.open(img_in_path).resize((photow, photoh))
         left = marl + icol * (photow + padding)
@@ -77,6 +90,8 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
         if (icol >= column_count):
             icol = 0
             irow += 1
+            if irow%10 == 0:
+                print(f"Processing row {irow}")
 
     print(f"Contact sheet is saved as [{output_file}]")
     contact_sheet.save(output_file)
@@ -86,10 +101,9 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
 #--------------------------------------------
 # arrange
 img_folder = "tests/TestImageFiles"
-# img_folder = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2023_01"
+#img_folder = "D:\onedrive\data\photos\_Albums\CameraRollDump\CRD_2023_01"
 output_file = "c:/temp/stuff.jpg"
-max_images = 300
-register_heif_opener()
+max_images = 500
 
 # act
-contact_sheet = make_contact_sheet(img_folder, output_file, max_images= max_images)
+contact_sheet = make_contact_sheet(img_folder, output_file, max_images= max_images, column_count = 10)
