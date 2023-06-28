@@ -1,4 +1,4 @@
-from src.contact_sheet import make_contact_sheet
+from src.contact_sheet import ContactSheet
 
 class TestContactSheet(object): 
     img_folder = "tests/TestImageFiles"
@@ -7,7 +7,7 @@ class TestContactSheet(object):
         # arrange
         output_file = "c:/temp/smallstuff.jpg"
         # act
-        contact_sheet = make_contact_sheet(self.img_folder, output_file)
+        contact_sheet = ContactSheet(self.img_folder, output_file)
 
     def test_large_volume_set1(self):
         # arrange
@@ -17,4 +17,4 @@ class TestContactSheet(object):
         max_images = 100
 
         # act
-        contact_sheet = make_contact_sheet(img_folder, output_file, max_images= max_images, column_count = 3)
+        contact_sheet = ContactSheet(img_folder, output_file, max_images= max_images, column_count = 3)
