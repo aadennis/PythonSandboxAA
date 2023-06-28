@@ -2,17 +2,38 @@
 # 578267-use-pil-to-make-a-contact-sheet-montage-of-images/
 import os
 import glob
+import random
 import math
 from PIL import Image
 from pillow_heif import register_heif_opener
 
+
+def __init__(self):
+    if not os.path.exists(transcript_file):
+        raise FileNotFoundError("no file [{}]".format(transcript_file))
+    self.transcript = transcript_file
+
+
 def is_image_file(full_path_name):
-    for file_type in ("jpg", "jpeg","png","heic"):
+    for file_type in ("jpg", "jpeg", "png", "heic"):
         if full_path_name.lower().endswith(file_type):
             return True
     return False
 
-def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count = 3):
+
+def reset_picture_dims():
+    padw = (column_count - 1) * padding
+    padh = (nrows - 1) * padding
+    isize = (column_count * photow + marw + padw, nrows * photoh + marh + padh)
+    white = (255, 255, 255)
+    contact_sheet = Image.new('RGB', isize, white)
+
+    # Iterate over the (initially) empty contact sheet image.
+    icol = 0
+    irow = 0
+
+
+def make_contact_sheet(img_folder,  output_file, max_images=100, column_count=3):
     """\
     Make a contact sheet using all the files of the given
     file type in the given folder. The number of rows displayed is
@@ -35,9 +56,7 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
     Returns a PIL image object.
     """
 
-  
-
-    #required for HEIC support
+    # required for HEIC support
     register_heif_opener()
 
     # Set size, margins, padding
@@ -46,7 +65,7 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
     marw = marl + marr
     marh = mart + marb
 
-    # count the images, so we know how to arrange the rows 
+    # count the images, so we know how to arrange the rows
     # and columns
     file_list = []
     files = os.listdir(img_folder)
@@ -57,8 +76,6 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
             file_list.append(file)
             if file_count > max_images:
                 break
-  
-    
 
     nrows = math.ceil(file_count/column_count)
     print(f"Processing [{file_count}] images")
@@ -66,18 +83,10 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
     print(f"column_count: {column_count}")
     print(f"estimated row_count: {nrows}")
 
-    padw = (column_count - 1) * padding
-    padh = (nrows - 1) * padding
-    isize = (column_count * photow + marw + padw, nrows * photoh + marh + padh)
-    white = (255, 255, 255)
-    contact_sheet = Image.new('RGB', isize, white)
-
-    # Iterate over the (initially) empty contact sheet image.
-    icol = 0
-    irow = 0
+    reset_picture_dims()
 
     for file in file_list:
-       
+
         img_in_path = img_folder + "/" + file
         img = Image.open(img_in_path).resize((photow, photoh))
         left = marl + icol * (photow + padding)
@@ -90,11 +99,15 @@ def make_contact_sheet(img_folder,  output_file, max_images = 100, column_count 
         if (icol >= column_count):
             icol = 0
             irow += 1
-            if irow%10 == 0:
+            if irow % 10 == 0:
                 print(f"Processing row {irow}")
-
-    print(f"Contact sheet is saved as [{output_file}]")
-    contact_sheet.save(output_file)
+        if (irow > 20):  # create a new sheet
+            srow = str(irow)
+            r = random.randint(1, 10000)
+            print_file = "c:/temp/" + "_" + srow + "_x" + ".jpg"
+            print(f"Contact sheet is saved as [{print_file}]")
+            contact_sheet.save(print_file)
+            reset_picture_dims()
+            contact_sheet = Image.new('RGB', isize, white)
     # Done - return the contact sheet
     return contact_sheet
-
