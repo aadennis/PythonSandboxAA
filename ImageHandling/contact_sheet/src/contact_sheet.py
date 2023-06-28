@@ -115,6 +115,9 @@ class ContactSheet:
                 contact_sheet = self.reset_picture_dims()
                 icol = 0
                 irow = 0
-               
+
+        print_file = "c:/temp/" + "FinalSheet" + str(random.randint(1,1000)) + ".jpg"
+        print(f"Final Contact sheet is saved as [{print_file}]")
+        contact_sheet.save(print_file)
         # Done - return the contact sheet
         return contact_sheet

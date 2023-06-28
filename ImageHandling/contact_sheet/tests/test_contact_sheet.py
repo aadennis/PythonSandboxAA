@@ -17,4 +17,4 @@ class TestContactSheet(object):
         max_images = 100
 
         # act
-        contact_sheet = ContactSheet(img_folder, output_file, max_images= max_images, column_count = 3)
+        contact_sheet = ContactSheet(img_folder, output_file, max_images= max_images, column_count = 6)
