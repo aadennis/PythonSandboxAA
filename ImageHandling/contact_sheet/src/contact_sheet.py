@@ -14,6 +14,7 @@ class ContactSheet:
         self.img_folder = img_folder
         self.max_images = max_images
         self.column_count = column_count
+        self.max_rows_per_page = 20
         self.make_contact_sheet()
 
     def get_rand_int_as_char(self, max_int = 10000):
@@ -29,8 +30,9 @@ class ContactSheet:
     def reset_picture_dims(self):
         padw = (self.column_count - 1) * self.padding
         padh = (self.nrows - 1) * self.padding
-        self.isize = (self.column_count * self.photow + self.marw + padw, self.nrows * self.photoh + self.marh + padh)
+        self.isize = (self.column_count * self.photow + self.marw + padw, self.max_rows_per_page * self.photoh + self.marh + padh)
         white = (255, 255, 255)
+        # https://pillow.readthedocs.io/en/stable/reference/Image.html#constructing-images
         return Image.new('RGB', self.isize, white)
 
         # Iterate over the (initially) empty contact sheet image.
@@ -107,7 +109,7 @@ class ContactSheet:
                 irow += 1
                 if irow % 10 == 0:
                     print(f"Processing row {irow}")
-            if (irow > 20):  # create a new sheet
+            if (irow > self.max_rows_per_page):  # create a new sheet
                 print_file = "c:/tempx/" + "_" +  self.get_rand_int_as_char() + ".jpg"
                 print(f"Contact sheet is saved as [{print_file}]")
                 contact_sheet.save(print_file)
