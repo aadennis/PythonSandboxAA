@@ -108,7 +108,6 @@ class ContactSheet:
                 if irow % 10 == 0:
                     print(f"Processing row {irow}")
             if (irow > 20):  # create a new sheet
-                srow = str(irow)
                 print_file = "c:/tempx/" + "_" +  self.get_rand_int_as_char() + ".jpg"
                 print(f"Contact sheet is saved as [{print_file}]")
                 contact_sheet.save(print_file)
