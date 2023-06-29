@@ -10,9 +10,8 @@ from pillow_heif import register_heif_opener
 class ContactSheet:
 
 
-    def __init__(self, img_folder,  output_file, max_images=100, column_count=3):
+    def __init__(self, img_folder,  max_images=100, column_count=3):
         self.img_folder = img_folder
-        self.output_file = output_file
         self.max_images = max_images
         self.column_count = column_count
         self.make_contact_sheet()
@@ -109,14 +108,14 @@ class ContactSheet:
             if (irow > 20):  # create a new sheet
                 srow = str(irow)
                 r = random.randint(1, 10000)
-                print_file = "c:/temp/" + "_" + srow + "_x" + ".jpg"
+                print_file = "c:/tempx/" + "_" + srow + "_x" + ".jpg"
                 print(f"Contact sheet is saved as [{print_file}]")
                 contact_sheet.save(print_file)
                 contact_sheet = self.reset_picture_dims()
                 icol = 0
                 irow = 0
 
-        print_file = "c:/temp/" + "FinalSheet" + str(random.randint(1,1000)) + ".jpg"
+        print_file = "c:/tempx/" + "FinalSheet" + str(random.randint(1,1000)) + ".jpg"
         print(f"Final Contact sheet is saved as [{print_file}]")
         contact_sheet.save(print_file)
         # Done - return the contact sheet
