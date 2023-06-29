@@ -16,6 +16,8 @@ class ContactSheet:
         self.column_count = column_count
         self.make_contact_sheet()
 
+    def get_rand_int_as_char(self, max_int = 10000):
+        return str(random.randint(1,max_int))
 
     def is_image_file(self, full_path_name):
         for file_type in ("jpg", "jpeg", "png", "heic"):
@@ -107,15 +109,14 @@ class ContactSheet:
                     print(f"Processing row {irow}")
             if (irow > 20):  # create a new sheet
                 srow = str(irow)
-                r = random.randint(1, 10000)
-                print_file = "c:/tempx/" + "_" + srow + "_x" + ".jpg"
+                print_file = "c:/tempx/" + "_" +  self.get_rand_int_as_char() + ".jpg"
                 print(f"Contact sheet is saved as [{print_file}]")
                 contact_sheet.save(print_file)
                 contact_sheet = self.reset_picture_dims()
                 icol = 0
                 irow = 0
 
-        print_file = "c:/tempx/" + "FinalSheet" + str(random.randint(1,1000)) + ".jpg"
+        print_file = "c:/tempx/" + "FinalSheet" + self.get_rand_int_as_char() + ".jpg"
         print(f"Final Contact sheet is saved as [{print_file}]")
         contact_sheet.save(print_file)
         # Done - return the contact sheet
