@@ -15,7 +15,17 @@ class ContactSheet:
         self.max_images = max_images
         self.column_count = column_count
         self.max_rows_per_page = 20
+        self.file_count = None # not known at this point
         self.make_contact_sheet()
+
+    def get_max_rows_per_page(self):
+         print(f"self.file_count {self.file_count}")
+         actual_max_rows = self.file_count / self.column_count
+         if actual_max_rows < self.max_rows_per_page:
+            self.max_rows_per_page = actual_max_rows
+         print(f"self.max_rows_per_page {self.max_rows_per_page}")
+         return self.max_rows_per_page
+       
 
     def get_rand_int_as_char(self, max_int = 10000):
         return str(random.randint(1,max_int))
@@ -30,7 +40,12 @@ class ContactSheet:
     def reset_picture_dims(self):
         padw = (self.column_count - 1) * self.padding
         padh = (self.nrows - 1) * self.padding
-        self.isize = (self.column_count * self.photow + self.marw + padw, self.max_rows_per_page * self.photoh + self.marh + padh)
+        contact_sheet_width = self.column_count * self.photow + self.marw + padw
+        contact_sheet_length = self.get_max_rows_per_page() * self.photoh + self.marh + padh
+        print(f"contact_sheet_width: {contact_sheet_width}")
+        print(f"contact_sheet_length: {contact_sheet_length}")
+        
+        self.isize = (contact_sheet_width,  contact_sheet_length)
         white = (255, 255, 255)
         # https://pillow.readthedocs.io/en/stable/reference/Image.html#constructing-images
         return Image.new('RGB', self.isize, white)
@@ -81,7 +96,16 @@ class ContactSheet:
                 file_count += 1
                 file_list.append(file)
                 if file_count > self.max_images:
+                    self.file_count = file_count
                     break
+        print(f"local - self.file_count {self.file_count}")
+        print(f"local - file_count {file_count}")
+        
+
+        if file_count < self.file_count:
+            self.file_count = file_count
+
+                        
 
         self.nrows = math.ceil(file_count/self.column_count)
         print(f"Processing [{file_count}] images")
