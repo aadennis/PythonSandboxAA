@@ -144,3 +144,4 @@ ImageHandling/src/image_handling.ini
 
 PyAudio-0.2.11.tar.gz
 VideoHandling/Downloader/src/yt-dlp_2022-09.exe
+ImageHandling/contact_sheet/.contactenv/*
