@@ -9,7 +9,6 @@ from pillow_heif import register_heif_opener
 
 class ContactSheet:
 
-
     def __init__(self, img_folder,  max_images=100, column_count=3):
         self.img_folder = img_folder
         self.max_images = max_images
@@ -25,7 +24,6 @@ class ContactSheet:
             self.max_rows_per_page = actual_max_rows
          print(f"self.max_rows_per_page {self.max_rows_per_page}")
          return self.max_rows_per_page
-       
 
     def get_rand_int_as_char(self, max_int = 10000):
         return str(random.randint(1,max_int))
@@ -40,8 +38,8 @@ class ContactSheet:
     def reset_picture_dims(self):
         padw = (self.column_count - 1) * self.padding
         padh = (self.nrows - 1) * self.padding
-        contact_sheet_width = self.column_count * self.photow + self.marw + padw
-        contact_sheet_length = self.get_max_rows_per_page() * self.photoh + self.marh + padh
+        contact_sheet_width = int(self.column_count * self.photow + self.marw + padw)
+        contact_sheet_length = int(self.get_max_rows_per_page() * self.photoh + self.marh + padh)
         print(f"contact_sheet_width: {contact_sheet_width}")
         print(f"contact_sheet_length: {contact_sheet_length}")
         
@@ -90,25 +88,15 @@ class ContactSheet:
         # and columns
         file_list = []
         files = os.listdir(self.img_folder)
-        file_count = 0
+        self.file_count = 0
         for file in files:
             if self.is_image_file(file):
-                file_count += 1
+                self.file_count += 1
                 file_list.append(file)
-                if file_count > self.max_images:
-                    self.file_count = file_count
+                if self.file_count > self.max_images:
                     break
-        print(f"local - self.file_count {self.file_count}")
-        print(f"local - file_count {file_count}")
-        
-
-        if file_count < self.file_count:
-            self.file_count = file_count
-
-                        
-
-        self.nrows = math.ceil(file_count/self.column_count)
-        print(f"Processing [{file_count}] images")
+        self.nrows = math.ceil(self.file_count/self.column_count)
+        print(f"Processing [{self.file_count}] images")
         print(f"max_images: {self.max_images}")
         print(f"column_count: {self.column_count}")
         print(f"estimated row_count: {self.nrows}")
@@ -118,7 +106,6 @@ class ContactSheet:
         irow = 0
 
         for file in file_list:
-
             img_in_path = self.img_folder + "/" + file
             img = Image.open(img_in_path).resize((self.photow, self.photoh))
             left = self.marl + icol * (self.photow + self.padding)
