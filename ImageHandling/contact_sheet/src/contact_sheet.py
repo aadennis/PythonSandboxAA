@@ -6,6 +6,7 @@ import random
 import math
 from PIL import Image
 from pillow_heif import register_heif_opener
+from datetime import datetime
 
 class ContactSheet:
 
@@ -46,10 +47,6 @@ class ContactSheet:
         # https://pillow.readthedocs.io/en/stable/reference/Image.html#constructing-images
         return Image.new('RGB', self.isize, white)
 
-        # Iterate over the (initially) empty contact sheet image.
-       
-
-
     def make_contact_sheet(self):
         """\
         Make a contact sheet using all the files of the given
@@ -76,6 +73,10 @@ class ContactSheet:
         # required for HEIC support
         register_heif_opener()
 
+        now = datetime.now()
+        self.file_name_root = now.strftime('contactsheet-%H-%M-%S-pt')
+        self.file_part = 1
+
         # Set size, margins, padding
         self.photow = self.photoh = 100
         self.marl = self.mart = self.marr = self.marb = self.padding = 5
@@ -94,10 +95,6 @@ class ContactSheet:
                 if self.image_count > self.max_images:
                     break
         self.total_rows_available = int(self.image_count/self.column_count)
-        print(f"Processing [{self.image_count}] images")
-        print(f"max_images: {self.max_images}")
-        print(f"column_count: {self.column_count}")
-        print(f"total_rows_available: {self.total_rows_available}")
         self.total_images_remaining = self.total_rows_available * self.column_count
 
         contact_sheet = self.reset_picture_dims()
@@ -120,14 +117,16 @@ class ContactSheet:
                 if irow % 10 == 0:
                     print(f"Processing row {irow}")
             if (irow > self.max_rows_per_page):  # create a new sheet
-                print_file = "c:/tempx/" + "_" +  self.get_rand_int_as_char() + ".jpg"
+                print_file = "c:/tempx/" + self.file_name_root + str(self.file_part) + ".jpg"
+                self.file_part += 1
                 print(f"Contact sheet is saved as [{print_file}]")
                 contact_sheet.save(print_file)
                 contact_sheet = self.reset_picture_dims()
                 icol = 0
                 irow = 0
 
-        print_file = "c:/tempx/" + "FinalSheet" + self.get_rand_int_as_char() + ".jpg"
+        print_file = "c:/tempx/" + self.file_name_root + str(self.file_part) + ".jpg"
+        self.file_part += 1
         print(f"Final Contact sheet is saved as [{print_file}]")
         contact_sheet.save(print_file)
         # Done - return the contact sheet
