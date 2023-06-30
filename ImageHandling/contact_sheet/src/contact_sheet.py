@@ -33,6 +33,19 @@ class ContactSheet:
                 return True
         return False
 
+    # count the images, so we know how to arrange the rows
+    # and columns
+    def count_images(self): 
+        image_list = []
+        files = os.listdir(self.img_folder)
+        self.image_count = 0
+        for file in files:
+            if self.is_image_file(file):
+                self.image_count += 1
+                image_list.append(file)
+                if self.image_count > self.max_images:
+                    break
+        return image_list
 
     def reset_picture_dims(self):
         padw = (self.column_count - 1) * self.padding
@@ -83,17 +96,8 @@ class ContactSheet:
         self.marw = self.marl + self.marr
         self.marh = self.mart + self.marb
 
-        # count the images, so we know how to arrange the rows
-        # and columns
-        file_list = []
-        files = os.listdir(self.img_folder)
-        self.image_count = 0
-        for file in files:
-            if self.is_image_file(file):
-                self.image_count += 1
-                file_list.append(file)
-                if self.image_count > self.max_images:
-                    break
+        image_list = self.count_images()
+
         self.total_rows_available = int(self.image_count/self.column_count)
         self.total_images_remaining = self.total_rows_available * self.column_count
 
@@ -101,7 +105,7 @@ class ContactSheet:
         icol = 0
         irow = 0
 
-        for file in file_list:
+        for file in image_list:
             img_in_path = self.img_folder + "/" + file
             img = Image.open(img_in_path).resize((self.photow, self.photoh))
             left = self.marl + icol * (self.photow + self.padding)
