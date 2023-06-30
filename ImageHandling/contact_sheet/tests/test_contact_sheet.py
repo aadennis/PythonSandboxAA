@@ -16,4 +16,4 @@ class TestContactSheet(object):
         # max_images is exact multiple of rows * columns - is last page blank?
         # max_images is 1 less, then 1 more than a multiple of rows * columns
         # act
-        contact_sheet = ContactSheet(img_folder, max_images= 120, requested_rows_per_page=10, column_count = 6)
+        contact_sheet = ContactSheet(img_folder, max_images= 240, requested_rows_per_page=10, column_count = 6)

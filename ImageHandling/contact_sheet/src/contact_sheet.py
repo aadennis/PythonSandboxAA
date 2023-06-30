@@ -10,11 +10,12 @@ from datetime import datetime
 
 class ContactSheet:
 
-    def __init__(self, img_folder,  max_images=100, requested_rows_per_page = 10, column_count=3):
+    def __init__(self, img_folder,  max_images=100, requested_rows_per_page = 10, column_count=3, hw_in_px=150):
         self.img_folder = img_folder
         self.max_images = max_images
         self.column_count = column_count
         self.requested_rows_per_page = requested_rows_per_page
+        self.hw_in_px = hw_in_px
         self.image_count = None # not known at this point
         self.make_contact_sheet()
 
@@ -91,7 +92,7 @@ class ContactSheet:
         self.file_part = 1
 
         # Set size, margins, padding
-        self.photow = self.photoh = 100
+        self.photow = self.photoh = self.hw_in_px
         self.marl = self.mart = self.marr = self.marb = self.padding = 5
         self.marw = self.marl + self.marr
         self.marh = self.mart + self.marb
