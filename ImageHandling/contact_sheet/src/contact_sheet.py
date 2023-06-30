@@ -13,13 +13,13 @@ class ContactSheet:
         self.img_folder = img_folder
         self.max_images = max_images
         self.column_count = column_count
-        self.max_rows_per_page = 20
-        self.file_count = None # not known at this point
+        self.max_rows_per_page = 10
+        self.image_count = None # not known at this point
         self.make_contact_sheet()
 
     def get_max_rows_per_page(self):
-         print(f"self.file_count {self.file_count}")
-         actual_max_rows = self.file_count / self.column_count
+         print(f"self.file_count {self.image_count}")
+         actual_max_rows = self.image_count / self.column_count
          if actual_max_rows < self.max_rows_per_page:
             self.max_rows_per_page = actual_max_rows
          print(f"self.max_rows_per_page {self.max_rows_per_page}")
@@ -88,15 +88,15 @@ class ContactSheet:
         # and columns
         file_list = []
         files = os.listdir(self.img_folder)
-        self.file_count = 0
+        self.image_count = 0
         for file in files:
             if self.is_image_file(file):
-                self.file_count += 1
+                self.image_count += 1
                 file_list.append(file)
-                if self.file_count > self.max_images:
+                if self.image_count > self.max_images:
                     break
-        self.nrows = math.ceil(self.file_count/self.column_count)
-        print(f"Processing [{self.file_count}] images")
+        self.nrows = math.ceil(self.image_count/self.column_count)
+        print(f"Processing [{self.image_count}] images")
         print(f"max_images: {self.max_images}")
         print(f"column_count: {self.column_count}")
         print(f"estimated row_count: {self.nrows}")
