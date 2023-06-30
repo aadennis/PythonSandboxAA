@@ -11,7 +11,9 @@ class TestContactSheet(object):
         # arrange
         # override test class default
         img_folder = "D:/onedrive/data/photos/_Albums/CameraRollDump/CRD_2023_01"
-        max_images = 200
 
+        # edge cases to try:
+        # max_images is exact multiple of rows * columns - is last page blank?
+        # max_images is 1 less, then 1 more than a multiple of rows * columns
         # act
-        contact_sheet = ContactSheet(img_folder, max_images= max_images, column_count = 6)
+        contact_sheet = ContactSheet(img_folder, max_images= 120, requested_rows_per_page=10, column_count = 6)

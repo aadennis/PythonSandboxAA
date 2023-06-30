@@ -10,16 +10,16 @@ from datetime import datetime
 
 class ContactSheet:
 
-    def __init__(self, img_folder,  max_images=100, column_count=3):
+    def __init__(self, img_folder,  max_images=100, requested_rows_per_page = 10, column_count=3):
         self.img_folder = img_folder
         self.max_images = max_images
         self.column_count = column_count
-        self.max_rows_per_page = 10
+        self.requested_rows_per_page = requested_rows_per_page
         self.image_count = None # not known at this point
         self.make_contact_sheet()
 
     def get_max_rows_per_page(self):
-        min_comp = min(self.total_rows_available, self.max_rows_per_page)
+        min_comp = min(self.total_rows_available, self.requested_rows_per_page)
         self.total_images_remaining -= (min_comp * self.column_count)
         self.total_rows_available = int(self.total_images_remaining / self.column_count)
         return min_comp
@@ -120,7 +120,7 @@ class ContactSheet:
                 irow += 1
                 if irow % 10 == 0:
                     print(f"Processing row {irow}")
-            if (irow > self.max_rows_per_page):  # create a new sheet
+            if (irow >= self.requested_rows_per_page):  # create a new sheet
                 print_file = "c:/tempx/" + self.file_name_root + str(self.file_part) + ".jpg"
                 self.file_part += 1
                 print(f"Contact sheet is saved as [{print_file}]")
