@@ -18,12 +18,10 @@ class ContactSheet:
         self.make_contact_sheet()
 
     def get_max_rows_per_page(self):
-         print(f"self.file_count {self.image_count}")
-         actual_max_rows = self.image_count / self.column_count
-         if actual_max_rows < self.max_rows_per_page:
-            self.max_rows_per_page = actual_max_rows
-         print(f"self.max_rows_per_page {self.max_rows_per_page}")
-         return self.max_rows_per_page
+        min_comp = min(self.total_rows_available, self.max_rows_per_page)
+        self.total_images_remaining -= (min_comp * self.column_count)
+        self.total_rows_available = int(self.total_images_remaining / self.column_count)
+        return min_comp
 
     def get_rand_int_as_char(self, max_int = 10000):
         return str(random.randint(1,max_int))
@@ -37,7 +35,7 @@ class ContactSheet:
 
     def reset_picture_dims(self):
         padw = (self.column_count - 1) * self.padding
-        padh = (self.nrows - 1) * self.padding
+        padh = (self.total_rows_available - 1) * self.padding
         contact_sheet_width = int(self.column_count * self.photow + self.marw + padw)
         contact_sheet_length = int(self.get_max_rows_per_page() * self.photoh + self.marh + padh)
         print(f"contact_sheet_width: {contact_sheet_width}")
@@ -95,11 +93,12 @@ class ContactSheet:
                 file_list.append(file)
                 if self.image_count > self.max_images:
                     break
-        self.nrows = math.ceil(self.image_count/self.column_count)
+        self.total_rows_available = int(self.image_count/self.column_count)
         print(f"Processing [{self.image_count}] images")
         print(f"max_images: {self.max_images}")
         print(f"column_count: {self.column_count}")
-        print(f"estimated row_count: {self.nrows}")
+        print(f"total_rows_available: {self.total_rows_available}")
+        self.total_images_remaining = self.total_rows_available * self.column_count
 
         contact_sheet = self.reset_picture_dims()
         icol = 0
