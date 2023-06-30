@@ -38,6 +38,9 @@ class ContactSheet:
     # and columns
     def count_images(self): 
         image_list = []
+        # from testing, next seems to be an arbitrary order, that
+        # does match Windows Explorer's, apparently arbitrary,
+        #  default sequence
         files = os.listdir(self.img_folder)
         self.image_count = 0
         for file in files:
