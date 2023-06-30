@@ -11,7 +11,7 @@ class TestContactSheet(object):
         # arrange
         # override test class default
         img_folder = "D:/onedrive/data/photos/_Albums/CameraRollDump/CRD_2023_01"
-        max_images = 100
+        max_images = 200
 
         # act
         contact_sheet = ContactSheet(img_folder, max_images= max_images, column_count = 3)
