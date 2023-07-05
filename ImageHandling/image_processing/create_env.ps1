@@ -6,8 +6,6 @@
 # full path again, e.g. ".\.env_image_p\Scripts\activate ")
 $venv_folder = ".env_image_p"
 
-# Don't edit variables below here
-$python_instance = "C:\Python39\python.exe"
-& virtualenv.exe --python $python_instance $venv_folder
+py -m venv $venv_folder
 Start-Sleep 2
 & .\$venv_folder\Scripts\activate
