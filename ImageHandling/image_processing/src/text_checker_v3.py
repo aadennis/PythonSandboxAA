@@ -7,7 +7,6 @@ import nltk
 nltk.download('words')
 english_words = set(nltk.corpus.words.words())
 
-
 pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
 
 for i in range(1, 6):  # Assuming you have 10 images from a01.jpg to a10.jpg
