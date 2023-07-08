@@ -1,6 +1,6 @@
 # Get any text in the single, given image.
 # Words are not filtered for Englishness.
-# Usage: Update the value for image_path in the code below. Then run.
+# Usage: Update the value for image_path in main below. Then run.
 # Output right now is just to the screen
 #--------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ def get_text_from_image(image_path):
     return data.split()
    
 # main
-image_path = f'tests/JulyTimes.jpg'  # Assuming the images are in the same directory as your Python script
+image_path = f'tests/JulyEditsv2.jpg'  # Assuming the images are in the same directory as your Python script
 image_text = get_text_from_image(image_path = image_path)
 highlight(f"**** Printing any text found in [{image_path}] ****")
 print(image_text)
