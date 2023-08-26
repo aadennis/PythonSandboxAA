@@ -33,3 +33,4 @@ for i in range(1, 6):  # Assuming you have 10 images from a01.jpg to a10.jpg
         print("-------------------------")
     else:
         print(f'{image_path} does not contain text.')
+1
