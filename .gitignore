@@ -146,3 +146,5 @@ PyAudio-0.2.11.tar.gz
 VideoHandling/Downloader/src/yt-dlp_2022-09.exe
 ImageHandling/contact_sheet/.contactenv/*
 ImageHandling/image_processing/.env_image_p/*
+VideoHandling/Stitch/.env_stitch/*
+
