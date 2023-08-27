@@ -1,15 +1,17 @@
+"""
+    Convert all avi files in the SRC_ROOT folder to mp4, 
+    then concatenate the lot into a single mp4 file
+"""
+import glob
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 
-src_root = "C:/Users/Dennis/Videos/"
-dest_root = "c:/tempx/"
-avi_files = [src_root + 'MOVI0000.mp4',src_root + 'MOVI0002.mp4' ]
-
-# List of AVI file paths
-#avi_files = ['file1.avi', 'file2.avi', 'file3.avi']
+SRC_ROOT = "d:/onedrive/data/photos/2023/2023_08/Bikeride to Urban Plants/"
+DEST_FILE = "c:/tempx/output.mp4"
 
 # Convert AVI files to temporary MP4 files
 temp_mp4_files = []
-for avi_file in avi_files:
+for avi_file in glob.iglob(SRC_ROOT + "*.avi"):
+    print(avi_file)
     temp_mp4_file = avi_file.replace('.avi', '_temp.mp4')
     clip = VideoFileClip(avi_file)
     clip.write_videofile(temp_mp4_file, codec='libx264')
@@ -18,10 +20,5 @@ for avi_file in avi_files:
 # Load each temporary MP4 video clip
 video_clips = [VideoFileClip(file) for file in temp_mp4_files]
 
-# Concatenate the video clips
 final_clip = concatenate_videoclips(video_clips)
-
-# Write the final concatenated video to an MP4 file
-final_clip.write_videofile('output.mp4', codec='libx264')
-
-
+final_clip.write_videofile(DEST_FILE, codec='libx264')
