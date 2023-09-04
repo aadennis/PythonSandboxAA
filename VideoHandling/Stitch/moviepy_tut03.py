@@ -1,7 +1,8 @@
 """
 From an mp4, extract a clip.
 In this example, I take from 50 seconds in to 1 minute,
-that is, 10 seconds-worth
+that is, 10 seconds-worth.
+Also put some text in as an overlay.
 https://moviepy.readthedocs.io/en/latest/getting_started/quick_presentation.html#example-code
 """
 
