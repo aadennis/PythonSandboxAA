@@ -5,7 +5,6 @@
     must be a "proper" photo for this to convert to video. 
     So e.g. a screenshot is not working for me.
 """
-from pathlib import Path
 from moviepy.editor import ImageClip
 
 JPG_PATH = 'VideoHandling/Stitch/test/assets/piano.jpg'
