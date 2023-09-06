@@ -1,14 +1,15 @@
 """
-    From a jpg, create a video. 
+    From a single jpg, create a video. 
     The call (to ImageClip) must enter a duration.
     Although I have not tested this a lot, it seems the image
     must be a "proper" photo for this to convert to video. 
     So e.g. a screenshot is not working for me.
 """
+from pathlib import Path
 from moviepy.editor import ImageClip
 
-JPG_PATH = 'c:/tempx/piano.jpg' # save as test image
-OUTPUT_PATH = 'c:/tempx/output_videox2.mp4'
+JPG_PATH = 'VideoHandling/Stitch/test/assets/piano.jpg'
+OUTPUT_PATH = 'VideoHandling/Stitch/test/output/piano.mp4'
 DURATION=3
 CODEC = 'libx264'
 
