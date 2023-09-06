@@ -148,3 +148,4 @@ ImageHandling/contact_sheet/.contactenv/*
 ImageHandling/image_processing/.env_image_p/*
 VideoHandling/Stitch/.env_stitch/*
 
+VideoHandling/Stitch/test/output/*
