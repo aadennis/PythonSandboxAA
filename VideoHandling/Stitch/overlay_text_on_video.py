@@ -1,21 +1,15 @@
 """
-From an mp4, extract a clip.
-In this example, I take from 50 seconds in to 1 minute,
-that is, 10 seconds-worth.
-Also put some text in as an overlay.
-https://moviepy.readthedocs.io/en/latest/getting_started/quick_presentation.html#example-code
+Given a video file as input, create a copy that
+includes a title up to n seconds before the end 
+of the source version.
 """
 
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 
-INPUT_VIDEO = "c:/VideoStaging/mp4Joined.mp4"
-# also webm, etc. But note that mp4 for 10 seconds in this consumes 10mb, that is
-# 1mb per second. webm uses only 2mb, so 20% of the mp4.
-# Also note that it evidently dynamically parses the extension, as INPUT_VIDEO works 
-# for .mp4 without me changing anything, and also .webm.
-OUTPUT_VIDEO = "c:/VideoStaging/shorty.mp4" 
+INPUT_VIDEO = "c:/VideoStaging/shorty_no_text.mp4"
+OUTPUT_VIDEO = "c:/VideoStaging/shorty_with_text.mp4" 
 
-video_clip = VideoFileClip(INPUT_VIDEO).subclip("00:00:50","00:01:00")
+video_clip = VideoFileClip(INPUT_VIDEO)
 
 txt_clip = TextClip("Exmouth to Exeter - 08.2023",fontsize=70,color="black", bg_color="white")
 # set_position: there are various overloads. This one shows 
