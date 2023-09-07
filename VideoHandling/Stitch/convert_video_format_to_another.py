@@ -12,12 +12,8 @@ SOURCE_WILD_CARD = "bof*.mp4"
 
 # Convert mp4 files to avi format
 for mp4_file in glob.iglob(ASSETS + SOURCE_WILD_CARD):
-    print(mp4_file)
     a = os.path.basename(mp4_file)
-    print(a)
     b = os.path.splitext(a)[0]
-    print(b)
     avi_file = TARGET + b + ".avi"
-    print(avi_file)
     clip = VideoFileClip(mp4_file)
     clip.write_videofile(avi_file, codec='libx264')
