@@ -5,7 +5,7 @@ import os
 import glob
 from moviepy.editor import VideoFileClip
 
-SRC_ROOT = "d:/Sandbox/git/aadennis/PythonSandboxAA/VideoHandling/Stitch/test/"
+SRC_ROOT = "VideoHandling/Stitch/test/" # generally relative to PythonSandboxAA
 ASSETS = SRC_ROOT + "assets/"
 TARGET = SRC_ROOT + "output/"
 SOURCE_WILD_CARD = "bof*"
@@ -22,11 +22,15 @@ def get_filename_no_ext(path):
     return os.path.splitext(os.path.basename(path))[0]
 
 def main():
+    found = False
     for file in glob.iglob(ASSETS + SOURCE_WILD_CARD + SOURCE_FILE_TYPE):
+        found = True
         filename = get_filename_no_ext(file)
         avi_file = TARGET + filename + TARGET_FILE_TYPE
         clip = VideoFileClip(file)
         clip.write_videofile(avi_file, codec=CODEC)
+    if not found:
+        raise Exception(FileNotFoundError, "No source files were found:[" + ASSETS + "]")
 
 if __name__ == "__main__":
     main()
