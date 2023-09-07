@@ -1,15 +1,14 @@
 """
-    Convert all avi files in the SRC_ROOT folder to mp4
+    Convert all video files of one format to another format
 """
 import glob
-from moviepy.editor import VideoFileClip 
+from moviepy.editor import VideoFileClip
 
-SRC_ROOT = "E:\\Den\\YoutubeMasters\\ToMatford\\Originals\\VIDEO/"
-DEST_FILE = "E:\\Den\\YoutubeMasters\\ToMatford\\Originals\\AviFormat"
+SRC_ROOT = "d:/Sandbox/git/aadennis/PythonSandboxAA/VideoHandling/Stitch/test/assets/"
 
-# Convert AVI files to MP4 files
-for avi_file in glob.iglob(SRC_ROOT + "*.avi"):
-    print(avi_file)
-    temp_mp4_file = avi_file.replace('.avi', '_temp.mp4')
-    clip = VideoFileClip(avi_file)
-    clip.write_videofile(temp_mp4_file, codec='libx264')
+# Convert mp4 files to avi format
+for mp4_file in glob.iglob(SRC_ROOT + "bof*.mp4"):
+    print(mp4_file)
+    avi_file = mp4_file.replace('.mp4', '.avi')
+    clip = VideoFileClip(mp4_file)
+    clip.write_videofile(avi_file, codec='libx264')
