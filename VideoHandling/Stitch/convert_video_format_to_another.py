@@ -13,7 +13,6 @@ SOURCE_FILE_TYPE = ".mp4"
 TARGET_FILE_TYPE = ".avi"
 CODEC = 'libx264'
 
-
 def get_filename_no_ext(path):
     """
         Given a full path name, return just the filename, 
@@ -22,8 +21,12 @@ def get_filename_no_ext(path):
     """
     return os.path.splitext(os.path.basename(path))[0]
 
-for file in glob.iglob(ASSETS + SOURCE_WILD_CARD + SOURCE_FILE_TYPE):
-    filename = get_filename_no_ext(file)
-    avi_file = TARGET + filename + TARGET_FILE_TYPE
-    clip = VideoFileClip(file)
-    clip.write_videofile(avi_file, codec=CODEC)
+def main():
+    for file in glob.iglob(ASSETS + SOURCE_WILD_CARD + SOURCE_FILE_TYPE):
+        filename = get_filename_no_ext(file)
+        avi_file = TARGET + filename + TARGET_FILE_TYPE
+        clip = VideoFileClip(file)
+        clip.write_videofile(avi_file, codec=CODEC)
+
+if __name__ == "__main__":
+    main()
