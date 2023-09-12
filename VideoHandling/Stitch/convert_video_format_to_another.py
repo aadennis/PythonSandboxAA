@@ -22,7 +22,10 @@ def get_filename_no_ext(path):
     """
     return os.path.splitext(os.path.basename(path))[0]
 
-def main():
+def convert_video_format():
+    """
+        Convert all video files of one format to another format
+    """
     found = False
     for file in glob.iglob(ASSETS + SOURCE_WILD_CARD + SOURCE_FILE_TYPE):
         found = True
@@ -35,4 +38,4 @@ def main():
         raise Exception(FileNotFoundError, "No source files were found:[" + ASSETS + "]")
 
 if __name__ == "__main__":
-    main()
+    convert_video_format()
