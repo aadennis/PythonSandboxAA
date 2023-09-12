@@ -30,7 +30,14 @@ def get_arbitrary_extension(path, wildcard = None):
         (but not both).
         wildcard: this restricts deciding on the arbitrary extension
     """
-    first_file = glob.glob(os.path.join(path, wildcard))[0]
+    try: 
+        first_file = glob.glob(os.path.join(path, wildcard))[0]
+    except IndexError as exc:
+        #https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/raise-missing-from.html#raise-missing-from-w0707
+        msg = f"No items found for [{path}] with wildcard [{wildcard}]"
+        print(msg)
+        raise msg from exc
+
     return os.path.splitext(first_file)[1]
     # return os.path.splitext(os.path.basename(path))[0]
 
@@ -76,6 +83,9 @@ def convert_video_format(target_format, wildcard, src_folder=None):
 
 
 if __name__ == "__main__":
+    # Example 1
+    #convert_video_format(".avi", "mp4_bof*") #, src_folder)
+    
+    # Example 2
     src_folder = r"C:\VideoStaging\shopping_trip"
-    # get_arbitrary_extension(src_folder)
-    convert_video_format(".avi", "bof*") #, src_folder)
+    convert_video_format(".avi", None, src_folder)
