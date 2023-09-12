@@ -31,7 +31,8 @@ def get_arbitrary_extension(path, wildcard = None):
         wildcard: this restricts deciding on the arbitrary extension
     """
     try: 
-        first_file = glob.glob(os.path.join(path, wildcard))[0]
+        files = path + "/" + wildcard 
+        first_file = glob.glob(files)[0]
     except IndexError as exc:
         #https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/raise-missing-from.html#raise-missing-from-w0707
         msg = f"No items found for [{path}] with wildcard [{wildcard}]"
@@ -59,22 +60,21 @@ def convert_video_format(target_format, wildcard, src_folder=None):
         src_folder = ASSETS
 
     if wildcard is None:
-        wildcard = ""
+        wildcard = "*"
     
     source_file_type = get_arbitrary_extension(src_folder, wildcard)
     print(f"src_folder is is is: {src_folder}")
     print(f"Source file type is is is {source_file_type}")
     found = False
 
-
-    
-    for file in glob.iglob(src_folder + wildcard + source_file_type):
+    joined_path = src_folder + "/" + wildcard + source_file_type
+    for file in glob.iglob(joined_path):
         found = True
         print(f"Converting source file: {file}")
         filename = get_filename_no_ext(file)
-        avi_file = TARGET + filename + target_format
+        converted_file = TARGET + filename + target_format
         clip = VideoFileClip(file)
-        clip.write_videofile(avi_file, codec=CODEC)
+        clip.write_videofile(converted_file, codec=CODEC)
     if not found:
         print("***** Root folder when searching for assets:",
               Path().absolute(), " **********")
@@ -83,9 +83,13 @@ def convert_video_format(target_format, wildcard, src_folder=None):
 
 
 if __name__ == "__main__":
-    # Example 1
-    #convert_video_format(".avi", "mp4_bof*") #, src_folder)
+    # Example 1 - target is avi, source files have the name mp4_bof*,
+    # source folder contains a mix of mp4 and avi, but the wildcard
+    # restricts to mp4.
+    # src_folder is determined in the code, given None here
+    convert_video_format(".avi", "mp4_bof*", src_folder=None)
     
-    # Example 2
-    src_folder = r"C:\VideoStaging\shopping_trip"
-    convert_video_format(".avi", None, src_folder)
+    # Example 2 - target is mp4, source folder contains all avi files,
+    # don't restrict to a wildcard filename
+    #src_folder = r"C:\VideoStaging\shopping_trip"
+    #convert_video_format(".mp4", wildcard=None, src_folder=src_folder)
