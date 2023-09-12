@@ -3,9 +3,10 @@
 """
 import os
 import glob
+from pathlib import Path
 from moviepy.editor import VideoFileClip
 
-SRC_ROOT = "VideoHandling/Stitch/test/" # generally relative to PythonSandboxAA
+SRC_ROOT = "test/" # relative to current root
 ASSETS = SRC_ROOT + "assets/"
 TARGET = SRC_ROOT + "output/"
 SOURCE_WILD_CARD = "bof*"
@@ -30,6 +31,7 @@ def main():
         clip = VideoFileClip(file)
         clip.write_videofile(avi_file, codec=CODEC)
     if not found:
+        print("***** Root folder when searching for assets:", Path().absolute()," **********")
         raise Exception(FileNotFoundError, "No source files were found:[" + ASSETS + "]")
 
 if __name__ == "__main__":
