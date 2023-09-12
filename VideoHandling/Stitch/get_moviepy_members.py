@@ -25,12 +25,10 @@ def list_package_members(package_name):
     except ImportError:
         print(f"Package '{package_name}' not found.")
 
-
 def main():
     """
         entry point
     """
-
     # Example usage:
     list_package_members("os")
     list_package_members("moviepy")
@@ -41,13 +39,6 @@ def main():
     list_package_members("moviepy.Clip")
     list_package_members("moviepy.video.VideoClip")
     list_package_members("moviepy.video.fx.all")
-
-    
-    
-
-    
-    
-    
 
 if __name__ == "__main__":
     main()
