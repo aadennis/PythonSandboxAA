@@ -1,5 +1,8 @@
 """
-    Convert all video files of one format to another format
+    Convert all video files of one format to another format.
+    09.2023: I know it can support a source of avi or mov,
+    and a target of avi or mp4.
+    Other formats / directions not yet tested
 """
 import os
 import glob
@@ -87,9 +90,9 @@ if __name__ == "__main__":
     # source folder contains a mix of mp4 and avi, but the wildcard
     # restricts to mp4.
     # src_folder is determined in the code, given None here
-    convert_video_format(".avi", "mp4_bof*", src_folder=None)
+    #convert_video_format(".avi", "mp4_bof*", src_folder=None)
     
-    # Example 2 - target is mp4, source folder contains all avi files,
-    # don't restrict to a wildcard filename
-    #src_folder = r"C:\VideoStaging\shopping_trip"
-    #convert_video_format(".mp4", wildcard=None, src_folder=src_folder)
+    # Example 2 - target is mp4, source folder contains all avi or mov files
+    # (moviepy deals with that), don't restrict to a wildcard filename
+    SRC_FOLDER = r"C:\\VideoStaging\\Sea 15 09 2023"
+    convert_video_format(".mp4", wildcard=None, src_folder=SRC_FOLDER)
