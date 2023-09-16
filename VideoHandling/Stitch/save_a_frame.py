@@ -2,8 +2,10 @@
     From a video, save a single frame.
     You specify the position of the frame in the video
     in seconds, as a float.
-
-
+    Gotcha 1: 
+    RuntimeError: Format FFMPEG cannot write in ImageMode.single_image mode
+    This means you are likely trying to write to an existing video file.
+    The error message from ffmpeg is not helpful.
 """
 from moviepy.editor import VideoFileClip
 
