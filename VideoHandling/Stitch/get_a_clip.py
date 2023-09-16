@@ -8,11 +8,13 @@ https://moviepy.readthedocs.io/en/latest/getting_started/quick_presentation.html
 from moviepy.editor import VideoFileClip
 from moviepy import *
 
+START_CLIP = "00:00:50"
+END_CLIP = "00:01:00"
+
 INPUT_VIDEO = "c:/VideoStaging/mp4Joined.mp4"
 # also webm, etc. But note that mp4 for 10 seconds in this consumes 10mb, that is
 # 1mb per second. webm uses only 2mb, so 20% of the mp4.
 OUTPUT_VIDEO = "c:/VideoStaging/shorty.mp4" 
 
-clip = VideoFileClip(INPUT_VIDEO).subclip("00:00:50","00:01:00")
-
-clip.write_videofile(OUTPUT_VIDEO)
+CLIP = VideoFileClip(INPUT_VIDEO).subclip(START_CLIP, END_CLIP)
+CLIP.write_videofile(OUTPUT_VIDEO)
