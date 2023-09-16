@@ -5,8 +5,7 @@
 
 
 """
-from moviepy.editor import *
-from moviepy import video
+from moviepy.editor import VideoFileClip
 
 # SRC_ROOT = "VideoHandling/Stitch/test/" # if opened from PythonSandboxAA
 SRC_ROOT = "test/"  # if opened from Stitch
@@ -26,6 +25,6 @@ def save_a_frame(input_video, output_video, frame_position):
 
 if __name__ == "__main__":
     input_file = ASSETS + TEST_FILE
-    output_file = "c:/temp/mah2ux.png"
-    frame = 8.532
+    output_file = "c:/temp/mah2uxd.png"
+    frame = 0.001
     save_a_frame(input_file, output_file, frame)
