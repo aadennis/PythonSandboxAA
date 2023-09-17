@@ -5,6 +5,8 @@
     Gotcha 1: 
     RuntimeError: Format FFMPEG cannot write in ImageMode.single_image mode
     This means you are likely trying to write to an existing video file.
+    That is, you got the direction wrong: you specified probably x.mp4 as the
+    output file, when it should be the input file.
     The error message from ffmpeg is not helpful.
 """
 from moviepy.editor import VideoFileClip
