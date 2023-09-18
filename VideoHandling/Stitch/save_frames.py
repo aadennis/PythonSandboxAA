@@ -11,40 +11,30 @@ ASSETS = SRC_ROOT + "assets/"
 TARGET = SRC_ROOT + "output/"
 TEST_FILE = "townride_no_text_10secs.mp4"
 
-# def custom_range(start,stop,interval):
-#     current = start
-#     while current < stoi
+def custom_range(start,stop,step):
+    current = start
+    while current < stop:
+        yield current
+        current += step
 
 def save_frames(input_video, start, stop, interval ):
     """
     Given an input video (codec not required), and starting with the
     frame at [start] seconds, save a frame to png every [interval]
     seconds, stopping after [frame_count] images have been saved.
+    Floats are supported for start, stop, and interval arguments.
     """
 
     clip = VideoFileClip(input_video)
 
-    for i in range(start, stop, interval):
+    for i in custom_range(start, stop, interval):
         print(i)
         temp = clip.get_frame(i)
-        imageio.imsave(f"c:/temp/aax{i}.png", temp)
-
-
-    # a = clip.get_frame(1.001)
-    # b.append(a)
-    # a = clip.get_frame(2.001)
-    # print(type(a))
-    # b.append(a)
-
-    # for seq, val in enumerate(b):
-    #     imageio.imsave(f"c:/temp/aa{seq}.png", val)
-    
-    #clip.save_frame(output_video, frame_position)
-
+        imageio.imsave(f"c:/temp/xaax{i}.png", temp)
  
 if __name__ == "__main__":
     input_file = ASSETS + TEST_FILE
-    start = 2 #.000
-    stop = 9 #.000
-    interval = 1 #.000
+    start = 2.000
+    stop = 9.000
+    interval = 0.500
     save_frames(input_file, start, stop, interval)
