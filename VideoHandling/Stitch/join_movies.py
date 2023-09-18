@@ -5,8 +5,8 @@
 import glob
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 
-SRC_ROOT = r"C:\VideoStaging\Sea 15 09 2023/"
-DEST_FILE = r"E:\\Den\\YoutubeMasters\\ToMatford\\Originals\\mp4Joined\\mp4SeaJoined.mp4"
+SRC_ROOT = r"C:\VideoStaging\ActionCamera\output/"
+DEST_FILE = r"C:\VideoStaging\ActionCamera\temp\\golf_range_18_09_2023.mp4"
 
 temp_mp4_files = sorted(glob.iglob(SRC_ROOT + "*.mp4"))
 for i in temp_mp4_files:
