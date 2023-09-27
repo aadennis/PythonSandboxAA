@@ -1,16 +1,20 @@
 """
     From a single jpg, create a video. 
     The call (to ImageClip) must enter a duration.
-    Although I have not tested this a lot, it seems the image
-    must be a "proper" photo for this to convert to video. 
-    So e.g. a screenshot is not working for me.
+    Note that if your source for the image is originally
+    a .heic file, then use Irfanview to do the save-as, else
+    if you use e.g. MS Photos you might get "bad codec" type-
+    thing.
+    Screenshots saved as jpg: I have found this is a bit inconsistent:
+    sometimes it works fine, sometimes "...won't play". 
 """
 from moviepy.editor import ImageClip
 
-JPG_PATH = 'VideoHandling/Stitch/test/assets/piano.jpg'
-OUTPUT_PATH = 'VideoHandling/Stitch/test/output/piano.mp4'
-DURATION=3
+JPG_PATH = 'c:/tempx/pah.jpg'
+OUTPUT_PATH = 'c:/tempx/pah.mp4'
+DURATION=6
 CODEC = 'libx264'
+#CODEC = 'mpeg4'
 
 jpg_image = ImageClip(JPG_PATH, duration=DURATION)
 jpg_image.write_videofile(OUTPUT_PATH, codec=CODEC, fps=24)
