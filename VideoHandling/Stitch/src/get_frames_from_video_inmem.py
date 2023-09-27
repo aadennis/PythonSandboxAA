@@ -12,6 +12,9 @@ TARGET = SRC_ROOT + "output/"
 TEST_FILE = "townride_no_text_10secs.mp4"
 
 def custom_range(start,stop,step):
+    """
+        Python Range accepts only integers. This supports floats.
+    """
     current = start
     while current < stop:
         yield current
