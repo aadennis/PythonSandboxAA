@@ -58,6 +58,8 @@ def convert_video_format(target_format, wildcard, src_folder=None):
         filenames, e.g "MyHouse123", "MyHouse345", "MyGarden123".
         If you only want House videos, enter "MyHouse*". If you want all files,
         enter None
+        Examples:
+        convert_video_format(".mp4", wildcard=None, src_folder=SRC_FOLDER)
     """
     if src_folder is None:
         src_folder = ASSETS
@@ -94,5 +96,5 @@ if __name__ == "__main__":
     
     # Example 2 - target is mp4, source folder contains all avi or mov files
     # (moviepy deals with that), don't restrict to a wildcard filename
-    SRC_FOLDER = r"C:\\VideoStaging\\Sea 15 09 2023"
+    SRC_FOLDER = r"C:\VideoStaging\USB Drive\Sea swim 09.10.2023"
     convert_video_format(".mp4", wildcard=None, src_folder=SRC_FOLDER)
