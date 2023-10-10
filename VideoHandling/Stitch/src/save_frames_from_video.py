@@ -28,7 +28,7 @@ def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, 
     [frame_start] seconds. The last frame to grab is at [frame_start] + [frame_stop]
     seconds. Between those 2 boundaries, grab a frame every [frame_interval] seconds.
     As an example, say input_video has a duration of 120 seconds. The range from which 
-    I want to select my frames between a) 40 seconds from the start of input_video, 
+    I want to select my frames is between a) 40 seconds from the start of input_video, 
     and b) 70 seconds from the start of input_video.
     That requires a frame_start value of 40 seconds, and a frame_stop value of 30
     seconds (40 + 30).
@@ -37,6 +37,12 @@ def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, 
     If I want each frame to be displayed for 2.3 seconds, frame_display_duration is 2.3.
     The return type is a VideoClip. It is not a VideoFileClip, as something else should
     own that file writing.
+    Testing considerations:
+    1. Throw exception if frame_start and/or frame_stop are outside the bounds of input_video.
+    2. Test say for clip length as a basic check that results are expected. You evidently 
+    cannot directly check within moviepy for say number of frames, as this is "just" 
+    durations * fps.
+
     """
 
     clip = VideoFileClip(input_video)
@@ -50,17 +56,21 @@ def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, 
         t / frame_display_duration)], duration=(len(frame_array) * frame_display_duration))
     return new_clip
 
+def save_frames_from_video(input_file, start, stop, interval, output_file, frame_display_duration = 2):
+    """
+        See [get_frames_from_video] for full description.
+        Call get_frames_from_video, passing through the same parameters.
+        Write the returned VideoClip to a file
+    """
+    ans = get_frames_from_video(input_file, start, stop, interval)
+    ans.write_videofile(output_file, codec='libx264', fps=24)
 
 if __name__ == "__main__":
 
-    # Next is a 2 second (stop) video with frames at 0.091 seconds.
     input_file = r'D:\Sandbox\git\aadennis\PythonSandboxAA\VideoHandling\Stitch\test\assets\Sea swim 1m45.mp4'
     start = 20 # seconds
     stop = start + 40
     interval = 1
     output_file = "c:/temp/mavideox.mp4"
 
-
-    ans = get_frames_from_video(input_file, start, stop, interval)
-    ans.write_videofile(output_file, codec='libx264', fps=24)
-    print(ans)
+    save_frames_from_video(input_file, start, stop, interval, output_file)
