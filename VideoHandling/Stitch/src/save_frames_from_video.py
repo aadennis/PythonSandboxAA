@@ -66,8 +66,8 @@ def save_frames_from_video(input_file, start, stop, interval, output_file, frame
         Call get_frames_from_video, passing through the same parameters.
         Write the returned VideoClip to a file
     """
-    ans = get_frames_from_video(input_file, start, stop, interval, frame_display_duration)
-    ans.write_videofile(output_file, codec='libx264', fps=24)
+    frame_set = get_frames_from_video(input_file, start, stop, interval, frame_display_duration)
+    frame_set.write_videofile(output_file, codec='libx264', fps=24)
 
 if __name__ == "__main__":
 
