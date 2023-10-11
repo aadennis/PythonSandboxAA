@@ -12,9 +12,15 @@ TARGET = SRC_ROOT + "output/"
 def resync(input_video, time_offset):
     """
     Summary: Resync audio with video. Basically sort lip-sync timing issues.
-    Detail: Audio may lag on a cheap action camera. And even given the same
+    Context: Audio may lag on a cheap action camera. And even given the same
     camera, the lag may vary between 0 and say 2 seconds.
     A plus value for time_offset puts the audio ahead of a (synced) video.
+    input_video
+    Name of the video to be sync'ed
+    time_offset
+    A plus value for time_offset puts the audio ahead of a (synced) video.
+    Zero is obviously no changed.
+    A minus value for time_offset puts the audio behind a (synced) video.
     """
 
     video_clip = VideoFileClip(input_video)
