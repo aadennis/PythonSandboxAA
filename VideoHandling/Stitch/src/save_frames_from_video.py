@@ -25,8 +25,8 @@ def custom_range(start, stop, step):
 def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, frame_display_duration):
     """
     Summary: Get a set of frames from a video. For each frame, give it a duration to 
-    make it visible. Return that set of frames (with duration), pasted together as a 
-    single video.
+    make it visible. Return that set of frames (with duration) as a VideoClip, 
+    pasted together as a single video.
     
     Detail: Given an input video (codec not required), the first frame to grab is at 
     [frame_start] seconds. The last frame to grab is at [frame_start] + [frame_stop]
@@ -66,15 +66,15 @@ def save_frames_from_video(input_file, start, stop, interval, output_file, frame
         Call get_frames_from_video, passing through the same parameters.
         Write the returned VideoClip to a file
     """
-    ans = get_frames_from_video(input_file, start, stop, interval)
+    ans = get_frames_from_video(input_file, start, stop, interval, frame_display_duration)
     ans.write_videofile(output_file, codec='libx264', fps=24)
 
 if __name__ == "__main__":
 
-    input_file = r'D:\Sandbox\git\aadennis\PythonSandboxAA\VideoHandling\Stitch\test\assets\Sea swim 1m45.mp4'
-    start = 20 # seconds
-    stop = start + 40
-    interval = 1
-    output_file = "c:/temp/mavideox.mp4"
+    test_input_file = r'D:\Sandbox\git\aadennis\PythonSandboxAA\VideoHandling\Stitch\test\assets\Sea swim 1m45.mp4'
+    test_start = 20 # seconds
+    test_stop = test_start + 40
+    test_interval = 1
+    test_output_file = "c:/temp/mavideox.mp4"
 
-    save_frames_from_video(input_file, start, stop, interval, output_file)
+    save_frames_from_video(test_input_file, test_start, test_stop, test_interval, test_output_file)
