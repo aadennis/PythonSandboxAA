@@ -22,9 +22,13 @@ def custom_range(start, stop, step):
         current += step
 
 
-def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, frame_display_duration = 2):
+def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, frame_display_duration):
     """
-    Given an input video (codec not required), the first frame to grab is at 
+    Summary: Get a set of frames from a video. For each frame, give it a duration to 
+    make it visible. Return that set of frames (with duration), pasted together as a 
+    single video.
+    
+    Detail: Given an input video (codec not required), the first frame to grab is at 
     [frame_start] seconds. The last frame to grab is at [frame_start] + [frame_stop]
     seconds. Between those 2 boundaries, grab a frame every [frame_interval] seconds.
     As an example, say input_video has a duration of 120 seconds. The range from which 
@@ -37,12 +41,12 @@ def get_frames_from_video(input_video, frame_start, frame_stop, frame_interval, 
     If I want each frame to be displayed for 2.3 seconds, frame_display_duration is 2.3.
     The return type is a VideoClip. It is not a VideoFileClip, as something else should
     own that file writing.
+
     Testing considerations:
     1. Throw exception if frame_start and/or frame_stop are outside the bounds of input_video.
     2. Test say for clip length as a basic check that results are expected. You evidently 
     cannot directly check within moviepy for say number of frames, as this is "just" 
     durations * fps.
-
     """
 
     clip = VideoFileClip(input_video)
