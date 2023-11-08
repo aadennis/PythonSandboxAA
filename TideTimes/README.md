@@ -3,7 +3,9 @@
 
 November 2023
 
-# Python post-processing script
+## Python post-processing script
+
+I no longer dictate the date - that is handled by a Python script:
 
 https://youtube.com/shorts/z_AkFMrkiYM
 
