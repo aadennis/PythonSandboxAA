@@ -9,7 +9,7 @@ I no longer dictate the date - that is handled by a Python script:
 
 https://youtube.com/shorts/z_AkFMrkiYM
 
-![image](https://github.com/aadennis/PythonSandboxAA/assets/11707983/2e5af12e-9b3c-418b-94f5-43b51f312761)
+<img width="200" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/2e5af12e-9b3c-418b-94f5-43b51f312761">
 
 
 March 2023  
