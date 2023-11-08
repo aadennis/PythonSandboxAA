@@ -3,13 +3,21 @@
 
 November 2023
 
+## New format - excludes commas and dates
+
+<img width="400" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/32aa5111-553e-4a81-8c7b-65ba8b296802">
+
+The video has the detail: https://www.youtube.com/watch?v=KH81r8RIdN0
+
+The new format takes advantage of what I perceive to be Microsoft's improved text to speech engine.
+
 ## Python post-processing script
 
 I no longer dictate the date - that is handled by a Python script:
 
 https://youtube.com/shorts/z_AkFMrkiYM
 
-<img width="200" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/2e5af12e-9b3c-418b-94f5-43b51f312761">
+<img width="300" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/2e5af12e-9b3c-418b-94f5-43b51f312761">
 
 
 March 2023  
