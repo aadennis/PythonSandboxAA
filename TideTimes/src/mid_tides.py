@@ -17,6 +17,10 @@ def format_tide_dictation(input_text, month_year):
         ignores it, and uses the token separator of space to replace with newline.
         An example of input, taken from (flawed) output from dictation, is below 
         in test_text_1. test_text_2 is good dictation.
+        An example of how the final output should look for a single day:
+        30/11/2023,3.3,Low,01:58:00,0.6,High,07:58:00,3.9,Low,14:18:00,0.6,High,20:18:00,3.5
+        The second value is the tidal range. Sadly, the reduced version does not deliver 
+        on that, as it relies on all 4 values for the day being dictated.
     """    
     tide_type = {'lima': 'Low', 'hotel': 'High'}
 
