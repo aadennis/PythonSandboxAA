@@ -15,20 +15,23 @@ def format_tide_dictation(input_text, month_year):
         An example of input, taken from (flawed) output from dictation, is below 
         in test_text_1. test_text_2 is good dictation.
     """    
-    translation_dict = {'lima': 'Low', 'hotel': 'High'}
+    tide_type = {'lima': 'Low', 'hotel': 'High'}
 
     words = input_text.lower().split()
     translated_words = []
+    current_tide_at_day_start = None
 
     current_date = 1
     for i, word in enumerate(words):
         if word == 'bravo': # ignore - just visual punctuation for the dictator
             continue
-        if word in translation_dict:
-            translated_words.append(translation_dict[word])
+        if word in tide_type:
+            translated_words.append(tide_type[word])
+            current_tide_at_day_start = tide_type[word]
         else:
             # must be data for a day
-            translated_words.append(f"{str(current_date).zfill(2)}/{month_year},{word}")
+            formatted_date = f"{str(current_date).zfill(2)}/{month_year}"
+            translated_words.append(f"{formatted_date},{word}")
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
