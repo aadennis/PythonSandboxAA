@@ -1,4 +1,7 @@
-
+def get_other_tide(current_tide):
+    if current_tide == 'High':
+        return 'Low'
+    return 'High'
 
 def format_tide_dictation(input_text, month_year):
     """
@@ -31,7 +34,9 @@ def format_tide_dictation(input_text, month_year):
         else:
             # must be data for a day
             formatted_date = f"{str(current_date).zfill(2)}/{month_year}"
-            translated_words.append(f"{formatted_date},{current_tide_at_day_start},{word}")
+            tide_1 = word[:6]
+            tide_2 = word[6:]
+            translated_words.append(f"{formatted_date},{current_tide_at_day_start},{tide_1},{tide_2}")
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
