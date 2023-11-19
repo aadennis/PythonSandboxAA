@@ -36,7 +36,9 @@ def format_tide_dictation(input_text, month_year):
             formatted_date = f"{str(current_date).zfill(2)}/{month_year}"
             tide_1 = word[:6]
             tide_2 = word[6:]
-            translated_words.append(f"{formatted_date},{current_tide_at_day_start},{tide_1},{tide_2}")
+            tide_type_1 = current_tide_at_day_start
+            tide_type_2 = get_other_tide(tide_type_1)
+            translated_words.append(f"{formatted_date},{tide_type_1},{tide_1},{tide_type_2},{tide_2}")
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
