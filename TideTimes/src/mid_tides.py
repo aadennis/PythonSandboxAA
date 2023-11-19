@@ -26,7 +26,7 @@ def format_tide_dictation(input_text):
             translated_words.append(translation_dict[word])
         else:
             # must be data for a day
-            translated_words.append(f"{current_date}-{word}")
+            translated_words.append(f"{str(current_date).zfill(2)}-{word}")
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
