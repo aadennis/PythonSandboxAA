@@ -1,8 +1,10 @@
 
 
-def format_tide_dictation(input_text):
+def format_tide_dictation(input_text, month_year):
     """
         input_text is the tide table as dictated. 
+        month_year is e.g. "12/2023" - note the format. It is mandatory. The date
+        of the month is then inferred, and the whole pasted together.
         Context: In any one calendar day, there are only 2 usable high/low waters 
         (HLWs), give or take, which are the middle 2 of 4. If there are 3 HLWs, then 
         dictate the first 2 of 3. This happens when the first tide of the calendar 
@@ -13,7 +15,7 @@ def format_tide_dictation(input_text):
         An example of input, taken from (flawed) output from dictation, is below 
         in test_text_1. test_text_2 is good dictation.
     """    
-    translation_dict = {'lima': 'low', 'hotel': 'high'}
+    translation_dict = {'lima': 'Low', 'hotel': 'High'}
 
     words = input_text.lower().split()
     translated_words = []
@@ -26,7 +28,7 @@ def format_tide_dictation(input_text):
             translated_words.append(translation_dict[word])
         else:
             # must be data for a day
-            translated_words.append(f"{str(current_date).zfill(2)}-{word}")
+            translated_words.append(f"{str(current_date).zfill(2)}/{month_year},{word}")
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
@@ -49,5 +51,5 @@ Hotel 082838145008 bravo 085936152210 bravo 093534155612 bravo
    101009162534 bravo 110808172235 bravo hotel 054637120007 bravo 063238124706 
    bravo 071239133106 bravo 074638140807 bravo 081838144007 
    bravo 085137151008 bravo"""
-output_text = format_tide_dictation(test_text_2)
+output_text = format_tide_dictation(test_text_2, "12/2023")
 print(output_text)
