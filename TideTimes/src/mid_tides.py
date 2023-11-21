@@ -10,6 +10,9 @@ class TideDay():
         self.format_tide(tide_day)
 
     def format_tide(self, tide_day):
+        """
+        Convert the raw digits in tide_day to a readable format
+        """
         self.formatted_date = self.format_date()
         self.tide_time_1 = tide_day[0:4]
         self.tide_height_1 = tide_day[4:6]
@@ -28,6 +31,9 @@ class TideDay():
         self.tidal_range = (abs(int(self.tide_height_1) - int(self.tide_height_2))) / 10
 
     def format_tide_time(self, tide_time):
+        """
+        Convert a time value e.g. 0955 to 09:55
+        """
         return f"{tide_time[0:2]}:{tide_time[2:4]}:00"
         
 
@@ -38,13 +44,12 @@ class TideDay():
         return f"{str(self.current_date).zfill(2)}/{self.month_year}"
             
     def print(self):
+        """
+        Format the tide day as a single line, CSV.
+        """
         formatted_tide_day = f"{self.format_date()},{self.tidal_range},{self.tide_1_type},{self.formatted_tide_time_1},{self.formatted_tide_height_1},{self.tide_2_type},{self.formatted_tide_time_2},{self.formatted_tide_height_2}"
         return formatted_tide_day
 
-def get_other_tide(current_tide):
-    if current_tide == 'High':
-        return 'Low'
-    return 'High'
 
 def format_tide_dictation(input_text, month_year):
     """
