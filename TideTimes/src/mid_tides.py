@@ -79,7 +79,7 @@ def format_tide_dictation(input_text, month_year):
     tide_days = []
 
     current_date = 0
-    for i, tide_day in enumerate(words):
+    for _, tide_day in enumerate(words):
         if tide_day == 'bravo': # ignore - just visual punctuation for the dictator
             continue
 
