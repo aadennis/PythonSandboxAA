@@ -4,16 +4,19 @@ class TideDay():
     """
 
     def __init__(self, current_date, tide_day, month_year):
-        self.current_date = current_date 
+        self.current_date = current_date
         self.tide_day = tide_day
         self.month_year = month_year
+        self.format_tide(tide_day)
+
+    def format_tide(self, tide_day):
         self.formatted_date = self.format_date()
         self.tide_time_1 = tide_day[0:4]
         self.tide_height_1 = tide_day[4:6]
         self.tide_time_2 = tide_day[6:10]
         self.tide_height_2 = tide_day[10:12]
         self.formatted_tide_time_1 = self.format_tide_time(self.tide_time_1)
-        self.formatted_tide_time_2 = f"{self.tide_time_2[0:2]}:{self.tide_time_2[2:4]}:00"
+        self.formatted_tide_time_2 = self.format_tide_time(self.tide_time_2)
         self.formatted_tide_height_1 = int(self.tide_height_1) / 10
         self.formatted_tide_height_2 = int(self.tide_height_2) / 10
         if (self.formatted_tide_height_1 > self.formatted_tide_height_2):
