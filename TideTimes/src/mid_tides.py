@@ -1,3 +1,37 @@
+class TideDay():
+    """
+    Encapsulate tide data for 1 day
+    """
+
+    def __init__(self, current_date, tide_day, month_year):
+        self.current_date = current_date
+        self.tide_day = tide_day
+        self.month_year = month_year
+        self.formatted_date = self.format_date()
+        self.tide_time_1 = tide_day[0:4]
+        self.tide_height_1 = tide_day[4:6]
+        self.tide_time_2 = tide_day[6:10]
+        self.tide_height_2 = tide_day[10:12]
+        self.formatted_tide_time_1 = self.format_tide_time(self.tide_time_1)
+        self.formatted_tide_time_2 = f"{self.tide_time_2[0:2]}:{self.tide_time_2[2:4]}:00"
+        self.formatted_tide_height_1 = int(self.tide_height_1) / 10
+        self.formatted_tide_height_2 = int(self.tide_height_2) / 10
+        if (self.formatted_tide_height_1 > self.formatted_tide_height_2):
+            self.tide_1_type = "High"
+            self.tide_2_type = "Low"
+        else:
+            self.tide_1_type = "Low"
+            self.tide_2_type = "High"
+        self.tidal_range = abs(self.formatted_tide_height_1 - self.formatted_tide_height_2)
+
+    def format_tide_time(self, tide_time):
+        return f"{tide_time[0:2]}:{tide_time[2:4]}:00"
+        
+
+    def format_date(self):
+        return f"{str(self.current_date).zfill(2)}/{self.month_year}"
+            
+
 def get_other_tide(current_tide):
     if current_tide == 'High':
         return 'Low'
@@ -18,31 +52,36 @@ def format_tide_dictation(input_text, month_year):
         An example of input, taken from (flawed) output from dictation, is below 
         in test_text_1. test_text_2 is good dictation.
         An example of how the final output should look for a single day:
-        30/11/2023,3.3,Low,01:58:00,0.6,High,07:58:00,3.9,Low,14:18:00,0.6,High,20:18:00,3.5
-        The second value is the tidal range. Sadly, the reduced version does not deliver 
-        on that, as it relies on all 4 values for the day being dictated.
+        30/11/2023,3.3,Low,01:58:00,0.6,High,07:58:00,3.9
+        The second value is the tidal range. This is an approximation, as not all 4 
+        values for the day are available from the dictation, just 2. But good enough
+        for the requirement. 
     """    
     tide_type = {'lima': 'Low', 'hotel': 'High'}
 
     words = input_text.lower().split()
     translated_words = []
+    tide_days = {}
     current_tide_at_day_start = None
 
-    current_date = 1
+    current_date = 0
     for i, word in enumerate(words):
         if word == 'bravo': # ignore - just visual punctuation for the dictator
             continue
-        if word in tide_type:
-            translated_words.append(tide_type[word])
+        if word in tide_type: # indicates change of tide type (high, low)
             current_tide_at_day_start = tide_type[word]
         else:
-            # must be data for a day
+            # must be data for a day, e.g. 091512153518 meaning:
+            # first (usable) tide is 09:15 with height 1.2 metres
+            # second tide is 15:35 with height 1.8 metres
+            
             formatted_date = f"{str(current_date).zfill(2)}/{month_year}"
             tide_1 = word[:6]
             tide_2 = word[6:]
             tide_type_1 = current_tide_at_day_start
             tide_type_2 = get_other_tide(tide_type_1)
             translated_words.append(f"{formatted_date},{tide_type_1},{tide_1},{tide_type_2},{tide_2}")
+            tide_days[current_date] = TideDay(current_date, word, month_year)
             current_date += 1
 
     translated_text = ' '.join(translated_words).replace(' ','\n')
