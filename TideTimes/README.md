@@ -3,6 +3,28 @@
 
 November 2023
 
+## New format - as 10.2023, plus uses 2 tide times per day, not 4.
+
+The 2 big changes are:
+
+* As generally only 2 tides are usable in a day, just dictate those 2, given how long it takes to dictate the required data.
+* No need to determine the High and Low tides as part of the dictation - that can be handled by the code.
+
+Example of dictated data
+
+<img width="600" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/7dce7f24-f81f-4591-980d-7c817466cd6b">
+
+Example of the output from the processing of that data, ready for input to spreadsheet
+
+<img width="400" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/809d3018-fa76-497b-ba0a-8cd868523ade">
+
+How to call the code, and get the output
+
+```output_text = format_tide_dictation(test_text_1, "12/2023")```  
+```print(output_text)```
+
+October 2023
+
 ## New format - excludes commas and dates
 
 <img width="400" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/32aa5111-553e-4a81-8c7b-65ba8b296802">
