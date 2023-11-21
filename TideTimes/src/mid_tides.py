@@ -75,14 +75,12 @@ def format_tide_dictation(input_text, month_year):
     for i, tide_day in enumerate(words):
         if tide_day == 'bravo': # ignore - just visual punctuation for the dictator
             continue
-        else:
-            # must be data for a day, e.g. 091512153518 meaning:
-            # first (usable) tide is 09:15 with height 1.2 metres
-            # second tide is 15:35 with height 1.8 metres
-            
-            #translated_words.append(f"{formatted_date},{tide_type_1},{tide_1},{tide_type_2},{tide_2}")
-            tide_days.append(TideDay(current_date + 1, tide_day, month_year))
-            current_date += 1
+        # must be data for a day, e.g. 091512153518 meaning:
+        # first (usable) tide is 09:15 with height 1.2 metres
+        # second tide is 15:35 with height 1.8 metres
+        
+        tide_days.append(TideDay(current_date + 1, tide_day, month_year))
+        current_date += 1
 
     formatted_tide_month = ""
     for tide_day in tide_days:
