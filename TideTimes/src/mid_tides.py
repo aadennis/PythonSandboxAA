@@ -68,7 +68,6 @@ def format_tide_dictation(input_text, month_year):
 
 
     words = input_text.lower().split()
-    translated_words = []
     tide_days = []
 
 
