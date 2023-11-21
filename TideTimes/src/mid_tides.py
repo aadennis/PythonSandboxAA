@@ -55,16 +55,16 @@ def format_tide_dictation(input_text, month_year):
     """
         input_text is the tide table as dictated. 
         month_year is e.g. "12/2023" - note the format. It is mandatory. The date
-        of the month is then inferred, and the whole pasted together.
+        of the month is then inferred, and the whole pasted together to give eg 09/12/2023
         Context: In any one calendar day, there are only 2 usable high/low waters 
         (HLWs), give or take, which are the middle 2 of 4. If there are 3 HLWs, then 
         dictate the first 2 of 3. This happens when the first tide of the calendar 
         day swaps from being a high to a low or vice-versa.
-        The use of Bravo is because SpeechToText (STT) engines routinely
-        fail to hear "new line", or at least, to understand that it is not a literal
-        . For this, the code ignores it, and uses the token separator of space to replace with newline.
-        An example of input, taken from (flawed) output from dictation, is below 
-        in test_text_1. test_text_2 is good dictation.
+        The use of Bravo is a substitute for "new line", because SpeechToText (STT) engines
+        routinely misinterpret it, or at least, fail to understand that it is not a literal.
+        For this, the code ignores it, and uses the token separator of space to replace with newline.
+        An example of input, taken from output from dictation, is below 
+        in test_text_1. 
         An example of how the final output should look for a single day:
 
         30/11/2023,3.3,Low,01:58:00,0.6,High,07:58:00,3.9
@@ -82,10 +82,10 @@ def format_tide_dictation(input_text, month_year):
     for i, tide_day in enumerate(words):
         if tide_day == 'bravo': # ignore - just visual punctuation for the dictator
             continue
-        # must be data for a day, e.g. 091512153518 meaning:
+
+        # Got here? Must be data for a day, e.g. 091512153518 meaning:
         # first (usable) tide is 09:15 with height 1.2 metres
         # second tide is 15:35 with height 1.8 metres
-        
         tide_days.append(TideDay(current_date + 1, tide_day, month_year))
         current_date += 1
 
