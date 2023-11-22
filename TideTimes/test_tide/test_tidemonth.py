@@ -51,7 +51,7 @@ class TestTideMonth:
 
         tide_month_data =[]
 
-        file_path =  "./TideTimes/test_tide/data/tide_dictated_2023_11.csv"
+        file_path =  "./test_tide/data/tide_dictated_2023_11.csv"
         
         with io.open(file_path, 'r') as f:
             for line in f:
