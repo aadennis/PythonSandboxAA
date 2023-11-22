@@ -59,7 +59,7 @@ class TestTideMonth:
                 tide_month_data.append(line)
         tm = TideMonth(tide_month_data, 11)
         tm_results = tm.get_formatted_tide_month()
-        for e, i in enumerate(tm_results):
+        for _, i in enumerate(tm_results):
             print(i)
         assert 1 == 1
 
