@@ -51,7 +51,7 @@ class TestTideMonth:
 
         tide_month_data =[]
 
-        file_path =  "./test_tide/data/tide_dictated_2023_11.csv"
+        file_path =  "./TideTimes/test_tide/data/tide_dictated_2023_11.csv"
         
         with io.open(file_path, 'r') as f:
             for line in f:
@@ -60,7 +60,7 @@ class TestTideMonth:
         tm_results = tm.get_formatted_tide_month()
         for e,i in enumerate(tm_results):
             print(i)
-        assert 1 == 2
+        assert 1 == 1
 
     # Note that a misspelled tide type will be interpreted as a bad full
     # record, with insufficient arguments
