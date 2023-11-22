@@ -1,0 +1,30 @@
+name: Run Python Tests
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -U mock
+          pip install pytest-mock
+          echo "GITHUB_ENV $GITHUB_ENV"
+          cat $GITHUB_ENV
+      - name: set pythonpath
+        run: echo "PYTHONPATH=." >> $GITHUB_ENV
+      - name: pytest DocumentHandling
+        run: pytest DocumentHandling -v -s
+      - name: pytest ImageHandling - exif
+        run: pytest ImageHandling/exif -v -s
+      - name: pytest Utilities
+        run: pytest Utilities -v -s
+      - name: pytest TideTimes
+        run: pytest TideTimes -v -s
