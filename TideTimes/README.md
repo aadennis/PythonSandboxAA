@@ -23,6 +23,15 @@ How to call the code, and get the output
 ```output_text = format_tide_dictation(test_text_1, "12/2023")```  
 ```print(output_text)```
 
+# Saving the dictated transcription
+
+An example of the name of one of these dictated files:  
+```tide_dictated_2023_03.csv```  
+Save one copy under  
+```(OD)\data\Sea\TideData\tidetimes_dictated```  
+So the data is independent of the current dev box, save another copy in the development environment,  here:  
+```PythonSandboxAA\TideTimes\test_tide\data```  
+
 October 2023
 
 ## New format - excludes commas and dates
