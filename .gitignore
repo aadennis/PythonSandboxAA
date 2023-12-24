@@ -149,3 +149,4 @@ ImageHandling/image_processing/.env_image_p/*
 VideoHandling/Stitch/.env_stitch/*
 
 VideoHandling/Stitch/test/output/*
+ImageHandling/image_processing/tests/output/out_01.jpg
