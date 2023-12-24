@@ -3,12 +3,17 @@ import pyttsx3
 import datetime
 import time
 
-engine = pyttsx3.init()
+def announce_time():
+    engine = pyttsx3.init()
 
-while True:
-    now = datetime.datetime.now()
-    if now.minute % 15 == 0:
-        hour_now = now.strftime("%H")
-        engine.say(f"It is {hour_now} hundred hours")
-        engine.runAndWait()
-    time.sleep(60)
+    while True:
+        now = datetime.datetime.now()
+        if now.minute % 15 == 0:
+            hour_now = now.strftime("%H")
+            engine.say(f"It is {hour_now} o'clock")
+            engine.runAndWait()
+        time.sleep(60)
+
+if __name__ == "__main__":
+    announce_time()
+
