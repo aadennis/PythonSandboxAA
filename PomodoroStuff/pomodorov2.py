@@ -1,3 +1,10 @@
+# Speak the time every 15 minutes.
+# Most of the effort is around achieving a natural-sounding 
+# phrase for each point in the day.
+# Testing: this is done by passing announce_time the datetime
+# under test. If no argument is passed, then the function
+# uses the clock time. 
+
 # pip install pyttsx3
 import pyttsx3
 import datetime
