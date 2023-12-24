@@ -3,11 +3,18 @@ import pyttsx3
 import datetime
 import time
 
-def announce_time(now_time = datetime.datetime.now()):
+def get_time(args):
+    has_argument = bool(len(args))
+    if has_argument:
+        return args[0]
+    return datetime.datetime.now()
+
+def announce_time(*args):
+    
     engine = pyttsx3.init()
 
     while True:
-        now = now_time
+        now = get_time(args)
         if now.minute % 15 == 0:
             hour_now = int(now.strftime("%H"))
             am_pm = now.strftime("%p")
@@ -15,7 +22,7 @@ def announce_time(now_time = datetime.datetime.now()):
             if am_pm == 'PM':
                 hour_now = hour_now - 12
             else: # engine cannot pronounce 'AM'
-                am_pm = "eh em"
+                am_pm = "A M"
             if now.minute > 0:
                 minutes = str(now.minute)
             engine.say(f"It is {hour_now} {minutes} {am_pm}")
@@ -33,6 +40,10 @@ if __name__ == "__main__":
     #minute=45
     
 
-    now = datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute)
-    announce_time(now)
+    # test values...
+    # now_time = datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute)
+    # announce_time(now_time)
+
+    # "production" run...
+    announce_time()
 
