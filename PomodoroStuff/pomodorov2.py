@@ -4,6 +4,7 @@
 # Testing: this is done by passing announce_time the datetime
 # under test. If no argument is passed, then the function
 # uses the clock time. 
+# Example call: python  announce_time()
 
 # pip install pyttsx3
 import pyttsx3
