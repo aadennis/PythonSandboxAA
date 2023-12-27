@@ -20,6 +20,7 @@ def get_time(args):
 def announce_time(*args):
     
     engine = pyttsx3.init()
+    engine.setProperty('volume', 0.5)
 
     while True:
         now = get_time(args)
