@@ -14,3 +14,9 @@ Current focus:
   - TideTimes
   - YT Downloader
 2. Document Handling - rules inference for numbering headings
+
+## December 2023
+1. Pomodoro-type focus application
+   - see readme.md under Pomodoro
+  
+     
