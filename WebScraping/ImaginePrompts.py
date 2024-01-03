@@ -1,3 +1,4 @@
+from operator import length_hint
 from bs4 import BeautifulSoup
 import re
 
@@ -25,12 +26,13 @@ for og_description in og_descriptions:
     if content_value:
         photo_prompts.append(content_value)
 
-print(photo_prompts)
-
+big_list = []
 mah_list = []
 for i in photo_prompts:
     mah_list = re.findall(pattern, i)
+    big_list = big_list + mah_list
 
-mah_list_with_version = [s + " 6.0" for s in mah_list]
+mah_list_with_version = [s + " 6.0" for s in big_list]
 
 print(mah_list_with_version)
+print(length_hint(mah_list_with_version))
