@@ -13,10 +13,11 @@ def process_html_content_from_url(url):
     photo_prompts = []
     soup = BeautifulSoup(html_content, 'html.parser')
 
-    og_descriptions = soup.find_all('meta', {'property': 'og:description'})
+    # tags = soup.find_all('meta', {'property': 'og:description'})
+    tags = soup.find_all('td')
 
-    for og_description in og_descriptions:
-        content_value = og_description.get('content')
+    for tag in tags:
+        content_value = tag.get_text(strip=True)
         if content_value:
             photo_prompts.append(content_value)
 
@@ -29,10 +30,12 @@ def process_html_content_from_url(url):
     return mah_list
 
 if __name__ == "__main__":
-    url = "https://yourwebsite.com"
+    url =  "see readme.txt"
     result = process_html_content_from_url(url)
 
-    print(result)
+    for i in result:
+        print(i)
+    
     print(length_hint(result))
 
 # dirty placeholder
