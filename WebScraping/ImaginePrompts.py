@@ -26,13 +26,11 @@ for og_description in og_descriptions:
     if content_value:
         photo_prompts.append(content_value)
 
-big_list = []
 mah_list = []
 for i in photo_prompts:
-    mah_list = re.findall(pattern, i)
-    big_list = big_list + mah_list
+    matches = re.findall(pattern, i)
+    # Append each modified string to mah_list
+    mah_list.extend([s + " 6.0" for s in matches])
 
-mah_list_with_version = [s + " 6.0" for s in big_list]
-
-print(mah_list_with_version)
-print(length_hint(mah_list_with_version))
+print(mah_list)
+print(length_hint(mah_list))
