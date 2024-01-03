@@ -1,10 +1,15 @@
 from operator import length_hint
 from bs4 import BeautifulSoup
 import re
+import requests
 
-def process_html_content(html_content):
+def process_html_content_from_url(url):
     pattern = r'prompt: (.*?--v)'
-    
+
+    # Fetch HTML content from the URL
+    response = requests.get(url)
+    html_content = response.text
+
     photo_prompts = []
     soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -24,7 +29,14 @@ def process_html_content(html_content):
     return mah_list
 
 if __name__ == "__main__":
-    html_content = """
+    url = "https://yourwebsite.com"
+    result = process_html_content_from_url(url)
+
+    print(result)
+    print(length_hint(result))
+
+# dirty placeholder
+html_content = """
     <meta property="og:title" content="Midjourney vibe"/>
     <meta property="og:description" content="Flaherty/imagine prompt: Flakey Photo of man in a suit --ar 9:16 --seed 456 --fast --v 5.2/imagine prompt: Parky Picture of blade of grass --ar 9:16 --seed 456 --fast --v"/>
     <meta property="og:image:width" content="216"/>
@@ -35,8 +47,3 @@ if __name__ == "__main__":
     <meta property="og:description" content="Deemggen/imagine prompt: Image of Cat on Mat --ar 9:16 --seed 456 --fast --v 5.2/imagine prompt: Funny carpet on staircase --ar 9:16 --seed 456 --fast --v"/>
     <meta property="og:article:modified_time" content="2022-11-05 17:58:35"/>
     """
-
-    result = process_html_content(html_content)
-
-    print(result)
-    print(length_hint(result))
