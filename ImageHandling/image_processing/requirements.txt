@@ -5,7 +5,7 @@ nltk==3.8.1
 numpy==1.25.0
 opencv-python==4.8.0.74
 packaging==23.1
-Pillow==10.0.0
+Pillow==10.2.0
 pytesseract==0.3.10
 regex==2023.6.3
 tqdm==4.65.0
