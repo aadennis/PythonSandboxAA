@@ -1,6 +1,11 @@
 # Tide Times
 ## A workflow to capture tide times for a single location
 
+February 2024
+
+See the video here for notes just recording the middle 2 tidetimes for the day.  
+https://www.youtube.com/watch?v=M5XcVtQ3uUw
+
 November 2023
 
 ## New format - as 10.2023, plus uses 2 tide times per day, not 4.
