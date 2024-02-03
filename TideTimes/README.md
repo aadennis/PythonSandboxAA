@@ -23,7 +23,8 @@ Example of the output from the processing of that data, ready for input to sprea
 
 <img width="400" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/809d3018-fa76-497b-ba0a-8cd868523ade">
 
-How to call the code, and get the output
+How to call the code, and get the output  
+<b>!! YOU CAN NO LONGER JUST CALL PYTEST. IT MUST BE THIS COMMAND !!</b>
 
 ```output_text = format_tide_dictation(test_text_1, "12/2023")```  
 ```print(output_text)```
