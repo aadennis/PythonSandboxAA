@@ -19,6 +19,11 @@ Example of dictated data
 
 <img width="600" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/7dce7f24-f81f-4591-980d-7c817466cd6b">
 
+This is then pasted into mid-times.py:  
+
+<img width="657" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/6651a113-9c54-470a-8c9c-86587bacc65e">
+
+
 Example of the output from the processing of that data, ready for input to spreadsheet
 
 <img width="400" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/809d3018-fa76-497b-ba0a-8cd868523ade">
