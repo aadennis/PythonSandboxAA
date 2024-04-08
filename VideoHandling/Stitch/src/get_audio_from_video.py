@@ -17,9 +17,12 @@ def main():
     """
     wrapper to the single function
     """
-    input_file = r"c:\temp\Artrage Lock Transparency V1.mp4"
-    output_file = r"c:\temp\mahaudioxx.mp3"
-    get_audio_from_video(input_file, output_file)
+    input_dir = r"c:\temp"
+    input_file = r"\Artrage Lock Transparency V1"
+    input_file_with_ext = input_dir + input_file + ".mp4"
+    output_file_with_ext = input_dir + input_file + ".mp3"
+    
+    get_audio_from_video(input_file_with_ext, output_file_with_ext)
 
 if __name__ == "__main__":
     main()
