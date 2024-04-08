@@ -3,11 +3,5 @@
         "TideTimes"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
-    },
-    "python.formatting.provider": "none",
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.testing.pytestEnabled": true
 }
