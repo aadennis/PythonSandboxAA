@@ -1,30 +1,49 @@
 import dlib
 import os
 import shutil
+import getpass
+import tempfile
+import glob
+
+
 import numpy as np
 from PIL import Image
 
-# Load the detector
-detector = dlib.get_frontal_face_detector()
+class FaceDetector:
+    def __init__(self, src_folder, target_face_folder, target_notface_folder):
+        self.detector = dlib.get_frontal_face_detector()
+        self.src_folder = src_folder
+        self.target_face_folder = target_face_folder
+        self.target_notface_folder = target_notface_folder
+        
 
-# Specify the source folder and target folder
-src_folder = 'c:/temp/test_images'
-target_folder = 'c:/temp/outfaces'
+    def detect_faces(self):
+        for filename in os.listdir(self.src_folder):
+            if filename.endswith(".jpg") or filename.endswith(".png"):
+                img = Image.open(os.path.join(self.src_folder, filename))
+                gray = img.convert('L')
+                gray = np.array(gray)
+                faces = self.detector(gray, 1)
+                if len(faces) > 0:
+                    print("got a face: " + filename)
+                    shutil.copyfile(os.path.join(self.src_folder, filename), os.path.join(self.target_face_folder, filename))
+                else:
+                    print("NOT a face: " + filename)
+                    shutil.copyfile(os.path.join(self.src_folder, filename), os.path.join(self.target_notface_folder, filename))
+            
 
-# Iterate through all images in the source folder
-for filename in os.listdir(src_folder):
-    if filename.endswith(".jpg") or filename.endswith(".png"):
-        # Read the image
-        img = Image.open(os.path.join(src_folder, filename))
-        # Convert the image into grayscale
-        gray = img.convert('L')
-        # Convert the PIL Image to a numpy array
-        gray = np.array(gray)
-        # Detect faces
-        faces = detector(gray, 1)
-        # If a face is detected, move the image to the target folder
-        if len(faces) > 0:
-            print("got a face: " + filename)
-            shutil.move(os.path.join(src_folder, filename), target_folder)
-        else:
-            print("NOT a face: " + filename)
+
+# Usage
+src_folder = 'FaceDetection/test/test_images/medium'
+with tempfile.TemporaryDirectory() as tmpdir:
+    target_face_folder = os.path.join(tmpdir, 'faces')
+    target_notface_folder = os.path.join(tmpdir, 'notfaces')
+    os.mkdir(target_face_folder)
+    os.mkdir(target_notface_folder)
+    
+    fd = FaceDetector(src_folder, target_face_folder, target_notface_folder)
+    fd.detect_faces()
+    for dir in (target_face_folder, target_notface_folder):
+        with os.scandir(dir) as it:
+            for entry in it:
+                print(entry.name, entry.path)
