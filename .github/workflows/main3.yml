@@ -27,4 +27,4 @@ jobs:
       - name: pytest Utilities
         run: pytest Utilities -v -s
       - name: pytest MidTe
-        run: pytest TideTimes/test_tide/test_mid_tides -v -s
+        run: pytest TideTimes/test_tide/test_mid_tides.py -v -s
