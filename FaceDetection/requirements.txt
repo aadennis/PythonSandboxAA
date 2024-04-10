@@ -1,7 +1,12 @@
 cmake==3.29.0.1
+colorama==0.4.6
 dlib==19.24.4
+iniconfig==2.0.0
 numpy==1.26.4
 opencv-python==4.9.0.80
+packaging==24.0
 pillow==10.3.0
+pluggy==1.4.0
+pytest==8.1.1
 setuptools==69.2.0
 wheel==0.43.0
