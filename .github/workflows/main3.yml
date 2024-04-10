@@ -26,5 +26,5 @@ jobs:
         run: pytest ImageHandling/exif -v -s
       - name: pytest Utilities
         run: pytest Utilities -v -s
-      - name: pytest TideTimes
-        run: pytest TideTimes -v -s
+      - name: pytest MidTe
+        run: pytest TideTimes/test_mid_tides -v -s
