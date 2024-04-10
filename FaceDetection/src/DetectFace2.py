@@ -34,14 +34,14 @@ class FaceDetector:
 
 
 # Usage
-src_folder = 'FaceDetection/test/test_images/medium'
+src_image_folder = 'FaceDetection/test/test_images/medium'
 with tempfile.TemporaryDirectory() as tmpdir:
     target_face_folder = os.path.join(tmpdir, 'faces')
     target_notface_folder = os.path.join(tmpdir, 'notfaces')
     os.mkdir(target_face_folder)
     os.mkdir(target_notface_folder)
     
-    fd = FaceDetector(src_folder, target_face_folder, target_notface_folder)
+    fd = FaceDetector(src_image_folder, target_face_folder, target_notface_folder)
     fd.detect_faces()
     for dir in (target_face_folder, target_notface_folder):
         with os.scandir(dir) as it:
