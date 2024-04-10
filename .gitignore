@@ -133,7 +133,6 @@ VideoHandling/yt-dlp.exe
 VideoHandling/Downloader/data/
 
 TideTimes/data/
-virtualenvs/
 DocumentHandling/test/data/output/
 ImageHandling/exif/src/third_party/exiftool.exe
 # see https://github.com/yt-dlp/yt-dlp#release-files
@@ -155,3 +154,7 @@ ImageHandling/image_processing/tests/output/out_01.jpg
 ffmpegexes/ffmpeg.exe
 ffmpegexes/ffplay.exe
 ffmpegexes/ffprobe.exe
+FaceDetection/.env_faceDetection/Scripts/pythonw.exe
+
+# exclude the envs in virtualenvs, but keep the scripts folder
+virtualenvs/envs
