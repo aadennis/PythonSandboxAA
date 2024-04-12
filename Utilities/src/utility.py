@@ -3,6 +3,7 @@ import io
 import os
 import subprocess
 
+
 class Utility(object):
     def parse_int(self, candidate_int):
         try:
@@ -25,12 +26,12 @@ class Utility(object):
             for line in f:
                 file_text.__add__(line)
         print(self.get_hash_from_string(file_text))
-        
+
     def files_are_same(self, file1, file2):
         digests = []
         for file in [file1, file2]:
             hash = hashlib.md5()
-            with io.open(file,'rb') as f:
+            with io.open(file, 'rb') as f:
                 buf = f.read()
                 hash.update(buf)
                 a = hash.hexdigest()
@@ -41,7 +42,7 @@ class Utility(object):
     def file_exists(self, filepath):
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"no file [{filepath}]")
-    
+
     # pylint: disable=R0201
     def run_subprocess(self, args_for_subprocess):
         """
@@ -53,13 +54,27 @@ class Utility(object):
         exe = args_for_subprocess[0]
         try:
             result = subprocess.run(args_for_subprocess, capture_output=True)
-        except(FileNotFoundError):
+        except (FileNotFoundError):
             print(f"Executable [{exe}] was not found.Exiting...")
-            raise(FileNotFoundError)
-            
+            raise (FileNotFoundError)
+
         sout = str(result.stdout)
         serr = str(result.stdout)
         print(sout)
         print(serr)
-        
+
         return sout
+
+    def generate_self_assignments(self, line):
+        #Extract the arguments from the function definition
+        start = line.find("(") + 1
+        end = line.find(")")
+        args = line[start:end].split(", ")
+
+        assignments = []
+        for arg in args:
+            if arg != 'self':
+                assignments.append(f"self.{arg} = {arg}")
+
+        return "\n".join(assignments)
+    

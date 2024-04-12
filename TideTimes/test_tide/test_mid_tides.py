@@ -1,7 +1,7 @@
 import pytest
 import io
 import tempfile
-from ..src.mid_tides import TidesForMonth
+from mid_tides import TidesForMonth
 
 class TestTideDay:
     def test_is_valid_dictated_month(self):
