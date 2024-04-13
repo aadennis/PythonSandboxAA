@@ -18,8 +18,7 @@ jobs:
           echo "GITHUB_ENV $GITHUB_ENV"
           cat $GITHUB_ENV
       - name: set pythonpath
-        run: echo "PYTHONPATH=." >> $GITHUB_ENV
+        run: echo "PYTHONPATH=./FaceDetection" >> $GITHUB_ENV
       - name: pytest Face Detection
         run: pytest FaceDetection/test/test_FaceDetector.py -vv -s
         
-o
