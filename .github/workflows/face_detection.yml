@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Python 3.11
+      - name: Install Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r FaceDetection/src/requirements.txt
           echo "GITHUB_ENV $GITHUB_ENV"
           cat $GITHUB_ENV
       - name: set pythonpath
