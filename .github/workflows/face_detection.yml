@@ -1,1 +1,25 @@
 
+name: Run Python Test for Face Detection
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          echo "GITHUB_ENV $GITHUB_ENV"
+          cat $GITHUB_ENV
+      - name: set pythonpath
+        run: echo "PYTHONPATH=." >> $GITHUB_ENV
+      - name: pytest Face Detection
+        run: pytest FaceDetection/test/test_FaceDetector.py -vv -s
+        
+o
