@@ -8,15 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Python 3.12
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
             python-version: 3.12
-            node-version: 20
       - name: Cache pip dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
             
         with:
-            node-version: 20
             path: ~/.cache/pip
             key: ${{ runner.os }}-pip-${{ hashFiles('**/FaceDetection/src/requirements.txt') }}
             restore-keys: |
