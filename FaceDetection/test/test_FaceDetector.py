@@ -33,7 +33,7 @@ class TestImageMove:
 
         fd = FaceDetector("FaceDetection/test/test_images/medium", self.target_face_folder, self.target_notface_folder)
         expected_face_array = ["FullLassie.png","bloke.png","MaLassie.png"]
-        expected_notface_array = ["APorthole.png","bike.png","pizza01x.jpg"]
+        expected_notface_array = ["APorthole.png","bike.png","pizza01.jpg"]
         fd.detect_faces()
         actual_face_array = []
         for dir in (self.target_face_folder,):
