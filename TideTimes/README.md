@@ -3,7 +3,7 @@
 
 February 2024
 
-See the video here for notes just recording the middle 2 tidetimes for the day.  
+See the video here for notes just recording the middle 2 tidetimes for the day. Note that this fails to include the "Bravo" morpheme. The next picture, which begins "0828...", which is the time and tide height for a given day, shows each day being punctuated by a "Bravo".
 https://www.youtube.com/watch?v=M5XcVtQ3uUw
 
 November 2023
