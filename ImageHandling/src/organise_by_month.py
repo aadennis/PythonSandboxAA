@@ -1,3 +1,6 @@
+#source_dir = '/Users/den/Downloads/picsamples'
+#destination_dir = '/Volumes/MARKTEST/DennisPhotos'
+
 import os
 import subprocess
 import shutil
@@ -9,11 +12,11 @@ def get_creation_date(file_path):
     creation_date_str = exif_data.split(': ')[1].strip()
     return datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
 
-# Source directory containing photo files
 source_dir = '/Users/den/Downloads/picsamples'
-
-# Destination directory
 destination_dir = '/Volumes/MARKTEST/DennisPhotos'
+
+# Dictionary to store counts of photos added to each folder
+photos_added_counts = {}
 
 # Iterate over each file in the source directory
 for file_name in os.listdir(source_dir):
@@ -36,9 +39,15 @@ for file_name in os.listdir(source_dir):
             
             # Copy file to destination folder
             shutil.copy2(file_path, destination_folder)
+            
+            # Increment count of photos added to destination folder
+            photos_added_counts[destination_folder] = photos_added_counts.get(destination_folder, 0) + 1
         except Exception as e:
             print(f"Failed to get creation date for {file_path}: {e}")
 
+# Print counts of photos added to each folder
+print("Counts of photos added to each folder:")
+for folder, count in photos_added_counts.items():
+    print(f"{folder}: {count} photos")
+
 print("Photo files have been copied to the appropriate folders.")
-
-
