@@ -5,7 +5,7 @@ from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path 
 
-# Function to extract creation date from EXIF data
+# Extract creation date from EXIF data
 def get_creation_date(file_path):
     try:
         exif_data = subprocess.check_output(['exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', file_path]).decode('utf-8')
@@ -19,7 +19,7 @@ def get_creation_date(file_path):
         return None
 
 
-# Function to write text on image
+# Write text on image
 def write_on_image(image_path, text, font_size=36):
     image = Image.open(image_path)
 
@@ -43,21 +43,19 @@ def write_on_image(image_path, text, font_size=36):
     image.save(output_path)
     return output_path
 
-# source_dir = '/Users/den/Downloads/picsamples' # Mac
-# destination_dir = '/Volumes/MARKTEST/DennisPhotos' # Mac
-
-
 print("File Path:", Path(__file__).absolute()) 
 print("Directory Path:", Path().absolute())
 
+# source_dir = '/Users/den/Downloads/picsamples' # Mac
+# destination_dir = '/Volumes/MARKTEST/DennisPhotos' # Mac
 
 source_dir = 'ImageHandling/tests/TestImageFiles' # PC
-destination_dir = 'd:/Sandbox/git/aadennis/PythonSandboxAA/TestOutput' # Pc
+destination_dir = 'd:/Sandbox/git/aadennis/PythonSandboxAA/TestOutput' # PC
 
 # Dictionary to store counts of photos added to each folder
 photos_added_counts = {}
 
-# Iterate over each file in the source directoryc
+# Iterate over each file in the source directory
 for file_name in os.listdir(source_dir):
     file_path = os.path.join(source_dir, file_name)
     
