@@ -20,7 +20,7 @@ def get_creation_date(file_path):
 
 
 # Write text on image
-def write_on_image(image_path, text, font_size=36):
+def write_on_image(image_path, text, name_modifier, font_size=36):
     image = Image.open(image_path)
 
     font = ImageFont.load_default()
@@ -39,7 +39,7 @@ def write_on_image(image_path, text, font_size=36):
     image.paste(text_image, (10, 10))
 
     # Save the modified image with a new filename
-    output_path = f"{os.path.splitext(image_path)[0]}_with_text.jpg"
+    output_path = f"{os.path.splitext(image_path)[0]}_{name_modifier}.jpg"
     image.save(output_path)
     return output_path
 
@@ -65,10 +65,11 @@ for file_name in os.listdir(source_dir):
         try:
             creation_date = get_creation_date(file_path)
             print(creation_date)
+            temp_name="ANYTHING_BUT"
             
             # Write creation date on image
             creation_date_str = creation_date.strftime('%Y-%m-%d')
-            modified_image_path = write_on_image(file_path, creation_date_str, font_size=72)
+            modified_image_path = write_on_image(file_path, creation_date_str, name_modifier=temp_name, font_size=72)
             
             # Construct destination folder path
             year_folder = creation_date.strftime('%Y')
