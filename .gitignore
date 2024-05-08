@@ -148,7 +148,7 @@ ImageHandling/image_processing/.env_image_p/*
 VideoHandling/Stitch/.env_stitch/*
 
 VideoHandling/Stitch/test/output/*
-ImageHandling/image_processing/tests/output/out_01.jpg
+ImageHandling/image_processing/tests/output/*
 
 # see readme.txt in ffmpegexes
 ffmpegexes/ffmpeg.exe
@@ -158,3 +158,4 @@ FaceDetection/.env_faceDetection/Scripts/pythonw.exe
 
 # exclude the envs in virtualenvs, but keep the scripts folder
 virtualenvs/envs
+TestOutput/2021/2021-09/P1030641_with_text.jpg

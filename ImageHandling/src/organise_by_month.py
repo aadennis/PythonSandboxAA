@@ -24,7 +24,6 @@ def write_on_image(image_path, text, font_size=36):
     image = Image.open(image_path)
     draw = ImageDraw.Draw(image)
 
-
     font = ImageFont.load_default()
     font = font.font_variant(size=font_size)
 
@@ -34,7 +33,10 @@ def write_on_image(image_path, text, font_size=36):
     # Draw the text on the image
     draw.text(text_position, text, (237, 230, 211), font=font)
 
-    image.save(image_path)
+    # Save the modified image with a new filename
+    output_path = f"{os.path.splitext(image_path)[0]}_with_text.jpg"
+    image.save(output_path)
+    return output_path
 
 # source_dir = '/Users/den/Downloads/picsamples' # Mac
 # destination_dir = '/Volumes/MARKTEST/DennisPhotos' # Mac
@@ -63,7 +65,7 @@ for file_name in os.listdir(source_dir):
             
             # Write creation date on image
             creation_date_str = creation_date.strftime('%Y-%m-%d')
-            write_on_image(file_path, creation_date_str, font_size=72)
+            modified_image_path = write_on_image(file_path, creation_date_str, font_size=72)
             
             # Construct destination folder path
             year_folder = creation_date.strftime('%Y')
@@ -74,10 +76,13 @@ for file_name in os.listdir(source_dir):
             os.makedirs(destination_folder, exist_ok=True)
             
             # Copy file to destination folder
-            shutil.copy2(file_path, destination_folder)
+            shutil.copy2(modified_image_path, destination_folder)
             
             # Increment count of photos added to destination folder
             photos_added_counts[destination_folder] = photos_added_counts.get(destination_folder, 0) + 1
+            
+            # Remove the temporary modified image file
+            os.remove(modified_image_path)
         except Exception as e:
             print(f"Failed to get creation date for {file_path}: {e}")
 
