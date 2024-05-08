@@ -11,13 +11,19 @@
 # (go to project directory, then)
 # ..\virtualenvs\scripts\create_env.ps1
 
-$currentDirectory = Split-Path -Path (Get-Location) -Leaf
+$currentDirectory = Split-Path -Path $pwd -Leaf
+"Current directory: [$currentDirectory]"
 $working_folder = ".env_$currentDirectory"
+
 # no editing below...
 $root_venv_folder = "D:\Sandbox\git\aadennis\PythonSandboxAA\virtualenvs\envs"
+$root_venv_folder
 $venv_folder = "$root_venv_folder\$working_folder"
-"Creating venv in $venv_folder"
+"Creating venv in [$venv_folder]"
 
 $python_instance = "C:\Users\Dennis\AppData\Local\Programs\Python\Python312\python.exe"
 & $python_instance -m venv $venv_folder
-& $venv_folder\Scripts\activate
+Set-Location $venv_folder
+
+# Now from command line, run 
+./Scripts/activate
