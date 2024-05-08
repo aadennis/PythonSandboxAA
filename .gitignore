@@ -149,6 +149,7 @@ VideoHandling/Stitch/.env_stitch/*
 
 VideoHandling/Stitch/test/output/*
 ImageHandling/image_processing/tests/output/*
+TestOutput/*
 
 # see readme.txt in ffmpegexes
 ffmpegexes/ffmpeg.exe
