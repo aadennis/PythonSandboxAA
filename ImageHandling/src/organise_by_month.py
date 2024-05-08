@@ -22,16 +22,21 @@ def get_creation_date(file_path):
 # Function to write text on image
 def write_on_image(image_path, text, font_size=36):
     image = Image.open(image_path)
-    draw = ImageDraw.Draw(image)
 
     font = ImageFont.load_default()
     font = font.font_variant(size=font_size)
 
-    # Specify the position to draw the text
-    text_position = (10, 10)
+    # Estimate the size of the text based on font size
+    text_width = len(text) * font_size // 2
+    text_height = font_size
     
-    # Draw the text on the image
-    draw.text(text_position, text, (237, 230, 211), font=font)
+    # Create a new image with black background and white text
+    text_image = Image.new("RGB", (text_width + 10, text_height + 10), color="black")
+    text_draw = ImageDraw.Draw(text_image)
+    text_draw.text((5, 5), text, fill="white", font=font)
+
+    # Paste the text image onto the original image
+    image.paste(text_image, (10, 10))
 
     # Save the modified image with a new filename
     output_path = f"{os.path.splitext(image_path)[0]}_with_text.jpg"
