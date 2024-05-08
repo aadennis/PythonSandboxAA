@@ -27,8 +27,9 @@ def write_on_image(image_path, text, name_modifier, font_size=36):
     font = font.font_variant(size=font_size)
 
     # Estimate the size of the text based on font size
-    text_width = len(text) * font_size // 2
-    text_height = font_size
+    # The adjustments are "good enough" right and bottom padding values
+    text_width = int((len(text) * font_size // 2) * 1.05)
+    text_height = int(font_size * 1.3)
     
     # Create a new image with black background and white text
     text_image = Image.new("RGB", (text_width + 10, text_height + 10), color="black")
