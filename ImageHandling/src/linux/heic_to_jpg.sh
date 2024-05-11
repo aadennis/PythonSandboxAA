@@ -11,5 +11,5 @@ do
     outFile="${baseFilename}.jpg"
     echo "$inFile --> $outFile"
     magick $inFile $outFile
-    mogrify -resize 50% $outFile   # Resize the image to 50% of the original size
+    #mogrify -resize 50% $outFile   # Resize the image to 50% of the original size
 done
