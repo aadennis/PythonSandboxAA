@@ -23,10 +23,8 @@ class Photo:
     def set_text(self, text, font_size=36):
         font = ImageFont.load_default()
         font = font.font_variant(size=font_size)
-
         text_width = int((len(text) * font_size // 2) * 1.05)
         text_height = int(font_size * 1.3)
-        
         text_image = Image.new("RGB", (text_width + 10, text_height + 10), color="black")
         text_draw = ImageDraw.Draw(text_image)
         text_draw.text((5, 5), text, fill="white", font=font)
@@ -53,12 +51,9 @@ class Photo:
 
     def write_on_image(self, text, name_modifier, font_size=36):
         image = Image.open(self.file_path)
-
         image = self.set_orientation(image)
-
         text_image = self.set_text(text, font_size)
         image.paste(text_image, (10, 10))
-
         output_path = f"{os.path.splitext(self.file_path)[0]}_{name_modifier}.jpg"
         image.save(output_path)
         return output_path
