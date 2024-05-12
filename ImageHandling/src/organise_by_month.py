@@ -80,5 +80,6 @@ class ImageHandler:
 # Usage
 source_dir = 'ImageHandling/tests/TestImageFiles/'
 destination_dir = 'd:/Sandbox/git/aadennis/PythonSandboxAA/TestOutput'
+destination_dir = 'TestOutput'
 handler = ImageHandler(source_dir, destination_dir)
 handler.process_images()
