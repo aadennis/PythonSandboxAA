@@ -2,7 +2,7 @@ import os
 import subprocess
 import shutil
 from datetime import datetime
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ExifTags
 from pathlib import Path
 
 class ImageObject:
@@ -22,6 +22,24 @@ class ImageObject:
 
     def write_on_image(self, text, name_modifier, font_size=36):
         image = Image.open(self.file_path)
+
+        if hasattr(image, '_getexif'): # only present in JPEGs
+            for orientation in ExifTags.TAGS.keys():
+                if ExifTags.TAGS[orientation] == 'Orientation':
+                    break
+            e = image._getexif()
+            if e is not None:
+                exif=dict(e.items())
+                
+                if orientation in exif:
+                    if exif[orientation] == 3:
+                        image=image.rotate(180, expand=True)
+                    elif exif[orientation] == 6:
+                        image=image.rotate(270, expand=True)
+                    elif exif[orientation] == 8:
+                        image=image.rotate(90, expand=True)
+        image.save('corrected_image.jpg', 'JPEG')
+
 
         font = ImageFont.load_default()
         font = font.font_variant(size=font_size)
