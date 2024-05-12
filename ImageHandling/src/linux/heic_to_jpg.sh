@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # WARNING: Make a backup copy of all your images before running this code.
 # Make a copy of all .heic files in the given folder, in .jpg format
 extension=HEIC
