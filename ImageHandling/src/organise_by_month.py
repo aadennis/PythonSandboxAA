@@ -4,7 +4,6 @@ import shutil
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path 
-from heic_to_jpg import convert_heic_to_jpg
 
 class ImageHandler:
     def __init__(self, source_dir, destination_dir):
@@ -44,7 +43,6 @@ class ImageHandler:
         return output_path
 
     def process_images(self):
-        convert_heic_to_jpg(self.source_dir)
 
         for file_name in os.listdir(self.source_dir):
             print(f"Now on [{file_name}] in [{self.source_dir}]")
@@ -80,7 +78,7 @@ class ImageHandler:
         print("Photo files have been copied to the appropriate folders.")
 
 # Usage
-source_dir = 'ImageHandling/tests/TestImageFiles'
+source_dir = 'ImageHandling/tests/TestImageFiles/'
 destination_dir = 'd:/Sandbox/git/aadennis/PythonSandboxAA/TestOutput'
 handler = ImageHandler(source_dir, destination_dir)
 handler.process_images()
