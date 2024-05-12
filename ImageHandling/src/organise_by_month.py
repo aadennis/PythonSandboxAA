@@ -5,7 +5,7 @@ from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont, ExifTags
 from pathlib import Path
 
-class ImageObject:
+class Photo:
     def __init__(self, file_path):
         self.file_path = file_path
         self.creation_date = None
@@ -76,7 +76,7 @@ class ImageHandler:
 
             if file_name.lower().endswith(('.jpeg', '.jpg')):
                 try:
-                    image_obj = ImageObject(file_path)
+                    image_obj = Photo(file_path)
                     image_obj.get_creation_date()
 
                     if image_obj.creation_date:
