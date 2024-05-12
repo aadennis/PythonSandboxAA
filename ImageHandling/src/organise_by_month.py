@@ -33,9 +33,7 @@ class ImageObject:
 
         return text_image
 
-    def write_on_image(self, text, name_modifier, font_size=36):
-        image = Image.open(self.file_path)
-
+    def set_orientation(self, image):
         if hasattr(image, '_getexif'): # only present in JPEGs
             for orientation in ExifTags.TAGS.keys():
                 if ExifTags.TAGS[orientation] == 'Orientation':
@@ -51,6 +49,12 @@ class ImageObject:
                         image=image.rotate(270, expand=True)
                     elif exif[orientation] == 8:
                         image=image.rotate(90, expand=True)
+        return image
+
+    def write_on_image(self, text, name_modifier, font_size=36):
+        image = Image.open(self.file_path)
+
+        image = self.set_orientation(image)
 
         text_image = self.set_text(text, font_size)
         image.paste(text_image, (10, 10))
@@ -104,4 +108,3 @@ source_dir = 'ImageHandling/tests/TestImageFiles/'
 destination_dir = 'TestOutput'
 handler = ImageHandler(source_dir, destination_dir)
 handler.process_images()
-
