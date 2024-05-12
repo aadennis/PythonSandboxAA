@@ -20,14 +20,8 @@ class ImageObject:
         except IndexError as e:
             print(f"Failed to extract creation date from EXIF data for {self.file_path}: {e}")
 
-class ImageHandler:
-    def __init__(self, source_dir, destination_dir):
-        self.source_dir = source_dir
-        self.destination_dir = destination_dir
-        self.photos_added_counts = {}
-
-    def write_on_image(self, image_obj, text, name_modifier, font_size=36):
-        image = Image.open(image_obj.file_path)
+    def write_on_image(self, text, name_modifier, font_size=36):
+        image = Image.open(self.file_path)
 
         font = ImageFont.load_default()
         font = font.font_variant(size=font_size)
@@ -41,9 +35,15 @@ class ImageHandler:
 
         image.paste(text_image, (10, 10))
 
-        output_path = f"{os.path.splitext(image_obj.file_path)[0]}_{name_modifier}.jpg"
+        output_path = f"{os.path.splitext(self.file_path)[0]}_{name_modifier}.jpg"
         image.save(output_path)
         return output_path
+
+class ImageHandler:
+    def __init__(self, source_dir, destination_dir):
+        self.source_dir = source_dir
+        self.destination_dir = destination_dir
+        self.photos_added_counts = {}
 
     def process_images(self):
         for file_name in os.listdir(self.source_dir):
@@ -57,7 +57,7 @@ class ImageHandler:
 
                     if image_obj.creation_date:
                         creation_date_str = image_obj.creation_date.strftime('%Y-%m-%d')
-                        modified_image_path = self.write_on_image(image_obj, creation_date_str, name_modifier="ANYTHING_BUT", font_size=72)
+                        modified_image_path = image_obj.write_on_image(creation_date_str, name_modifier="ANYTHING_BUT", font_size=72)
                         
                         year_folder = image_obj.creation_date.strftime('%Y')
                         month_folder = image_obj.creation_date.strftime('%Y-%m')
@@ -84,3 +84,4 @@ source_dir = 'ImageHandling/tests/TestImageFiles/'
 destination_dir = 'TestOutput'
 handler = ImageHandler(source_dir, destination_dir)
 handler.process_images()
+    
