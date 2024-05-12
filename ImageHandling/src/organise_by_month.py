@@ -38,8 +38,6 @@ class ImageObject:
                         image=image.rotate(270, expand=True)
                     elif exif[orientation] == 8:
                         image=image.rotate(90, expand=True)
-        image.save('corrected_image.jpg', 'JPEG')
-
 
         font = ImageFont.load_default()
         font = font.font_variant(size=font_size)
