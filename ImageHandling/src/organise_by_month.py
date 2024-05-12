@@ -24,12 +24,8 @@ class ImageHandler:
             return None
 
     def write_on_image(self, image_path, text, name_modifier, font_size=36):
-        # Preserve the original orientation of the image
-        self.preserve_orientation(image_path, "temp_original.jpg")
-        
-        # Open the image from the temporary file with preserved orientation
-        image = Image.open("temp_original.jpg")
-        
+        image = Image.open(image_path)
+
         font = ImageFont.load_default()
         font = font.font_variant(size=font_size)
 
@@ -44,29 +40,7 @@ class ImageHandler:
 
         output_path = f"{os.path.splitext(image_path)[0]}_{name_modifier}.jpg"
         image.save(output_path)
-
-        # Clean up temporary files
-        os.remove("temp_original.jpg")
-
         return output_path
-    
-    def preserve_orientation(self, input_file, output_file):
-        try:
-            exif_data = subprocess.check_output(['exiftool', '-CreateDate', '-d', '%Y-%m-%d %H:%M:%S', input_file]).decode('utf-8')
-            creation_date_str = exif_data.split(': ')[1].strip()
-            creation_date = datetime.strptime(creation_date_str, '%Y-%m-%d %H:%M:%S')
-            orientation = subprocess.check_output(['exiftool', '-Orientation', input_file]).decode('utf-8')
-            orientation = orientation.split(': ')[1].strip()
-            if orientation != 'Horizontal (normal)':
-                Image.open(input_file).transpose(Image.ROTATE_270 if orientation == 'Rotate 270 CW' else Image.ROTATE_90).save(output_file)
-            else:
-                shutil.copy2(input_file, output_file)
-        except subprocess.CalledProcessError as e:
-            print(f"Error while getting orientation for {input_file}: {e}")
-        except Exception as e:
-            print(f"Failed to preserve orientation for {input_file}: {e}")
-
-
 
     def process_images(self):
 
