@@ -1,7 +1,5 @@
 import os
 import shutil
-from pathlib import Path
-
 from Photo import Photo
 
 class ImageHandler:
@@ -21,23 +19,18 @@ class ImageHandler:
                     image_obj.get_creation_date()
 
                     if image_obj.creation_date:
-                        creation_date_str = image_obj.creation_date.strftime(
-                            '%Y-%m-%d')
-                        modified_image_path = image_obj.write_on_image(
-                            creation_date_str, name_modifier="ANYTHING_BUT", font_size=72)
+                        creation_date_str = image_obj.creation_date.strftime('%Y-%m-%d')
+                        modified_image_path = image_obj.write_on_image(creation_date_str, name_modifier="ANYTHING_BUT", font_size=72)
 
                         year_folder = image_obj.creation_date.strftime('%Y')
-                        month_folder = image_obj.creation_date.strftime(
-                            '%Y-%m')
-                        destination_folder = os.path.join(
-                            self.destination_dir, year_folder, month_folder)
+                        month_folder = image_obj.creation_date.strftime('%Y-%m')
+                        destination_folder = os.path.join(self.destination_dir, year_folder, month_folder)
 
                         os.makedirs(destination_folder, exist_ok=True)
 
                         shutil.copy2(modified_image_path, destination_folder)
 
-                        self.photos_added_counts[destination_folder] = self.photos_added_counts.get(
-                            destination_folder, 0) + 1
+                        self.photos_added_counts[destination_folder] = self.photos_added_counts.get(destination_folder, 0) + 1
 
                         os.remove(modified_image_path)
                 except Exception as e:
@@ -48,10 +41,3 @@ class ImageHandler:
             print(f"{folder}: {count} photos")
 
         print("Photo files have been copied to the appropriate folders.")
-
-
-# Usage
-source_dir = 'ImageHandling/tests/TestImageFiles/'
-destination_dir = 'TestOutput'
-handler = ImageHandler(source_dir, destination_dir)
-handler.process_images()
