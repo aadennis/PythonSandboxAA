@@ -9,6 +9,7 @@ source config.cfg
 
 extension=HEIC
 pwd
+echo $image_file_dir
 cd $image_file_dir
 echo "Current folder..."
 pwd
