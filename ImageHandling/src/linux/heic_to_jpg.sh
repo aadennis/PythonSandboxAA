@@ -4,9 +4,11 @@
 # Make a copy of all .heic files in the given folder, in .jpg format
 # usage: bash ./heic_to_jpg.sh
 
+# Source the config file
+source config.cfg
+
 extension=HEIC
 pwd
-image_file_dir=../../tests/TestImageFiles
 cd $image_file_dir
 echo "Current folder..."
 pwd
