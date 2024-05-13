@@ -1,6 +1,5 @@
 from ImageHandler import ImageHandler
+import config
 
-source_dir = 'ImageHandling/tests/TestImageFiles/'
-destination_dir = 'TestOutput'
-handler = ImageHandler(source_dir, destination_dir)
+handler = ImageHandler(config.source_dir, config.destination_dir)
 handler.process_images()
