@@ -2,6 +2,8 @@ import os
 import shutil
 from Photo import Photo
 
+# todo - png support for dates
+
 class ImageHandler:
     def __init__(self, source_dir, destination_dir):
         self.source_dir = source_dir
