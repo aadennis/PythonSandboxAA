@@ -7,7 +7,7 @@ Perhaps as a 1-off, the user will also edit <code>config.py</code>, which record
 %% conventions: folders-F, modules-M,methods-m
 graph TD
 %% Nodes
-    F1(ImageHandling)
+    F1(fa:fa-comment-dots ImageHandling)
     F2(src)
     M1[index_photos_by_month.py]
     M2[config.py]
@@ -22,9 +22,7 @@ graph TD
     M2 --> M1
     M3 --> M1
     M1 --> m1
-    M1 --> m2
-    
-
+    M1 --> m2 
     
 ```
 
