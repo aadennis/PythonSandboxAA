@@ -7,7 +7,7 @@ Perhaps as a 1-off, the user will also edit <code>config.py</code>, which record
 %% conventions: folders-F, modules-M,methods-m
 graph TD
 %% Nodes
-classDef bluefill fill:#01f,stroke:#white,stroke-width:2px,color:#;
+classDef bluefill fill:#01f,stroke:#white,stroke-width:2px,color:#FFFFFF;
 
     F1(ImageHandling):::bluefill
     F2(src)
