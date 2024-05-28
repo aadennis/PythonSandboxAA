@@ -4,13 +4,21 @@ The user's entry point is <code>index_photos_by_month.py</code> .
 Perhaps as a 1-off, the user will also edit <code>config.py</code>, which records the source (where the original photos are to be found) and target (where the copied/converted photos are to be saved) folders, and removes the need for the user to enter run-time parameters.
 
 ```mermaid
+
 graph TD
-    F1(ImageHandling) --> S1(src)
-    S1 --> C1[index_photos_by_month.py]
-    S1 --> C2[config.py]
-    S1 --> C3[ImageHandler.py]
-    C2 --> C1
-    C3 --> C1
+%% Nodes
+    F1(ImageHandling)
+    F2(src)
+    M1[index_photos_by_month.py]
+    M2[config.py]
+    M3[ImageHandler.py]
+%% Node connections
+    F1 --> F2
+    F2 --> M1
+    F2 --> M2
+    F2 --> M3
+    M2 --> M1
+    M3 --> M1
     
 ```
 
