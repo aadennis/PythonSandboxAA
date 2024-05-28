@@ -4,18 +4,21 @@ The user's entry point is <code>index_photos_by_month.py</code> .
 Perhaps as a 1-off, the user will also edit <code>config.py</code>, which records the source (where the original photos are to be found) and target (where the copied/converted photos are to be saved) folders, and removes the need for the user to enter run-time parameters.
 
 ```mermaid
-%% conventions: folders-F, modules-M,methods-m
+%% conventions: folders-F-blue, modules-M-black,methods-m-white
 graph TD
-%% Nodes
-classDef bluefill fill:#01f,stroke:#white,stroke-width:2px,color:#FFFFFF;
+%% Classes
+    classDef blueFill fill:#01f,stroke:#white,stroke-width:2px,color:#FFFFFF;
+    classDef blackFill fill:#000000,stroke:#FFFFFF,stroke-width:1px,color:#FFFFFF;
+    classDef whiteFill fill:#FFFFFF,stroke:#000000,stroke-width:2px,color:#000000;
 
-    F1(ImageHandling):::bluefill
-    F2(src)
-    M1[index_photos_by_month.py]
-    M2[config.py]
-    M3[ImageHandler.py - IH]
-    m1[IH.ctor]
-    m2[IH.process_files]
+%% Nodes
+    F1(ImageHandling):::blueFill
+    F2(src):::blueFill
+    M1[index_photos_by_month.py]:::blackFill
+    M2[config.py]:::blackFill
+    M3[ImageHandler.py - IH]:::blackFill
+    m1[IH.ctor]:::whiteFill
+    m2[IH.process_files]:::whiteFill
 %% Node connections
     F1 --> F2
     F2 --> M1
