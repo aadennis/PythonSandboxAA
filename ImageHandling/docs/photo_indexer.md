@@ -7,9 +7,9 @@ Perhaps as a 1-off, the user will also edit <code>config.py</code>, which record
 %% conventions: folders-F-blue, modules-M-black,methods-m-white
 graph TD
 %% Classes
-    classDef blueFill fill:#01f,stroke:#white,stroke-width:2px,color:#FFFFFF;
+    classDef blueFill fill:#01f,stroke:#white,stroke-width:1px,color:#FFFFFF;
     classDef blackFill fill:#000000,stroke:#FFFFFF,stroke-width:1px,color:#FFFFFF;
-    classDef whiteFill fill:#FFFFFF,stroke:#000000,stroke-width:2px,color:#000000;
+    classDef whiteFill fill:#FFFFFF,stroke:#000000,stroke-width:1px,color:#000000;
 
 %% Nodes
     F1(ImageHandling):::blueFill
