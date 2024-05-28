@@ -7,7 +7,9 @@ Perhaps as a 1-off, the user will also edit <code>config.py</code>, which record
 %% conventions: folders-F, modules-M,methods-m
 graph TD
 %% Nodes
-    F1(fa:fa-comment-dots ImageHandling)
+classDef bluefill fill:#01f,stroke:#white,stroke-width:2px,color:#;
+
+    F1(ImageHandling):::bluefill
     F2(src)
     M1[index_photos_by_month.py]
     M2[config.py]
