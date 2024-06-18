@@ -3,10 +3,11 @@ class TidesForDay():
     Encapsulate tide data for 1 day
     """
 
-    def __init__(self, current_date, tide_day, month_year):
+    def __init__(self, current_date, tide_day, month_year, Is_BST=False):
         self.current_date = current_date
         self.tide_day = tide_day
         self.month_year = month_year
+        self.Is_BST = Is_BST 
         self.format_tide(tide_day)
 
     def format_tide(self, tide_day):
@@ -33,8 +34,12 @@ class TidesForDay():
     def format_tide_time(self, tide_time):
         """
         Convert a time value e.g. 0955 to 09:55
+        If Is_BST is True, add an hour to the time.
         """
-        return f"{tide_time[0:2]}:{tide_time[2:4]}:00"
+        hour = int(tide_time[0:2])
+        if self.Is_BST:
+            hour = (hour + 1) % 24  # Add an hour, no need to handle rollover for now
+        return f"{str(hour).zfill(2)}:{tide_time[2:4]}:00"
         
 
     def format_date(self):
@@ -54,7 +59,7 @@ class TidesForDay():
 
 class TidesForMonth():
 
-    def format_tide_dictation(input_text, month_year):
+    def format_tide_dictation(input_text, month_year, Is_BST=False):
         """
             input_text is the tide table as dictated. 
             month_year is e.g. "12/2023" - note the format. It is mandatory. The date
@@ -89,7 +94,7 @@ class TidesForMonth():
             # Got here? Must be data for a day, e.g. 091512153518 meaning:
             # first (usable) tide is 09:15 with height 1.2 metres
             # second tide is 15:35 with height 1.8 metres
-            tide_days.append(TidesForDay(current_date + 1, tide_day, month_year))
+            tide_days.append(TidesForDay(current_date + 1, tide_day, month_year, Is_BST))
             current_date += 1
 
         formatted_tide_month = []
@@ -116,5 +121,5 @@ class TidesForMonth():
    120031174809 bravo 062308125931 bravo
     """
 
-    output_text = format_tide_dictation(test_text_1, "06/2024")
+    output_text = format_tide_dictation(test_text_1, "06/2024", True)
     print(output_text)
