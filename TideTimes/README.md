@@ -1,6 +1,10 @@
 # Tide Times
 ## A workflow to capture tide times for a single location
 
+June 2024
+
+The dictation files should be stored here ```D:\onedrive\Transcribed Files``` and then loaded into Word.
+
 February 2024
 
 See the video here for notes just recording the middle 2 tidetimes for the day. Note that this fails to include the "Bravo" morpheme. The next picture, which begins "0828...", which is the time and tide height for a given day, shows each day being punctuated by a "Bravo".
