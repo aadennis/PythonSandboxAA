@@ -96,18 +96,25 @@ class TidesForMonth():
         for tide_day in tide_days:
             formatted_tide_month.append(f"{tide_day.print()}")
             
-        return formatted_tide_month
+        return '\n'.join(formatted_tide_month)
 
     test_text_1 = """
-    100533155809 bravo 103431162811 bravo 111529170912 bravo 121427181214 bravo 
-    070914133227 bravo 084713150928 bravo 100710163231 bravo 111407173634 bravo 
-    121404183237 bravo 065141130902 bravo 073843195700 bravo  
-    082344143600 bravo 090543151300 bravo 094542154702 bravo 102239162104 bravo 
-    105935165608 bravo 114130173711 bravo 060212124826 bravo 073114142725 bravo 
-    093913155026 bravo 104911165529 bravo 114108174531 bravo 122606182834 bravo 
-    064037130604 bravo 071538134104 bravo 074738140804 bravo 081738143005 bravo 
-    084637144805 bravo 091235150606 bravo
+   070409133530 bravo 082108144632 bravo 
+   092906154934 bravo 103005164536 bravo
+   112604173937 bravo 121704182838 bravo 
+   065637130404 bravo 073936135005 bravo 
+   081935142606 bravo 085633150007 bravo 
+   093131153409 bravo 100829160910 bravo
+   105027164912 bravo 114026173413 bravo
+   123826182713 bravo 070712134027 bravo 
+   081211144328 bravo 091310154130 bravo 
+   100909163532 bravo 110108172534 bravo
+   115107181236 bravo 064034123906 bravo 
+   072435132606 bravo 080735140905 bravo
+   085035144906 bravo 093434152906 bravo
+   101933161207 bravo 110732165708 bravo 
+   120031174809 bravo 062308125931 bravo
     """
 
-    output_text = format_tide_dictation(test_text_1, "02/2024")
+    output_text = format_tide_dictation(test_text_1, "06/2024")
     print(output_text)
