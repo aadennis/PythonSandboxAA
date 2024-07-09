@@ -3,7 +3,7 @@ import io
 import tempfile
 from pathlib import Path
 print("Directory Path:", Path().absolute())
-from src.mid_tides import TidesForMonth
+from TideTimes.src.mid_tides import TidesForMonth
 
 class TestTideDay:
     def test_is_valid_dictated_month(self):
