@@ -102,6 +102,8 @@ class TidesForMonth():
             formatted_tide_month.append(f"{tide_day.print()}")
             
         return '\n'.join(formatted_tide_month)
+    
+# end of class
 
 test_text_1 = """
 073609140431 bravo 085209151532 bravo
