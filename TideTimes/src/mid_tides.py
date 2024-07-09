@@ -59,7 +59,7 @@ class TidesForDay():
 
 class TidesForMonth():
 
-    def format_tide_dictation(input_text, month_year, Is_BST=False):
+    def format_tide_dictation(self, input_text, month_year, Is_BST=False):
         """
             input_text is the tide table as dictated. 
             month_year is e.g. "12/2023" - note the format. It is mandatory. The date
@@ -103,25 +103,25 @@ class TidesForMonth():
             
         return '\n'.join(formatted_tide_month)
 
-    test_text_1 = """
-    073609140431 bravo 085209151532 bravo
-    100108161933 bravo 110407171735 bravo 
-    054934120106 bravo 064334125206 bravo
-    072734133806 bravo 080634141606 bravo 
-    084233144806 bravo 091432151707 bravo
-    094631154509 bravo 101930161310 bravo
-    105629164311 bravo 113828172312 bravo
-    055112129927 bravo 065913133127 bravo 
-    081612144628 bravo 092611155531 bravo 
-    102909165535 bravo 052732112908 bravo
-    062334122506 bravo 071336131704 bravo 
-    075837140403 bravo 084237144403 bravo 
-    092537152103 bravo 10536155804  bravo
-    104635163606 bravo 113033171708 bravo 
-    054509122230 bravo 064811132829 bravo 
-    081712144929 bravo
-    """
+test_text_1 = """
+073609140431 bravo 085209151532 bravo
+100108161933 bravo 110407171735 bravo 
+054934120106 bravo 064334125206 bravo
+072734133806 bravo 080634141606 bravo 
+084233144806 bravo 091432151707 bravo
+094631154509 bravo 101930161310 bravo
+105629164311 bravo 113828172312 bravo
+055112129927 bravo 065913133127 bravo 
+081612144628 bravo 092611155531 bravo 
+102909165535 bravo 052732112908 bravo
+062334122506 bravo 071336131704 bravo 
+075837140403 bravo 084237144403 bravo 
+092537152103 bravo 10536155804  bravo
+104635163606 bravo 113033171708 bravo 
+054509122230 bravo 064811132829 bravo 
+081712144929 bravo
+"""
 
-
-    output_text = format_tide_dictation(test_text_1, "07/2024", True)
-    print(output_text)
+t = TidesForMonth()
+output_text = t.format_tide_dictation(test_text_1, "07/2024", True)
+print(output_text)
