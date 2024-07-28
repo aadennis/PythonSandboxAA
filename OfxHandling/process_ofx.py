@@ -9,6 +9,8 @@
 import os
 import random
 import string
+
+
 from ofxtools.Parser import OFXTree
 
 def process_ofx_file(file_path, target_prefix):
@@ -20,7 +22,7 @@ def process_ofx_file(file_path, target_prefix):
 
         # Iterate through all elements with the target prefix
         for element in parser.findall('.//'):
-            if element.text and target_prefix in element.text:
+            if element.tag == 'NAME' and element.text and target_prefix in element.text:
                 # Replace the current value with the target prefix
                 element.text = target_prefix
 
