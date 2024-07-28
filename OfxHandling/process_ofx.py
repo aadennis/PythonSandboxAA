@@ -5,6 +5,10 @@
 # This is unhelpful when trying to identify payees during an import to a finance program.
 # Example: AcmeTrading might identify themselves as AcmeTrading139$kkk and AcmeTrading9.9GG 
 # in a bank statement. They are still AcmeTrading.
+
+import os
+import random
+import string
 from ofxtools.Parser import OFXTree
 
 def process_ofx_file(file_path, target_prefix):
@@ -21,7 +25,9 @@ def process_ofx_file(file_path, target_prefix):
                 element.text = target_prefix
 
     # Save the modified OFX data to a new file
-    random_file_name = generate_random_string(10) + ".ofx"
+    file_name = os.path.basename(file_path)
+    file_name_root = os.path.splitext(file_name)[0]
+    random_file_name = file_name_root + generate_random_string(3) + ".ofx"
     with open(random_file_name, 'wb') as new_file:
         parser.write(new_file)
 
@@ -29,10 +35,9 @@ def process_ofx_file(file_path, target_prefix):
 
 # Helper function to generate a random string
 def generate_random_string(length):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+    return '_'+''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 # Example usage
 if __name__ == "__main__":
-    input_file_path = "SweetTest.ofx"
+    input_file_path = "test/SweetTest.ofx"
     process_ofx_file(input_file_path, target_prefix="ABC")
-
