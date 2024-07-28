@@ -9,22 +9,23 @@
 import os
 import random
 import string
-
-
 from ofxtools.Parser import OFXTree
 
-def process_ofx_file(file_path, target_prefix):
+def process_ofx_file(file_path, target_prefixes):
     parser = OFXTree()
     with open(file_path, 'rb') as f:
         print('File opened OK')
         parser.parse(f)
         print('File parsed OK')
 
-        # Iterate through all elements with the target prefix
+        # Iterate through all elements with the target prefixes
         for element in parser.findall('.//'):
-            if element.tag == 'NAME' and element.text and target_prefix in element.text:
-                # Replace the current value with the target prefix
-                element.text = target_prefix
+            if element.tag == 'NAME' and element.text:
+                for prefix in target_prefixes:
+                    if prefix in element.text:
+                        # Replace the current value with the target prefix
+                        element.text = prefix
+                        break  # Stop checking other prefixes                
 
     # Save the modified OFX data to a new file
     file_name = os.path.basename(file_path)
@@ -42,4 +43,5 @@ def generate_random_string(length):
 # Example usage
 if __name__ == "__main__":
     input_file_path = "test/SweetTest.ofx"
-    process_ofx_file(input_file_path, target_prefix="ABC")
+    target_prefixes = ["ABC", "XYZ"]  # Add more prefixes as needed
+    process_ofx_file(input_file_path, target_prefixes)
