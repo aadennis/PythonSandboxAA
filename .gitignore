@@ -163,3 +163,4 @@ TestOutput/2021/2021-09/P1030641_with_text.jpg
 ImageHandling/tests/TestImageFiles/*.heic.jpg
 JupyterPlay/my_environment_name/*
 FaceDetection/.env_FaceDetection/*
+JupyterPlay/*.ofx
