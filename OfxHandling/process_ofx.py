@@ -30,7 +30,9 @@ def process_ofx_file(file_path, target_prefixes):
                         break  # Stop checking other prefixes
 
     # Save the modified OFX data to a new file
-    random_file_name = generate_random_string(10) + ".ofx"
+    file_name = os.path.basename(file_path)
+    file_name_root = os.path.splitext(file_name)[0]
+    random_file_name = file_name_root + generate_random_string(3) + ".ofx"
     with open(random_file_name, 'wb') as new_file:
         parser.write(new_file)
 
@@ -38,7 +40,7 @@ def process_ofx_file(file_path, target_prefixes):
 
 # Helper function to generate a random string
 def generate_random_string(length):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+    return '_'+''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 # Example usage
 if __name__ == "__main__":
