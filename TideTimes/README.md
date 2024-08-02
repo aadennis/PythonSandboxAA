@@ -23,10 +23,10 @@ Example of dictated data
 
 Taking line 99, 082838145008:  
 Note that there is no date. This is deduced by the script.  
-The total digits represent all the data required for a single day. In this case, that means:
-At [0828] there is a high or low tide - the script determines which it is.
-That tide height is [3.8] metres - note the implicit decimal point
-At [1450] there is a further high or low tide. And so on.
+The total digits represent all the data required for a single day. In this case, that means:  
+At [0828] there is a high or low tide - the script determines which it is.  
+That tide height is [3.8] metres - note the implicit decimal point.  
+At [1450] there is a further high or low tide. And so on.  
 
 <img width="600" alt="image" src="https://github.com/aadennis/PythonSandboxAA/assets/11707983/7dce7f24-f81f-4591-980d-7c817466cd6b">
 
