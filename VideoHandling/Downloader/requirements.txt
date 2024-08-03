@@ -11,7 +11,7 @@ h11==0.13.0
 httptools==0.2.0
 idna==3.3
 itsdangerous==2.1.0
-Jinja2==3.0.3
+Jinja2==3.1.4
 MarkupSafe==2.1.0
 orjson==3.9.15
 pydantic==1.10.13
