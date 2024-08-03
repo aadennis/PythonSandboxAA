@@ -3,7 +3,7 @@ charset-normalizer==3.2.0
 colorama==0.4.6
 decorator==4.4.2
 Faker==19.9.0
-idna==3.4
+idna==3.7
 imageio==2.31.2
 imageio-ffmpeg==0.4.8
 iniconfig==2.0.0
