@@ -7515,7 +7515,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [201]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [208]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># pip install regex</span>
@@ -7546,7 +7546,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [202]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [209]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cleaned_lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
@@ -7574,7 +7574,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [203]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [210]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">high_lows</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cleaned_lines</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"Low"</span><span class="p">,</span><span class="s2">"High"</span><span class="p">,</span><span class="s2">"Fri"</span><span class="p">,</span><span class="s2">"Sat"</span><span class="p">,</span><span class="s2">"Sun"</span><span class="p">,</span><span class="s2">"Mon"</span><span class="p">,</span><span class="s2">"Tue"</span><span class="p">,</span><span class="s2">"Wed"</span><span class="p">,</span><span class="s2">"Thur"</span><span class="p">))]</span>
@@ -7602,7 +7602,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [204]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [211]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">formatted_tides</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7753,7 +7753,7 @@ Low,15:36,0.6,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [205]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [212]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">lines2</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">formatted_tides</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)]</span>
@@ -7781,7 +7781,7 @@ Low,15:36,0.6,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [206]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [213]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">tide_days</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7809,70 +7809,6 @@ Low,15:36,0.6,
 <span class="c1"># Print the grouped records</span>
 <span class="k">for</span> <span class="n">tide</span> <span class="ow">in</span> <span class="n">day_tides</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">tide</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>02,High,05:53,3.1,Low,11:31,0.9,High,18:18,3.4,
-03,Low,00:15,0.8,High,06:56,3.3,Low,12:32,0.8,High,19:13,3.6,
-04,Low,01:08,0.7,High,07:46,3.4,Low,13:21,0.7,High,19:59,3.7,
-05,Low,01:53,0.6,High,08:28,3.5,Low,14:03,0.6,High,20:37,3.8,
-06,Low,02:33,0.6,High,09:01,3.5,Low,14:39,0.6,High,21:08,3.8,
-07,Low,03:06,0.6,High,09:28,3.5,Low,15:10,0.6,High,21:33,3.7,
-08,Low,03:33,0.6,High,09:49,3.5,Low,15:36,0.6,
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f24568eb-9ef0-4108-af10-ade19f6358ce">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [207]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">OceanData</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_record</span> <span class="o">=</span> <span class="s2">""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">grouped_records</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_record</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">grouped_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_record</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">current_record</span> <span class="o">=</span> <span class="n">item</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">current_record</span> <span class="o">+=</span> <span class="n">item</span>
-
-    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_record</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">grouped_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_record</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">get_grouped_records</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouped_records</span>
-
-<span class="c1"># Example usage</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">lines2</span>
-
-<span class="n">ocean_data</span> <span class="o">=</span> <span class="n">OceanData</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="n">ocean_data</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
-<span class="n">ocean_data</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span>
-<span class="n">grouped_records</span> <span class="o">=</span> <span class="n">ocean_data</span><span class="o">.</span><span class="n">get_grouped_records</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">grouped_records</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
