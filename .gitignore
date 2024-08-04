@@ -164,3 +164,4 @@ ImageHandling/tests/TestImageFiles/*.heic.jpg
 JupyterPlay/my_environment_name/*
 FaceDetection/.env_FaceDetection/*
 JupyterPlay/*.ofx
+.onote_env/*
