@@ -7515,7 +7515,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [181]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># pip install regex</span>
@@ -7546,7 +7546,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [152]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [182]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cleaned_lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
@@ -7574,7 +7574,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [153]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [183]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">high_lows</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cleaned_lines</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"Low"</span><span class="p">,</span><span class="s2">"High"</span><span class="p">,</span><span class="s2">"Fri"</span><span class="p">,</span><span class="s2">"Sat"</span><span class="p">,</span><span class="s2">"Sun"</span><span class="p">,</span><span class="s2">"Mon"</span><span class="p">,</span><span class="s2">"Tue"</span><span class="p">,</span><span class="s2">"Wed"</span><span class="p">,</span><span class="s2">"Thur"</span><span class="p">))]</span>
@@ -7602,7 +7602,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [154]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [184]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">formatted_tides</span> <span class="o">=</span> <span class="p">[]</span>
@@ -7611,17 +7611,17 @@ a.anchor-link {
     <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"----------"</span><span class="p">)</span>
    
-    <span class="c1"># If the sentence starts with Sun, Mon, etc, then keep words 0 (day) and 1 </span>
-    <span class="c1"># (date). Month can be inferred downstream</span>
+    <span class="c1"># If the sentence starts with Sun, Mon, etc, then keep words 1 </span>
+    <span class="c1"># (date, but not day). Month can be inferred downstream</span>
     <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"Sun"</span><span class="p">,</span><span class="s2">"Mon"</span><span class="p">,</span><span class="s2">"Tues"</span><span class="p">,</span><span class="s2">"Weds"</span><span class="p">,</span><span class="s2">"Thurs"</span><span class="p">,</span><span class="s2">"Fri"</span><span class="p">,</span><span class="s2">"Sat"</span><span class="p">):</span>
         <span class="n">formatted_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"----------------"</span><span class="p">)</span>
-        <span class="n">formatted_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">;"</span><span class="p">)</span>
+        <span class="n">formatted_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">,"</span><span class="p">)</span>
         <span class="k">continue</span>
     <span class="c1"># After previous block, 7 or more words means a High or Low water sentence. </span>
     <span class="c1"># Words 0 (base zero), 3 and 6 are respectively High/Low, tide-height, and </span>
     <span class="c1"># time. Other words and characters are discarded</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
-        <span class="n">formatted_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span><span class="si">}</span><span class="s2">;"</span><span class="p">)</span>
+        <span class="n">formatted_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">words</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">,"</span><span class="p">)</span>
         <span class="k">continue</span>     
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">formatted_tides</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -7704,51 +7704,136 @@ a.anchor-link {
 ['Low', 'Water', 'of', '0.6', 'metres,', 'at', '15:36.']
 ----------
 ----------------
-Fri;02;
-High;3.1;05:53;
-Low;0.9;11:31;
-High;3.4;18:18;
+02,
+High,05:53,3.1,
+Low,11:31,0.9,
+High,18:18,3.4,
 ----------------
-Sat;03;
-Low;0.8;00:15;
-High;3.3;06:56;
-Low;0.8;12:32;
-High;3.6;19:13;
+03,
+Low,00:15,0.8,
+High,06:56,3.3,
+Low,12:32,0.8,
+High,19:13,3.6,
 ----------------
-Sun;04;
-Low;0.7;01:08;
-High;3.4;07:46;
-Low;0.7;13:21;
-High;3.7;19:59;
+04,
+Low,01:08,0.7,
+High,07:46,3.4,
+Low,13:21,0.7,
+High,19:59,3.7,
 ----------------
-Mon;05;
-Low;0.6;01:53;
-High;3.5;08:28;
-Low;0.6;14:03;
-High;3.8;20:37;
+05,
+Low,01:53,0.6,
+High,08:28,3.5,
+Low,14:03,0.6,
+High,20:37,3.8,
 ----------------
-Tues;06;
-Low;0.6;02:33;
-High;3.5;09:01;
-Low;0.6;14:39;
-High;3.8;21:08;
+06,
+Low,02:33,0.6,
+High,09:01,3.5,
+Low,14:39,0.6,
+High,21:08,3.8,
 ----------------
-Weds;07;
-Low;0.6;03:06;
-High;3.5;09:28;
-Low;0.6;15:10;
-High;3.7;21:33;
+07,
+Low,03:06,0.6,
+High,09:28,3.5,
+Low,15:10,0.6,
+High,21:33,3.7,
 ----------------
-Thurs;08;
-Low;0.6;03:33;
-High;3.5;09:49;
-Low;0.6;15:36;
+08,
+Low,03:33,0.6,
+High,09:49,3.5,
+Low,15:36,0.6,
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=28dd5622-fa3e-4e08-bc8c-9b05398b642f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d1b17b18-849d-49d8-942e-ebbc7fb4c9e6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [185]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">lines2</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">formatted_tides</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lines2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>['02,', 'High,05:53,3.1,', 'Low,11:31,0.9,', 'High,18:18,3.4,', '03,', 'Low,00:15,0.8,', 'High,06:56,3.3,', 'Low,12:32,0.8,', 'High,19:13,3.6,', '04,', 'Low,01:08,0.7,', 'High,07:46,3.4,', 'Low,13:21,0.7,', 'High,19:59,3.7,', '05,', 'Low,01:53,0.6,', 'High,08:28,3.5,', 'Low,14:03,0.6,', 'High,20:37,3.8,', '06,', 'Low,02:33,0.6,', 'High,09:01,3.5,', 'Low,14:39,0.6,', 'High,21:08,3.8,', '07,', 'Low,03:06,0.6,', 'High,09:28,3.5,', 'Low,15:10,0.6,', 'High,21:33,3.7,', '08,', 'Low,03:33,0.6,', 'High,09:49,3.5,', 'Low,15:36,0.6,']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=28dd5622-fa3e-4e08-bc8c-9b05398b642f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [186]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tide_days</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">lines2</span>
+<span class="n">day_tides</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">current_day_tide</span> <span class="o">=</span> <span class="s2">""</span>
+
+<span class="c1"># Iterate through the data</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="c1"># Check if the item has 2 characters (indicating the start of a record)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># If we have a current record, add it to the grouped_records list</span>
+        <span class="k">if</span> <span class="n">current_day_tide</span><span class="p">:</span>
+            <span class="n">day_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_day_tide</span><span class="p">)</span>
+        <span class="c1"># Start a new record</span>
+        <span class="n">current_day_tide</span> <span class="o">=</span> <span class="n">item</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Concatenate the item to the current record</span>
+        <span class="n">current_day_tide</span> <span class="o">+=</span> <span class="n">item</span>
+
+<span class="c1"># Add the last record (if any) to the grouped_records list</span>
+<span class="k">if</span> <span class="n">current_day_tide</span><span class="p">:</span>
+    <span class="n">day_tides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_day_tide</span><span class="p">)</span>
+
+<span class="c1"># Print the grouped records</span>
+<span class="k">for</span> <span class="n">tide</span> <span class="ow">in</span> <span class="n">day_tides</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tide</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>02,High,05:53,3.1,Low,11:31,0.9,High,18:18,3.4,
+03,Low,00:15,0.8,High,06:56,3.3,Low,12:32,0.8,High,19:13,3.6,
+04,Low,01:08,0.7,High,07:46,3.4,Low,13:21,0.7,High,19:59,3.7,
+05,Low,01:53,0.6,High,08:28,3.5,Low,14:03,0.6,High,20:37,3.8,
+06,Low,02:33,0.6,High,09:01,3.5,Low,14:39,0.6,High,21:08,3.8,
+07,Low,03:06,0.6,High,09:28,3.5,Low,15:10,0.6,High,21:33,3.7,
+08,Low,03:33,0.6,High,09:49,3.5,Low,15:36,0.6,
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f24568eb-9ef0-4108-af10-ade19f6358ce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
