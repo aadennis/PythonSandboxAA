@@ -7527,7 +7527,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [102]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pprint</span>
@@ -7574,7 +7574,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [103]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get a sorted list of the unique dates for this set of tides. </span>
@@ -7620,7 +7620,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [104]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># convert to the data class to an array. This is just for simplicity when walking the data.</span>
@@ -7674,7 +7674,42 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ed566924-8be0-4362-aae7-246efe2a85b9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ed566924-8be0-4362-aae7-246efe2a85b9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># get the tidal range</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">water_marks</span><span class="p">:</span>
+    <span class="n">t_high</span> <span class="o">=</span> <span class="n">water_marks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'High'</span><span class="p">]</span>
+    <span class="n">t_low</span> <span class="o">=</span> <span class="n">water_marks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'Low'</span><span class="p">]</span>
+    <span class="n">water_marks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'TidalRange'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">t_high</span> <span class="o">-</span> <span class="n">t_low</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">water_marks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{4: {'High': 3.7, 'Low': 0.7, 'TidalRange': 3.0},
+ 5: {'High': 6.5, 'Low': 0.2, 'TidalRange': 6.3},
+ 6: {'High': 3.8, 'Low': 0.6, 'TidalRange': 3.2},
+ 7: {'High': 3.7, 'Low': 0.6, 'TidalRange': 3.1}}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f2974ffa-7f47-4db8-b82f-1e5d6d704b52">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
