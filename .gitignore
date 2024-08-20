@@ -165,3 +165,4 @@ JupyterPlay/my_environment_name/*
 FaceDetection/.env_FaceDetection/*
 JupyterPlay/*.ofx
 .onote_env/*
+JupyterPlay/demo/nwide_to_homebank/config.ini
