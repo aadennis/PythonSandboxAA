@@ -62,22 +62,24 @@ def convert_nw_to_homebank_csv(in_file, out_file):
     # When looking through Homebank transactions, it is useful to know where
     # one statement ends, and another starts
     output_df.loc[0,'info'] = 'First transaction in statement'
-    output_df.loc[output_df.index[-1],'info'] = 'Last transaction in statement'
+    output_df.loc[output_df.index[-1],'info'] = 'Last transaction in statement'    
+    output_df = format_paid_columns(output_df)
     
-    output_df.fillna(0,inplace=True)
-    output_df["Paid out"] = output_df["Paid out"].astype(float)
-    output_df["Paid in"] = output_df["Paid in"].astype(float)
-    output_df["Paid"] = output_df.apply(lambda row: (row["Paid out"] * -1) if row["Paid out"] > 0.0 else row["Paid in"], axis = 1)
-    
-    # Finally in a form that HomeBank can ingest:
-    columns_to_delete = ["Paid out", "Paid in"] 
-    output_df.drop(columns=columns_to_delete, inplace=True)
     desired_order = [0,1,2,3,4,7,5,6]
     output_df = output_df.iloc[:, desired_order]
     
-    pprint.pprint(output_df) # debug
-    
+    pprint.pprint(output_df) # debug    
     output_df.to_csv(out_file, sep=";", index=False, header=False)
+
+def format_paid_columns(df):
+    df.fillna(0,inplace=True)
+    df["Paid out"] = df["Paid out"].astype(float)
+    df["Paid in"] = df["Paid in"].astype(float)
+    df["Paid"] = df.apply(lambda row: (row["Paid out"] * -1) if row["Paid out"] > 0.0 else row["Paid in"], axis = 1)
+    # original Paid columns can now be dropped
+    columns_to_delete = ["Paid out", "Paid in"] 
+    df.drop(columns=columns_to_delete, inplace=True)
+    return df
 
 def convert_nw_transactions():
     config_data = read_config()
