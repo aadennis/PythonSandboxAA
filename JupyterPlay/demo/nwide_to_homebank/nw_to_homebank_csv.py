@@ -47,7 +47,7 @@ def convert_nw_to_homebank_csv(in_file, out_file):
 
     #perform basic data manipulation
     output_df = pd.DataFrame({
-        "Date": input_df["Date"],
+        "Date": pd.to_datetime(input_df["Date"], format="%d %b %Y"),
         "payment type": 1,  # placeholder
         "info": "info 1",  # placeholder
         "Transactions": input_df["Transactions"],
@@ -68,7 +68,6 @@ def convert_nw_to_homebank_csv(in_file, out_file):
     output_df["Paid out"] = output_df["Paid out"].astype(float)
     output_df["Paid in"] = output_df["Paid in"].astype(float)
     output_df["Paid"] = output_df.apply(lambda row: (row["Paid out"] * -1) if row["Paid out"] > 0.0 else row["Paid in"], axis = 1)
-    output_df["Date"] = pd.to_datetime(output_df["Date"], format="%d %b %Y")
     
     # Finally in a form that HomeBank can ingest:
     columns_to_delete = ["Paid out", "Paid in"] 
