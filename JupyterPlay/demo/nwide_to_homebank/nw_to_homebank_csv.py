@@ -142,11 +142,6 @@ def convert_nw_transactions_v2():
         convert_nw_to_homebank_csv_v2(f, out_file)
 
 # Example usage:
-config = read_config()
-#convert_nw_to_homebank_csv("input_nw.csv", "output_homebank.csv")
-
-
-
-convert_nw_transactions_v2()
-
-#create_config()
+if __name__ == "__main__":
+    config = read_config()
+    convert_nw_to_homebank_csv_v2("input_nw.csv", "output_homebank.csv")
