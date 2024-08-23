@@ -158,6 +158,7 @@ def convert_nw_transactions_v2():
         out_file = f'{in_dir}/{file_name[0:2]}_outputx.csv'
         print(out_file)
         convert_nw_to_homebank_csv_v2(f, out_file)
+        print(f'output file: [{out_file}]')
 
 
 # Example usage:
