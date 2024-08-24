@@ -55,7 +55,7 @@ def convert_nw_to_homebank_csv(in_file, out_file):
         "Date": pd.to_datetime(input_df["Date"], format="%d %b %Y"),
         "payment type": 1,  # placeholder
         "info": "info 1",  # placeholder
-        "Transactions": input_df["Transactions"],
+        "Transactions": input_df["Transactions"].str.capitalize(),
         "Location": input_df["Location"],
         "Paid out": input_df["Paid out"].astype(str).str.replace("£", ""),
         "Paid in": input_df["Paid in"].astype(str).str.replace("£", ""),
@@ -116,7 +116,7 @@ def preprocess_data(input_df):
         "Date": pd.to_datetime(input_df["Date"], format="%d %b %Y"),
         "payment type": 1,  # placeholder
         "info": "info 1",  # placeholder
-        "Transactions": input_df["Transactions"],
+        "Transactions": input_df["Transactions"].str.capitalize(),
         "Location": input_df["Location"],
         "Paid out": input_df["Paid out"].astype(str).str.replace("£", ""),
         "Paid in": input_df["Paid in"].astype(str).str.replace("£", ""),
@@ -161,7 +161,22 @@ def convert_nw_transactions_v2():
         print(f'output file: [{out_file}]')
 
 
+def handle_special_payees(df):
+#Some frequent payees have sub-divisions which categorize
+#them, once you know the pattern... which is quite simple, 
+#frequently
+    #payee = df.apply(lambda x: str(x).lower())
+
+    # if df.str.lower.startswith('amazon.co.uk').any():
+    #     return 'Amazon'
+    # if df.str.lower.startswith('amzn').any():
+    #     return 'Amazon'
+
+    return df
+
+
 # Example usage:
 if __name__ == "__main__":
     config = read_config()
+
     convert_nw_to_homebank_csv_v2("input_nw.csv", "output_homebank.csv")
