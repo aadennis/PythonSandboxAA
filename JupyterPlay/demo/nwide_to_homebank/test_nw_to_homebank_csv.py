@@ -39,15 +39,15 @@ class TestPreprocessData(unittest.TestCase):
             "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
         })
         amazon_capped_data = pd.DataFrame({
-            "Date": pd.to_datetime(["2022-01-01", "2022-01-31", "2022-02-02"]),
-            "payment type": [1, 1, 1],
-            "info": ["info 1", "info 1", "info 1"],
-            "Transactions": ["Amazon.co.uk*hb8co4g74", "Amznmktplace", "Www.amazon* 204-33"],
-            "Location": ["London", "Manchester", "London"],
-            "Paid out": ["100.00", "", "254.23"],
-            "Paid in": ["", "10.00", ""],
-            "category": ["category 1", "category 1", "category 1"],
-            "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
+            "Date": pd.to_datetime(["2022-01-01", "2022-01-31", "2022-02-02", "2024-02-02"]),
+            "payment type": [1, 1, 1,1],
+            "info": ["info 1", "info 1", "info 1", "info 1"],
+            "Transactions": ["Amazon.co.uk*hb8co4g74", "Amznmktplace", "Www.amazon* 204-33", "DIRECT DEBIT PAYMENT"],
+            "Location": ["London", "Manchester", "London", "Chicago"],
+            "Paid out": ["100.00", "", "254.23", "2030.34"],
+            "Paid in": ["", "10.00", "", ""],
+            "category": ["category 1", "category 1", "category 1", "snood farm"],
+            "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2", "tag3 tag4"],
         })
 
         self.input_df = pd.DataFrame(nw_src_data)
@@ -105,23 +105,24 @@ class TestPreprocessData(unittest.TestCase):
             "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
         })
 
+
         actual_output = preprocess_data(self.nw_amazon_data)
         pd.testing.assert_frame_equal(expected_output, actual_output)
 
 
     def test_special_payees(self):
             expected_output = pd.DataFrame({
-                "Date": pd.to_datetime(["2022-01-01", "2022-01-31", "2022-02-02"]),
-                "payment type": [1, 1, 1],
-                "info": ["info 1", "info 1", "info 1"],
-                "Transactions": ["Amazon", "Amazon", "Amazon"],
-                "Location": ["London", "Manchester", "London"],
-                "Paid out": ["100.00", "", "254.23"],
-                "Paid in": ["", "10.00", ""],
-                "category": ["category 1", "category 1", "category 1"],
-                "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
+                "Date": pd.to_datetime(["2022-01-01", "2022-01-31", "2022-02-02", "2024-02-02"]),
+                "payment type": ["1", "1", "1", "11"],
+                "info": ["info 1", "info 1", "info 1", "info 1"],
+                "Transactions": ["Amazon", "Amazon", "Amazon", "DIRECT DEBIT PAYMENT"],
+                "Location": ["London", "Manchester", "London", "Chicago"],
+                "Paid out": ["100.00", "", "254.23", "2030.34"],
+                "Paid in": ["", "10.00", "", ""],
+                "category": ["category 1", "category 1", "category 1", "snood farm"],
+                "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2", "tag3 tag4"],
             })
-
+            pprint(self.amazon_capped_data)
             actual_output = handle_special_payees(self.amazon_capped_data)
             pprint(actual_output)
             pd.testing.assert_frame_equal(expected_output, actual_output)

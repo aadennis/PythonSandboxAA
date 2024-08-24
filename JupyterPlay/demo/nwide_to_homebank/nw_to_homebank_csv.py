@@ -9,6 +9,7 @@
 # Given the total absence of good practice here, there are
 # many todos.
 # get-content -Path .\(wildcard) > 
+# e.g. get-content -Path .\*x2*csv > ./nw_all.csv
 
 # include these in requirements.txt:
 import pandas as pd
@@ -156,8 +157,10 @@ def handle_special_payees(df):
     df['Transactions'] = df['Transactions'].apply(
         # Amazon and its variants
         lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') or x.startswith('Www.amazon') else x)
+    # Flag Direct Debit Payment as Category 11 for Homebank purposes
+    df['payment type'] = df['Transactions'].apply(
+        lambda x: '11' if x.startswith('DIRECT DEBIT PAYMENT') else '1')
     return df
-
 
 # Example usage:
 if __name__ == "__main__":
