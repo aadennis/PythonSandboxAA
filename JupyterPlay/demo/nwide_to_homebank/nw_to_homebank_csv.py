@@ -8,6 +8,7 @@
 # as the native .XHB format, so may have some value.
 # Given the total absence of good practice here, there are
 # many todos.
+# get-content -Path .\(wildcard) > 
 
 # include these in requirements.txt:
 import pandas as pd
@@ -60,7 +61,7 @@ def format_paid_columns(df):
     df.fillna(0, inplace=True)
     df["Paid out"] = df["Paid out"].astype(float)
     df["Paid in"] = df["Paid in"].astype(float)
-    df["Paidx"] = df.apply(lambda row: (row["Paid out"] * -1)
+    df["Paid"] = df.apply(lambda row: (row["Paid out"] * -1)
                            if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
     # original Paid columns can now be dropped
     columns_to_delete = ["Paid out", "Paid in"]
@@ -83,7 +84,7 @@ def convert_nw_transactions():
 # - refactor for testing wip...
 
 
-def read_nw_csv(file_path, encoding='utf-8'):
+def read_nw_csv(file_path, encoding='CP1252'):
     """Reads the Nationwide CSV file and returns a DataFrame."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File '{file_path}' does not exist.")
@@ -124,8 +125,13 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
+    output_df.info()
+    output_df = format_paid_columns(output_df)
+    output_df.info()
     output_df = handle_special_payees(output_df)
+    pprint(output_df)
     output_df = reorder_columns(output_df)
+    pprint(output_df)
     output_df.to_csv(out_file, sep=";", index=False, header=False)
 
 
@@ -136,7 +142,7 @@ def convert_nw_transactions_v2():
     for f in glob.iglob(f'{in_dir}/*Statement Download*.csv'):
         print(f)
         file_name = os.path.basename(f)
-        out_file = f'{in_dir}/{file_name[0:2]}_outputx.csv'
+        out_file = f'{in_dir}/{file_name[0:2]}_outputx2.csv'
         print(out_file)
         convert_nw_to_homebank_csv_v2(f, out_file)
         print(f'output file: [{out_file}]')
@@ -149,7 +155,7 @@ def handle_special_payees(df):
 
     df['Transactions'] = df['Transactions'].apply(
         # Amazon and its variants
-        lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') else x)
+        lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') or x.startswith('Www.amazon') else x)
     return df
 
 
@@ -157,4 +163,6 @@ def handle_special_payees(df):
 if __name__ == "__main__":
     config = read_config()
 
-    convert_nw_to_homebank_csv_v2("input_nw.csv", "output_homebank.csv")
+    #convert_nw_to_homebank_csv_v2("input_nw.csv", "output_homebank.csv")
+    #convert_nw_to_homebank_csv_v2(r"D:\onedrive\data\HouseHold\CreditCard\NationwideCC\Haa.csv", "output_homebank.csv")
+    convert_nw_transactions_v2()
