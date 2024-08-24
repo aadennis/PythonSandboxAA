@@ -103,7 +103,7 @@ def convert_nw_transactions():
 # - refactor for testing wip...
 
 
-def read_nw_csv(file_path, encoding='cp1252'):
+def read_nw_csv(file_path, encoding='utf-8'):
     """Reads the Nationwide CSV file and returns a DataFrame."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File '{file_path}' does not exist.")
@@ -165,12 +165,11 @@ def handle_special_payees(df):
 #Some frequent payees have sub-divisions which categorize
 #them, once you know the pattern... which is quite simple, 
 #frequently
-    #payee = df.apply(lambda x: str(x).lower())
-
-    # if df.str.lower.startswith('amazon.co.uk').any():
-    #     return 'Amazon'
-    # if df.str.lower.startswith('amzn').any():
-    #     return 'Amazon'
+    
+    if df.str.startswith('amazon.co.uk').any():
+        return 'Amazon'
+    if df.str.lower.startswith('amzn').any():
+        return 'Amazon'
 
     return df
 
