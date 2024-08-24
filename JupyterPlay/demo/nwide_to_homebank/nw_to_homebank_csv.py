@@ -11,14 +11,12 @@
 
 # include these in requirements.txt:
 import pandas as pd
-from pprint import pprint 
+from pprint import pprint
 import glob
 import os
 
 from datetime import datetime
 from utility import read_config
-
-
 
 
 def convert_nw_to_homebank_csv(in_file, out_file):
@@ -59,18 +57,17 @@ def convert_nw_to_homebank_csv(in_file, out_file):
 
 
 def format_paid_columns(df):
+    df.fillna(0, inplace=True)
+    df["Paid out"] = df["Paid out"].astype(float)
+    df["Paid in"] = df["Paid in"].astype(float)
+    df["Paidx"] = df.apply(lambda row: (row["Paid out"] * -1)
+                           if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
+    # original Paid columns can now be dropped
+    columns_to_delete = ["Paid out", "Paid in"]
+    df.drop(columns=columns_to_delete, inplace=True)
+
+    pprint(df)
     return df
-    # df.fillna(0, inplace=True)
-    # df["Paid out"] = df["Paid out"].astype(float)
-    # df["Paid in"] = df["Paid in"].astype(float)
-    # df["Paidx"] = df.apply(lambda row: (row["Paid out"] * -1)
-    #                       if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
-    # # original Paid columns can now be dropped
-    # columns_to_delete = ["Paid out", "Paid in"]
-    # df.drop(columns=columns_to_delete, inplace=True)
-    # df = df.assign(Updated_Payee = lambda x: (x['Location'] if x.Location == "xx" "aa" else "bb"))
-    # pprint(df)
-    # return df
 
 
 def convert_nw_transactions():
@@ -127,6 +124,7 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
+    output_df = handle_special_payees(output_df)
     output_df = reorder_columns(output_df)
     output_df.to_csv(out_file, sep=";", index=False, header=False)
 
@@ -145,15 +143,13 @@ def convert_nw_transactions_v2():
 
 
 def handle_special_payees(df):
-#Some frequent payees have sub-divisions which categorize
-#them, once you know the pattern... which is quite simple, 
-#frequently
-    
-    if df.str.startswith('amazon.co.uk').any():
-        return 'Amazon'
-    if df.str.lower.startswith('amzn').any():
-        return 'Amazon'
+    # Some frequent payees have sub-divisions which categorize
+    # them, once you know the pattern... which is quite simple,
+    # frequently
 
+    df['Transactions'] = df['Transactions'].apply(
+        # Amazon and its variants
+        lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') else x)
     return df
 
 
