@@ -11,34 +11,14 @@
 
 # include these in requirements.txt:
 import pandas as pd
-import pprint
+from pprint import pprint 
 import glob
 import os
-import configparser
+
 from datetime import datetime
+from utility import read_config
 
 
-def create_config():
-    config = configparser.ConfigParser()
-    config['General'] = {'debug': True, 'log_level': 'info'}
-    config['Database'] = {'db_name': 'example_db',
-                          'db_host': 'localhost', 'db_port': '5432'}
-    config['TransactionConfig'] = {
-        'cc_txn_source_path': r'nonsense', 'x': '22', 'y': '44'}
-
-    with open('config.ini', 'w') as configfile:
-        config.write(configfile)
-
-
-def read_config():
-    config = configparser.ConfigParser()
-    config.read('./config.ini')
-    cc_txn_source_path = config.get('TransactionConfig', 'cc_txn_source_path')
-
-    config_values = {
-        'cc_txn_source_path': cc_txn_source_path
-    }
-    return config_values
 
 
 def convert_nw_to_homebank_csv(in_file, out_file):
@@ -68,26 +48,29 @@ def convert_nw_to_homebank_csv(in_file, out_file):
     # one statement ends, and another starts
     output_df.loc[0, 'info'] = 'First transaction in statement'
     output_df.loc[output_df.index[-1],
-                  'info'] = 'Last transaction in statement'
+                  'info'] = 'Last txransaction in statement'
     output_df = format_paid_columns(output_df)
 
     desired_order = [0, 1, 2, 3, 4, 7, 5, 6]
     output_df = output_df.iloc[:, desired_order]
 
-    pprint.pprint(output_df)  # debug
+    pprint(output_df)  # debug
     output_df.to_csv(out_file, sep=";", index=False, header=False)
 
 
 def format_paid_columns(df):
-    df.fillna(0, inplace=True)
-    df["Paid out"] = df["Paid out"].astype(float)
-    df["Paid in"] = df["Paid in"].astype(float)
-    df["Paid"] = df.apply(lambda row: (row["Paid out"] * -1)
-                          if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
-    # original Paid columns can now be dropped
-    columns_to_delete = ["Paid out", "Paid in"]
-    df.drop(columns=columns_to_delete, inplace=True)
     return df
+    # df.fillna(0, inplace=True)
+    # df["Paid out"] = df["Paid out"].astype(float)
+    # df["Paid in"] = df["Paid in"].astype(float)
+    # df["Paidx"] = df.apply(lambda row: (row["Paid out"] * -1)
+    #                       if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
+    # # original Paid columns can now be dropped
+    # columns_to_delete = ["Paid out", "Paid in"]
+    # df.drop(columns=columns_to_delete, inplace=True)
+    # df = df.assign(Updated_Payee = lambda x: (x['Location'] if x.Location == "xx" "aa" else "bb"))
+    # pprint(df)
+    # return df
 
 
 def convert_nw_transactions():
