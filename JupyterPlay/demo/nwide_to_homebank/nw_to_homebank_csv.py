@@ -1,3 +1,15 @@
+# ---
+# jupyter:
+#   jupytext:
+#     cell_metadata_filter: -all
+#     formats: ipynb,py
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#       format_version: '1.5'
+#       jupytext_version: 1.16.4
+# ---
+
 
 # Given a credit card csv file in Nationwide (UK) format,
 # generate a csv format acceptable to Homebank.
