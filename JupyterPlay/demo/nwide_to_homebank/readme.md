@@ -5,16 +5,17 @@ Given a credit card csv file in Nationwide (UK) format, generate a csv format ac
 Nationwide excludes location data from its ofx output, hence no ofx conversion here.  
 Homebank - it turns out that the [info] and [tag] fields are never exported to the QIF format. But they can obviouisly be saved in their native format of .XHB, so may have some value.
 
-`get-content -Path .\(wildcard) >    `  
-e.g.   
-`get-content -Path .\*x2*csv > ./nw_all.csv  `
+### Module name:  
+`nw_to_homebank_csv.py`
 
-
-___
-The entry point for scanning and converting a directory of statements is   
+### The entry point for scanning and converting a directory of statements
 `convert_nw_transactions_v2()`  
 
-If you only want to convert a single statement, use   `convert_nw_to_homebank_csv_v2`
+This reads `utility.read_config` to determine a) the input folder, and b) the location of the file which concatenates the output from the multiple statements.
+This calls `convert_nw_to_homebank_csv_v2()` (see below), multiple times. In fact, as many times as there are statements in the input folder.
+
+### If you only want to convert a single statement, use  
+`convert_nw_to_homebank_csv_v2(input file, output file)`
 
 A number of functions support that top-level call. (#todo Mermaid)
 
