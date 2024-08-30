@@ -30,7 +30,7 @@ import glob
 import os
 
 from datetime import datetime
-from utility import read_config
+from utility import load_env_config, read_env_var
 
 
 def convert_nw_to_homebank_csv(in_file, out_file):
@@ -149,8 +149,8 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
 
 
 def convert_nw_transactions_v2():
-    config_data = read_config()
-    in_dir = config_data['cc_txn_source_path']
+    config = load_env_config()
+    in_dir = read_env_var(config, 'cc_txn_source_path')
     print(in_dir)
     for f in glob.iglob(f'{in_dir}/*Statement Download*.csv'):
         print(f)
@@ -176,8 +176,4 @@ def handle_special_payees(df):
 
 # Example usage:
 if __name__ == "__main__":
-    config = read_config()
-
-    #convert_nw_to_homebank_csv_v2("input_nw.csv", "output_homebank.csv")
-    #convert_nw_to_homebank_csv_v2(r"D:\onedrive\data\HouseHold\CreditCard\NationwideCC\Haa.csv", "output_homebank.csv")
     convert_nw_transactions_v2()
