@@ -15,7 +15,8 @@ This reads `utility.read_config` to determine a) the input folder, and b) the lo
 This calls `convert_nw_to_homebank_csv_v2()` (see below), multiple times. In fact, as many times as there are statements in the input folder.
 
 ### If you only want to convert a single statement, use  
-`convert_nw_to_homebank_csv_v2(input file, output file)`
+`convert_nw_to_homebank_csv_v2(input file, output file)`  
+However, as a user-callable function, consider it broken right now. But it will be useful, as I will want to bring in transactions before they are part of full statements.
 
 A number of functions support that top-level call. (#todo Mermaid)
 
