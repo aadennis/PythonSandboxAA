@@ -3,7 +3,7 @@
 
 Given a credit card csv file in Nationwide (UK) format, generate a csv format acceptable to Homebank.  
 Nationwide excludes location data from its ofx output, hence no ofx conversion here.  
-Homebank - it turns out that the [info] and [tag] fields are never exported to the QIF format. But they can be exported as the native .XHB format, so may have some value.
+Homebank - it turns out that the [info] and [tag] fields are never exported to the QIF format. But they can obviouisly be saved in their native format of .XHB, so may have some value.
 
 `get-content -Path .\(wildcard) >    `  
 e.g.   
@@ -18,7 +18,7 @@ If you only want to convert a single statement, use   `convert_nw_to_homebank_cs
 
 A number of functions support that top-level call. (#todo Mermaid)
 
-<code>convert_nw_to_homebank_csv</code>
+`convert_nw_to_homebank_csv`
 - Get the file content into a df.
     - Note the encoding as delivered by Nationwide.
 - Do basic data manipulation  
