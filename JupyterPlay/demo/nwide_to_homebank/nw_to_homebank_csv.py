@@ -1,16 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: -all
-#     formats: ipynb,py
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-# ---
-
-
 # Given a credit card csv file in Nationwide (UK) format,
 # generate a csv format acceptable to Homebank.
 # Nationwide excludes location data from its ofx output,
@@ -20,7 +7,7 @@
 # as the native .XHB format, so may have some value.
 # Given the total absence of good practice here, there are
 # many todos.
-# get-content -Path .\(wildcard) > 
+# get-content -Path .\(wildcard) >
 # e.g. get-content -Path .\*x2*csv > ./nw_all.csv
 
 # include these in requirements.txt:
@@ -75,7 +62,7 @@ def format_paid_columns(df):
     df["Paid out"] = df["Paid out"].astype(float)
     df["Paid in"] = df["Paid in"].astype(float)
     df["Paid"] = df.apply(lambda row: (row["Paid out"] * -1)
-                           if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
+                          if row["Paid out"] > 0.0 else row["Paid in"], axis=1)
     # original Paid columns can now be dropped
     columns_to_delete = ["Paid out", "Paid in"]
     df.drop(columns=columns_to_delete, inplace=True)
@@ -134,7 +121,7 @@ def reorder_columns(output_df):
     return output_df.iloc[:, desired_order]
 
 
-def convert_nw_to_homebank_csv_v2(in_file, out_file):
+def convert_nw_to_homebank_csv(in_file, out_file):
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
@@ -148,7 +135,7 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
     output_df.to_csv(out_file, sep=";", index=False, header=False)
 
 
-def convert_nw_transactions_v2():
+def convert_nw_transactions():
     config = load_env_config()
     in_dir = read_env_var(config, 'cc_txn_source_path')
     print(in_dir)
@@ -157,7 +144,7 @@ def convert_nw_transactions_v2():
         file_name = os.path.basename(f)
         out_file = f'{in_dir}/{file_name[0:2]}_outputx2.csv'
         print(out_file)
-        convert_nw_to_homebank_csv_v2(f, out_file)
+        convert_nw_to_homebank_csv(f, out_file)
         print(f'output file: [{out_file}]')
 
 
@@ -171,9 +158,10 @@ def handle_special_payees(df):
         lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') or x.startswith('Www.amazon') else x)
     # Flag Direct Debit Payment as Category 11 for Homebank purposes
     df['payment type'] = df['Transactions'].apply(
-        lambda x: '11' if x.startswith('DIRECT DEBIT PAYMENT') else '1')
+        lambda x: '11' if x.lower().startswith('direct debit payment') else '1')
     return df
+
 
 # Example usage:
 if __name__ == "__main__":
-    convert_nw_transactions_v2()
+    convert_nw_transactions()
