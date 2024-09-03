@@ -167,3 +167,5 @@ JupyterPlay/*.ofx
 .onote_env/*
 JupyterPlay/demo/nwide_to_homebank/config.ini
 JupyterPlay/demo/nwide_to_homebank/output_homebank.csv
+.onote_venv/*
+
