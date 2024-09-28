@@ -1,0 +1,59 @@
+	Low Water	High Water
+Sat 28 Sep	
+04:24
+
+2.7m
+
+High Water of 2.7 metres, at 04:24.	
+09:48
+
+1.4m
+
+Low Water of 1.4 metres, at 09:48.	
+16:40
+
+3.0m
+
+High Water of 3.0 metres, at 16:40.	
+22:43
+
+1.1m
+
+Low Water of 1.1 metres, at 22:43.	-
+Sun 29 Sep	
+05:31
+
+3.1m
+
+High Water of 3.1 metres, at 05:31.	
+10:56
+
+1.1m
+
+Low Water of 1.1 metres, at 10:56.	
+17:40
+
+3.4m
+
+High Water of 3.4 metres, at 17:40.	
+23:35
+
+0.8m
+
+Low Water of 0.8 metres, at 23:35.	-
+Mon 30 Sep	
+06:14
+
+3.4m
+
+High Water of 3.4 metres, at 06:14.	
+11:48
+
+0.9m
+
+Low Water of 0.9 metres, at 11:48.	
+18:24
+
+3.7m
+
+High Water of 3.7 metres, at 18:24.	-	-
