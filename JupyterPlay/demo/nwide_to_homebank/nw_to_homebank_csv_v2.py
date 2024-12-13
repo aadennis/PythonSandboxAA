@@ -1,57 +1,36 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: -all
-#     formats: ipynb,py
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.4
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-# ---
+"""
+nw_to_homebank_csv_v2.py
 
-# <h1>Converting credit card transactions to Homebank format</h1>
-# <h2>Input format: Nationwide (UK) CSV</h2>
-# <hr>
-#
+This module converts credit card transactions to Homebank format
+Input format: Nationwide (UK) CSV
 
-# Given a credit card csv file in Nationwide (UK) format, generate a csv format acceptable to Homebank.  
-# Nationwide excludes location data from its ofx output, hence no ofx conversion here.  
-# Homebank - it turns out that the [info] and [tag] fields are never exported to the QIF format. But they can be exported as the native .XHB format, so may have some value.
-#
-# <code>get-content -Path .\(wildcard) > 
-# e.g. get-content -Path .\*x2*csv > ./nw_all.csv
-# </code>
-# <hr>
-#
+Given a credit card csv file in Nationwide (UK) format, generate a csv format acceptable to Homebank.  
+This script expects (Nationwide) csv data as input.
+OFX files are not supported here, as Nationwide excludes location data from its ofx output.
+Homebank - it turns out that the [info] and [tag] fields are never exported to the QIF format. 
+But they can be exported as the native .XHB format, so may have some value.
+"""
 
-# include these in requirements.txt:
+# include pandas in requirements.txt:
 import pandas as pd
 from pprint import pprint
 import glob
 import os
 
-from datetime import datetime
-from utility import read_config
-
-
-# <code>convert_nw_to_homebank_csv</code>
-# - Get the file content into a df.
-#     - Note the encoding as delivered by Nationwide.
-# - Do basic data manipulation  
-#     - Keep the header row from the input file, in order to match  input (source bank) and output (Homebank required format) columns correctly
-# - More complex processing
-#     -  Record location of first and last statements in a transaction. This is useful to separate one statement from another, visually
-#     -  Position the df columns as expected by HomeBank
-# - Write a HomeBank-compliant file back out
-#
+from utility import read_env_var
 
 def convert_nw_to_homebank_csv(in_file, out_file):
-    
+    """
+    Get the file content into a df.
+         - Note the encoding as delivered by Nationwide.
+     - Do basic data manipulation  
+         - Keep the header row from the input file, in order to match  input (source bank) and output (Homebank required format) columns correctly
+     - More complex processing
+         -  Record location of first and last statements in a transaction. This is useful to separate one statement from another, visually
+         -  Position the df columns as expected by HomeBank
+     - Write a HomeBank-compliant file back out
+    """
+
     nw_encoding = 'cp1252'
     input_df = pd.read_csv(in_file, skiprows=4, encoding=nw_encoding)
 
@@ -164,15 +143,16 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
 # In convert_nw_transactions_v2, this reads all csv files found in the 
 # configured folder 'cc_txn_source_path', and which include the string
 # [Statement Download]
+# todo - move the wildcard to the entry point
+# todo - determine if a single csv file or multiple files are to be
+# converted.
 
-def convert_nw_transactions_v2():
-    config_data = read_config()
-    in_dir = config_data['cc_txn_source_path']
+def convert_nw_transactions_v2(in_dir):
     print(in_dir)
-    for f in glob.iglob(f'{in_dir}/*Statement Download*25 .csv'):
+    for f in glob.iglob(f'{in_dir}/16 Statement Download*.csv'):
         print(f)
         file_name = os.path.basename(f)
-        out_file = f'{in_dir}/{file_name[0:2]}_outputx2.csv'
+        out_file = f'{in_dir}/{file_name[0:2]}_outputx3.csv'
         print(out_file)
         convert_nw_to_homebank_csv_v2(f, out_file)
         print(f'output file: [{out_file}]')
@@ -191,15 +171,11 @@ def handle_special_payees(df):
         lambda x: '11' if x.startswith('DIRECT DEBIT PAYMENT') else '1')
     return df
 
-# <h3>Entry point</h3>
 
-# Example usage:
+# Entry point / Example usage:
 if __name__ == "__main__":
-    config = read_config()
-
-    #convert_nw_to_home
-    # bank_csv_v2("input_nw.csv", "output_homebank.csv")
-    convert_nw_transactions_v2()
+    cc_txn_source_path = read_env_var('cc_txn_source_path')
+    convert_nw_transactions_v2(cc_txn_source_path)
    
 
 
