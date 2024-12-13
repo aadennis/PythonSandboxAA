@@ -5,7 +5,7 @@ from pathlib import Path
 
 class MissingEnvironmentVariableError(Exception):
     """Custom exception for missing environment variables."""
-    pass
+    #pass
 
 
 def create_config():
@@ -20,13 +20,13 @@ def create_config():
         config.write(configfile)
 
 
-def read_config(config_file):
+def read_config():
     config = configparser.ConfigParser()
     print("######### File Path:", Path(__file__).absolute())
     # Directory of current working directory, not __file__
     print("######### Directory Path:", Path().absolute())
 
-    config.read('./config.inix')
+    config.read('./config.ini')
     cc_txn_source_path = config.get('TransactionConfig', 'cc_txn_source_path')
 
     config_values = {
@@ -59,16 +59,16 @@ def set_env_var(key, value):
 
 
 
-def read_env_var(config, key):
+def read_env_var(key):
     """Read an environment variable and throw an exception if it does not exist."""
+    config = load_env_config()
     if key not in config or config[key] is None:
         raise MissingEnvironmentVariableError(
             f"Environment variable '{key}' is not set.")
     return config[key]
 
 
-# main
-c = load_env_config()
-cc_txn_source_path = read_env_var(c, 'cc_txn_source_path')
+# main - not usually called
+cc_txn_source_path = read_env_var('cc_txn_source_path')
 # Get-ChildItem Env:
 print(cc_txn_source_path)
