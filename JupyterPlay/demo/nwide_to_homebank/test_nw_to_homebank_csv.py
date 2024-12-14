@@ -2,7 +2,7 @@
 import unittest
 import pandas as pd
 from pprint import pprint
-from nw_to_homebank_csv import preprocess_data, add_transaction_info, handle_special_payees
+from demo.nwide_to_homebank.nw_to_homebank_csv_deprecated import preprocess_data, add_transaction_info, handle_special_payees
 
 class TestPreprocessData(unittest.TestCase):
     def setUp(self):
