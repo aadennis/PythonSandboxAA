@@ -1,5 +1,5 @@
 """
-nw_to_homebank_csv.py
+nw_to_homebank_csv_v2b.py
 
 This module converts credit card transactions to Homebank format
 Input format: Nationwide (UK) CSV
@@ -77,6 +77,7 @@ def format_paid_columns(df):
 
 def read_nw_csv(file_path, encoding='CP1252'):
     """Reads the Nationwide CSV file and returns a DataFrame."""
+    print(pd.__version__)
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File '{file_path}' does not exist.")
     return pd.read_csv(file_path, skiprows=4, encoding=encoding)
@@ -134,7 +135,9 @@ def convert_nw_to_homebank_csv(in_file, out_file):
 # converted.
 
 def convert_nw_transactions(in_dir):
+    print("we are here")
     print(in_dir)
+    #print(pd.__version__)
     for f in glob.iglob(f'{in_dir}/16 Statement Download*.csv'):
         print(f)
         file_name = os.path.basename(f)
