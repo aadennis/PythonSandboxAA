@@ -75,20 +75,6 @@ def format_paid_columns(df):
     pprint(df)
     return df
 
-
-def convert_nw_transactions():
-    config_data = read_config()
-    in_dir = config_data['cc_txn_source_path']
-    for f in glob.iglob(f'{in_dir}/*Statement Download*.csv'):
-        print(f)
-        file_name = os.path.basename(f)
-        out_file = f'{in_dir}/{file_name[0:2]}_outputx.csv'
-        print(out_file)
-        convert_nw_to_homebank_csv(f, out_file)
-
-# - refactor for testing wip...
-
-
 def read_nw_csv(file_path, encoding='CP1252'):
     """Reads the Nationwide CSV file and returns a DataFrame."""
     if not os.path.exists(file_path):
