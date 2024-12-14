@@ -113,7 +113,8 @@ def reorder_columns(output_df):
     return output_df.iloc[:, desired_order]
 
 
-def convert_nw_to_homebank_csv(in_file, out_file):
+def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
+    """Fix all this - todo """
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
@@ -125,7 +126,7 @@ def convert_nw_to_homebank_csv(in_file, out_file):
     output_df = reorder_columns(output_df)
     pprint(output_df)
     output_df.to_csv(out_file, sep=";", index=False, header=False)
-
+    return output_df
 
 # In convert_nw_transactions_v2, this reads all csv files found in the 
 # configured folder 'cc_txn_source_path', and which include the string
@@ -134,7 +135,7 @@ def convert_nw_to_homebank_csv(in_file, out_file):
 # todo - determine if a single csv file or multiple files are to be
 # converted.
 
-def convert_nw_transactions(in_dir):
+def convert_nw_transactions(in_dir) -> pd.DataFrame:
     print("we are here")
     print(in_dir)
     #print(pd.__version__)
@@ -143,8 +144,10 @@ def convert_nw_transactions(in_dir):
         file_name = os.path.basename(f)
         out_file = f'{in_dir}/{file_name[0:2]}_outputx3.csv'
         print(out_file)
-        convert_nw_to_homebank_csv(f, out_file)
-        print(f'output file: [{out_file}]')
+        print(f'output file - xxxxxxxxxxxxx: [{out_file}]')
+        # todo - early return, fix all this
+        return convert_nw_to_homebank_csv(f, out_file)
+        
 
 
 def handle_special_payees(df):
@@ -164,7 +167,8 @@ def handle_special_payees(df):
 # Entry point / Example usage:
 if __name__ == "__main__":
     cc_txn_source_path = read_env_var('cc_txn_source_path')
-    convert_nw_transactions(cc_txn_source_path)
+    a = convert_nw_transactions(cc_txn_source_path)
+    a.head()
    
 
 
