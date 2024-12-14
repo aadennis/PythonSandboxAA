@@ -1,5 +1,5 @@
 """
-nw_to_homebank_csv_v2.py
+nw_to_homebank_csv.py
 
 This module converts credit card transactions to Homebank format
 Input format: Nationwide (UK) CSV
@@ -126,7 +126,7 @@ def reorder_columns(output_df):
     return output_df.iloc[:, desired_order]
 
 
-def convert_nw_to_homebank_csv_v2(in_file, out_file):
+def convert_nw_to_homebank_csv(in_file, out_file):
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
@@ -147,14 +147,14 @@ def convert_nw_to_homebank_csv_v2(in_file, out_file):
 # todo - determine if a single csv file or multiple files are to be
 # converted.
 
-def convert_nw_transactions_v2(in_dir):
+def convert_nw_transactions(in_dir):
     print(in_dir)
     for f in glob.iglob(f'{in_dir}/16 Statement Download*.csv'):
         print(f)
         file_name = os.path.basename(f)
         out_file = f'{in_dir}/{file_name[0:2]}_outputx3.csv'
         print(out_file)
-        convert_nw_to_homebank_csv_v2(f, out_file)
+        convert_nw_to_homebank_csv(f, out_file)
         print(f'output file: [{out_file}]')
 
 
@@ -175,7 +175,7 @@ def handle_special_payees(df):
 # Entry point / Example usage:
 if __name__ == "__main__":
     cc_txn_source_path = read_env_var('cc_txn_source_path')
-    convert_nw_transactions_v2(cc_txn_source_path)
+    convert_nw_transactions(cc_txn_source_path)
    
 
 
