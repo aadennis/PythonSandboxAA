@@ -135,11 +135,12 @@ def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
 # todo - determine if a single csv file or multiple files are to be
 # converted.
 
-def convert_nw_transactions(in_dir) -> pd.DataFrame:
+def convert_nw_transactions(in_dir, nw_csv_file) -> pd.DataFrame:
     print("we are here")
     print(in_dir)
     #print(pd.__version__)
-    for f in glob.iglob(f'{in_dir}/16 Statement Download*.csv'):
+    file_path = f'{in_dir}/{nw_csv_file}'
+    for f in glob.iglob(file_path):
         print(f)
         file_name = os.path.basename(f)
         out_file = f'{in_dir}/{file_name[0:2]}_outputx3.csv'
@@ -167,7 +168,8 @@ def handle_special_payees(df):
 # Entry point / Example usage:
 if __name__ == "__main__":
     cc_txn_source_path = read_env_var('cc_txn_source_path')
-    a = convert_nw_transactions(cc_txn_source_path)
+    csv_file = '16 Statement Download*.csv'
+    a = convert_nw_transactions(cc_txn_source_path, csv_file)
     a.head()
    
 
