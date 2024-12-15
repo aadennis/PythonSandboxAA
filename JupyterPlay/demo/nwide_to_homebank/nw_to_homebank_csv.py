@@ -160,7 +160,7 @@ def handle_special_payees(df):
         lambda x: 'Amazon' if x.startswith('Amazon') or x.startswith('Amzn') or x.startswith('Www.amazon') else x)
     # Flag Direct Debit Payment as Category 11 for Homebank purposes
     df['payment type'] = df['Transactions'].apply(
-        lambda x: '11' if x.startswith('DIRECT DEBIT PAYMENT') else '1')
+        lambda x: '11' if x.upper().startswith('DIRECT DEBIT PAYMENT') else '1')
     return df
 
 
