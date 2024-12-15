@@ -2,7 +2,7 @@
 import unittest
 import pandas as pd
 from pprint import pprint
-from demo.nwide_to_homebank.nw_to_homebank_csv_deprecated import preprocess_data, add_transaction_info, handle_special_payees
+from nw_to_homebank_csv import preprocess_data, add_transaction_info, handle_special_payees
 
 class TestPreprocessData(unittest.TestCase):
     def setUp(self):
@@ -123,6 +123,7 @@ class TestPreprocessData(unittest.TestCase):
                 "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2", "tag3 tag4"],
             })
             pprint(self.amazon_capped_data)
+            x = expected_output.iloc[:, 0]
             actual_output = handle_special_payees(self.amazon_capped_data)
             pprint(actual_output)
             pd.testing.assert_frame_equal(expected_output, actual_output)
