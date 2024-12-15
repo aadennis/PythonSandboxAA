@@ -2,7 +2,7 @@
 import unittest
 import pandas as pd
 from pprint import pprint
-from nw_to_homebank_csv import preprocess_data, add_transaction_info, handle_special_payees
+from nw_to_homebank_csv import preprocess_data, mark_statement_boundary, handle_special_payees
 
 class TestPreprocessData(unittest.TestCase):
     def setUp(self):
@@ -88,7 +88,7 @@ class TestPreprocessData(unittest.TestCase):
             "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
         })
 
-        actual_output = add_transaction_info(self.nw_imported_data)
+        actual_output = mark_statement_boundary(self.nw_imported_data)
 
         pd.testing.assert_frame_equal(expected_output, actual_output)
 

@@ -99,8 +99,12 @@ def preprocess_data(input_df):
     return output_df
 
 
-def add_transaction_info(output_df):
-    """Adds transaction info to the output DataFrame."""
+def mark_statement_boundary(output_df):
+    """ 
+    The df represents a single credit card statement.
+    When looking at a number of statements, it helps to have a clear flag
+    indicating the start and end of each statement.
+    """
     output_df.loc[0, 'info'] = 'First transaction in statement'
     output_df.loc[output_df.index[-1],
                   'info'] = 'Last transaction in statement'
@@ -116,7 +120,7 @@ def reorder_columns(output_df):
 def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
-    output_df = add_transaction_info(output_df)
+    output_df = mark_statement_boundary(output_df)
     output_df = format_paid_columns(output_df)
     output_df = handle_special_payees(output_df)
     output_df = reorder_columns(output_df)
