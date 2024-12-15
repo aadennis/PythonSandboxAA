@@ -101,7 +101,6 @@ def set_placeholder_values(input_df):
     })
     return output_df
 
-
 def mark_statement_boundary(output_df):
     """ 
     The df represents a single credit card statement.
@@ -113,12 +112,13 @@ def mark_statement_boundary(output_df):
                   'info'] = 'Last transaction in statement'
     return output_df
 
-
 def reorder_columns(output_df):
-    """Reorders columns in the output DataFrame."""
+    """
+    Reorders columns from the Nationwide format into the
+    sequence expected by HomeBank.
+    """
     desired_order = [0, 1, 2, 3, 4, 7, 5, 6]
     return output_df.iloc[:, desired_order]
-
 
 def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
     input_df = read_nw_csv(in_file)
