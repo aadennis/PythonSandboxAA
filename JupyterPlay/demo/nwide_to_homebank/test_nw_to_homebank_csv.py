@@ -2,7 +2,7 @@
 import unittest
 import pandas as pd
 from pprint import pprint
-from nw_to_homebank_csv import preprocess_data, mark_statement_boundary, handle_special_payees
+from nw_to_homebank_csv import set_placeholder_values, mark_statement_boundary, handle_special_payees
 
 class TestPreprocessData(unittest.TestCase):
     def setUp(self):
@@ -69,7 +69,7 @@ class TestPreprocessData(unittest.TestCase):
             "Tags": ["tag1 tag2", "tag1 tag2", "tag1 tag2"],
         })
 
-        actual_output = preprocess_data(self.input_df)
+        actual_output = set_placeholder_values(self.input_df)
 
         # Compare DataFrames
         pd.testing.assert_frame_equal(expected_output, actual_output)
@@ -106,7 +106,7 @@ class TestPreprocessData(unittest.TestCase):
         })
 
 
-        actual_output = preprocess_data(self.nw_amazon_data)
+        actual_output = set_placeholder_values(self.nw_amazon_data)
         pd.testing.assert_frame_equal(expected_output, actual_output)
 
 

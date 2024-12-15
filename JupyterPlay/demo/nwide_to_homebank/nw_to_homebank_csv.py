@@ -83,8 +83,11 @@ def read_nw_csv(file_path, encoding='CP1252'):
     return pd.read_csv(file_path, skiprows=4, encoding=encoding)
 
 
-def preprocess_data(input_df):
-    """Performs basic data manipulation on the input DataFrame."""
+def set_placeholder_values(input_df):
+    """
+        Set placeholder values for the Homebank format.
+        More specific rules follow this.
+    """
     output_df = pd.DataFrame({
         "Date": pd.to_datetime(input_df["Date"], format="%d %b %Y"),
         "payment type": 1,  # placeholder
@@ -119,7 +122,7 @@ def reorder_columns(output_df):
 
 def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
     input_df = read_nw_csv(in_file)
-    output_df = preprocess_data(input_df)
+    output_df = set_placeholder_values(input_df)
     output_df = mark_statement_boundary(output_df)
     output_df = format_paid_columns(output_df)
     output_df = handle_special_payees(output_df)
