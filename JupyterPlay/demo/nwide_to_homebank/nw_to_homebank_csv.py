@@ -114,17 +114,12 @@ def reorder_columns(output_df):
 
 
 def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
-    """Fix all this - todo """
     input_df = read_nw_csv(in_file)
     output_df = preprocess_data(input_df)
     output_df = add_transaction_info(output_df)
-    output_df.info()
     output_df = format_paid_columns(output_df)
-    output_df.info()
     output_df = handle_special_payees(output_df)
-    pprint(output_df)
     output_df = reorder_columns(output_df)
-    pprint(output_df)
     output_df.to_csv(out_file, sep=";", index=False, header=False)
     return output_df
 
