@@ -128,28 +128,24 @@ def convert_nw_to_homebank_csv(in_file, out_file) -> pd.DataFrame:
     output_df.to_csv(out_file, sep=";", index=False, header=False)
     return output_df
 
-# In convert_nw_transactions_v2, this reads all csv files found in the 
-# configured folder 'cc_txn_source_path', and which include the string
-# [Statement Download]
-# todo - move the wildcard to the entry point
-# todo - determine if a single csv file or multiple files are to be
-# converted.
-
+# Resolve the passed path and wildcard. It must resolve to a single
+# file. Anymore than that throws an exception.
+# Then proceed with the conversion to the HomeBank format.
 def convert_nw_transactions(in_dir, nw_csv_file) -> pd.DataFrame:
-    print("we are here")
-    print(in_dir)
-    #print(pd.__version__)
     file_path = f'{in_dir}/{nw_csv_file}'
-    for f in glob.iglob(file_path):
-        print(f)
-        file_name = os.path.basename(f)
-        out_file = f'{in_dir}/{file_name[0:2]}_outputx3.csv'
-        print(out_file)
-        print(f'output file - xxxxxxxxxxxxx: [{out_file}]')
-        # todo - early return, fix all this
-        return convert_nw_to_homebank_csv(f, out_file)
-        
+  
+    matching_files = list(glob.iglob(file_path))
+    if len(matching_files) > 1:
+        raise Exception("More than one matching file found")    
 
+    if len(matching_files) == 0:
+        raise FileNotFoundError("No matching file found")
+
+    f = matching_files[0]
+    file_name = os.path.basename(f)
+    out_file = f'{in_dir}/{file_name[0:2]}_outputx.csv'
+
+    return convert_nw_to_homebank_csv(f, out_file)
 
 def handle_special_payees(df):
     # Some frequent payees have sub-divisions which categorize
