@@ -26,7 +26,14 @@ I then grab everything between say GMT and predictions, inclusive, and paste tha
 
 Processing after that assumes some consistency in what EasyTide deliver.
 
-https://github.com/aadennis/PythonSandboxAA/blob/910108caa0e8c130a17dd44a3d15b862cd1e947c/JupyterPlay/demo/tides_from_hydro-v2.ipynb
+You need to load this code into a ipynb aware editor to see the markdown properly:
+
+https://github.com/aadennis/PythonSandboxAA/blob/910108caa0e8c130a17dd44a3d15b862cd1e947c/JupyterPlay/demo/tides_from_hydro-v2.ipynb  
+
+And there is no separation of concerns here - really there should be no logic in here imo, just a series of very thin functions doing nothing more than calling pure Python functions.
+Those pure Python functions can then be tested against UnitTest or Pytest.  
+
+<sub>The Nationwide project includes that separation of concerns and tests... but obviously that does not help here</sub>
 
 <hr>
 
