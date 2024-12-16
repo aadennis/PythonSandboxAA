@@ -24,7 +24,11 @@ https://easytide.admiralty.co.uk/
 
 I then grab everything between say GMT and predictions, inclusive, and paste that into Notepad++.
 
-Processing after that assumes some consistency in what EasyTide deliver
+Processing after that assumes some consistency in what EasyTide deliver.
+
+https://github.com/aadennis/PythonSandboxAA/blob/910108caa0e8c130a17dd44a3d15b862cd1e947c/JupyterPlay/demo/tides_from_hydro-v2.ipynb
+
+<hr>
 
 June 2024
 
@@ -35,7 +39,7 @@ February 2024
 See the video here for notes just recording the middle 2 tidetimes for the day. Note that this fails to include the "Bravo" morpheme. The next picture, which begins "0828...", which is the time and tide height for a given day, shows each day being punctuated by a "Bravo".
 https://www.youtube.com/watch?v=M5XcVtQ3uUw
 
-<hr>
+
 November 2023
 
 ## New format - as 10.2023, plus uses 2 tide times per day, not 4.
