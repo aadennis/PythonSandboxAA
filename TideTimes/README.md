@@ -11,6 +11,9 @@ December 2024
 
 ## Dictation is consigned to legacy - using EasyTide data now
 
+The screenshots show the flow from accessing the easytide site, to getting the necessary data for the next few
+days. In practice, that is enough for me - I don't need to know a long way in advance.
+
 https://easytide.admiralty.co.uk/
 
 <img width="386" alt="image" src="https://github.com/user-attachments/assets/86c55678-77d9-49d0-8c09-82de7093dcaf">
@@ -32,9 +35,9 @@ I then grab everything between say GMT and predictions, inclusive, and paste tha
 
 Processing after that assumes some consistency in what EasyTide deliver.
 
-You need to load this code into a ipynb aware editor to see the markdown properly:
-
 https://github.com/aadennis/PythonSandboxAA/blob/910108caa0e8c130a17dd44a3d15b862cd1e947c/JupyterPlay/demo/tides_from_hydro-v2.ipynb  
+
+You need to load that code into a ipynb aware editor to see the markdown properly.
 
 And there is no separation of concerns here - really there should be no logic in here imo, just a series of very thin functions doing nothing more than calling pure Python functions.
 Those pure Python functions can then be tested against UnitTest or Pytest.  
