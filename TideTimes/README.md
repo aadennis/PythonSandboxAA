@@ -1,5 +1,30 @@
 # Tide Times
-## A workflow to capture tide times for a single location
+# A workflow to capture tide times for a single location
+
+December 2024
+
+## Dictation is consigned to legacy - using EasyTide data now
+
+https://easytide.admiralty.co.uk/
+
+<img width="386" alt="image" src="https://github.com/user-attachments/assets/86c55678-77d9-49d0-8c09-82de7093dcaf">
+
+<img width="770" alt="image" src="https://github.com/user-attachments/assets/987f5e7b-a93a-4c40-ac34-cef7bcbd56b2">
+
+<img width="778" alt="image" src="https://github.com/user-attachments/assets/2a811b55-0961-41d1-94b5-058f14fd8494">
+
+<img width="767" alt="image" src="https://github.com/user-attachments/assets/13b7f0bc-f0a6-4dd2-8f24-de1132351015">
+
+<img width="242" alt="image" src="https://github.com/user-attachments/assets/780ddfcc-b44e-474e-9940-9361fc4f8180">
+
+<img width="216" alt="image" src="https://github.com/user-attachments/assets/3a6dec05-1dc9-4b7d-a170-6f4bbdeee6fc">
+
+<img width="894" alt="image" src="https://github.com/user-attachments/assets/e0dc6aa6-743e-45d0-9ee5-91665c266fb7">
+
+
+I then grab everything between say GMT and predictions, inclusive, and paste that into Notepad++.
+
+Processing after that assumes some consistency in what EasyTide deliver
 
 June 2024
 
@@ -10,6 +35,7 @@ February 2024
 See the video here for notes just recording the middle 2 tidetimes for the day. Note that this fails to include the "Bravo" morpheme. The next picture, which begins "0828...", which is the time and tide height for a given day, shows each day being punctuated by a "Bravo".
 https://www.youtube.com/watch?v=M5XcVtQ3uUw
 
+<hr>
 November 2023
 
 ## New format - as 10.2023, plus uses 2 tide times per day, not 4.
