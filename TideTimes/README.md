@@ -1,6 +1,12 @@
 # Tide Times
 # A workflow to capture tide times for a single location
 
+<b>As a</b> seaside resident  
+<b>I want </b>to know tidal ranges for the near future  
+<b>So that </b>I know when spring and neap tides occur  
+
+<hr>
+
 December 2024
 
 ## Dictation is consigned to legacy - using EasyTide data now
