@@ -104,8 +104,8 @@ def ask_num_shapes():
 
     return num_shapes
 
-# Main game loop
-def main():
+# Function to run the game
+def run_game():
     running = True
     while running:
         num_shapes = ask_num_shapes()
@@ -184,6 +184,9 @@ def main():
     # Close Pygame
     pygame.quit()
 
+# Main function
+def main():
+    run_game()
+
 if __name__ == "__main__":
     main()
-    
