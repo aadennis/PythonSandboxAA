@@ -1,6 +1,7 @@
 import pygame
 import random
 import time
+import math
 
 # Initialize Pygame
 pygame.init()
@@ -27,16 +28,23 @@ pygame.display.set_caption("Memory Game")
 font = pygame.font.Font(None, 74)
 small_font = pygame.font.Font(None, 50)
 
-# Function to draw placeholders
-def draw_placeholders():
+# Function to get placeholder positions in an oval shape
+def get_placeholder_positions_oval():
     positions = []
-    for i in range(4):
-        for j in range(2):
-            x = (WINDOW_WIDTH // 4) * i + (WINDOW_WIDTH // 8) - (PLACEHOLDER_SIZE // 2)
-            y = (WINDOW_HEIGHT // 2) * j + (WINDOW_HEIGHT // 4) - (PLACEHOLDER_SIZE // 2)
-            positions.append((x, y))
-            pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_SIZE, PLACEHOLDER_SIZE))
+    center_x, center_y = WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2
+    a, b = 300, 200  # horizontal and vertical radii of the oval
+    for i in range(8):
+        angle = math.pi / 4 * i  # angles equally spaced around the oval
+        x = center_x + a * math.cos(angle) - PLACEHOLDER_SIZE // 2
+        y = center_y + b * math.sin(angle) - PLACEHOLDER_SIZE // 2
+        positions.append((x, y))
     return positions
+
+# Function to draw placeholders
+def draw_placeholders(positions):
+    for pos in positions:
+        x, y = pos
+        pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_SIZE, PLACEHOLDER_SIZE))
 
 # Function to display a shape
 def display_shape(shape, pos):
@@ -71,7 +79,9 @@ def main():
     running = True
     while running:
         score = 0
-        placeholders = draw_placeholders()
+        placeholders = get_placeholder_positions_oval()
+        screen.fill(BACKGROUND_COLOR)
+        draw_placeholders(placeholders)
         pygame.display.flip()
 
         # Display the first shape
@@ -82,7 +92,7 @@ def main():
 
         # Display the second shape
         screen.fill(BACKGROUND_COLOR)
-        draw_placeholders()
+        draw_placeholders(placeholders)
         shape2_pos = random.choice(placeholders)
         display_shape(2, shape2_pos)
         pygame.display.flip()
@@ -90,7 +100,7 @@ def main():
 
         # Wait for the configurable delay
         screen.fill(BACKGROUND_COLOR)
-        draw_placeholders()
+        draw_placeholders(placeholders)
         pygame.display.flip()
         time.sleep(DELAY_AFTER_SHAPE)
 
@@ -101,7 +111,7 @@ def main():
         # User interaction loop
         for shape, correct_pos in shapes_to_guess:
             screen.fill(BACKGROUND_COLOR)
-            draw_placeholders()
+            draw_placeholders(placeholders)
             display_shape(shape, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
             pygame.display.flip()
             guessed_pos = None
