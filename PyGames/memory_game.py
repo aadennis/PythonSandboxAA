@@ -12,12 +12,12 @@ WINDOW_HEIGHT = 768
 PLACEHOLDER_SIZE = 100
 SHAPE_DISPLAY_TIME = 5  # seconds
 DELAY_AFTER_SHAPE = 5  # seconds
+NUM_SHAPES = 4  # Configurable: number of shapes to display (up to 8)
 
 # Colors
 BACKGROUND_COLOR = (255, 255, 255)
 PLACEHOLDER_COLOR = (200, 200, 200)
-SHAPE_COLOR_1 = (255, 0, 0)
-SHAPE_COLOR_2 = (0, 0, 255)
+SHAPE_COLORS = [(255, 0, 0), (0, 0, 255), (0, 255, 0), (255, 255, 0), (255, 165, 0), (128, 0, 128), (0, 255, 255), (255, 192, 203)]
 TEXT_COLOR = (0, 0, 0)
 
 # Create the game window
@@ -47,23 +47,23 @@ def draw_placeholders(positions):
         pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_SIZE, PLACEHOLDER_SIZE))
 
 # Function to display a shape
-def display_shape(shape, pos):
+def display_shape(shape, color, pos):
     x, y = pos
     if shape == 1:
         # Draw a complex shape for shape 1
-        pygame.draw.polygon(screen, SHAPE_COLOR_1, [
+        pygame.draw.polygon(screen, color, [
             (x + 20, y), (x + 80, y), (x + 100, y + 20), (x + 100, y + 80), (x + 80, y + 100), (x + 20, y + 100), (x, y + 80), (x, y + 20)
         ])
     elif shape == 2:
         # Draw a complex shape for shape 2
-        pygame.draw.polygon(screen, SHAPE_COLOR_2, [
+        pygame.draw.polygon(screen, color, [
             (x + 50, y), (x + 70, y + 30), (x + 100, y + 30), (x + 80, y + 50), (x + 90, y + 80), (x + 50, y + 60), (x + 10, y + 80), (x + 20, y + 50), (x, y + 30), (x + 30, y + 30)
         ])
 
 # Function to display the score
 def display_score(score):
     screen.fill(BACKGROUND_COLOR)
-    text = font.render(f'Your score is: {score} out of 2', True, TEXT_COLOR)
+    text = font.render(f'Your score is: {score} out of {NUM_SHAPES}', True, TEXT_COLOR)
     text_rect = text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 50))
     screen.blit(text, text_rect)
 
@@ -84,19 +84,20 @@ def main():
         draw_placeholders(placeholders)
         pygame.display.flip()
 
-        # Display the first shape
-        shape1_pos = random.choice(placeholders)
-        display_shape(1, shape1_pos)
-        pygame.display.flip()
-        time.sleep(SHAPE_DISPLAY_TIME)
-
-        # Display the second shape
-        screen.fill(BACKGROUND_COLOR)
-        draw_placeholders(placeholders)
-        shape2_pos = random.choice(placeholders)
-        display_shape(2, shape2_pos)
-        pygame.display.flip()
-        time.sleep(SHAPE_DISPLAY_TIME)
+        used_colors = []  # Track used colors to ensure uniqueness
+        shapes_to_display = []
+        for i in range(NUM_SHAPES):
+            shape_type = 1 if i % 2 == 0 else 2
+            available_colors = [color for color in SHAPE_COLORS if color not in used_colors]
+            shape_color = random.choice(available_colors)
+            used_colors.append(shape_color)
+            shape_pos = random.choice(placeholders)
+            shapes_to_display.append((shape_type, shape_color, shape_pos))
+            display_shape(shape_type, shape_color, shape_pos)
+            pygame.display.flip()
+            time.sleep(SHAPE_DISPLAY_TIME)
+            screen.fill(BACKGROUND_COLOR)
+            draw_placeholders(placeholders)
 
         # Wait for the configurable delay
         screen.fill(BACKGROUND_COLOR)
@@ -105,14 +106,13 @@ def main():
         time.sleep(DELAY_AFTER_SHAPE)
 
         # Randomize the sequence of shapes for user guesses
-        shapes_to_guess = [(1, shape1_pos), (2, shape2_pos)]
-        random.shuffle(shapes_to_guess)
+        random.shuffle(shapes_to_display)
 
         # User interaction loop
-        for shape, correct_pos in shapes_to_guess:
+        for shape, color, correct_pos in shapes_to_display:
             screen.fill(BACKGROUND_COLOR)
             draw_placeholders(placeholders)
-            display_shape(shape, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
+            display_shape(shape, color, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
             pygame.display.flip()
             guessed_pos = None
 
@@ -152,3 +152,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
