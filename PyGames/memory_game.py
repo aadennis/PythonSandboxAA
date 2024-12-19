@@ -25,6 +25,7 @@ pygame.display.set_caption("Memory Game")
 
 # Font for displaying text
 font = pygame.font.Font(None, 74)
+small_font = pygame.font.Font(None, 50)
 
 # Function to draw placeholders
 def draw_placeholders():
@@ -55,68 +56,86 @@ def display_shape(shape, pos):
 def display_score(score):
     screen.fill(BACKGROUND_COLOR)
     text = font.render(f'Your score is: {score} out of 2', True, TEXT_COLOR)
-    text_rect = text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2))
+    text_rect = text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 50))
     screen.blit(text, text_rect)
+
+    # Display options to play again or quit
+    play_again_text = small_font.render('Press P to Play Again or Q to Quit', True, TEXT_COLOR)
+    play_again_rect = play_again_text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 + 50))
+    screen.blit(play_again_text, play_again_rect)
+
     pygame.display.flip()
-    time.sleep(3)  # Display the score for 3 seconds
 
 # Main game loop
 def main():
     running = True
-    score = 0
-    placeholders = draw_placeholders()
-    pygame.display.flip()
+    while running:
+        score = 0
+        placeholders = draw_placeholders()
+        pygame.display.flip()
 
-    # Display the first shape
-    shape1_pos = random.choice(placeholders)
-    display_shape(1, shape1_pos)
-    pygame.display.flip()
-    time.sleep(SHAPE_DISPLAY_TIME)
+        # Display the first shape
+        shape1_pos = random.choice(placeholders)
+        display_shape(1, shape1_pos)
+        pygame.display.flip()
+        time.sleep(SHAPE_DISPLAY_TIME)
 
-    # Display the second shape
-    screen.fill(BACKGROUND_COLOR)
-    draw_placeholders()
-    shape2_pos = random.choice(placeholders)
-    display_shape(2, shape2_pos)
-    pygame.display.flip()
-    time.sleep(SHAPE_DISPLAY_TIME)
-
-    # Wait for the configurable delay
-    screen.fill(BACKGROUND_COLOR)
-    draw_placeholders()
-    pygame.display.flip()
-    time.sleep(DELAY_AFTER_SHAPE)
-
-    # Randomize the sequence of shapes for user guesses
-    shapes_to_guess = [(1, shape1_pos), (2, shape2_pos)]
-    random.shuffle(shapes_to_guess)
-
-    # User interaction loop
-    for shape, correct_pos in shapes_to_guess:
+        # Display the second shape
         screen.fill(BACKGROUND_COLOR)
         draw_placeholders()
-        display_shape(shape, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
+        shape2_pos = random.choice(placeholders)
+        display_shape(2, shape2_pos)
         pygame.display.flip()
-        guessed_pos = None
+        time.sleep(SHAPE_DISPLAY_TIME)
 
-        while guessed_pos is None:
+        # Wait for the configurable delay
+        screen.fill(BACKGROUND_COLOR)
+        draw_placeholders()
+        pygame.display.flip()
+        time.sleep(DELAY_AFTER_SHAPE)
+
+        # Randomize the sequence of shapes for user guesses
+        shapes_to_guess = [(1, shape1_pos), (2, shape2_pos)]
+        random.shuffle(shapes_to_guess)
+
+        # User interaction loop
+        for shape, correct_pos in shapes_to_guess:
+            screen.fill(BACKGROUND_COLOR)
+            draw_placeholders()
+            display_shape(shape, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
+            pygame.display.flip()
+            guessed_pos = None
+
+            while guessed_pos is None:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                        guessed_pos = False
+                    elif event.type == pygame.MOUSEBUTTONDOWN:
+                        mouse_x, mouse_y = event.pos
+                        for pos in placeholders:
+                            x, y = pos
+                            if x <= mouse_x <= x + PLACEHOLDER_SIZE and y <= mouse_y <= y + PLACEHOLDER_SIZE:
+                                guessed_pos = pos
+                                break
+
+            if guessed_pos == correct_pos:
+                score += 1
+
+        # Display the result and ask if the user wants to play again
+        display_score(score)
+        waiting_for_input = True
+        while waiting_for_input:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-                    guessed_pos = False
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse_x, mouse_y = event.pos
-                    for pos in placeholders:
-                        x, y = pos
-                        if x <= mouse_x <= x + PLACEHOLDER_SIZE and y <= mouse_y <= y + PLACEHOLDER_SIZE:
-                            guessed_pos = pos
-                            break
-
-        if guessed_pos == correct_pos:
-            score += 1
-
-    # Display the result
-    display_score(score)
+                    waiting_for_input = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_p:
+                        waiting_for_input = False  # Restart the game
+                    elif event.key == pygame.K_q:
+                        running = False
+                        waiting_for_input = False
 
     # Close Pygame
     pygame.quit()
