@@ -12,7 +12,7 @@ WINDOW_HEIGHT = 768
 PLACEHOLDER_SIZE = 100
 SHAPE_DISPLAY_TIME = 5  # seconds
 DELAY_AFTER_SHAPE = 5  # seconds
-NUM_SHAPES = 4  # Configurable: number of shapes to display (up to 8)
+DEFAULT_NUM_SHAPES = 4  # Default number of shapes to display (can be changed by user)
 
 # Colors
 BACKGROUND_COLOR = (255, 255, 255)
@@ -61,9 +61,9 @@ def display_shape(shape, color, pos):
         ])
 
 # Function to display the score
-def display_score(score):
+def display_score(score, num_shapes):
     screen.fill(BACKGROUND_COLOR)
-    text = font.render(f'Your score is: {score} out of {NUM_SHAPES}', True, TEXT_COLOR)
+    text = font.render(f'Your score is: {score} out of {num_shapes}', True, TEXT_COLOR)
     text_rect = text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 50))
     screen.blit(text, text_rect)
 
@@ -74,10 +74,44 @@ def display_score(score):
 
     pygame.display.flip()
 
+# Function to ask the user for the number of shapes
+def ask_num_shapes():
+    num_shapes = DEFAULT_NUM_SHAPES
+    asking = True
+    while asking:
+        screen.fill(BACKGROUND_COLOR)
+        question_text = small_font.render(f'The default number of shapes is {DEFAULT_NUM_SHAPES}.', True, TEXT_COLOR)
+        question_rect = question_text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 100))
+        screen.blit(question_text, question_rect)
+
+        prompt_text = small_font.render('Enter a number between 2 and 8:', True, TEXT_COLOR)
+        prompt_rect = prompt_text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2))
+        screen.blit(prompt_text, prompt_rect)
+
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                asking = False
+                pygame.quit()
+                return None
+            elif event.type == pygame.KEYDOWN:
+                if pygame.K_2 <= event.key <= pygame.K_8:
+                    num_shapes = event.key - pygame.K_0
+                    asking = False
+                elif event.key == pygame.K_RETURN:
+                    asking = False
+
+    return num_shapes
+
 # Main game loop
 def main():
     running = True
     while running:
+        num_shapes = ask_num_shapes()
+        if num_shapes is None:
+            break
+
         score = 0
         placeholders = get_placeholder_positions_oval()
         screen.fill(BACKGROUND_COLOR)
@@ -86,7 +120,7 @@ def main():
 
         used_colors = []  # Track used colors to ensure uniqueness
         shapes_to_display = []
-        for i in range(NUM_SHAPES):
+        for i in range(num_shapes):
             shape_type = 1 if i % 2 == 0 else 2
             available_colors = [color for color in SHAPE_COLORS if color not in used_colors]
             shape_color = random.choice(available_colors)
@@ -133,7 +167,7 @@ def main():
                 score += 1
 
         # Display the result and ask if the user wants to play again
-        display_score(score)
+        display_score(score, num_shapes)
         waiting_for_input = True
         while waiting_for_input:
             for event in pygame.event.get():
