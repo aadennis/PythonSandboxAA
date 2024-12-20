@@ -9,7 +9,7 @@ pygame.init()
 # Constants
 WINDOW_WIDTH = 1024
 WINDOW_HEIGHT = 768
-PLACEHOLDER_SIZE = 100
+PLACEHOLDER_HEIGHT = 100
 PLACEHOLDER_WIDTH = 200
 
 SHAPE_DISPLAY_TIME = 5  # seconds
@@ -48,7 +48,7 @@ def get_placeholder_positions_oval():
     a, b = 300, 200  # horizontal and vertical radii of the oval
     for i in range(8):
         angle = math.pi / 4 * i  # angles equally spaced around the oval
-        x = center_x + a * math.cos(angle) - PLACEHOLDER_SIZE // 2
+        x = center_x + a * math.cos(angle) - PLACEHOLDER_HEIGHT // 2
         y = center_y + b * math.sin(angle) - PLACEHOLDER_WIDTH // 2
         positions.append((x, y))
     return positions
@@ -57,7 +57,7 @@ def get_placeholder_positions_oval():
 def draw_placeholders(positions):
     for pos in positions:
         x, y = pos
-        pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_WIDTH, PLACEHOLDER_SIZE))
+        pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_WIDTH, PLACEHOLDER_HEIGHT))
 
 # Function to display a shape
 def display_shape(shape_idx, pos):
@@ -149,7 +149,7 @@ def run_game():
         for shape_idx, correct_pos in shapes_to_display:
             screen.fill(BACKGROUND_COLOR)
             draw_placeholders(placeholders)
-            display_shape(shape_idx, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
+            display_shape(shape_idx, (WINDOW_WIDTH // 2 - PLACEHOLDER_HEIGHT // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_HEIGHT // 2))
             pygame.display.flip()
             guessed_pos = None
 
@@ -162,7 +162,7 @@ def run_game():
                         mouse_x, mouse_y = event.pos
                         for pos in placeholders:
                             x, y = pos
-                            if x <= mouse_x <= x + PLACEHOLDER_WIDTH and y <= mouse_y <= y + PLACEHOLDER_SIZE:
+                            if x <= mouse_x <= x + PLACEHOLDER_WIDTH and y <= mouse_y <= y + PLACEHOLDER_HEIGHT:
                                 guessed_pos = pos
                                 break
 
