@@ -124,11 +124,13 @@ def run_game():
         pygame.display.flip()
 
         used_indices = []  # Track used shape indices to ensure uniqueness
+        used_positions = []  # Track used placeholder positions to ensure uniqueness
         shapes_to_display = []
         for i in range(num_shapes):
             shape_idx = random.choice([idx for idx in range(len(shape_images)) if idx not in used_indices])
             used_indices.append(shape_idx)
-            shape_pos = random.choice(placeholders)
+            shape_pos = random.choice([pos for pos in placeholders if pos not in used_positions])
+            used_positions.append(shape_pos)
             shapes_to_display.append((shape_idx, shape_pos))
             display_shape(shape_idx, shape_pos)
             pygame.display.flip()
