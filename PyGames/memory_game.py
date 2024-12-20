@@ -10,6 +10,8 @@ pygame.init()
 WINDOW_WIDTH = 1024
 WINDOW_HEIGHT = 768
 PLACEHOLDER_SIZE = 100
+PLACEHOLDER_WIDTH = 200
+
 SHAPE_DISPLAY_TIME = 5  # seconds
 DELAY_AFTER_SHAPE = 5  # seconds
 DEFAULT_NUM_SHAPES = 4  # Default number of shapes to display (can be changed by user)
@@ -17,7 +19,6 @@ DEFAULT_NUM_SHAPES = 4  # Default number of shapes to display (can be changed by
 # Colors
 BACKGROUND_COLOR = (255, 255, 255)
 PLACEHOLDER_COLOR = (200, 200, 200)
-SHAPE_COLORS = [(255, 0, 0), (0, 0, 255), (0, 255, 0), (255, 255, 0), (255, 165, 0), (128, 0, 128), (0, 255, 255), (255, 192, 203)]
 TEXT_COLOR = (0, 0, 0)
 
 # Create the game window
@@ -28,6 +29,18 @@ pygame.display.set_caption("Memory Game")
 font = pygame.font.Font(None, 74)
 small_font = pygame.font.Font(None, 50)
 
+# Load PNG images
+shape_images = [
+    pygame.image.load('shape1.png'),
+    pygame.image.load('shape2.png'),
+    pygame.image.load('shape3.png'),
+    pygame.image.load('shape4.png'),
+    pygame.image.load('shape5.png'),
+    pygame.image.load('shape6.png'),
+    pygame.image.load('shape7.png'),
+    pygame.image.load('shape8.png')
+]
+
 # Function to get placeholder positions in an oval shape
 def get_placeholder_positions_oval():
     positions = []
@@ -36,7 +49,7 @@ def get_placeholder_positions_oval():
     for i in range(8):
         angle = math.pi / 4 * i  # angles equally spaced around the oval
         x = center_x + a * math.cos(angle) - PLACEHOLDER_SIZE // 2
-        y = center_y + b * math.sin(angle) - PLACEHOLDER_SIZE // 2
+        y = center_y + b * math.sin(angle) - PLACEHOLDER_WIDTH // 2
         positions.append((x, y))
     return positions
 
@@ -44,21 +57,13 @@ def get_placeholder_positions_oval():
 def draw_placeholders(positions):
     for pos in positions:
         x, y = pos
-        pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_SIZE, PLACEHOLDER_SIZE))
+        pygame.draw.rect(screen, PLACEHOLDER_COLOR, (x, y, PLACEHOLDER_WIDTH, PLACEHOLDER_SIZE))
 
 # Function to display a shape
-def display_shape(shape, color, pos):
+def display_shape(shape_idx, pos):
     x, y = pos
-    if shape == 1:
-        # Draw a complex shape for shape 1
-        pygame.draw.polygon(screen, color, [
-            (x + 20, y), (x + 80, y), (x + 100, y + 20), (x + 100, y + 80), (x + 80, y + 100), (x + 20, y + 100), (x, y + 80), (x, y + 20)
-        ])
-    elif shape == 2:
-        # Draw a complex shape for shape 2
-        pygame.draw.polygon(screen, color, [
-            (x + 50, y), (x + 70, y + 30), (x + 100, y + 30), (x + 80, y + 50), (x + 90, y + 80), (x + 50, y + 60), (x + 10, y + 80), (x + 20, y + 50), (x, y + 30), (x + 30, y + 30)
-        ])
+    shape_image = shape_images[shape_idx]
+    screen.blit(shape_image, (x, y))
 
 # Function to display the score
 def display_score(score, num_shapes):
@@ -118,16 +123,14 @@ def run_game():
         draw_placeholders(placeholders)
         pygame.display.flip()
 
-        used_colors = []  # Track used colors to ensure uniqueness
+        used_indices = []  # Track used shape indices to ensure uniqueness
         shapes_to_display = []
         for i in range(num_shapes):
-            shape_type = 1 if i % 2 == 0 else 2
-            available_colors = [color for color in SHAPE_COLORS if color not in used_colors]
-            shape_color = random.choice(available_colors)
-            used_colors.append(shape_color)
+            shape_idx = random.choice([idx for idx in range(len(shape_images)) if idx not in used_indices])
+            used_indices.append(shape_idx)
             shape_pos = random.choice(placeholders)
-            shapes_to_display.append((shape_type, shape_color, shape_pos))
-            display_shape(shape_type, shape_color, shape_pos)
+            shapes_to_display.append((shape_idx, shape_pos))
+            display_shape(shape_idx, shape_pos)
             pygame.display.flip()
             time.sleep(SHAPE_DISPLAY_TIME)
             screen.fill(BACKGROUND_COLOR)
@@ -143,10 +146,10 @@ def run_game():
         random.shuffle(shapes_to_display)
 
         # User interaction loop
-        for shape, color, correct_pos in shapes_to_display:
+        for shape_idx, correct_pos in shapes_to_display:
             screen.fill(BACKGROUND_COLOR)
             draw_placeholders(placeholders)
-            display_shape(shape, color, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
+            display_shape(shape_idx, (WINDOW_WIDTH // 2 - PLACEHOLDER_SIZE // 2, WINDOW_HEIGHT // 2 - PLACEHOLDER_SIZE // 2))
             pygame.display.flip()
             guessed_pos = None
 
@@ -159,7 +162,7 @@ def run_game():
                         mouse_x, mouse_y = event.pos
                         for pos in placeholders:
                             x, y = pos
-                            if x <= mouse_x <= x + PLACEHOLDER_SIZE and y <= mouse_y <= y + PLACEHOLDER_SIZE:
+                            if x <= mouse_x <= x + PLACEHOLDER_WIDTH and y <= mouse_y <= y + PLACEHOLDER_SIZE:
                                 guessed_pos = pos
                                 break
 
