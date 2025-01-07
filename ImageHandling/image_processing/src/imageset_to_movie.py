@@ -1,9 +1,10 @@
 # https://chatgpt.com/c/677cb2e8-0dd0-8011-9dd2-b721c294fc3e
 # VScode env latest:
 # https://github.com/microsoft/vscode-python/wiki/Activate-Environments-in-Terminal-Using-Environment-Variables
-
 import os
-from moviepy import ImageClip, TextClip, concatenate_videoclips
+from moviepy.video.VideoClip import TextClip
+from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
+from moviepy import concatenate_videoclips
 
 # Path to the folder containing images
 image_folder = "C:/temp/ImageDump/Ancestors2012"
@@ -33,12 +34,11 @@ title_clip = (
     .set_duration(title_duration)
 )
 
-# Create a video clip for each image
-image_clips = [ImageClip(img).set_duration(image_duration) for img in image_files]
+# Create a video clip for the images
+image_clip = ImageSequenceClip(image_files, durations=[image_duration] * len(image_files))
 
-# Combine the title clip and image clips
-final_clips = [title_clip] + image_clips
-final_video = concatenate_videoclips(final_clips, method="compose")
+# Combine the title clip and image clip
+final_video = concatenate_videoclips([title_clip, image_clip])
 
 # Write the video to a file
 output_path = "output_with_title.mp4"
