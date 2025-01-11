@@ -1,10 +1,10 @@
-# https://chatgpt.com/c/677cb2e8-0dd0-8011-9dd2-b721c294fc3e
-# VScode env latest:
-# https://github.com/microsoft/vscode-python/wiki/Activate-Environments-in-Terminal-Using-Environment-Variables
 import os
-from moviepy.video.VideoClip import TextClip
+#from moviepy.video.VideoClip import TextClip
 from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 from moviepy import concatenate_videoclips
+from moviepy import TextClip
+
+font = "./PlayfairDisplaySemibold.ttf"
 
 # Path to the folder containing images
 image_folder = "C:/temp/ImageDump/Ancestors2012"
@@ -28,11 +28,30 @@ image_files = [
 if not image_files:
     raise ValueError("No valid image files found in the specified folder.")
 
+# # Create the title page clip
+# title_clip = (
+#     TextClip(title_text, font='Arial', font_size=70, color="white", bg_color="black", size=(1280, 720))
+#     .set_duration(title_duration)
+# )
+
 # Create the title page clip
+# title_clip = (
+#     TextClip(title_text, fontsize=70, color="white", bg_color="black", size=(1280, 720))
+#     .set_duration(title_duration)
+# )
+
 title_clip = (
-    TextClip(title_text, fontsize=70, color="white", bg_color="black", size=(1280, 720))
-    .set_duration(title_duration)
-)
+    TextClip(
+    font=font,
+    filename="./example.txt",
+    size=(500, 200),
+    #bg_color="#FFFFFF",
+    bg_color="white",
+    method="caption",
+    #color=(0, 0, 255, 127),
+    color="black",
+    margin=(20, 10)
+).with_duration(title_duration))  # Blue with 50% transparency
 
 # Create a video clip for the images
 image_clip = ImageSequenceClip(image_files, durations=[image_duration] * len(image_files))
