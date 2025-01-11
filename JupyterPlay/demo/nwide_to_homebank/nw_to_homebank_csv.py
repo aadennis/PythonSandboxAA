@@ -1,6 +1,4 @@
 """
-nw_to_homebank_csv_v2b.py
-
 This module converts credit card transactions to Homebank format
 Input format: Nationwide (UK) CSV
 
@@ -166,7 +164,7 @@ def handle_special_payees(df):
 # Entry point / Example usage:
 if __name__ == "__main__":
     cc_txn_source_path = read_env_var('cc_txn_source_path')
-    csv_file = '16 Statement Download*.csv'
+    csv_file = '20 Statement Download*.csv'
     a = convert_nw_transactions(cc_txn_source_path, csv_file)
     a.head()
    
