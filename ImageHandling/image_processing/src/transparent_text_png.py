@@ -1,4 +1,11 @@
 # https://chatgpt.com/c/6786ab39-86c8-8011-b432-1a128886ad6e
+"""
+Create captions for use in video tutorials.
+The user can vary text (mandatory), font, and font size (both optional).
+Output is png, with the option for the background behind the text to 
+be transparent or solid.
+The fonts used are ttf, and are hard-coded to the Windows location of c:/windows/fonts.
+"""
 
 import os
 from math import ceil
