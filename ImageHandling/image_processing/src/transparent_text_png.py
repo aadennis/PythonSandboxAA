@@ -1,7 +1,7 @@
 # https://chatgpt.com/c/6786ab39-86c8-8011-b432-1a128886ad6e
 """
 Create captions for use in video tutorials.
-The user can vary text (mandatory), font, and font size (both optional).
+The user can vary text (mandatory), font, font size, colour (all optional).
 Output is png, with the option for the background behind the text to 
 be transparent or solid.
 The fonts used are ttf, and are hard-coded to the Windows location of c:/windows/fonts.
@@ -26,23 +26,26 @@ def sanitize_filename(text):
 
 # Define a dictionary for color names
 COLOR_PALETTE = {
-    "white": (255, 255, 255, 255),
+    "white": (255, 255, 255, 255), 
     "off_white": (245, 245, 245, 255),
     "transparent": (0, 0, 0, 0),
     "gray": (200, 200, 200, 128),  # Slightly transparent gray
     "black": (0, 0, 0, 255),
+    "orange": (255, 165, 0, 255), 
+    "blood_orange": (204, 85, 0, 255)
 }
 
-def create_text_image(text, transparency=True, font="arial.ttf", font_size=172, corner_radius=20):
+def create_text_image(text, transparency=True, font="arial.ttf", font_size=172, corner_radius=20, bg_color="white"):
     """
     Creates an image with the given text, optionally with a transparent background and rounded corners.
 
     Parameters:
         text (str): The text to render in the image.
-        transparency (bool): If True, the background is transparent. Otherwise, it's white.
+        transparency (bool): If True, the background is transparent. Otherwise, it's white (or a specified color).
         font (str): Font file name to use (located in c:/windows/fonts).
         font_size (int): Size of the font.
         corner_radius (int): Radius of the rounded corners for the background.
+        bg_color (str): Background color name (defaults to "white"). Choose from the COLOR_PALETTE dictionary.
 
     Returns:
         None
@@ -78,12 +81,16 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=172, 
     image_width = text_width + 2 * padding
     image_height = text_height + descent + 2 * padding  # Adjust height based on descent
 
-    # Create the image with transparent background
-    image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"])
+    # Determine the background color
+    if bg_color not in COLOR_PALETTE:
+        raise ValueError(f"Invalid color name '{bg_color}'. Choose from: {', '.join(COLOR_PALETTE.keys())}")
+
+    # Create the image with the specified background color or transparent
+    image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"] if transparency else COLOR_PALETTE[bg_color])
     draw = ImageDraw.Draw(image)
 
     # Draw a rounded rectangle background
-    rect_color = COLOR_PALETTE["gray"] if transparency else COLOR_PALETTE["white"]
+    rect_color = COLOR_PALETTE[bg_color] if not transparency else COLOR_PALETTE["transparent"]
     draw.rounded_rectangle(
         [(0, 0), (image_width, image_height)],
         radius=corner_radius,
@@ -100,5 +107,5 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=172, 
     print(f"Image saved as [{output_path}]")
 
 # Example Usage
-create_text_image("This is a test", transparency=True, corner_radius=30)  # Transparent background
-create_text_image("Another test", transparency=False, corner_radius=30)  # White background
+create_text_image("This is a test", transparency=False, bg_color="orange", corner_radius=30)  # Solid orange background
+create_text_image("Another test", transparency=False, bg_color="blood_orange", corner_radius=30)  # Solid blood orange background
