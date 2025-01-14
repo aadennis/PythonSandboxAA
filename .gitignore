@@ -172,4 +172,4 @@ JupyterPlay/demo/nwide_to_homebank/output_homebank.csv
 ImageHandling/image_processing/src/result1.mp4
 ImageHandling/image_processing/src/result2.mp4
 ImageHandling/image_processing/src/result3.mp4
-ImageHandling/image_processing/src/output.png
+ImageHandling/image_processing/src/output/*

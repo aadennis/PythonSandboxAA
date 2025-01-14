@@ -2,7 +2,7 @@
 
 from PIL import Image, ImageDraw, ImageFont
 
-def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, output_file="output.png", corner_radius=20):
+def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, output_filename="output.png", corner_radius=20):
     """
     Creates an image with the given text, optionally with a transparent background and rounded corners.
 
@@ -11,12 +11,16 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
         transparency (bool): If True, the background is transparent. Otherwise, it's white.
         font (str): Font file name to use (located in c:/windows/fonts).
         font_size (int): Size of the font.
-        output_file (str): Path to save the output image.
+        output_filename (str): Name of the output image. Path is dictated by the script.
         corner_radius (int): Radius of the rounded corners for the background.
 
     Returns:
         None
     """
+
+    # Output path is controlled by the script
+    OUTPUT_FOLDER = "output"
+
     # Create a font object
     FONT_ROOT = "c:/windows/fonts"
     FONT_PATH = f"{FONT_ROOT}/{font}"
@@ -60,9 +64,10 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
     draw.text((padding, padding), text, fill="black", font=font)
 
     # Save the image
-    image.save(output_file)
-    print(f"Image saved as {output_file}")
+    output_path = f"{OUTPUT_FOLDER}/{output_filename}"
+    image.save(output_path)
+    print(f"Image saved as [{output_path}]")
 
 # Example Usage
-create_text_image("This is a test", transparency=True, output_file="output_transparent.png", corner_radius=30)  # Transparent background
-create_text_image("Another test", transparency=False, output_file="output_white_bg.png", corner_radius=30)  # White background
+create_text_image("This is a test", transparency=True, output_filename="output_transparent.png", corner_radius=30)  # Transparent background
+create_text_image("Another test", transparency=False, output_filename="output_white_bg.png", corner_radius=30)  # White background
