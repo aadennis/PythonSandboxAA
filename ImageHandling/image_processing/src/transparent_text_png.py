@@ -33,7 +33,7 @@ COLOR_PALETTE = {
     "black": (0, 0, 0, 255),
 }
 
-def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, corner_radius=20):
+def create_text_image(text, transparency=True, font="arial.ttf", font_size=172, corner_radius=20):
     """
     Creates an image with the given text, optionally with a transparent background and rounded corners.
 
@@ -89,9 +89,6 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
         radius=corner_radius,
         fill=rect_color
     )
-
-    # Calculate vertical offset to center the text
-    vertical_offset = (image_height - text_height) // 2
 
     # Adjust vertical offset slightly to prevent text from being too low
     vertical_padding_offset = font_size / 10
