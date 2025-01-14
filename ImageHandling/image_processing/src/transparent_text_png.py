@@ -1,6 +1,7 @@
 # https://chatgpt.com/c/6786ab39-86c8-8011-b432-1a128886ad6e
 
 import os
+from math import ceil
 from PIL import Image, ImageDraw, ImageFont
 
 def sanitize_filename(text):
@@ -62,14 +63,18 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
     text_width = text_bbox[2] - text_bbox[0]
     text_height = text_bbox[3] - text_bbox[1]
 
-    # Calculate additional descent space
+    # Calculate descent space
     ascent, descent = font.getmetrics()
-    total_height = text_height + descent
+    print("Total Height:", text_height + descent)  # Total height excluding ascent
+    print("Text Height:", text_height)
+    print("Descent:", descent)
+    print("Ascent:", ascent)
 
-    # Add some padding
+    # Add some padding (still keep padding for a bit of space around text)
     padding = 20
     image_width = text_width + 2 * padding
-    image_height = total_height + 2 * padding
+    image_height = text_height + descent + 2 * padding  # Fix height calculation, no ascent here
+
 
     # Create the image
     image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"])  # Start with transparent image
@@ -83,8 +88,15 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
         fill=rect_color
     )
 
-    # Draw the text
-    draw.text((padding, padding), text, fill=COLOR_PALETTE["black"], font=font)
+    # Calculate the vertical offset based on image height, padding, and text height
+    vertical_offset = (image_height - text_height) // 2  # Center vertically without too much padding
+    print("---")
+    print(vertical_offset)
+    print(image_height)
+    print(text_height)
+
+    vertical_padding_offset = font_size/10
+    draw.text((padding, ceil(padding-vertical_padding_offset)), text, fill=COLOR_PALETTE["black"], font=font)
 
     # Save the image
     output_path = f"{OUTPUT_FOLDER}/{output_filename}"
@@ -94,3 +106,4 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
 # Example Usage
 create_text_image("This is a test", transparency=True, corner_radius=30)  # Transparent background
 create_text_image("Another test", transparency=False, corner_radius=30)  # White background
+
