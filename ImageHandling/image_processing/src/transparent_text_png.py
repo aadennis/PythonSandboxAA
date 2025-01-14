@@ -2,25 +2,26 @@
 
 from PIL import Image, ImageDraw, ImageFont
 
-def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, output_file="output.png"):
+def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, output_file="output.png", corner_radius=20):
     """
-    Creates an image with the given text, optionally with a transparent background.
+    Creates an image with the given text, optionally with a transparent background and rounded corners.
 
     Parameters:
         text (str): The text to render in the image.
         transparency (bool): If True, the background is transparent. Otherwise, it's white.
-        font_path (str): Path to the font file to use.
+        font (str): Font file name to use (located in c:/windows/fonts).
         font_size (int): Size of the font.
         output_file (str): Path to save the output image.
+        corner_radius (int): Radius of the rounded corners for the background.
 
     Returns:
         None
     """
     # Create a font object
     FONT_ROOT = "c:/windows/fonts"
-    FONT_PATH = f"{FONT_ROOT}/{font}"  # Replace with the actual path on your system
-    print(FONT_PATH)
+    FONT_PATH = f"{FONT_ROOT}/{font}"
     font = ImageFont.truetype(FONT_PATH, font_size)
+
 
     # Calculate text size, including descent
     dummy_image = Image.new("RGBA", (1, 1))  # Dummy image for textbbox calculation
@@ -33,10 +34,10 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
 
     # Calculate additional descent space
     ascent, descent = font.getmetrics()
-    total_height = text_height + descent  # Include descent in the total height
+    total_height = text_height + descent
 
     # Add some padding
-    padding = 10
+    padding = 20
     image_width = text_width + 2 * padding
     image_height = total_height + 2 * padding
 
@@ -44,10 +45,18 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
     bg_color = (255, 255, 255, 255) if not transparency else (0, 0, 0, 0)
 
     # Create the image
-    image = Image.new("RGBA", (image_width, image_height), bg_color)
+    image = Image.new("RGBA", (image_width, image_height), (0, 0, 0, 0))  # Start with transparent image
+    draw = ImageDraw.Draw(image)
+
+    # Draw a rounded rectangle background
+    rect_color = (255, 255, 255, 255) if not transparency else (200, 200, 200, 128)  # Slightly transparent gray for visualization
+    draw.rounded_rectangle(
+        [(0, 0), (image_width, image_height)],
+        radius=corner_radius,
+        fill=rect_color
+    )
 
     # Draw the text
-    draw = ImageDraw.Draw(image)
     draw.text((padding, padding), text, fill="black", font=font)
 
     # Save the image
@@ -55,5 +64,5 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
     print(f"Image saved as {output_file}")
 
 # Example Usage
-create_text_image("This is a test", transparency=True)  # Transparent background
-create_text_image("Another test", transparency=False, output_file="output_white_bg.png")  # White background
+create_text_image("This is a test", transparency=True, output_file="output_transparent.png", corner_radius=30)  # Transparent background
+create_text_image("Another test", transparency=False, output_file="output_white_bg.png", corner_radius=30)  # White background
