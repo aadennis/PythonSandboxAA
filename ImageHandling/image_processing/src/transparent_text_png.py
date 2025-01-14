@@ -1,8 +1,22 @@
 # https://chatgpt.com/c/6786ab39-86c8-8011-b432-1a128886ad6e
 
+import os
 from PIL import Image, ImageDraw, ImageFont
 
-def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, output_filename="output.png", corner_radius=20):
+def sanitize_filename(text):
+    """
+    Sanitizes text to be used as a file name by replacing invalid characters with underscores.
+    
+    Parameters:
+        text (str): The input text to sanitize.
+    
+    Returns:
+        str: Sanitized text suitable for use in file names.
+    """
+    invalid_chars = r'<>:"/\|?*'
+    return "".join(c if c not in invalid_chars else "_" for c in text).strip()
+
+def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, corner_radius=20):
     """
     Creates an image with the given text, optionally with a transparent background and rounded corners.
 
@@ -11,21 +25,24 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
         transparency (bool): If True, the background is transparent. Otherwise, it's white.
         font (str): Font file name to use (located in c:/windows/fonts).
         font_size (int): Size of the font.
-        output_filename (str): Name of the output image. Path is dictated by the script.
         corner_radius (int): Radius of the rounded corners for the background.
 
     Returns:
         None
     """
-
-    # Output path is controlled by the script
+    # Output folder
     OUTPUT_FOLDER = "output"
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+
+    # Generate the output file name based on the text and transparency
+    sanitized_text = sanitize_filename(text)
+    suffix = "transparent" if transparency else "white_bg"
+    output_filename = f"{sanitized_text}_{suffix}.png"
 
     # Create a font object
     FONT_ROOT = "c:/windows/fonts"
     FONT_PATH = f"{FONT_ROOT}/{font}"
     font = ImageFont.truetype(FONT_PATH, font_size)
-
 
     # Calculate text size, including descent
     dummy_image = Image.new("RGBA", (1, 1))  # Dummy image for textbbox calculation
@@ -44,9 +61,6 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
     padding = 20
     image_width = text_width + 2 * padding
     image_height = total_height + 2 * padding
-
-    # Determine the background color
-    bg_color = (255, 255, 255, 255) if not transparency else (0, 0, 0, 0)
 
     # Create the image
     image = Image.new("RGBA", (image_width, image_height), (0, 0, 0, 0))  # Start with transparent image
@@ -69,5 +83,5 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, o
     print(f"Image saved as [{output_path}]")
 
 # Example Usage
-create_text_image("This is a test", transparency=True, output_filename="output_transparent.png", corner_radius=30)  # Transparent background
-create_text_image("Another test", transparency=False, output_filename="output_white_bg.png", corner_radius=30)  # White background
+create_text_image("This is a test", transparency=True, corner_radius=30)  # Transparent background
+create_text_image("Another test", transparency=False, corner_radius=30)  # White background
