@@ -3,8 +3,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 # Constants
 TEXT = "This is a test"
-FONT_PATH = "DejaVuSans-Bold.ttf"  # Adjust this to your font file path
-FONT_SIZE = 36  # Font size
+FONT_PATH = "ttf_fonts/DejaVuSans-Bold.ttf"  
+FONT_SIZE = 72  
 TEXT_COLOR = "black"
 OUTPUT_FILE = "output.png"
 
@@ -12,7 +12,13 @@ OUTPUT_FILE = "output.png"
 font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
 
 # Calculate text size
-text_width, text_height = font.getsize(TEXT)
+dummy_image = Image.new("RGBA", (1, 1))  # Dummy image for textbbox calculation
+dummy_draw = ImageDraw.Draw(dummy_image)
+text_bbox = dummy_draw.textbbox((0, 0), TEXT, font=font)
+
+# Get text dimensions from the bounding box
+text_width = text_bbox[2] - text_bbox[0]
+text_height = text_bbox[3] - text_bbox[1]
 
 # Add some padding
 padding = 10
@@ -30,4 +36,3 @@ draw.text((padding, padding), TEXT, fill=TEXT_COLOR, font=font)
 image.save(OUTPUT_FILE)
 
 print(f"Image saved as {OUTPUT_FILE}")
-
