@@ -65,19 +65,14 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
 
     # Calculate descent space
     ascent, descent = font.getmetrics()
-    print("Total Height:", text_height + descent)  # Total height excluding ascent
-    print("Text Height:", text_height)
-    print("Descent:", descent)
-    print("Ascent:", ascent)
 
-    # Add some padding (still keep padding for a bit of space around text)
+    # Add some padding for space around the text
     padding = 20
     image_width = text_width + 2 * padding
-    image_height = text_height + descent + 2 * padding  # Fix height calculation, no ascent here
+    image_height = text_height + descent + 2 * padding  # Adjust height based on descent
 
-
-    # Create the image
-    image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"])  # Start with transparent image
+    # Create the image with transparent background
+    image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"])
     draw = ImageDraw.Draw(image)
 
     # Draw a rounded rectangle background
@@ -88,15 +83,12 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
         fill=rect_color
     )
 
-    # Calculate the vertical offset based on image height, padding, and text height
-    vertical_offset = (image_height - text_height) // 2  # Center vertically without too much padding
-    print("---")
-    print(vertical_offset)
-    print(image_height)
-    print(text_height)
+    # Calculate vertical offset to center the text
+    vertical_offset = (image_height - text_height) // 2
 
-    vertical_padding_offset = font_size/10
-    draw.text((padding, ceil(padding-vertical_padding_offset)), text, fill=COLOR_PALETTE["black"], font=font)
+    # Adjust vertical offset slightly to prevent text from being too low
+    vertical_padding_offset = font_size / 10
+    draw.text((padding, ceil(padding - vertical_padding_offset)), text, fill=COLOR_PALETTE["black"], font=font)
 
     # Save the image
     output_path = f"{OUTPUT_FOLDER}/{output_filename}"
@@ -106,4 +98,3 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
 # Example Usage
 create_text_image("This is a test", transparency=True, corner_radius=30)  # Transparent background
 create_text_image("Another test", transparency=False, corner_radius=30)  # White background
-
