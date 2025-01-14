@@ -16,6 +16,15 @@ def sanitize_filename(text):
     invalid_chars = r'<>:"/\|?*'
     return "".join(c if c not in invalid_chars else "_" for c in text).strip()
 
+# Define a dictionary for color names
+COLOR_PALETTE = {
+    "white": (255, 255, 255, 255),
+    "off_white": (245, 245, 245, 255),
+    "transparent": (0, 0, 0, 0),
+    "gray": (200, 200, 200, 128),  # Slightly transparent gray
+    "black": (0, 0, 0, 255),
+}
+
 def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, corner_radius=20):
     """
     Creates an image with the given text, optionally with a transparent background and rounded corners.
@@ -63,11 +72,11 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
     image_height = total_height + 2 * padding
 
     # Create the image
-    image = Image.new("RGBA", (image_width, image_height), (0, 0, 0, 0))  # Start with transparent image
+    image = Image.new("RGBA", (image_width, image_height), COLOR_PALETTE["transparent"])  # Start with transparent image
     draw = ImageDraw.Draw(image)
 
     # Draw a rounded rectangle background
-    rect_color = (255, 255, 255, 255) if not transparency else (200, 200, 200, 128)  # Slightly transparent gray for visualization
+    rect_color = COLOR_PALETTE["gray"] if transparency else COLOR_PALETTE["white"]
     draw.rounded_rectangle(
         [(0, 0), (image_width, image_height)],
         radius=corner_radius,
@@ -75,7 +84,7 @@ def create_text_image(text, transparency=True, font="arial.ttf", font_size=72, c
     )
 
     # Draw the text
-    draw.text((padding, padding), text, fill="black", font=font)
+    draw.text((padding, padding), text, fill=COLOR_PALETTE["black"], font=font)
 
     # Save the image
     output_path = f"{OUTPUT_FOLDER}/{output_filename}"
