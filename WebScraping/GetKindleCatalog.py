@@ -15,9 +15,15 @@ while True:
     # Find all the book containers that include both title and author
     book_containers = driver.find_elements(By.XPATH, "//div[@class='digital_entity_details']")
 
-    # Extract title and author from each container
+    # Extract title and author from each container, but skip if "Acquired by..." is present
     for container in book_containers:
         try:
+            # Check if "Acquired by" exists in the container
+            acquired_by_text = container.text
+            if "Acquired by" in acquired_by_text:
+                print("Skipping book due to 'Acquired by' text.")
+                continue  # Skip this book container
+
             title = container.find_element(By.CSS_SELECTOR, ".digital_entity_title").text
             author = container.find_element(By.CSS_SELECTOR, ".information_row").text
             book_list.append(f"Title: {title}, Author: {author}")

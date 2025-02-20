@@ -40,7 +40,6 @@ Title: The Art of Statistics: Learning from Data (Pelican Books), Author: David 
 Title: How To Be a Woman, Author: Caitlin Moran
 Title: The Organized Mind: The Science of Preventing Overload, Increasing Productivity and Restoring Your Focus, Author: Daniel J. Levitin
 Title: Life 3.0: Being Human in the Age of Artificial Intelligence, Author: Max Tegmark
-Title: Getting to Yes: Negotiating an agreement without giving in, Author: Roger Fisher, William Ury
 Title: The Complete Book of Drawing: Essential Skills for Every Artist, Author: Barrington Barber
 Title: People in Watercolour (Collins 30-Minute Painting), Author: Trevor Waugh
 Title: Station Eleven: the immersive, evocative bestselling modern classic (Picador Collection), Author: Emily St. John Mandel
@@ -51,24 +50,16 @@ Title: What If?: Serious Scientific Answers to Absurd Hypothetical Questions, Au
 Title: All That Man Is: Shortlisted for the Man Booker Prize 2016, Author: David Szalay
 Title: The Bone Clocks: Winner of the World Fantasy Award and longlisted for the Booker Prize, Author: David Mitchell
 Title: Utopia for Realists: And How We Can Get There, Author: Rutger Bregman
-Title: Wedding Tiers: A heartwarming and uplifting romance for summer 2024 from the Sunday Times bestselling author, Author: Trisha Ashley
-Title: Creature Comforts: The best feel good romantic comedy of this summer, Author: Trisha Ashley
-Title: Twelve Days of Christmas: A bestselling Christmas read to devour in one sitting!, Author: Trisha Ashley
 Title: Reality Is Not What It Seems: The Journey to Quantum Gravity, Author: Carlo Rovelli
-Title: The Ballroom Café, Author: Ann O'Loughlin
-Title: Chocolate Wishes: A heartwarming and uplifting romance novel for 2025 from the Sunday Times bestselling author, perfect for fans of Katie Fforde, Cathy Bramley and Jenny Colgan, Author: Trisha Ashley
 Title: Turn The Ship Around!: A True Story of Turning Followers into Leaders, Author: L. David Marquet
 Title: The Midlife Kitchen: health-boosting recipes for midlife & beyond, Author: Mimi Spencer, Sam Rice
 Title: The Times How to Crack Cryptic Crosswords, Author: Tim Moorey
 Title: Dare: The New Way to End Anxiety and Stop Panic Attacks Fast, Author: Barry McDonagh
-Title: The Little Teashop of Lost and Found: A heart-warming and life-affirming read from the Sunday Times Bestseller, Author: Trisha Ashley
-Title: The Tea Planter's Daughter (The India Tea Book 1), Author: Janet MacLeod Trotter
 Title: The Circle (Penguin Essentials), Author: Dave Eggers
 Title: The Silk Roads: A New History of the World, Author: Peter Frankopan
 Title: The Song of Achilles: The 10th Anniversary edition of the Women's Prize-winning bestseller, Author: Madeline Miller
 Title: The History of Science Fiction (Palgrave Histories of Literature), Author: Adam Roberts
 Title: Children of Time: Winner of the Arthur C. Clarke Award for Best Science Fiction Novel (The Children of Time Novels), Author: Adrian Tchaikovsky
-Title: The Bookshop On The Corner (The Gingerbread Café) (The Bookshop series Book 1), Author: Rebecca Raisin
 Title: I Can Make You Sleep: find rest and relaxation with multi-million-copy bestselling author Paul McKenna’s sure-fire system, Author: Paul McKenna
 Title: Outliers: The Story of Success, Author: Malcolm Gladwell
 Title: Peter the Great: The compelling story of the man who created modern Russia, founded St Petersburg and made his country part of Europe (Great Lives), Author: Robert K. Massie
@@ -79,22 +70,8 @@ Title: You Talkin' To Me?: Rhetoric from Aristotle to Obama, Author: Sam Leith
 Title: Adrift: Seventy-six Days Lost at Sea, Author: Steven Callahan
 Title: Delphi Complete Works of Anthony Trollope (Illustrated) (Delphi Series Two Book 9), Author: Anthony Trollope, Delphi Classics
 Title: Left For Dead: 30 Years On - The Race is Finally Over, Author: Nick Ward, Sinead O'Brien
-Title: The Joy of X: A Guided Tour of Mathematics, from One to Infinity, Author: Steven Strogatz
-Title: The Last Letter from Your Lover: Now a major motion picture starring Felicity Jones and Shailene Woodley, Author: Jojo Moyes
-Title: Always You, Author: Erin Kaye
-Title: Watch Over Me (Glen Avich Book 1), Author: Daniela Sacerdoti
-Title: Package Deal, Author: Tasha Harrison
 Title: Delphi Complete Works of Thomas Hardy (Illustrated), Author: Thomas Hardy, Delphi Classics
 Title: Once Upon a Time in the Sixties: London, Chelsea and the King's Road, Author: Peter Maddick
 Title: Last Trains: Dr Beeching and the death of rural England, Author: Charles Loft
 Title: The Devil's Music, Author: Jane Rusbridge
 Title: The Jane Austen Collection: The Complete Works (Includes Sense and Sensibility, Pride and Prejudice, Mansfield Park, Emma, Northanger Abbey, Persuasion, Lady Susan & more. Plus Audiobooks), Author: Jane Austen
-Title: The Secret Race: Inside the Hidden World of the Tour de France: Doping, Cover-ups, and Winning at All Costs, Author: Daniel Coyle, Tyler Hamilton
-Title: The Secret Keeper: A Compelling Story of Enduring Love and Betrayal from the Number One Bestselling Author, Author: Kate Morton
-Title: This Boy, Author: Alan Johnson
-Title: The Perfect Retreat, Author: Kate Forster
-Title: How Do We Fix This Mess? The Economic Price of Having it all, and the Route to Lasting Prosperity, Author: Robert Peston
-Title: The Chimp Paradox: The Acclaimed Mind Management Programme to Help You Achieve Success, Confidence and Happiness, Author: Professor Steve Peters
-Title: The Fault in Our Stars, Author: John Green
-Title: The Unlikely Pilgrimage Of Harold Fry: The uplifting and redemptive No. 1 Sunday Times bestseller, Author: Rachel Joyce
-Title: You Had Me At Hello: The laugh-out-loud rom com from the Sunday Times bestseller, Author: Mhairi McFarlane
