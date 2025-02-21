@@ -11,7 +11,7 @@ import time
 driver = uc.Chrome()
 
 # Open the Amazon Kindle page
-driver.get("https://www.amazon.co.uk/hz/mycd/digital-console/contentlist/booksAll")
+driver.get("https://www.amazon.co.uk/hz/mycd/digital-console/contentlist/booksAll/authorAsc")
 
 # Wait for manual login
 input("Log in manually, then press Enter here...")
@@ -32,7 +32,7 @@ while True:
 
             title = container.find_element(By.CSS_SELECTOR, ".digital_entity_title").text
             author = container.find_element(By.CSS_SELECTOR, ".information_row").text
-            book_list.append(f"Title: {title}, Author: {author}")
+            book_list.append(f"Author: {author}, Title: {title}")
         except Exception as e:
             print(f"Error extracting title/author for a book: {e}")
 
