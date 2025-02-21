@@ -1,3 +1,9 @@
+"""
+Write the title and author of my Kindle books to a text file, by querying 
+the content list page on Amazon (uk).
+Exclude any book summaries that include the string 'Acquired by', as this
+indicates an invitation to read, not a book I own.
+"""
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 import time
@@ -30,15 +36,29 @@ while True:
         except Exception as e:
             print(f"Error extracting title/author for a book: {e}")
 
-    # Try to locate the "Next" button with the new selector
+    # Try to locate the pagination container
     try:
-        # Use the new selector you found for the "Next" button
-        next_button = driver.find_element(By.XPATH, "//a[@id='page-RIGHT_PAGE']")
-        next_button.click()  # Click the "Next" button
-        time.sleep(3)  # Wait for the page to load
+        pagination = driver.find_element(By.ID, "pagination")
+        page_links = pagination.find_elements(By.CSS_SELECTOR, "a.page-item")  # All page links
+        current_page = driver.find_element(By.CSS_SELECTOR, "a.page-item.active").text  # Get current active page
+        
+        next_page = None
+        # Find the next page number
+        for i, link in enumerate(page_links):
+            if link.text == str(int(current_page) + 1):  # Look for the next number
+                next_page = link
+                break
+
+        if next_page:
+            print(f"Clicking on page {int(current_page) + 1}...")
+            next_page.click()  # Click the next page number
+            time.sleep(3)  # Wait for the page to load
+        else:
+            print("No more pages found. Stopping...")
+            break  # No more pages, exit the loop
     except Exception as e:
-        print("No more pages or error navigating: ", e)
-        break  # No "Next" button, exit the loop
+        print(f"Error navigating pagination: {e}")
+        break  # If there's an error navigating pagination, exit the loop
 
 # Save to file
 with open("kindle_books_with_authors.txt", "w") as f:

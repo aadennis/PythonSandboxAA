@@ -23,6 +23,89 @@ Title: Babel: The SUNDAY TIMES and #1 NEW YORK TIMES bestseller, Author: R.F. Ku
 Title: Pronto! (Gino D’Acampo), Author: Gino D'Acampo
 Title: Walking the Great North Line: From Stonehenge to Lindisfarne to Discover the Mysteries of Our Ancient Past, Author: Robert Twigger
 Title: Dynasty: The Rise and Fall of the House of Caesar, Author: Tom Holland
+Title: Trust: the dazzling twisty story of power, greed and love that begins in 1920s New York, Author: Hernan Diaz
+Title: The Illustrated Gormenghast Trilogy, Author: Mervyn Peake
+Title: The Kind Worth Saving: 'Nobody writes psychopaths like Swanson.' Mark Edwards, Author: Peter Swanson
+Title: Influence Empire: The Story of Tencent and China's Tech Ambition: Shortlisted for the FT Business Book of 2022, Author: Lulu Yilun Chen
+Title: Klara and the Sun: The Times and Sunday Times Book of the Year, Author: Kazuo Ishiguro
+Title: Jane Austen: A Life, Author: Claire Tomalin
+Title: Just Got Real: The gripping revenge comedy and Sunday Times bestseller, Author: Jane Fallon
+Title: A (Very) Short History of Life On Earth: 4.6 Billion Years in 12 Chapters, Author: Henry Gee
+Title: The Great Mathematicians: Unravelling the Mysteries of the Universe, Author: Raymond Flood, Robin Wilson
+Title: Girl, Forgotten: The gripping new latest 2022 crime suspense thriller from the No.1 Sunday Times bestselling author, Author: Karin Slaughter
+Title: Never: A Globe-spanning, Contemporary Tour-de-Force from the No.1 International Bestselling Author of the Kingsbridge Series, Author: Ken Follett
+Title: The Anomaly: The Mind-Twisting Thriller with Over a Million Copies Sold - A Must-Read for Fans of SEVERANCE, Author: Hervé Le Tellier
+Title: Project Hail Mary: The Sunday Times bestseller from the author of The Martian, Author: Andy Weir
+Title: 1000 Years of Annoying the French, Author: Stephen Clarke
+Title: Aftermath: Life in the Fallout of the Third Reich, Author: Harald Jähner
+Title: April in Spain: A Strafford and Quirke Mystery, Author: John Banville
+Title: Tate: Sketch Club Urban Drawing, Author: SAMPLE
+Title: Dominion: The Making of the Western Mind, Author: Tom Holland
+Title: The Last Empire: The Final Days of the Soviet Union, Author: Serhii Plokhy
+Title: Stars and Bars, Author: William Boyd
+Title: China: An Epic Novel, Author: Edward Rutherfurd
+Title: The Stranding: AS SEEN ON BBC2'S BEHIND THE COVERS WITH SARA COX, Author: Kate Sawyer
+Title: Behind The Scenes At The Museum: The award-winning novel from the bestselling author of Life After Life, Author: Kate Atkinson
+Title: Artemis: A gripping sci-fi thriller from the author of The Martian, Author: Andy Weir
+Title: Love is Blind, Author: William Boyd
+Title: Guitar Theory: Straight Talking Music Theory for Guitarists, Author: Lee Nichols
+Title: The Partner: A gripping crime thriller from the Sunday Times bestselling author of mystery and suspense, Author: John Grisham
+Title: The Ministry for the Future, Author: Kim Stanley Robinson
+Title: Enigma: From the Sunday Times bestselling author, Author: Robert Harris
+Title: The Cicero Trilogy, Author: Robert Harris
+Title: Pompeii: From the Sunday Times bestselling author, Author: Robert Harris
+Title: An Artist of the Floating World, Author: Kazuo Ishiguro
+Title: The Last Kingdom Series Books 1-6: The gripping, bestselling historical fiction series (The Last Kingdom Series), Author: Bernard Cornwell
+Title: The Second World War, Author: Antony Beevor
+Title: Brazzaville Beach, Author: William Boyd
+Title: Ordinary Thunderstorms, Author: William Boyd
+Title: The Ride of a Lifetime: Lessons in Creative Leadership from 15 Years as CEO of the Walt Disney Company, Author: Robert Iger
+Title: Mr Wilder and Me: The glamorous cinematic novel from the bestselling author of Middle England, Author: Jonathan Coe
+Title: The New Map: Energy, Climate, and the Clash of Nations, Author: Daniel Yergin
+Title: Circe: The stunning new anniversary edition from the author of international bestseller The Song of Achilles, Author: Madeline Miller
+Title: East: An Asian cookbook filled with 120 easy and delicious vegetarian and vegan recipes, Author: Meera Sodha
+Title: This Sovereign Isle: Britain In and Out of Europe, Author: Robert Tombs
+Title: V2: From the Sunday Times bestselling author, Author: Robert Harris
+Title: Consider Phlebas: A Culture Novel (Culture series Book 1), Author: Iain M. Banks
+Title: The Sea Wolves: A History of the Vikings, Author: Lars Brownworth
+Title: Factfulness: Ten Reasons We're Wrong About The World - And Why Things Are Better Than You Think, Author: Hans Rosling, Ola Rosling, Anna Rosling Rönnlund
+Title: Jane Austen: The Complete Novels, Author: Jane Austen
+Title: Beyond: A Times Book of the Year 2021: The Astonishing Story of the First Human to Leave Our Planet and Journey into Space, Author: Stephen Walker
+Title: Goodbye Britannia : Le Royaume-Uni au défi du Brexit (Essais - Documents) (French Edition), Author: Sylvie Bermann
+Title: The Hidden Life of Trees: The International Bestseller, Author: Peter Wohlleben
+Title: The Room Where It Happened: A White House Memoir, Author: John Bolton
+Title: Empire: How Britain Made the Modern World, Author: Niall Ferguson
+Title: Why We Sleep: The New Science of Sleep and Dreams, Author: Matthew Walker
+Title: The Less Dead: Shortlisted for the COSTA Prize, Author: Denise Mina
+Title: Guitar Fretboard: Memorize The Fretboard In Less Than 24 Hours: 35+ Tips And Exercises Included, Author: Guitar Head
+Title: Enemy of God: A Novel of Arthur (The Warlord Chronicles Book 2), Author: Bernard Cornwell
+Title: Mother of Eden: Shortlisted for the British Science Fiction Association Novel of the Year Award, 2015 (Dark Eden Book 2), Author: Chris Beckett
+Title: Foundation: The greatest science fiction series of all time, now a major series from Apple TV+ (The Foundation Trilogy, Book 1), Author: Isaac Asimov
+Title: Collins Artist’s Little Book of Inspiration, Author: Hazel Soan
+Title: Coastal Landscapes (Collins Learn to Paint), Author: Ray Balkwill
+Title: Jonathan Strange and Mr Norrell, Author: Susanna Clarke
+Title: Exhalation (Picador Collection), Author: Ted Chiang
+Title: Never Let Me Go: 20th anniversary edition, Author: Kazuo Ishiguro
+Title: 6-Week Drawing Course, Author: Barrington Barber
+Title: Country Flowers in Watercolour (Collins Learn to Paint), Author: Ann Blockley
+Title: Landscapes in Watercolour (Collins 30-Minute Painting), Author: Paul Talbot-Greaves
+Title: GCHQ, Author: Richard Aldrich
+Title: Aurora, Author: Kim Stanley Robinson
+Title: The Checklist Manifesto: How To Get Things Right, Author: Atul Gawande
+Title: Mythos: Greek Myths Retold (Stephen Fry’s Greek Myths Book 1), Author: Stephen Fry
+Title: Stargazing For Dummies, Author: Steve Owens
+Title: The Daily Stoic: 366 Meditations on Wisdom, Perseverance, and the Art of Living: Featuring new translations of Seneca, Epictetus, and Marcus Aurelius, Author: Ryan Holiday, Stephen Hanselman
+Title: New Botanical Painting, Author: Harriet de Winton
+Title: The Planets: A Sunday Times Bestseller, Author: Brian Cox, Andrew Cohen
+Title: The Wandering Earth, Author: Cixin Liu
+Title: The Evolution of Everything: How Small Changes Transform Our World, Author: Matt Ridley
+Title: One Hundred Years of Solitude, Author: Gabriel Garcia Marquez
+Title: The Martian: The international bestseller behind the Oscar-winning blockbuster film, Author: Andy Weir
+Title: The Strange Last Voyage of Donald Crowhurst: Now Filmed As The Mercy, Author: Nicholas Tomalin, Ron Hall
+Title: How To Draw: Sketch and draw anything, anywhere with this inspiring and practical handbook, Author: Jake Spicer
+Title: Exactly: How Precision Engineers Created the Modern World, Author: Simon Winchester
+Title: Infinity in the Palm of Your Hand: Fifty Wonders That Reveal an Extraordinary Universe, Author: Marcus Chown
+Title: Grease Junkie: A book of moving parts, Author: Edd China
 Title: Wild Swans: Three Daughters of China – One of the Sunday Times Top 100 Bestselling Books of the Past 50 Years, Author: Jung Chang
 Title: Black Box Thinking: The Surprising Truth About Success, Author: Matthew Syed, Matthew Syed Consulting Ltd
 Title: The Remarkable Life of the Skin: An intimate journey across our surface, Author: Monty Lyman
@@ -47,6 +130,87 @@ Title: Money: A User’s Guide: The Sunday Times bestselling guide to taking contr
 Title: This Changes Everything: Capitalism vs. the Climate, Author: Naomi Klein
 Title: The Eden Paradox: An Alien Conspiracy Novel, Author: Barry Kirwan
 Title: What If?: Serious Scientific Answers to Absurd Hypothetical Questions, Author: Randall Munroe
+Title: Berlin: The Downfall 1945: The authoritative history book uncovering the final days of the Nazi Third Reich, Author: Antony Beevor
+Title: War Beneath The Sea, Author: Peter Padfield
+Title: Time and How to Spend It: The 7 Rules for Richer, Happier Days, Author: James Wallman
+Title: Why Mummy Drinks: The Sunday Times Number One Bestselling Author, Author: Gill Sims
+Title: Homo Deus: The million-copy bestseller from the author of Nexus, Author: Yuval Noah Harari
+Title: The Lean Startup: The Million Copy Bestseller Driving Entrepreneurs to Success, Author: Eric Ries
+Title: That Glimpse of Truth: The 100 Finest Short Stories Ever Written, Author: David Miller
+Title: The Ministry of Utmost Happiness: Longlisted for the Man Booker Prize 2017, Author: Arundhati Roy
+Title: The Rise and Fall of the Dinosaurs: The Untold Story of a Lost World, Author: Steve Brusatte
+Title: Summer of Blood: The Peasants’ Revolt of 1381, Author: Dan Jones
+Title: Draw Buildings and Cities in 15 Minutes: The super-fast drawing technique anyone can learn (Draw in 15 Minutes Book 4), Author: Matthew Brehm
+Title: Humans: A Brief History of How We F*cked It All Up, Author: Tom Phillips
+Title: France: A History: from Gaul to de Gaulle, Author: SAMPLE
+Title: Restless: A Duchess of Cornwall Book Club pick, Author: William Boyd
+Title: A Brief History Of Time: From Big Bang To Black Holes, Author: Stephen Hawking
+Title: Two Brothers, Author: Ben Elton
+Title: Fatherland (25th Anniversary Edition), Author: Robert Harris
+Title: From Bacteria to Bach and Back: The Evolution of Minds, Author: Daniel C. Dennett
+Title: Blood, Sweat, and Pixels: The Triumphant, Turbulent Stories Behind How Video Games Are Made, Author: Jason Schreier
+Title: The Battle for Spain: The Spanish Civil War 1936-1939, Author: Antony Beevor
+Title: Napoleon the Great, Author: Andrew Roberts
+Title: Other Minds: The Octopus and the Evolution of Intelligent Life, Author: Peter Godfrey-Smith
+Title: The Closed Circle: ‘As funny as anything Coe has written’ The Times Literary Supplement (The Rotters' Club Book 2), Author: Jonathan Coe
+Title: Hello World: How to be Human in the Age of the Machine, Author: Hannah Fry
+Title: The Far Pavilions, Author: M. M. Kaye
+Title: American Gods, Author: Neil Gaiman
+Title: Stalin: The Court of the Red Tsar, Author: Simon Sebag Montefiore
+Title: The Ascent of Gravity: The Quest to Understand the Force that Explains Everything, Author: Marcus Chown
+Title: The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron, Author: Bethany McLean, Peter Elkind
+Title: A Little Life: The Million-Copy Bestseller (Picador Collection), Author: Hanya Yanagihara
+Title: Antony and Cleopatra, Author: Adrian Goldsworthy, Dr Adrian Goldsworthy Ltd
+Title: Alexander Hamilton (Great Lives), Author: Ron Chernow
+Title: Online Business Startup: The entrepreneur's guide to launching a fast, lean and profitable online venture, Author: Robin Waite
+Title: The Penguin History of the World: 6th edition, Author: J M Roberts, Odd Arne Westad
+Title: Charles Dickens: The Complete Novels (Golden Deer Classics), Author: Charles Dickens, Golden Deer Classics
+Title: The Complete Novels of Fyodor Dostoyevsky, Author: Fyodor Dostoyevsky
+Title: Franz Kafka: The Best Works, Author: Franz Kafka
+Title: Chinese Whispers: Why Everything You've Heard About China is Wrong, Author: Ben Chu
+Title: Talent is Overrated: What Really Separates World-Class Performers from Everybody Else, Author: Geoff Colvin
+Title: CSS and Documents, Author: Eric A. Meyer
+Title: Lenin the Dictator, Author: Victor Sebestyen
+Title: Augustus: From Revolutionary to Emperor, Author: Adrian Goldsworthy, Dr Adrian Goldsworthy Ltd
+Title: Aelfred's Britain: War and Peace in the Viking Age, Author: Max Adams
+Title: The Romanovs: The Story of Russia and its Empire 1613-1918, Author: Simon Sebag Montefiore
+Title: Metamorphosis and Other Stories (Penguin Modern Classics), Author: Franz Kafka
+Title: The Grapes of Wrath (Penguin Modern Classics), Author: John Steinbeck
+Title: Nineteen Eighty-Four (Penguin Modern Classics), Author: George Orwell
+Title: Einstein: His Life and Universe, Author: Walter Isaacson
+Title: My Name Is Lucy Barton: From the Pulitzer Prize-winning author of Olive Kitteridge, Author: Elizabeth Strout
+Title: How to Build a Girl, Author: Caitlin Moran
+Title: Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets, Author: Nassim Taleb
+Title: How to Create Stunning Digital Photography, Author: Tony Northrup, Chelsea Northrup
+Title: The Mandibles: A Family, 2029–2047: The unputdownable Sunday Times bestselling satirical political fiction novel, Author: Lionel Shriver
+Title: Exit West: A BBC 2 Between the Covers Book Club Pick – Booker Prize Gems, Author: Mohsin Hamid
+Title: Ardennes 1944: Hitler's Last Gamble, Author: Antony Beevor
+Title: The Old Ways: A Journey on Foot, Author: Robert Macfarlane
+Title: How to Make a Spaceship: A Band of Renegades, an Epic Race and the Birth of Private Space Flight, Author: Julian Guthrie
+Title: The Square and the Tower: Networks, Hierarchies and the Struggle for Global Power, Author: Niall Ferguson
+Title: The Hairy Dieters Go Veggie: 80 delicious vegetarian recipes to lose weight and eat less meat (Hairy Bikers), Author: Hairy Bikers
+Title: The Girl with the Dragon Tattoo: The genre-defining thriller that introduced the world to Lisbeth Salander (Millennium Series Book 1), Author: Stieg Larsson
+Title: Thoughts of Marcus Aurelius, Author: Emperor of Rome Marcus Aurelius
+Title: The Better Angels of Our Nature: The Decline of Violence In History And Its Causes, Author: Steven Pinker
+Title: Daughter of Eden (Dark Eden Book 3), Author: Chris Beckett
+Title: A Forger's Tale: Confessions of the Bolton Forger, Author: Shaun Greenhalgh
+Title: The God Delusion: 10th Anniversary Edition, Author: Richard Dawkins
+Title: Happy: Why More or Less Everything is Absolutely Fine, Author: Derren Brown
+Title: The Idiot Brain: A Neuroscientist Explains What Your Head is Really Up To, Author: Dean Burnett
+Title: King James Bible: 400th Anniversary edition of the book that changed the world, Author: The Bible
+Title: Revolution: The History of England Volume IV, Author: Peter Ackroyd
+Title: If You're Bored With Your Camera Read This Book (If you're ... Read This Book 2), Author: Demetrius Fordham
+Title: The Mother Tongue: The Fascinating History of the English Language, Author: Bill Bryson
+Title: Into the Black: Remastered Edition (Odyssey One Book 1), Author: Evan Currie
+Title: A Closed and Common Orbit: Wayfarers 2, Author: Becky Chambers
+Title: Elon Musk: How the Billionaire CEO of SpaceX and Tesla is Shaping our Future, Author: Ashlee Vance
+Title: Occupy Me, Author: Tricia Sullivan
+Title: From Darkest Skies: Book 1, Author: Sam Peters
+Title: The Crusades: The War for the Holy Land, Author: Thomas Asbridge
+Title: God Is Not Great, Author: Christopher Hitchens
+Title: Brave New World, Author: Aldous Huxley
+Title: TED Talks: The official TED guide to public speaking: Tips and tricks for giving unforgettable speeches and presentations, Author: Chris Anderson
+Title: Disrupted: Ludicrous Misadventures in the Tech Start-up Bubble, Author: Dan Lyons
 Title: All That Man Is: Shortlisted for the Man Booker Prize 2016, Author: David Szalay
 Title: The Bone Clocks: Winner of the World Fantasy Award and longlisted for the Booker Prize, Author: David Mitchell
 Title: Utopia for Realists: And How We Can Get There, Author: Rutger Bregman
@@ -64,6 +228,72 @@ Title: I Can Make You Sleep: find rest and relaxation with multi-million-copy be
 Title: Outliers: The Story of Success, Author: Malcolm Gladwell
 Title: Peter the Great: The compelling story of the man who created modern Russia, founded St Petersburg and made his country part of Europe (Great Lives), Author: Robert K. Massie
 Title: Catherine the Great: Portrait of a Woman (Great Lives), Author: Robert K. Massie
+Title: Mildreds Vegetarian: Vegetable focused, delicious food, Author: Dan Acevedo, Sarah Wasserman, Mildreds
+Title: Algorithms to Live By: The Computer Science of Human Decisions, Author: Brian Christian, Griffiths
+Title: French: Short Stories For Beginners - 9 Captivating Short Stories to Learn French & Expand Your Vocabulary While Having Fun (French Edition), Author: The Language Academy, French
+Title: The Dark Forest (The Three-Body Problem Book 2), Author: Cixin Liu
+Title: The Three-Body Problem, Author: Cixin Liu
+Title: Death's End (The Three-Body Problem Book 3), Author: Cixin Liu
+Title: The Man in the High Castle (Penguin Modern Classics), Author: Philip K. Dick
+Title: Nothing is True and Everything is Possible: Adventures in Modern Russia, Author: Peter Pomerantsev
+Title: The Humans, Author: Matt Haig
+Title: The Industries of the Future, Author: Alec Ross
+Title: Human Universe, Author: Professor Brian Cox, Andrew Cohen
+Title: The Year of Living Danishly: Uncovering the Secrets of the World's Happiest Country, Author: Helen Russell
+Title: Sweet Caress: The Many Lives of Amory Clay, Author: William Boyd
+Title: The Little Book of Big History: The Story of Life, the Universe and Everything, Author: Ian Crofton, Jeremy Black
+Title: Waterloo: The History of Four Days, Three Armies and Three Battles, Author: Bernard Cornwell
+Title: Guitar: How to Memorize the Fretboard: Quickly and Easily Learn the Notes on the Guitar Neck (Beginner Guitar Books), Author: Joseph Alexander
+Title: A History of the World, Author: Andrew Marr
+Title: You Don't Know JS: Up & Going, Author: Kyle Simpson
+Title: The Epigenetics Revolution: How Modern Biology is Rewriting our Understanding of Genetics, Disease and Inheritance, Author: Nessa Carey
+Title: The Plantagenets: The Kings Who Made England, Author: Dan Jones
+Title: Dark Eden: Winner of the Arthur C. Clarke Award 2013, Author: Chris Beckett
+Title: A Calculated Life, Author: Anne Charnock
+Title: Stormbird: The Wars of the Roses (Book 1), Author: Conn Iggulden
+Title: I Think You’ll Find It’s a Bit More Complicated Than That, Author: Ben Goldacre
+Title: Anomaly (First Contact), Author: Peter Cawdron
+Title: The Sense of Style: The Thinking Person's Guide to Writing in the 21st Century, Author: Steven Pinker
+Title: Software Testing: An ISTQB-ISEB Foundation Guide, Author: Brian Hambling, Peter Morgan, Angelina Samaroo, Geoff Thompson, Peter Williams, Brian Hambling
+Title: Introducing Linguistics: A Graphic Guide (Graphic Guides Book 0), Author: R. L. Trask
+Title: Beethoven: The Man Revealed - revised & updated edition, Author: John Suchet
+Title: The Strongman: Vladimir Putin and the Struggle for Russia, Author: Angus Roxburgh
+Title: London: the Autobiography, Author: Jon E. Lewis
+Title: Emperors of Rome, Author: David Potter
+Title: For Richer, For Poorer: Confessions of a Player, Author: Victoria Coren
+Title: The Making of Modern Britain, Author: Andrew Marr
+Title: Managing Anxiety with CBT For Dummies, Author: Graham C. Davey, Kate Cavanagh, Fergal Jones, Lydia Turner, Adrian Whittington
+Title: Music Theory For Dummies, Author: Michael Pilhofer, Holly Day
+Title: Easy Learning Italian Grammar (Collins Easy Learning Italian) (Corsican Edition), Author: Collins UK
+Title: The Holy Roman Empire, Author: Viscount James Bryce
+Title: Where Do Comedians Go When They Die?: Journey of a Stand-Up, Author: Milton Jones
+Title: What Is HTML5?, Author: Brett McLaughlin
+Title: The Essential Guide to CSS and HTML Web Design (Essentials), Author: Craig Grannell
+Title: Programming Windows® 8 Apps with HTML, CSS, and JavaScript, Author: Kraig Brockschmidt
+Title: Filthy English: The How, Why, When And What Of Everyday Swearing, Author: Peter Silverton
+Title: The President's Hat, Author: Antoine Laurain
+Title: The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change, Author: Stephen R. Covey
+Title: How to Be Brilliant, Author: Michael Heppell
+Title: Do They Think You're Stupid?: 100 Ways Of Spotting Spin And Nonsense From The Media, Celebrities And Politicians, Author: Julian Baggini
+Title: The Etymologicon: A Circular Stroll through the Hidden Connections of the English Language, Author: Mark Forsyth
+Title: The Elements of Eloquence: How to Turn the Perfect English Phrase, Author: Mark Forsyth
+Title: David Mitchell: Back Story: The autobiography, Author: David Mitchell
+Title: Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared, Author: Jonas Jonasson
+Title: Time Management For Dummies - UK, Author: Clare Evans
+Title: Start Your Freelancing Career Now, Author: David Walton
+Title: The Never-Ending Days of Being Dead: Dispatches from the Front Line of Science, Author: Marcus Chown
+Title: When Money Dies, Author: Adam Fergusson
+Title: Napoleon, Author: Alan Forrest
+Title: The Story of English: How the English language conquered the world, Author: Philip Gooden
+Title: QI: The Book of the Dead, Author: John Mitchinson, John Lloyd
+Title: Parisians: An Adventure History of Paris, Author: Graham Robb
+Title: Genius: The Life and Science of Richard Feynman, Author: James Gleick
+Title: Trailblazers: Test Pilots in Action, Author: Christopher Hounsfield
+Title: Fire and Steam: A New History of the Railways in Britain, Author: Christian Wolmar
+Title: Quantum Theory Cannot Hurt You: A Guide to the Universe, Author: Marcus Chown
+Title: Supersense: From Superstition to Religion - The Brain Science of Belief, Author: Bruce Hood
+Title: What's Stopping You? Being More Confident: Why Smart People Can Lack Confidence and What You Can Do About It, Author: Robert Kelsey
+Title: A Brief History of Life in the Middle Ages (Brief Histories), Author: Martyn Whittock
 Title: Telling Tales in Latin: A New Latin Course and Storybook for Children, Author: Lorna Robinson
 Title: Mao's Great Famine: The History of China's Most Devastating Catastrophe, 1958-62 (Peoples Trilogy Book 1), Author: Frank Dikötter
 Title: You Talkin' To Me?: Rhetoric from Aristotle to Obama, Author: Sam Leith
@@ -75,3 +305,8 @@ Title: Once Upon a Time in the Sixties: London, Chelsea and the King's Road, Aut
 Title: Last Trains: Dr Beeching and the death of rural England, Author: Charles Loft
 Title: The Devil's Music, Author: Jane Rusbridge
 Title: The Jane Austen Collection: The Complete Works (Includes Sense and Sensibility, Pride and Prejudice, Mansfield Park, Emma, Northanger Abbey, Persuasion, Lady Susan & more. Plus Audiobooks), Author: Jane Austen
+Title: Le Tartuffe (French Edition), Author: Molière
+Title: Oeuvres complètes - I (French Edition), Author: Molière
+Title: Bel-Ami (French Edition), Author: Guy de Maupassant
+Title: Boule de Suif (French Edition), Author: Guy de Maupassant
+Title: Les trois mousquetaires (French Edition), Author: Alexandre Dumas
