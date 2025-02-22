@@ -3,6 +3,10 @@ Write the title and author of my Kindle books to a text file, by querying
 the content list page on Amazon (uk).
 Exclude any book summaries that include the string 'Acquired by', as this
 indicates an invitation to read, not a book I own.
+
+Put a copy of [chrome-win64.zip] in the current folder. Add to gitignore.
+https://developer.chrome.com/docs/chromedriver/downloads
+https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/win64/chrome-win64.zip
 """
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
