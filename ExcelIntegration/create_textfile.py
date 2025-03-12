@@ -39,16 +39,16 @@ def increment_first_letter(name):
 def mainx():
     # Open the workbook
     wb = xw.Book("demo1.xlsm")  # Adjust if your workbook has a different name
-    sheet0 = wb.sheets[0]
-    sheet2 = wb.sheets[2]
+    source_sheet = wb.sheets[0]
+    target_sheet = wb.sheets[2]
 
     # Populate sheet[0] with fake names in column A
     fake_names = generate_fake_names()
-    sheet0.range("A1").options(transpose=True).value = fake_names
+    source_sheet.range("A1").options(transpose=True).value = fake_names
 
     # Transform names and write to sheet[2] column A
     transformed_names = [increment_first_letter(name) for name in fake_names]
-    sheet2.range("A1").options(transpose=True).value = transformed_names
+    target_sheet.range("A1").options(transpose=True).value = transformed_names
 
     print("Processing complete")
 
