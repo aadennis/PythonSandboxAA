@@ -15,16 +15,13 @@
 # you may be required to add an exception for it.
 
 import xlwings as xw
-#import random
 
-# Generate 20 fake names (simple random names for demo purposes)
-def generate_fake_names(n=20):
+# Generate 20 fake names (fixed list for consistency)
+def generate_fake_names():
     first_names = ["Alice", "Bob", "Charlie", "David", "Emma", "Florence", "George",
                    "Hannah", "Ian", "Jack", "Katie", "Liam", "Mia", "Nathan", "Olivia",
                    "Paul", "Quinn", "Rachel", "Samuel", "Tina"]
-#   return random.sample(first_names, n)
     return first_names
-
 
 # Increment the first character of a name
 def increment_first_letter(name):
@@ -38,16 +35,20 @@ def increment_first_letter(name):
 
 def mainx():
     # Open the workbook
-    wb = xw.Book("demo1.xlsm")  # Adjust if your workbook has a different name
+    wb = xw.Book("demo1.xlsm")  # Adjust if needed
     source_sheet = wb.sheets[0]
     target_sheet = wb.sheets[2]
 
-    # Populate sheet[0] with fake names in column A
+    # Step 1: Populate source_sheet with fake names
     fake_names = generate_fake_names()
     source_sheet.range("A1").options(transpose=True).value = fake_names
 
-    # Transform names and write to sheet[2] column A
-    transformed_names = [increment_first_letter(name) for name in fake_names]
+    # Step 2: Read names from source_sheet (proving we're working with Excel data)
+    names = source_sheet.range("A1:A20").value
+    names = [name for name in names if isinstance(name, str)]  # Filter out empty cells
+
+    # Step 3: Transform and write to target_sheet
+    transformed_names = [increment_first_letter(name) for name in names]
     target_sheet.range("A1").options(transpose=True).value = transformed_names
 
     print("Processing complete")
