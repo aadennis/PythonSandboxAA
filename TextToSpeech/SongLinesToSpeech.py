@@ -11,10 +11,10 @@ from pydub import AudioSegment
 import os
 
 # Configuration
-input_file = 'ManchesterRambler.txt'  # Input text file
+input_file = 'WildRover.txt'  # Input text file
 # Generate output file name by appending ".out.wav" to the input file name (without extension)
 output_file = os.path.splitext(input_file)[0] + '.out.wav'
-speech_delay = 5  # Delay between speech lines (in seconds)
+speech_delay = 10  # Delay between speech lines (in seconds)
 temp_file = 'temp_song.txt'  # Temporary file to store "go" on its own line
 pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
 
