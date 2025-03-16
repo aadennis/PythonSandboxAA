@@ -1,6 +1,7 @@
 asttokens==3.0.0
 colorama==0.4.6
 comm==0.2.2
+comtypes==1.4.10
 debugpy==1.8.11
 decorator==5.1.1
 executing==2.1.0
@@ -21,7 +22,9 @@ psutil==6.1.0
 pure_eval==0.2.3
 pyarrow==19.0.1
 Pygments==2.18.0
+pypiwin32==223
 python-dateutil==2.9.0.post0
+pyttsx3==2.98
 pytz==2025.1
 pywin32==308
 pyzmq==26.2.0
