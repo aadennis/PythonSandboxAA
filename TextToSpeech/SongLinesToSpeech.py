@@ -4,10 +4,11 @@ from pydub import AudioSegment
 import time
 
 # Configuration
-input_file = 'test_song_01.txt'  # Input text file
+input_file = 'wild.txt'  # Input text file
 output_file = 'output.wav'  # Output file
-speech_delay = 2  # Delay before speech in seconds
+speech_delay = 5  # Delay between speech lines (in seconds)
 temp_file = 'temp_song.txt'  # Temporary file to store "go" prepended text
+pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
 
 # Load song text
 with open(input_file, 'r') as file:
@@ -46,8 +47,9 @@ with open(temp_file, 'r') as temp_f:
             # Add speech to the audio segments list
             audio_segments.append(speech)
 
-            # Wait for the speech delay before the next line
-            time.sleep(speech_delay)
+            # Insert a silent pause (duration based on speech_delay) after the speech
+            silence = AudioSegment.silent(duration=pause_duration)
+            audio_segments.append(silence)
 
 # Combine all the audio segments
 final_audio = AudioSegment.empty()
@@ -57,3 +59,4 @@ for segment in audio_segments:
 # Export the final audio to WAV
 final_audio.export(output_file, format='wav')
 print(f"Audio saved to {output_file}")
+
