@@ -12,7 +12,7 @@ from pydub import AudioSegment
 import os
 import sys
 
-def text_to_speech(input_file, speech_rate=160, speech_delay=10):
+def lyrics_to_speech(input_file, speech_rate=160, speech_delay=10):
     """
     Convert a text file into a spoken WAV file, with pauses between lines.
 
@@ -65,7 +65,7 @@ def main():
     input_file = sys.argv[1] if len(sys.argv) > 1 else 'ManchesterRambler.txt'
     
     # Run the text-to-speech conversion
-    text_to_speech(input_file)
+    lyrics_to_speech(input_file)
 
 
 if __name__ == "__main__":
