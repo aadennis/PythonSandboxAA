@@ -6,7 +6,7 @@ import time
 # Configuration
 input_file = 'wild.txt'  # Input text file
 output_file = 'output.wav'  # Output file
-speech_delay = 2  # Delay between speech lines (in seconds)
+speech_delay = 5  # Delay between speech lines (in seconds)
 temp_file = 'temp_song.txt'  # Temporary file to store "go" on its own line
 pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
 
@@ -38,19 +38,30 @@ with open(temp_file, 'r') as temp_f:
     for line in temp_f:
         line = line.strip()
         if line:  # Skip empty lines
-            # Convert the line to speech
-            engine.save_to_file(line, 'temp.wav')
-            engine.runAndWait()
+            if line == "go!":
+                # Convert "go" with no pause before it
+                engine.save_to_file(line, 'temp.wav')
+                engine.runAndWait()
 
-            # Load the speech audio
-            speech = AudioSegment.from_wav('temp.wav')
+                # Load the speech audio
+                speech = AudioSegment.from_wav('temp.wav')
 
-            # Add speech to the audio segments list
-            audio_segments.append(speech)
+                # Add speech to the audio segments list
+                audio_segments.append(speech)
 
-            # Insert a silent pause (duration based on speech_delay) after each speech line
-            silence = AudioSegment.silent(duration=pause_duration)
-            audio_segments.append(silence)
+                # Insert a silent pause only after "go"
+                silence = AudioSegment.silent(duration=pause_duration)
+                audio_segments.append(silence)
+            else:
+                # Convert the song line
+                engine.save_to_file(line, 'temp.wav')
+                engine.runAndWait()
+
+                # Load the speech audio
+                speech = AudioSegment.from_wav('temp.wav')
+
+                # Add speech to the audio segments list
+                audio_segments.append(speech)
 
 # Combine all the audio segments
 final_audio = AudioSegment.empty()
