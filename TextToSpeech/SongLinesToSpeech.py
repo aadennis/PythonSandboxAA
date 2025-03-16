@@ -5,49 +5,68 @@
 # 3. The output should be saved as a WAV file with the same name as the input file, but with the extension ".out.wav".
 # 4. Ignore any text within square brackets (e.g., [Chorus]), and the brackets themselves.
 
+
 import pyttsx3
 import re
 from pydub import AudioSegment
 import os
+import sys
 
-# Configuration
-speech_rate = 160  # Speech rate (words per minute)
-input_file = 'ManchesterRambler.txt'  # Input text file
-output_file = os.path.splitext(input_file)[0] + '.out.wav'  # Output WAV file
-speech_delay = 10  # Delay between speech lines (in seconds)
-pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
+def text_to_speech(input_file, speech_rate=160, speech_delay=10):
+    """
+    Convert a text file into a spoken WAV file, with pauses between lines.
 
-# Load song text
-with open(input_file, 'r') as file:
-    song_text = file.read()
+    Args:
+        input_file (str): Path to the text file.
+        speech_rate (int): Words per minute (default: 160).
+        speech_delay (int): Pause duration between lines in seconds (default: 10).
+    """
+    output_file = os.path.splitext(input_file)[0] + '.out.wav'
+    pause_duration = speech_delay * 1000  # Convert delay to milliseconds
 
-# Remove text in brackets and split into lines
-song_lines = [line.strip() for line in re.sub(r'\[.*?\]', '', song_text).splitlines() if line.strip()]
+    # Load song text
+    with open(input_file, 'r') as file:
+        song_text = file.read()
 
-# Initialize pyttsx3 engine
-engine = pyttsx3.init()
-engine.setProperty('rate', speech_rate)  # Adjust speed (default is around 200)
+    # Remove text in brackets and split into lines
+    song_lines = [line.strip() for line in re.sub(r'\[.*?\]', '', song_text).splitlines() if line.strip()]
 
-# Create a list of audio segments
-audio_segments = []
+    # Initialize pyttsx3 engine
+    engine = pyttsx3.init()
+    engine.setProperty('rate', speech_rate)  # Adjust speech speed
 
-for line in song_lines:
-    engine.save_to_file(line, 'temp.wav')
-    engine.runAndWait()
+    # Create a list of audio segments
+    audio_segments = []
 
-    # Load the speech audio
-    speech = AudioSegment.from_wav('temp.wav')
+    for line in song_lines:
+        engine.save_to_file(line, 'temp.wav')
+        engine.runAndWait()
 
-    # Add speech to the audio segments list
-    audio_segments.append(speech)
+        # Load the speech audio
+        speech = AudioSegment.from_wav('temp.wav')
 
-    # Insert a silent pause after each spoken line
-    silence = AudioSegment.silent(duration=pause_duration)
-    audio_segments.append(silence)
+        # Add speech to the audio segments list
+        audio_segments.append(speech)
 
-# Combine all the audio segments
-final_audio = sum(audio_segments, AudioSegment.empty())
+        # Insert a silent pause after each spoken line
+        silence = AudioSegment.silent(duration=pause_duration)
+        audio_segments.append(silence)
 
-# Export the final audio to WAV
-final_audio.export(output_file, format='wav')
-print(f"Audio saved to {output_file}")
+    # Combine all the audio segments
+    final_audio = sum(audio_segments, AudioSegment.empty())
+
+    # Export the final audio to WAV
+    final_audio.export(output_file, format='wav')
+    print(f"Audio saved to {output_file}")
+
+
+def main():
+    # Get input file from command-line argument or use default
+    input_file = sys.argv[1] if len(sys.argv) > 1 else 'ManchesterRambler.txt'
+    
+    # Run the text-to-speech conversion
+    text_to_speech(input_file)
+
+
+if __name__ == "__main__":
+    main()
