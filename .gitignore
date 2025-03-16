@@ -175,3 +175,6 @@ ImageHandling/image_processing/src/result3.mp4
 ImageHandling/image_processing/src/output/*
 WebScraping/edgedriver_win64.zip
 WebScraping/chrome-win64.zip
+TextToSpeech/temp.wav
+TextToSpeech/output.wav
+TextToSpeech/temp_song.txt
