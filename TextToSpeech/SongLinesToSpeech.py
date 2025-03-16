@@ -11,7 +11,8 @@ from pydub import AudioSegment
 import os
 
 # Configuration
-input_file = 'WhiskeyInTheJar.txt'  # Input text file
+speech_rate = 160  # Speech rate (words per minute)
+input_file = 'ManchesterRambler.txt'  # Input text file
 output_file = os.path.splitext(input_file)[0] + '.out.wav'  # Output WAV file
 speech_delay = 10  # Delay between speech lines (in seconds)
 pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
@@ -25,6 +26,7 @@ song_lines = [line.strip() for line in re.sub(r'\[.*?\]', '', song_text).splitli
 
 # Initialize pyttsx3 engine
 engine = pyttsx3.init()
+engine.setProperty('rate', speech_rate)  # Adjust speed (default is around 200)
 
 # Create a list of audio segments
 audio_segments = []
