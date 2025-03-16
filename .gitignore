@@ -181,3 +181,5 @@ TextToSpeech/temp_song.txt
 TextToSpeech/wild.out.wav
 TextToSpeech/ManchesterRambler.out.wav
 TextToSpeech/SongLinesToSpeech.py
+TextToSpeech/WildRover.out.wav
+TextToSpeech/WhiskeyInTheJar.out.wav
