@@ -1,12 +1,13 @@
 import pyttsx3
 import re
 from pydub import AudioSegment
-import time
+import os
 
 # Configuration
 input_file = 'wild.txt'  # Input text file
-output_file = 'output.wav'  # Output file
-speech_delay = 5  # Delay between speech lines (in seconds)
+# Generate output file name by appending ".out.wav" to the input file name (without extension)
+output_file = os.path.splitext(input_file)[0] + '.out.wav'
+speech_delay = 2  # Delay between speech lines (in seconds)
 temp_file = 'temp_song.txt'  # Temporary file to store "go" on its own line
 pause_duration = speech_delay * 1000  # Convert speech delay to milliseconds
 
@@ -68,6 +69,6 @@ final_audio = AudioSegment.empty()
 for segment in audio_segments:
     final_audio += segment
 
-# Export the final audio to WAV
+# Export the final audio to WAV with the dynamic output file name
 final_audio.export(output_file, format='wav')
 print(f"Audio saved to {output_file}")
