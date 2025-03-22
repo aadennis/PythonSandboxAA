@@ -1,11 +1,3 @@
-# Given a text file being the words of a song, render as speech.
-# With these requirements:
-# 1. Each line of the song should be spoken as a separate audio segment.
-# 2. A pause of 5 seconds should be inserted between each line of the song.
-# 3. The output should be saved as a WAV file with the same name as the input file, but with the extension ".out.wav".
-# 4. Ignore any text within square brackets (e.g., [Chorus]), and the brackets themselves.
-
-
 import pyttsx3
 import re
 from pydub import AudioSegment
@@ -14,7 +6,12 @@ import sys
 
 def lyrics_to_speech(input_file, speech_rate=160, speech_delay=10):
     """
-    Convert a text file into a spoken WAV file, with pauses between lines.
+    Convert a text file of lyrics into a spoken WAV file, with pauses between lines.
+    The output is saved as a WAV file with the same name as the input file, but with 
+    the extension ".out.wav".
+    Ignore any text within square brackets (e.g., [Chorus]), and the brackets themselves, as 
+    my convention for song lyrics is to put the chords in square brackets - we don't want to
+    hear those chord names.
 
     Args:
         input_file (str): Path to the text file.
