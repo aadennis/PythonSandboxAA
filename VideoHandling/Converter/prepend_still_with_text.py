@@ -1,9 +1,11 @@
-# Prepend a still image with some fixed text to the beginning of an existing MP4 video.
-# Ensure that the video retains its original audio after the modification.
-# The final output should have the prepended still image shown for a few seconds before continuing with the original video.
-# Maintain video and audio synchronization, so there are no changes to the original audio track, and the video doesn’t 
-# get unintentionally truncated.
-# https://chatgpt.com/share/67e1cbad-6414-8011-9d5f-1d376ed05b56
+"""
+Prepend a still image with some fixed text to the beginning of an existing MP4 video.
+Ensure that the video retains its original audio after the modification.
+The final output should have the prepended still image shown for a few seconds before continuing with the original video.
+Maintain video and audio synchronization, so there are no changes to the original audio track, and the video doesn’t 
+get unintentionally truncated.
+https://chatgpt.com/share/67e1cbad-6414-8011-9d5f-1d376ed05b56
+"""
 
 import subprocess
 import os
