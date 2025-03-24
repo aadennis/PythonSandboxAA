@@ -1,3 +1,22 @@
+# Description: This script converts AVI files to MP4 files, deinterlacing the video and adding a 
+# credit screen with the filename and last modified date.
+# 
+# Usage: Place this script in a folder with AVI files, and run it. 
+# The script will convert all AVI files in the folder to MP4 files.
+# The output MP4 files will have the same resolution as the original AVI files. Attempting a different
+# resolution may result in interlace artifacts.
+
+# Ensure FFmpeg and FFprobe are installed and in the system PATH. https://ffmpeg.org/download.html
+# FFprobe is required to get the video resolution. 
+# The script uses the NVIDIA NVENC hardware encoder for video conversion. Ensure the NVIDIA GPU drivers are installed.
+# The script creates an intermediate MP4 file with deinterlacing and then concatenates it with a credit screen.
+# The credit screen includes the filename and last modified date of the original AVI file.
+# The final MP4 file is saved in the same folder as the original AVI file.
+# The script cleans up intermediate files after conversion.
+# The script uses the system date format (YYYY_MM_DD) for the credit screen.
+# todo: The script uses the filename of the AVI file for the credit screen and for the final MP4 file
+# https://chatgpt.com/share/67e09cf8-7a30-8011-97e1-a30006abfbaa
+
 import os
 import subprocess
 from datetime import datetime
@@ -33,6 +52,21 @@ for filename in os.listdir(input_folder):
             "-c:a", "aac", "-b:a", "192k",
             intermediate_path
         ]
+        
+        convert_command = [
+            ffmpeg_path, "-y",
+            "-i", input_path,
+            "-vf", "bwdif",  # Deinterlace video
+            "-c:v", "h264_nvenc",  # Video codec (NVIDIA hardware encoding)
+            "-c:a", "aac", "-b:a", "192k",  # Re-encode both audio streams to AAC
+            "-map", "0:v:0",  # Map video stream
+            "-map", "0:a:0",  # Map first audio stream
+            "-map", "0:a:1",  # Map second audio stream
+            intermediate_path
+        ]
+
+
+
         subprocess.run(convert_command, check=True)
 
         # Use FFprobe to get the video resolution
