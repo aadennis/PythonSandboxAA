@@ -87,8 +87,8 @@ if __name__ == "__main__":
     #     print("Usage: python script.py input.mp4 output.mp4")
     #     sys.exit(1)
 
-    input_video = 'input.mp4'
-    output_video = 'output.mp4'
+    input_video = 'test_data/test_lunch.mp4'
+    output_video = 'test_data/output.mp4'
 
     prepend_frame_to_video(input_video, output_video)
 
