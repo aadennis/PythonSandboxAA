@@ -49,7 +49,7 @@ for filename in os.listdir(input_folder):
         width, height = resolution_output.stdout.strip().split(",")
 
         # Generate credit screen
-        credits_text = f"{filename}\\nLast Modified: {file_date}"
+        credits_text = f"{filename}\nLast Modified: {file_date}"
         credits_path = f"{output_folder}/credits.mp4"
         credits_command = [
             ffmpeg_path, "-y",
@@ -59,25 +59,19 @@ for filename in os.listdir(input_folder):
             credits_path
         ]
 
-
         subprocess.run(credits_command, check=True)
 
         # Concatenate credits and intermediate file
         concat_list_path = f"{output_folder}/concat_list.txt"
 
-        print(f"AAAAAA {credits_path}")
-        credits_path = credits_path.replace("\\", "/")
-        print(f"AAAAAA2 {credits_path}")
-
-        # Replace backslashes with forward slashes for both paths
+        # Ensure paths are using forward slashes
         credits_path = credits_path.replace("\\", "/")
         intermediate_path = intermediate_path.replace("\\", "/")
 
-        # Write the paths directly to the concat list file
+        # Write relative paths for ffmpeg (no drive letter issue)
         with open(concat_list_path, "w") as f:
-            f.write(f"file '{credits_path}'\n")
-            f.write(f"file '{intermediate_path}'\n")
-
+            f.write(f"file 'credits.mp4'\n")
+            f.write(f"file '{intermediate_filename}'\n")
 
         concat_command = [
             ffmpeg_path, "-y",
@@ -86,10 +80,6 @@ for filename in os.listdir(input_folder):
             "-c", "copy",
             final_path
         ]
-        print(f"concat_list_path XXXXXXXXXXXXX: {concat_list_path}")
-        print(f"credits_command XXXXXXXXXXXXX: {credits_command}")
-        print(f"intermediate_path XXXXXXXXXXXXX: {intermediate_path}")
-        print(f"concat_command XXXXXXXXXXXXX: {concat_command}")
 
         subprocess.run(concat_command, check=True)
 
