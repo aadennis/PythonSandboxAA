@@ -5,6 +5,9 @@ using the Librosa library.
 Given that in many cases the time (4/5, 6/8, etc) is difficult to determine,
 we will focus just on the BPM. Time signature would be nice, but the key
 focus is to get the BPM right.
+
+See below for findings, song by song. The assumed time signature is also 
+included for reference, but it is not used in the BPM calculation.
 '''
  
 import librosa
@@ -26,6 +29,9 @@ def analyze_bpm(file_path):
     return tempo
 
 # Example usage
-file_path = "WildRover_chorus_for_beat_analysis.mp3"  # Update with your file path
+
+#file_path = "WildRover_ForBPM.mp3" # 120 BPM (6/8)
+file_path = "WhiskeyInTheJar_ForBPM.mp3" # 105 BPM (4/4)
+
 bpm = analyze_bpm(file_path)
-print(f"Estimated BPM: {round(bpm)}")
+print(f"Estimated BPM for [{file_path}]: [{round(bpm)}] BPM")
