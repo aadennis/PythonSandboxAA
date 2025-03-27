@@ -47,7 +47,8 @@ def concatenate_videos(intro_video, input_video, output_video):
         f.write(f"file '{input_video}'\n")
     
     subprocess.run([
-        "ffmpeg", "-f", "concat", "-safe", "0", "-i", "file_list.txt", "-c", "copy", output_video
+        "ffmpeg", "-f", "concat", "-safe", "0", "-i", "file_list.txt", "-c", "copy",
+        "-avoid_negative_ts", "make_zero", "-fflags", "+genpts", output_video
     ], check=True)
 
 
@@ -83,12 +84,14 @@ def prepend_frame_to_video(input_video, output_video, duration=2):
             pass  # Ignore missing files
 
 if __name__ == "__main__":
-    # if len(sys.argv) < 3:
-    #     print("Usage: python script.py input.mp4 output.mp4")
-    #     sys.exit(1)
+    # Input video could be either .avi or .mp4
+    input_video = 'test_data/test_lunch.mp4'  # Example input video path
+    output_video = 'test_data/output1f.mp4'
 
-    input_video = 'test_data/test_lunch.mp4'
-    output_video = 'test_data/output.mp4'
+    # Ensure the input video is in a format supported by ffmpeg
+    if not input_video.lower().endswith(('.avi', '.mp4')):
+        print("Unsupported input video format. Please provide a .avi or .mp4 file.")
+        sys.exit(1)
 
     prepend_frame_to_video(input_video, output_video)
 
