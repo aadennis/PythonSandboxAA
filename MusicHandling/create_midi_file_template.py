@@ -4,12 +4,12 @@ from mido import Message, MidiFile, MidiTrack, MetaMessage
 mid = MidiFile(ticks_per_beat=480)  # Standard PPQ setting
 tempo = 60000000 // 95  # 95 BPM
 
-# Add title metadata
-mid.tracks.append(MidiTrack([
-    MetaMessage('track_name', name="Template Title", time=0),
-    MetaMessage('set_tempo', tempo=tempo, time=0),
-    MetaMessage('time_signature', numerator=3, denominator=4, time=0)
-]))
+# Add overarching song title in the first track (MuseScore uses this for the title)
+title_track = MidiTrack()
+title_track.append(MetaMessage('track_name', name="My MIDI Template", time=0))  # Song title
+title_track.append(MetaMessage('set_tempo', tempo=tempo, time=0))
+title_track.append(MetaMessage('time_signature', numerator=3, denominator=4, time=0))
+mid.tracks.append(title_track)
 
 # Function to create a MIDI track with 3/4 time signature and unique channel
 def create_track(channel, name):
@@ -20,9 +20,6 @@ def create_track(channel, name):
     
     # Set instrument (Acoustic Grand Piano)
     track.append(Message('program_change', program=0, channel=channel))
-    
-    # Set time signature to 3/4 (MuseScore should already recognize this from metadata)
-    track.append(MetaMessage('time_signature', numerator=3, denominator=4, time=0))
     
     for bar in range(1):
         # Note on (C4 = MIDI note 60)
@@ -38,5 +35,5 @@ mid.tracks.append(create_track(1, "Track 2"))
 mid.tracks.append(create_track(2, "Track 3"))
 
 # Save the MIDI file
-mid.save("template_with_title.mid")
-print("MIDI file saved as template_with_title.mid")
+mid.save("template_with_song_title.mid")
+print("MIDI file saved as template_with_song_title.mid")
