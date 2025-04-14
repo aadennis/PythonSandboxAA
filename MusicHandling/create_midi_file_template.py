@@ -35,5 +35,5 @@ mid.tracks.append(create_track(1, "Track 2"))
 mid.tracks.append(create_track(2, "Track 3"))
 
 # Save the MIDI file
-mid.save("template_with_song_title.mid")
+mid.save("output/template_with_song_title.mid")
 print("MIDI file saved as template_with_song_title.mid")
