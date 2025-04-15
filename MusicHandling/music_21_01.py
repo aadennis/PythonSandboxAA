@@ -8,34 +8,33 @@
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
 from music21 import stream, note, tempo, meter, midi
 
-# Create a stream
+# Create a new stream
 s = stream.Stream()
 
-# Set tempo and time signature
+# Set tempo to 100 BPM and time signature to 16/16
 s.append(tempo.MetronomeMark(number=100))
-s.append(meter.TimeSignature('4/4'))
+s.append(meter.TimeSignature('16/16'))
 
-# Alternate between kick (36) and snare (38)
-drum_notes = [36, 38, 36, 38, 36, 38, 36, 38]
+# Create 16 1/16 notes: alternate Kick (36) and Snare (38)
+drum_notes = [36 if i % 2 == 0 else 38 for i in range(16)]
 
 for pitch in drum_notes:
     n = note.Note()
     n.pitch.midi = pitch
-    n.quarterLength = 0.5  # 1/8 note
-    n.storedInstrument = None  # Make sure it doesn’t default to Piano
+    n.quarterLength = 0.25  # 1/16 note = 0.25 quarter note
+    n.storedInstrument = None  # Don't assign a melodic instrument
     s.append(n)
-    s.append(note.Rest(quarterLength=0.5))  # 1/8 rest
 
-# Write to MIDI using a custom MIDIFile to force channel 10
+# Convert to MIDI and force channel 10 (index 9)
 mf = midi.translate.streamToMidiFile(s)
 for track in mf.tracks:
     for event in track.events:
-        if event.isDeltaTime() or event.type != 'NOTE_ON':
-            continue
-        event.channel = 9  # Channel 10 in MIDI is index 9
+        if event.type in ['NOTE_ON', 'NOTE_OFF']:
+            event.channel = 9  # Channel 10
 
-mf.open('drum_bar2.mid', 'wb')
+# Save to MIDI file
+mf.open('drum_bar_16.mid', 'wb')
 mf.write()
 mf.close()
 
-print("Drum MIDI file exported as 'drum_bar.mid'")
+print("MIDI drum track exported as 'drum_bar_16.mid'")
