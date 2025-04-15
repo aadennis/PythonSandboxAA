@@ -1,0 +1,27 @@
+{
+    "filename": "groove01.mid",
+    "bpm": 123,
+    "kit": {
+        "kick": 36,
+        "snare": 38,
+        "hihat_closed": 42
+    },
+    "steps_per_beat": 4,
+    "beats_per_bar": 4,
+    "bars": 2,
+    "pattern": {
+        "kick": [
+            0,
+            8,
+            12,
+            16,
+            24
+        ],
+        "snare": [
+            4,
+            12,
+            20,
+            28
+        ]
+    }
+}
