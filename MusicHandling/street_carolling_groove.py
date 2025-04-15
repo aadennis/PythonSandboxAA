@@ -1,79 +1,64 @@
 from mido import Message, MidiFile, MidiTrack, MetaMessage, bpm2tempo
-import random
 
-# Constants
-KICK = 36
-SNARE = 38
-CLOSED_HH = 42
-OPEN_HH = 46
-CRASH = 49
+def create_sweet_caroline_groove(filename='sweet_caroline_groove.mid'):
+    mid = MidiFile()
+    track = MidiTrack()
+    mid.tracks.append(track)
 
-bpm = 123
-ticks_per_beat = 480
-swing_amount = 0.12  # Proportion of delay on swung 16th notes (0.0 to 0.5)
+    # Settings
+    bpm = 123
+    ppq = mid.ticks_per_beat  # usually 480
+    bar_ticks = ppq * 4
+    eighth_note = ppq // 2
+    quarter_note = ppq
 
-# Derived values
-tempo = bpm2tempo(bpm)
-sixteenth = ticks_per_beat // 4
-swing_offset = int(sixteenth * swing_amount)
+    # Drum notes (General MIDI)
+    kick = 36    # C1
+    snare = 38   # D1
+    hihat = 42   # F#1 closed
 
-# Create the MIDI file
-mid = MidiFile(ticks_per_beat=ticks_per_beat)
-track = MidiTrack()
-mid.tracks.append(track)
+    # Meta messages
+    track.append(MetaMessage('set_tempo', tempo=bpm2tempo(bpm), time=0))
+    track.append(MetaMessage('time_signature', numerator=4, denominator=4, time=0))
 
-track.append(MetaMessage('set_tempo', tempo=tempo, time=0))
+    # List to hold all events with absolute timing
+    events = []
 
-def add_note(note, time, velocity=100, duration=0):
-    track.append(Message('note_on', note=note, velocity=velocity, time=time))
-    track.append(Message('note_off', note=note, velocity=0, time=duration))
+    for bar in range(8):
+        bar_start = bar * bar_ticks
 
-def human_velocity(base, variation=10):
-    return max(1, min(127, base + random.randint(-variation, variation)))
+        # Hi-hats on 8th notes (1 & 2 & 3 & 4 &)
+        for i in range(8):
+            tick = bar_start + i * eighth_note
+            events.append((tick, Message('note_on', note=hihat, velocity=60, time=0)))
+            events.append((tick + ppq // 8, Message('note_off', note=hihat, velocity=0, time=0)))
 
-def add_bar(start_tick, hats='closed', add_crash=False):
-    tick = start_tick
-    for i in range(8):  # 8 eighth notes in a bar
-        pos = i * 2  # convert to 16th-note position
-        swing = swing_offset if i % 2 == 1 else 0
+        # Kick on 1 and 3
+        for i in [0, 2]:
+            tick = bar_start + i * quarter_note
+            events.append((tick, Message('note_on', note=kick, velocity=100, time=0)))
+            events.append((tick + ppq // 4, Message('note_off', note=kick, velocity=0, time=0)))
 
-        # Hi-hat
-        hh_note = CLOSED_HH if hats == 'closed' else OPEN_HH
-        hh_velocity = human_velocity(70, 8)
-        add_note(hh_note, tick, velocity=hh_velocity)
-        tick = 0  # following notes will be relative to this
+        # Snare on 2 and 4
+        for i in [1, 3]:
+            tick = bar_start + i * quarter_note
+            events.append((tick, Message('note_on', note=snare, velocity=100, time=0)))
+            events.append((tick + ppq // 4, Message('note_off', note=snare, velocity=0, time=0)))
 
-        # Kick pattern
-        if pos in [0, 3, 4]:
-            kick_velocity = human_velocity(100, 6)
-            add_note(KICK, 0, velocity=kick_velocity)
+    # Sort by absolute tick time
+    events.sort(key=lambda x: x[0])
 
-        # Snare pattern (backbeat)
-        if pos in [4, 12]:
-            snr_velocity = human_velocity(110, 5)
-            add_note(SNARE, 0, velocity=snr_velocity)
+    # Convert absolute ticks to delta times
+    last_tick = 0
+    for tick, msg in events:
+        delta = tick - last_tick
+        msg.time = delta
+        track.append(msg)
+        last_tick = tick
 
-        # Apply swing to the following step
-        tick = sixteenth * 2 + swing
+    # Save MIDI file
+    mid.save(filename)
+    print(f"✅ MIDI saved as: {filename}")
 
-    # Optional crash on beat 1
-    if add_crash:
-        add_note(CRASH, 0, velocity=120)
-
-    return start_tick + ticks_per_beat * 4  # Advance by 1 bar
-
-# Compose the beat
-tick = 0
-
-# 8-bar verse: closed hats
-for _ in range(8):
-    tick = add_bar(tick, hats='closed')
-
-# 8-bar chorus: open hats, crash every 4 bars
-for i in range(8):
-    crash = i % 4 == 0
-    tick = add_bar(tick, hats='open', add_crash=crash)
-
-# Save the file
-mid.save("sweet_caroline_humanized.mid")
-print("Saved as sweet_caroline_humanized.mid")
+if __name__ == '__main__':
+    create_sweet_caroline_groove()
