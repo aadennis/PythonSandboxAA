@@ -22,9 +22,17 @@ def create_groove_from_config(config: dict):
     for hit in config["pattern"]:
         step = hit["step"]
         note = config["instruments"][hit["instrument"]]
+        
+        # Calculate the delta time based on the step
         delta_time = (step - last_step) * ticks_per_step
+        
+        # Insert the 'note_on' message with the calculated delta time
         track.append(Message('note_on', note=note, velocity=100, time=delta_time, channel=channel))
+        
+        # Insert the 'note_off' message (with a short duration for the note)
         track.append(Message('note_off', note=note, velocity=0, time=ticks_per_step // 2, channel=channel))
+        
+        # Update the last step for the next iteration
         last_step = step
 
     mid.save(config["filename"])
@@ -34,3 +42,5 @@ def create_groove_from_config(config: dict):
 if __name__ == "__main__":
     config = load_config("pattern_config.json")
     create_groove_from_config(config)
+
+
