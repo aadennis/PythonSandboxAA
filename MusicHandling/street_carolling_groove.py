@@ -57,6 +57,7 @@ def create_sweet_caroline_groove(filename='sweet_caroline_groove.mid'):
         last_tick = tick
 
     # Save MIDI file
+    filename=f"output/{filename}"
     mid.save(filename)
     print(f"✅ MIDI saved as: {filename}")
 
