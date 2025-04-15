@@ -16,15 +16,20 @@ def create_groove_from_config(config: dict):
 
     # Channel 10 (zero-indexed = 9)
     channel = 9
-    ticks_per_step = config["ticks_per_beat"] // 4  # 16th note resolution
+    
+    # Hard-coded trial for ticks_per_step
+    ticks_per_step = 240  # (You can try different values here, like 120, 480, etc.)
 
     last_step = 0
+    total_time = 0  # Debugging: To track the drift over multiple notes
+    
     for hit in config["pattern"]:
         step = hit["step"]
         note = config["instruments"][hit["instrument"]]
         
-        # Calculate the delta time based on the step
+        # Calculate delta_time based on hardcoded ticks_per_step
         delta_time = (step - last_step) * ticks_per_step
+        total_time += delta_time
         
         # Insert the 'note_on' message with the calculated delta time
         track.append(Message('note_on', note=note, velocity=100, time=delta_time, channel=channel))
@@ -37,10 +42,11 @@ def create_groove_from_config(config: dict):
 
     mid.save(config["filename"])
     print(f"MIDI saved to: {config['filename']}")
+    print(f"Total time used (in ticks): {total_time}")  # Debugging line to track total time
+    print(f"Drift over two measures: {total_time / config['ticks_per_beat']} beats")  # Track drift in terms of beats
 
 # ---- Run it ----
 if __name__ == "__main__":
     config = load_config("pattern_config.json")
     create_groove_from_config(config)
-
 
