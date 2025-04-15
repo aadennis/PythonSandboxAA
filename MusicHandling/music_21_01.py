@@ -16,7 +16,7 @@ s.append(tempo.MetronomeMark(number=100))
 s.append(meter.TimeSignature('4/4'))
 
 # Alternate between kick (36) and snare (38)
-drum_notes = [36, 38, 36, 38]
+drum_notes = [36, 38, 36, 38, 36, 38, 36, 38]
 
 for pitch in drum_notes:
     n = note.Note()
@@ -34,7 +34,7 @@ for track in mf.tracks:
             continue
         event.channel = 9  # Channel 10 in MIDI is index 9
 
-mf.open('drum_bar.mid', 'wb')
+mf.open('drum_bar2.mid', 'wb')
 mf.write()
 mf.close()
 
