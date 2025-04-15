@@ -4,23 +4,38 @@
 # After hours of struggling with mido, I decided to try music21,
 # and based on this simple example, it seems to be a much better choice.
 # I was able to drag this into Ableton Live and it worked perfectly.
-# This is the start of a simple drum track with a kick and snare.
-# Right now, it lacks the channel 10 instruction required by midi for
-# drums, but is evidently being interpreted as channel 10 by Ableton Live.
-# Also AL must be assuming C3, whatever drum instrument that is.
-# But it's a start.
-from music21 import stream, note, tempo, meter
+# This is the start of a simple drum track (Channel 10) 
+# with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
+from music21 import stream, note, tempo, meter, midi
 
+# Create a stream
 s = stream.Stream()
+
+# Set tempo and time signature
 s.append(tempo.MetronomeMark(number=100))
 s.append(meter.TimeSignature('4/4'))
 
-# Add four 1/8 notes and four 1/8 rests (alternating).
-# This with a note on the first 1/8, and ends with a rest.
-for _ in range(4):
-    s.append(note.Note(type='eighth'))
-    s.append(note.Rest(type='eighth'))
+# Alternate between kick (36) and snare (38)
+drum_notes = [36, 38, 36, 38]
 
-# Export to MIDI
-s.write('midi', fp='one_bar.mid')
-print("MIDI file exported as 'one_bar.mid'")
+for pitch in drum_notes:
+    n = note.Note()
+    n.pitch.midi = pitch
+    n.quarterLength = 0.5  # 1/8 note
+    n.storedInstrument = None  # Make sure it doesn’t default to Piano
+    s.append(n)
+    s.append(note.Rest(quarterLength=0.5))  # 1/8 rest
+
+# Write to MIDI using a custom MIDIFile to force channel 10
+mf = midi.translate.streamToMidiFile(s)
+for track in mf.tracks:
+    for event in track.events:
+        if event.isDeltaTime() or event.type != 'NOTE_ON':
+            continue
+        event.channel = 9  # Channel 10 in MIDI is index 9
+
+mf.open('drum_bar.mid', 'wb')
+mf.write()
+mf.close()
+
+print("Drum MIDI file exported as 'drum_bar.mid'")
