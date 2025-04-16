@@ -24,48 +24,40 @@ pattern08 = "1-K,3-K,9-K,11-K,17-K,19-K,23-K,27-K"
 
 pattern = snares + pattern08
 
-# === Your pattern ===
-pattern = "1-Kf,2-K,3-Kp,4-K,5-S90,6-S,7-Smp,8-Kff"
+# ignore previous to test dynamics, for now
+pattern = "1-K100,3-S,5-K70,9-K110,13-S,17-K,21-S,25-K85,29-S"
 
 # === Constants ===
 MIDI_NOTES = {'K': 36, 'S': 38}
-DYNAMICS = {'pp': 40, 'p': 55, 'mp': 70, 'mf': 85, 'f': 100, 'ff': 115}
-DEFAULT_DYNAMIC = 'mf'
-DEFAULT_VELOCITY = DYNAMICS[DEFAULT_DYNAMIC]
-
-STEP_DURATION = 0.25
+STEP_DURATION = 0.25  # One 1/16th note
+STEPS_PER_BAR = 16
 TOTAL_STEPS = 32
+DEFAULT_VELOCITY = 80
 
-# === Parse pattern with velocity logic ===
+# === Parse your input ===
+# Supports entries like: 1-K100, 5-S, 9-K70
 step_map = {}  # step: list of (midi_pitch, velocity)
-
 for token in pattern.split(','):
     if '-' not in token:
         continue
     step_str, instrs = token.strip().split('-')
-    step = int(step_str.strip()) - 1  # Convert to 0-based
+    step = int(step_str.strip()) - 1  # 1-based to 0-based
 
-    # Match things like Kf, Sff, K120, Sp, etc.
-    entries = re.findall(r'([KS])((?:pp|mp|mf|ff|p|f)|\d{1,3})?', instrs.strip().lower())
-
+    # Match instruments with optional velocity, e.g. K100 or just S
+    entries = re.findall(r'([KS])(\d{1,3})?', instrs.strip().upper())
     note_data = []
-    for symbol, dyn in entries:
-        pitch = MIDI_NOTES[symbol.upper()]
-        if dyn in DYNAMICS:
-            velocity = DYNAMICS[dyn]
-        elif dyn.isdigit():
-            velocity = int(dyn)
-        else:
-            velocity = DEFAULT_VELOCITY  # fallback
+    for symbol, vel_str in entries:
+        pitch = MIDI_NOTES.get(symbol)
+        velocity = int(vel_str) if vel_str else DEFAULT_VELOCITY
         note_data.append((pitch, velocity))
-    step_map[step] = note_data
+    step_map[step] = note_data 
 
-# === Create part ===
+# === Create a single flat part ===
 p = stream.Part()
 p.append(tempo.MetronomeMark(number=100))
 p.append(meter.TimeSignature('16/16'))
 
-# Add all steps as notes or rests
+# Add all 32 steps as notes/rests
 for i in range(TOTAL_STEPS):
     offset = i * STEP_DURATION
     if i in step_map:
@@ -75,24 +67,27 @@ for i in range(TOTAL_STEPS):
             n.quarterLength = STEP_DURATION
             n.offset = offset
             n.storedInstrument = None
-            n.volume = volume.Volume(velocity=velocity)
+            v = volume.Volume()
+            v.velocity = velocity
+            n.volume = v
             p.insert(offset, n)
     else:
-        p.insert(offset, note.Rest(quarterLength=STEP_DURATION))
+        r = note.Rest(quarterLength=STEP_DURATION)
+        p.insert(offset, r)
 
-# === Build MIDI score ===
+# === Add to score and export MIDI ===
 s = stream.Score()
 s.append(p)
 
-# Force channel 10 for drums
+# Force MIDI channel 10
 mf = midi.translate.streamToMidiFile(s)
 for track in mf.tracks:
     for event in track.events:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9
 
-mf.open('drum_dynamics_demo.mid', 'wb')
+mf.open('drum_fixed_corrected4yy.mid', 'wb')
 mf.write()
 mf.close()
 
-print("✅ Exported 'drum_dynamics_demo.mid' with musical dynamics and velocity support.")
+print("Exported 'drum_fixed_corrected4.mid' with pattern-driven velocities.")
