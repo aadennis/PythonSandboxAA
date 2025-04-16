@@ -9,7 +9,7 @@
 from music21 import stream, note, tempo, meter, midi
 
 # ===== Config =====
-pattern = "K01,SK03,S04,K32"  # Your drum pattern input
+pattern = "1-K,3-SK,4-S,32-K"  # Your drum pattern input
 
 # MIDI note mapping
 MIDI_NOTES = {'K': 36, 'S': 38}  # Kick and Snare
@@ -17,17 +17,19 @@ MIDI_NOTES = {'K': 36, 'S': 38}  # Kick and Snare
 # Parse pattern into a dict: step_num -> list of MIDI notes
 step_map = {}
 for token in pattern.split(','):
-    instrs = ''.join([c for c in token if c.isalpha()])
-    step = int(''.join([c for c in token if c.isdigit()]))  # 1-based
-    midi_notes = [MIDI_NOTES[c] for c in instrs if c in MIDI_NOTES]
-    step_map[step - 1] = midi_notes  # Convert to 0-based index
+    if '-' not in token:
+        continue
+    step_str, instrs = token.split('-')
+    step = int(step_str.strip()) - 1  # 0-based index
+    midi_notes = [MIDI_NOTES[c] for c in instrs.strip() if c in MIDI_NOTES]
+    step_map[step] = midi_notes
 
 # Create stream
 s = stream.Stream()
 s.append(tempo.MetronomeMark(number=100))
 s.append(meter.TimeSignature('16/16'))
 
-# Generate 32 steps (2 bars of 16/16), each 1/16 note long
+# Build 32 steps (2 bars of 16/16)
 for i in range(32):
     if i in step_map:
         for pitch in step_map[i]:
@@ -39,15 +41,15 @@ for i in range(32):
     else:
         s.append(note.Rest(quarterLength=0.25))
 
-# Convert to MIDI and force channel 10
+# Convert to MIDI and force channel 10 (index 9)
 mf = midi.translate.streamToMidiFile(s)
 for track in mf.tracks:
     for event in track.events:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
-            event.channel = 9  # Channel 10
+            event.channel = 9
 
-mf.open('drum_pattern.mid', 'wb')
+mf.open('drum_pattern3.mid', 'wb')
 mf.write()
 mf.close()
 
-print("Custom drum MIDI file exported as 'drum_pattern.mid'")
+print("Drum MIDI exported as 'drum_pattern3.mid'")
