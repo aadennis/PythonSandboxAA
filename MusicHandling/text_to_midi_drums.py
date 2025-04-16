@@ -4,7 +4,7 @@
 # After hours of struggling with mido, I decided to try music21,
 # and based on this simple example, it seems to be a much better choice.
 # I was able to drag this into Ableton Live and it worked perfectly.
-# This is the start of a simple drum track (Channel 10) 
+# This is a set of simple drum patterns (Channel 10) 
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
 from music21 import stream, note, tempo, meter, midi
 
@@ -15,12 +15,13 @@ snares = "5-S,13-S,21-S,29-S,"
 pattern01 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,29-S"
 pattern02 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,27-K,29-S,30-K"
 pattern03 = "1-K,5-S,9-K,11-K,13-S,17-K,21-S,23-K,27-K,29-S"
-pattern04 = "1-K,3-K,5-S,7-K,11-K,13-S,15-K,19-K,21-S,23-K,25-K,27-K,28-K,29-S"
-pattern04b = "1-K,3-K,7-K,11-K,15-K,19-K,23-K,25-K,27-K,28-K"
+pattern04 = "1-K,3-K,7-K,11-K,15-K,19-K,23-K,25-K,27-K,28-K"
 pattern05 = "1-K,3-K,7-K,9-K,12-K,15-K,18-K,20-K,23-K,25-K,27-K,31-K"
 pattern06 = "1-K,9-K,15-K,17-K,19-K,20-K,23-K,25-K,27-K,31-K"
+pattern07 = "1-K,3-K,4-K,7-K,9-K,12-K,15-K,19-K,20-K,23-K,24-K,26-K,28-K,31-K"
+pattern08 = "1-K,3-K,9-K,11-K,17-K,19-K,23-K,27-K"
 
-pattern = snares + pattern06
+pattern = snares + pattern08
 
 # === Constants ===
 MIDI_NOTES = {'K': 36, 'S': 38}
