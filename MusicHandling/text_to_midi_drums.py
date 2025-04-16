@@ -6,7 +6,8 @@
 # I was able to drag this into Ableton Live and it worked perfectly.
 # This is a set of simple drum patterns (Channel 10) 
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
-from music21 import stream, note, tempo, meter, midi
+from music21 import stream, note, tempo, meter, midi, volume
+import re
 
 # === Your pattern ===
 pattern = "1-K,3-SK,4-S,15-K,16-K,17-SK,31-K"
@@ -23,21 +24,33 @@ pattern08 = "1-K,3-K,9-K,11-K,17-K,19-K,23-K,27-K"
 
 pattern = snares + pattern08
 
+# === Your pattern ===
+pattern = "1-K100,3-S,5-K70,9-K110,13-S,17-K,21-S,25-K85,29-S"
+
 # === Constants ===
 MIDI_NOTES = {'K': 36, 'S': 38}
 STEP_DURATION = 0.25  # One 1/16th note
 STEPS_PER_BAR = 16
 TOTAL_STEPS = 32
+DEFAULT_VELOCITY = 80
 
 # === Parse your input ===
-step_map = {}
+# Supports entries like: 1-K100, 5-S, 9-K70
+step_map = {}  # step: list of (midi_pitch, velocity)
 for token in pattern.split(','):
     if '-' not in token:
         continue
     step_str, instrs = token.strip().split('-')
-    step = int(step_str.strip()) - 1  # <- 1-based to 0-based correction
-    midi_notes = [MIDI_NOTES[c] for c in instrs.strip() if c in MIDI_NOTES]
-    step_map[step] = midi_notes
+    step = int(step_str.strip()) - 1  # 1-based to 0-based
+
+    # Match instruments with optional velocity, e.g. K100 or just S
+    entries = re.findall(r'([KS])(\d{1,3})?', instrs.strip().upper())
+    note_data = []
+    for symbol, vel_str in entries:
+        pitch = MIDI_NOTES.get(symbol)
+        velocity = int(vel_str) if vel_str else DEFAULT_VELOCITY
+        note_data.append((pitch, velocity))
+    step_map[step] = note_data
 
 # === Create a single flat part ===
 p = stream.Part()
@@ -48,12 +61,15 @@ p.append(meter.TimeSignature('16/16'))
 for i in range(TOTAL_STEPS):
     offset = i * STEP_DURATION
     if i in step_map:
-        for pitch in step_map[i]:
+        for pitch, velocity in step_map[i]:
             n = note.Note()
             n.pitch.midi = pitch
             n.quarterLength = STEP_DURATION
             n.offset = offset
             n.storedInstrument = None
+            v = volume.Volume()
+            v.velocity = velocity
+            n.volume = v
             p.insert(offset, n)
     else:
         r = note.Rest(quarterLength=STEP_DURATION)
@@ -70,8 +86,8 @@ for track in mf.tracks:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9
 
-mf.open('drum_fixed_corrected3.mid', 'wb')
+mf.open('drum_fixed_corrected4.mid', 'wb')
 mf.write()
 mf.close()
 
-print("Exported 'drum_fixed_corrected.mid' with accurate note timing.")
+print("Exported 'drum_fixed_corrected4.mid' with pattern-driven velocities.")
