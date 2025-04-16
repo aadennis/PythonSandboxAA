@@ -9,9 +9,10 @@
 from music21 import stream, note, tempo, meter, midi, volume
 import re
 
-# === Your pattern ===
+# === original pattern ===
 pattern = "1-K,3-SK,4-S,15-K,16-K,17-SK,31-K"
 
+# snare and kick bass patterns
 snares = "5-S,13-S,21-S,29-S,"
 pattern01 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,29-S"
 pattern02 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,27-K,29-S,30-K"
@@ -21,8 +22,13 @@ pattern05 = "1-K,3-K,7-K,9-K,12-K,15-K,18-K,20-K,23-K,25-K,27-K,31-K"
 pattern06 = "1-K,9-K,15-K,17-K,19-K,20-K,23-K,25-K,27-K,31-K"
 pattern07 = "1-K,3-K,4-K,7-K,9-K,12-K,15-K,19-K,20-K,23-K,24-K,26-K,28-K,31-K"
 pattern08 = "1-K,3-K,9-K,11-K,17-K,19-K,23-K,27-K"
+pattern09 = "1-K,9-K,15-K,19-K,23-K,25-K"
+pattern10 = "1-K,9-K,17-K,19-K,23-K,27-K"
+pattern11 = "1-K,7-K,8-K,9-K,11-K,15-K,19-K,20-K,23-K,25-K,27-K,31-K"
+pattern12 = "1-K,3-K,7-K,11-K,15-K,17-K,19-K,23-K,27-K,32-K"
+pattern13 = "1-K,7-K,11-K,19-K,25-K,27-K"
 
-pattern = snares + pattern08
+pattern = snares + pattern13
 
 # example of dynamics support - ignore for now
 #pattern = "1-K100,3-S,5-K70,9-K110,13-S,17-K,21-S,25-K85,29-S"
