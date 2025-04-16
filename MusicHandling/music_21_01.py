@@ -8,48 +8,58 @@
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
 from music21 import stream, note, tempo, meter, midi
 
-# ===== Config =====
-pattern = "1-K,3-SK,4-S,32-K"  # Your drum pattern input
+# === Your pattern ===
+pattern = "1-K,3-SK,4-S,15-K,16-K,17-SK,31-K"
 
-# MIDI note mapping
-MIDI_NOTES = {'K': 36, 'S': 38}  # Kick and Snare
+# === Constants ===
+MIDI_NOTES = {'K': 36, 'S': 38}
+STEP_DURATION = 0.25  # One 1/16th note
+STEPS_PER_BAR = 16
+TOTAL_STEPS = 32
 
-# Parse pattern into a dict: step_num -> list of MIDI notes
+# === Parse your input ===
 step_map = {}
 for token in pattern.split(','):
     if '-' not in token:
         continue
-    step_str, instrs = token.split('-')
-    step = int(step_str.strip()) - 1  # 0-based index
+    step_str, instrs = token.strip().split('-')
+    step = int(step_str.strip()) - 1  # <- 1-based to 0-based correction
     midi_notes = [MIDI_NOTES[c] for c in instrs.strip() if c in MIDI_NOTES]
     step_map[step] = midi_notes
 
-# Create stream
-s = stream.Stream()
-s.append(tempo.MetronomeMark(number=100))
-s.append(meter.TimeSignature('16/16'))
+# === Create a single flat part ===
+p = stream.Part()
+p.append(tempo.MetronomeMark(number=100))
+p.append(meter.TimeSignature('16/16'))
 
-# Build 32 steps (2 bars of 16/16)
-for i in range(32):
+# Add all 32 steps as notes/rests
+for i in range(TOTAL_STEPS):
+    offset = i * STEP_DURATION
     if i in step_map:
         for pitch in step_map[i]:
             n = note.Note()
             n.pitch.midi = pitch
-            n.quarterLength = 0.25  # 1/16 note
+            n.quarterLength = STEP_DURATION
+            n.offset = offset
             n.storedInstrument = None
-            s.append(n)
+            p.insert(offset, n)
     else:
-        s.append(note.Rest(quarterLength=0.25))
+        r = note.Rest(quarterLength=STEP_DURATION)
+        p.insert(offset, r)
 
-# Convert to MIDI and force channel 10 (index 9)
+# === Add to score and export MIDI ===
+s = stream.Score()
+s.append(p)
+
+# Force MIDI channel 10
 mf = midi.translate.streamToMidiFile(s)
 for track in mf.tracks:
     for event in track.events:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9
 
-mf.open('drum_pattern3.mid', 'wb')
+mf.open('drum_fixed_corrected2.mid', 'wb')
 mf.write()
 mf.close()
 
-print("Drum MIDI exported as 'drum_pattern3.mid'")
+print("Exported 'drum_fixed_corrected.mid' with accurate note timing.")
