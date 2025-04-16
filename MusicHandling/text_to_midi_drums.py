@@ -33,7 +33,7 @@ def parse_pattern(pattern_string):
         step_str, instrs = token.strip().split('-')
         step = int(step_str.strip()) - 1  # 1-based to 0-based
 
-      # Match instruments with optional velocity, e.g. K100 or just S
+        # Match instruments with optional velocity, e.g. K100 or just S
         entries = re.findall(r'([KSQCO])(\d{1,3})?', instrs.strip().upper())
         note_data = []
         for symbol, vel_str in entries:
@@ -42,8 +42,16 @@ def parse_pattern(pattern_string):
                 continue  # Skip if we get an unknown symbol
             velocity = int(vel_str) if vel_str else default_vel
             note_data.append((pitch, velocity))
-            step_map[step] = note_data
+
+        if step in step_map:
+            step_map[step].extend(note_data)  # Append to existing notes at this step
+        else:
+            step_map[step] = note_data  # First time seeing this step
+
+        # Debug: Print the step map after parsing
+        print(f"Step Map: {step_map}")
     return step_map
+
 
 def build_stream(step_map):
     p = stream.Part()
@@ -63,6 +71,9 @@ def build_stream(step_map):
                 v.velocity = velocity
                 n.volume = v
                 p.insert(offset, n)
+                 # Debug: Print each note being added
+                print(f"Adding Note: Pitch {pitch} Velocity {velocity} at offset {offset}")
+        
         else:
             r = note.Rest(quarterLength=STEP_DURATION)
             p.insert(offset, r)
@@ -85,6 +96,8 @@ def main(pattern_name):
         return
 
     pattern = snares + patterns[pattern_name]
+    print(f"Generating pattern: {pattern_name} with pattern: {pattern}")  # Debug
+   
     step_map = parse_pattern(pattern)
     part = build_stream(step_map)
 
@@ -97,4 +110,4 @@ def main(pattern_name):
 
 if __name__ == "__main__":
     # Run via terminal or IDE with main('pattern01') for example
-    main("pattern14")
+    main("pattern14b")
