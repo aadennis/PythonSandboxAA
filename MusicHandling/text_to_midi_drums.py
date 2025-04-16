@@ -14,8 +14,10 @@ pattern01 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,29-S"
 pattern02 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,27-K,29-S,30-K"
 pattern03 = "1-K,5-S,9-K,11-K,13-S,17-K,21-S,23-K,27-K,29-S"
 pattern04 = "1-K,3-K,5-S,7-K,11-K,13-S,15-K,19-K,21-S,23-K,25-K,27-K,28-K,29-S"
+pattern04b = "5-S,13-S,21-S,29-S,1-K,3-K,7-K,11-K,15-K,19-K,23-K,25-K,27-K,28-K"
 
-pattern = pattern04
+
+pattern = pattern04b
 
 
 
