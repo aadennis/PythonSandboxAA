@@ -24,8 +24,8 @@ pattern08 = "1-K,3-K,9-K,11-K,17-K,19-K,23-K,27-K"
 
 pattern = snares + pattern08
 
-# ignore previous to test dynamics, for now
-pattern = "1-K100,3-S,5-K70,9-K110,13-S,17-K,21-S,25-K85,29-S"
+# example of dynamics support - ignore for now
+#pattern = "1-K100,3-S,5-K70,9-K110,13-S,17-K,21-S,25-K85,29-S"
 
 # === Constants ===
 MIDI_NOTES = {'K': 36, 'S': 38}
@@ -86,7 +86,7 @@ for track in mf.tracks:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9
 
-mf.open('drum_fixed_corrected4yy.mid', 'wb')
+mf.open('drum_fixed_corrected454.mid', 'wb')
 mf.write()
 mf.close()
 
