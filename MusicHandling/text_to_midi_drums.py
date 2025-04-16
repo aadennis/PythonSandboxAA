@@ -50,7 +50,7 @@ for token in pattern.split(','):
         pitch = MIDI_NOTES.get(symbol)
         velocity = int(vel_str) if vel_str else DEFAULT_VELOCITY
         note_data.append((pitch, velocity))
-    step_map[step] = note_data 
+        step_map[step] = note_data
 
 # === Create a single flat part ===
 p = stream.Part()
