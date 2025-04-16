@@ -10,6 +10,14 @@ from music21 import stream, note, tempo, meter, midi
 
 # === Your pattern ===
 pattern = "1-K,3-SK,4-S,15-K,16-K,17-SK,31-K"
+pattern01 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,29-S"
+pattern02 = "1-K,5-S,9-K,13-S,17-K,21-S,25-K,27-K,29-S,30-K"
+pattern03 = "1-K,5-S,9-K,11-K,13-S,17-K,21-S,23-K,27-K,29-S"
+pattern04 = "1-K,3-K,5-S,7-K,11-K,13-S,15-K,19-K,21-S,23-K,25-K,27-K,28-K,29-S"
+
+pattern = pattern04
+
+
 
 # === Constants ===
 MIDI_NOTES = {'K': 36, 'S': 38}
@@ -58,7 +66,7 @@ for track in mf.tracks:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9
 
-mf.open('drum_fixed_corrected2.mid', 'wb')
+mf.open('drum_fixed_corrected3.mid', 'wb')
 mf.write()
 mf.close()
 
