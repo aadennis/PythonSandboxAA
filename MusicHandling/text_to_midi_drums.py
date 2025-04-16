@@ -8,17 +8,17 @@
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
 from music21 import stream, note, tempo, meter, midi, volume
 import re
-import sys
 from patterns import snares, patterns
 
 # === Constants ===
+# === MIDI_NOTE Definitions ===
 MIDI_NOTES = {
-    'K': 36,  # Kick
-    'S': 38,  # Snare
-    'P': 44,  # Pedal Hi-hat
-    'C': 42,  # Closed Hi-hat
-    'Q': 46,  # Quarter-open (Open Hi-hat with lower velocity)
-    'O': 46   # Open Hi-hat
+    'K': (36, 80),   # Kick
+    'S': (38, 80),   # Snare
+    'P': (44, 80),   # Pedal Hi-Hat
+    'C': (42, 80),   # Closed Hi-Hat
+    'Q': (46, 60),   # Quarter-Open Hi-Hat (lower velocity)
+    'O': (46, 100),  # Open Hi-Hat (higher velocity)
 }
 STEP_DURATION = 0.25
 STEPS_PER_BAR = 16
@@ -33,13 +33,16 @@ def parse_pattern(pattern_string):
         step_str, instrs = token.strip().split('-')
         step = int(step_str.strip()) - 1  # 1-based to 0-based
 
-        entries = re.findall(r'([KCSPQO])(\d{1,3})?', instrs.strip().upper())
+      # Match instruments with optional velocity, e.g. K100 or just S
+        entries = re.findall(r'([KSQCO])(\d{1,3})?', instrs.strip().upper())
         note_data = []
         for symbol, vel_str in entries:
-            pitch = MIDI_NOTES.get(symbol)
-            velocity = int(vel_str) if vel_str else DEFAULT_VELOCITY
+            pitch, default_vel = MIDI_NOTES.get(symbol, (None, DEFAULT_VELOCITY))
+            if pitch is None:
+                continue  # Skip if we get an unknown symbol
+            velocity = int(vel_str) if vel_str else default_vel
             note_data.append((pitch, velocity))
-            step_map.setdefault(step, []).append((pitch, velocity))
+            step_map[step] = note_data
     return step_map
 
 def build_stream(step_map):
@@ -94,4 +97,4 @@ def main(pattern_name):
 
 if __name__ == "__main__":
     # Run via terminal or IDE with main('pattern01') for example
-    main("patternHiHatDemo")
+    main("pattern14")
