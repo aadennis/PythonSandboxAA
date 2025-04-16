@@ -9,31 +9,40 @@
 from music21 import stream, note, tempo, meter, midi, volume
 import re
 import sys
-from patterns import get_pattern_with_snares
+from patterns import snares, patterns
 
 # === Constants ===
-MIDI_NOTES = {'K': 36, 'S': 38}
+MIDI_NOTES = {
+    'K': 36,  # Kick
+    'S': 38,  # Snare
+    'P': 44,  # Pedal Hi-hat
+    'C': 42,  # Closed Hi-hat
+    'Q': 46,  # Quarter-open (Open Hi-hat with lower velocity)
+    'O': 46   # Open Hi-hat
+}
 STEP_DURATION = 0.25
+STEPS_PER_BAR = 16
 TOTAL_STEPS = 32
 DEFAULT_VELOCITY = 80
 
-def parse_pattern(pattern_str):
-    step_map = {}
-    for token in pattern_str.split(','):
+def parse_pattern(pattern_string):
+    step_map = {}  # step: list of (midi_pitch, velocity)
+    for token in pattern_string.split(','):
         if '-' not in token:
             continue
         step_str, instrs = token.strip().split('-')
-        step = int(step_str.strip()) - 1
-        entries = re.findall(r'([KS])(\d{1,3})?', instrs.strip().upper())
+        step = int(step_str.strip()) - 1  # 1-based to 0-based
+
+        entries = re.findall(r'([KCSPQO])(\d{1,3})?', instrs.strip().upper())
         note_data = []
         for symbol, vel_str in entries:
             pitch = MIDI_NOTES.get(symbol)
             velocity = int(vel_str) if vel_str else DEFAULT_VELOCITY
             note_data.append((pitch, velocity))
-        step_map[step] = note_data
+            step_map.setdefault(step, []).append((pitch, velocity))
     return step_map
 
-def build_score(step_map):
+def build_stream(step_map):
     p = stream.Part()
     p.append(tempo.MetronomeMark(number=100))
     p.append(meter.TimeSignature('16/16'))
@@ -52,39 +61,37 @@ def build_score(step_map):
                 n.volume = v
                 p.insert(offset, n)
         else:
-            p.insert(offset, note.Rest(quarterLength=STEP_DURATION))
+            r = note.Rest(quarterLength=STEP_DURATION)
+            p.insert(offset, r)
 
-    s = stream.Score()
-    s.append(p)
-    return s
+    return p
 
-def export_midi(score, output_file):
-    mf = midi.translate.streamToMidiFile(score)
+def save_midi(score_stream, filename):
+    mf = midi.translate.streamToMidiFile(score_stream)
     for track in mf.tracks:
         for event in track.events:
             if event.type in ['NOTE_ON', 'NOTE_OFF']:
-                event.channel = 9
-    mf.open(output_file, 'wb')
+                event.channel = 9  # Channel 10 is 9 in 0-indexed
+    mf.open(filename, 'wb')
     mf.write()
     mf.close()
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py pattern_name")
+def main(pattern_name):
+    if pattern_name not in patterns:
+        print(f"Pattern '{pattern_name}' not found.")
         return
 
-    pattern_id = sys.argv[1]
-    try:
-        pattern = get_pattern_with_snares(pattern_id)
-    except ValueError as e:
-        print(e)
-        return
-
+    pattern = snares + patterns[pattern_name]
     step_map = parse_pattern(pattern)
-    score = build_score(step_map)
-    output_file = f"{pattern_id}.mid"
-    export_midi(score, output_file)
-    print(f"Exported '{output_file}' with snares + '{pattern_id}' pattern.")
+    part = build_stream(step_map)
+
+    s = stream.Score()
+    s.append(part)
+
+    filename = f"{pattern_name}.mid"
+    save_midi(s, filename)
+    print(f"Exported '{filename}' with pattern: {pattern}")
 
 if __name__ == "__main__":
-    main()
+    # Run via terminal or IDE with main('pattern01') for example
+    main("patternHiHatDemo")
