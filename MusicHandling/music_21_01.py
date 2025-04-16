@@ -8,33 +8,46 @@
 # with a kick and snare (respectively MIDI note 36 (C1) and 38 (D1)).
 from music21 import stream, note, tempo, meter, midi
 
-# Create a new stream
-s = stream.Stream()
+# ===== Config =====
+pattern = "K01,SK03,S04,K32"  # Your drum pattern input
 
-# Set tempo to 100 BPM and time signature to 16/16
+# MIDI note mapping
+MIDI_NOTES = {'K': 36, 'S': 38}  # Kick and Snare
+
+# Parse pattern into a dict: step_num -> list of MIDI notes
+step_map = {}
+for token in pattern.split(','):
+    instrs = ''.join([c for c in token if c.isalpha()])
+    step = int(''.join([c for c in token if c.isdigit()]))  # 1-based
+    midi_notes = [MIDI_NOTES[c] for c in instrs if c in MIDI_NOTES]
+    step_map[step - 1] = midi_notes  # Convert to 0-based index
+
+# Create stream
+s = stream.Stream()
 s.append(tempo.MetronomeMark(number=100))
 s.append(meter.TimeSignature('16/16'))
 
-# Create 16 1/16 notes: alternate Kick (36) and Snare (38)
-drum_notes = [36 if i % 2 == 0 else 38 for i in range(16)]
+# Generate 32 steps (2 bars of 16/16), each 1/16 note long
+for i in range(32):
+    if i in step_map:
+        for pitch in step_map[i]:
+            n = note.Note()
+            n.pitch.midi = pitch
+            n.quarterLength = 0.25  # 1/16 note
+            n.storedInstrument = None
+            s.append(n)
+    else:
+        s.append(note.Rest(quarterLength=0.25))
 
-for pitch in drum_notes:
-    n = note.Note()
-    n.pitch.midi = pitch
-    n.quarterLength = 0.25  # 1/16 note = 0.25 quarter note
-    n.storedInstrument = None  # Don't assign a melodic instrument
-    s.append(n)
-
-# Convert to MIDI and force channel 10 (index 9)
+# Convert to MIDI and force channel 10
 mf = midi.translate.streamToMidiFile(s)
 for track in mf.tracks:
     for event in track.events:
         if event.type in ['NOTE_ON', 'NOTE_OFF']:
             event.channel = 9  # Channel 10
 
-# Save to MIDI file
-mf.open('drum_bar_16.mid', 'wb')
+mf.open('drum_pattern.mid', 'wb')
 mf.write()
 mf.close()
 
-print("MIDI drum track exported as 'drum_bar_16.mid'")
+print("Custom drum MIDI file exported as 'drum_pattern.mid'")
