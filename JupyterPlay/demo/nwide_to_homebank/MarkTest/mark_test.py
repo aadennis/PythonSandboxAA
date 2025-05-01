@@ -1,5 +1,4 @@
 # pip install pdfplumber pandas
-
 import pdfplumber
 import pandas as pd
 import re
@@ -15,31 +14,42 @@ def extract_nationwide_txns(filepath):
         raise ValueError("Couldn't find transaction section.")
 
     txn_block = match.group(0)
-
     lines = txn_block.strip().split("\n")
     data_rows = []
 
     for line in lines:
-        # Skip header line
         if line.lower().startswith("balance from previous"):
             continue
 
-        # Extract components
-        m = re.match(r"(\d{2}/\d{2}/\d{2})\s+(\d+)\s+(.+?)\s+£([\d,.]+)", line)
+        # Updated regex: optional reference, 'CR' stuck to amount
+        m = re.match(
+            r"(?P<date>\d{2}/\d{2}/\d{2})\s+"
+            r"(?:(?P<ref>\d+)\s+)?"
+            r"(?P<desc>.+?)\s+"
+            r"£(?P<amount>[\d,]+\.\d{2})(?P<cr>CR)?",
+            line.strip()
+        )
+
         if m:
-            txn_date, reference, description, amount = m.groups()
+            groups = m.groupdict()
+            amount = float(groups['amount'].replace(",", ""))
+            signed_amount = amount if groups['cr'] else -amount
+
             data_rows.append({
-                "txn_date": txn_date,
-                "reference": reference,
-                "description": description.strip(),
-                "amount": float(amount.replace(",", ""))
+                "txn_date": groups['date'],
+                "reference": groups['ref'] or "",
+                "description": groups['desc'].strip(),
+                "amount": signed_amount
             })
+        else:
+            print(f"Skipped line (unmatched): {line}")
 
     return pd.DataFrame(data_rows)
 
 # Example usage
 
+
 df = extract_nationwide_txns("C:/temp/mark/mark.pdf")
-print(df.head(100))
+print(df)
 
 
