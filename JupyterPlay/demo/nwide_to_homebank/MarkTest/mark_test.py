@@ -7,6 +7,10 @@ def extract_nationwide_creditcard_pdf(filepath):
     all_data = []
 
     with pdfplumber.open(filepath) as pdf:
+        for i, page in enumerate(pdf.pages):
+            print(f"--- Page {i+1} ---")
+            print(page.extract_text())
+
         for page in pdf.pages:
             tables = page.extract_tables()
             for table in tables:
@@ -31,3 +35,9 @@ def extract_nationwide_creditcard_pdf(filepath):
 
 df = extract_nationwide_creditcard_pdf("C:/temp/mark/mark.pdf")
 print(df.head())
+
+
+# with pdfplumber.open(filepath) as pdf:
+#     for i, page in enumerate(pdf.pages):
+#         print(f"--- Page {i+1} ---")
+#         print(page.extract_text())
