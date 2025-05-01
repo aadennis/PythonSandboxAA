@@ -2,42 +2,44 @@
 
 import pdfplumber
 import pandas as pd
+import re
 
-def extract_nationwide_creditcard_pdf(filepath):
-    all_data = []
-
+def extract_nationwide_txns(filepath):
     with pdfplumber.open(filepath) as pdf:
-        for i, page in enumerate(pdf.pages):
-            print(f"--- Page {i+1} ---")
-            print(page.extract_text())
+        full_text = "\n".join([page.extract_text() for page in pdf.pages if page.extract_text()])
 
-        for page in pdf.pages:
-            tables = page.extract_tables()
-            for table in tables:
-                for row in table:
-                    # Skip header-like or empty rows
-                    if row and all(cell is not None for cell in row):
-                        all_data.append(row)
+    # Narrow to relevant section
+    pattern = r"Balance from previous statement.*?(?=TOTAL BALANCE)"
+    match = re.search(pattern, full_text, re.DOTALL)
+    if not match:
+        raise ValueError("Couldn't find transaction section.")
 
-    # Get the most common number of columns
-    col_counts = [len(row) for row in all_data]
-    most_common_len = max(set(col_counts), key=col_counts.count)
-    filtered_data = [row for row in all_data if len(row) == most_common_len]
+    txn_block = match.group(0)
 
-    # Assign default column names
-    default_columns = [f"Col{i+1}" for i in range(most_common_len)]
-    df = pd.DataFrame(filtered_data, columns=default_columns)
+    lines = txn_block.strip().split("\n")
+    data_rows = []
 
-    return df
+    for line in lines:
+        # Skip header line
+        if line.lower().startswith("balance from previous"):
+            continue
+
+        # Extract components
+        m = re.match(r"(\d{2}/\d{2}/\d{2})\s+(\d+)\s+(.+?)\s+£([\d,.]+)", line)
+        if m:
+            txn_date, reference, description, amount = m.groups()
+            data_rows.append({
+                "txn_date": txn_date,
+                "reference": reference,
+                "description": description.strip(),
+                "amount": float(amount.replace(",", ""))
+            })
+
+    return pd.DataFrame(data_rows)
 
 # Example usage
 
+df = extract_nationwide_txns("C:/temp/mark/mark.pdf")
+print(df.head(100))
 
-df = extract_nationwide_creditcard_pdf("C:/temp/mark/mark.pdf")
-print(df.head())
 
-
-# with pdfplumber.open(filepath) as pdf:
-#     for i, page in enumerate(pdf.pages):
-#         print(f"--- Page {i+1} ---")
-#         print(page.extract_text())
