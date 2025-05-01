@@ -3,7 +3,7 @@ import pdfplumber
 import pandas as pd
 import re
 
-def extract_nationwide_txns(filepath):
+def extract_nationwide_txns(filepath, csv_output_path="nationwide_txns.csv"):
     with pdfplumber.open(filepath) as pdf:
         full_text = "\n".join([page.extract_text() for page in pdf.pages if page.extract_text()])
 
@@ -21,7 +21,6 @@ def extract_nationwide_txns(filepath):
         if line.lower().startswith("balance from previous"):
             continue
 
-        # Updated regex: optional reference, 'CR' stuck to amount
         m = re.match(
             r"(?P<date>\d{2}/\d{2}/\d{2})\s+"
             r"(?:(?P<ref>\d+)\s+)?"
@@ -44,9 +43,16 @@ def extract_nationwide_txns(filepath):
         else:
             print(f"Skipped line (unmatched): {line}")
 
-    return pd.DataFrame(data_rows)
+    df = pd.DataFrame(data_rows)
+    
+    # Export to CSV
+    df.to_csv(csv_output_path, index=False)
+    print(f"\n✅ Transactions saved to: {csv_output_path}")
+
+    return df
 
 # Example usage
+
 
 
 df = extract_nationwide_txns("C:/temp/mark/mark.pdf")
