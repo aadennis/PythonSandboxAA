@@ -1,6 +1,8 @@
 # This script processes a text file containing chords and lyrics of an 
 # UltimateGuitar format, merging them into a format suitable for SongBookPro.
 
+import re
+
 def merge_chords_and_lyrics(chord_line, lyric_line):
     chord_positions = []
     for index, char in enumerate(chord_line):
@@ -25,11 +27,9 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
         output += lyric_line[i]
         i += 1
 
+    # Collapse multiple spaces, but preserve spacing *inside* chord names
+    output = re.sub(r'(?<=\S) {2,}(?=\S)', ' ', output)
     return output
-
-def is_chord_line(line):
-    # Heuristic: mostly capital letters, numbers, slashes, and spaces
-    return bool(line.strip()) and all(c.isalnum() or c in " /#bmM7dimaug" for c in line.strip())
 
 def process_file(input_file, output_file):
     with open(input_file, "r", encoding="utf-8") as f:
