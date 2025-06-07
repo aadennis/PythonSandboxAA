@@ -1,0 +1,19 @@
+{
+  "filename": "sweet_caroline_style_groove2.mid",
+  "bpm": 100,
+  "ticks_per_beat": 480,
+  "instruments": {
+    "kick": 36,
+    "snare": 38
+  },
+  "pattern": [
+    { "step": 0, "instrument": "kick" },
+    { "step": 4, "instrument": "snare" },
+    { "step": 8, "instrument": "kick" },
+    { "step": 12, "instrument": "snare" },
+    { "step": 16, "instrument": "kick" },
+    { "step": 20, "instrument": "snare" },
+    { "step": 24, "instrument": "kick" },
+    { "step": 28, "instrument": "snare" }
+  ]
+}

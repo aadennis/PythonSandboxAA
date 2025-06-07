@@ -22,7 +22,7 @@ import subprocess
 from datetime import datetime
 
 # Set input/output folders
-input_folder = "c:/temp/demo"  # Change to your folder path
+input_folder = "test_data"  # Change to your folder path
 output_folder = input_folder  # Change if needed
 
 ffmpeg_path = "ffmpeg"
@@ -53,17 +53,17 @@ for filename in os.listdir(input_folder):
             intermediate_path
         ]
         
-        convert_command = [
-            ffmpeg_path, "-y",
-            "-i", input_path,
-            "-vf", "bwdif",  # Deinterlace video
-            "-c:v", "h264_nvenc",  # Video codec (NVIDIA hardware encoding)
-            "-c:a", "aac", "-b:a", "192k",  # Re-encode both audio streams to AAC
-            "-map", "0:v:0",  # Map video stream
-            "-map", "0:a:0",  # Map first audio stream
-            "-map", "0:a:1",  # Map second audio stream
-            intermediate_path
-        ]
+        # convert_command = [
+        #     ffmpeg_path, "-y",
+        #     "-i", input_path,
+        #     "-vf", "bwdif",  # Deinterlace video
+        #     "-c:v", "h264_nvenc",  # Video codec (NVIDIA hardware encoding)
+        #     "-c:a", "aac", "-b:a", "192k",  # Re-encode both audio streams to AAC
+        #     "-map", "0:v:0",  # Map video stream
+        #     "-map", "0:a:0",  # Map first audio stream
+        #     "-map", "0:a:1?",  # Map second audio stream
+        #     intermediate_path
+        # ]
 
 
 
@@ -118,9 +118,9 @@ for filename in os.listdir(input_folder):
         subprocess.run(concat_command, check=True)
 
         # Cleanup intermediate files
-        os.remove(intermediate_path)
-        os.remove(credits_path)
-        os.remove(concat_list_path)
+        # os.remove(intermediate_path)
+        # os.remove(credits_path)
+        # os.remove(concat_list_path)
 
 print("Batch conversion complete!")
 
