@@ -27,16 +27,30 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
 
     return output
 
+def is_chord_line(line):
+    # Heuristic: mostly capital letters, numbers, slashes, and spaces
+    return bool(line.strip()) and all(c.isalnum() or c in " /#bmM7dimaug" for c in line.strip())
+
 def process_file(input_file, output_file):
     with open(input_file, "r", encoding="utf-8") as f:
         lines = [line.rstrip('\n') for line in f]
 
     with open(output_file, "w", encoding="utf-8") as out:
-        for i in range(0, len(lines) - 1, 2):
-            chord_line = lines[i]
-            lyric_line = lines[i+1]
-            merged = merge_chords_and_lyrics(chord_line, lyric_line)
-            out.write(merged + "\n")
+        i = 0
+        while i < len(lines):
+            line = lines[i].strip()
+            if not line:
+                out.write("\n")
+                i += 1
+                continue
+
+            if i + 1 < len(lines) and lines[i+1].strip():
+                merged = merge_chords_and_lyrics(lines[i], lines[i+1])
+                out.write(merged + "\n")
+                i += 2
+            else:
+                out.write(lines[i] + "\n")
+                i += 1
 
 # Example usage:
 if __name__ == "__main__":
