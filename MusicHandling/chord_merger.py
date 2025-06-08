@@ -16,7 +16,6 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
 
     while i < len(lyric_line):
         if chord_index < len(chord_positions) and i == chord_positions[chord_index]:
-            # Extract full chord
             j = chord_positions[chord_index]
             chord = ''
             while j < len(chord_line) and chord_line[j] != ' ':
@@ -30,10 +29,6 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
     return clean_spacing(output)
 
 def clean_spacing(line):
-    # Collapse 2+ spaces between visible characters
-    # The regular expression (?<=\S) {2,}(?=\S) matches 2 or more spaces between 
-    # non-space characters. So it doesn’t touch legitimate spacing between [C] and a word.
-    # This keeps alignment OK without crushing [Chord] formatting
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
 def process_multiline_text(input_text):
@@ -58,19 +53,34 @@ def process_multiline_text(input_text):
 
     return output_lines
 
-def process_file(input_file, output_file):
+def to_songbookpro(title, artist, key, tempo, lyrics_lines):
+    header = [
+        f"{{title: {title}}}",
+        f"{{artist: {artist}}}",
+        f"{{key: {key}}}",
+        f"{{tempo: {tempo}}}",
+        ""
+    ]
+    return "\n".join(header + lyrics_lines)
+
+def process_file(input_file, output_file_base, title, artist, key, tempo):
     with open(input_file, 'r', encoding='utf-8') as f:
         input_text = f.read()
 
     output_lines = process_multiline_text(input_text)
+    songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
 
+    output_file = f"{output_file_base}.chordpro"
     with open(output_file, 'w', encoding='utf-8') as f:
-        for line in output_lines:
-            f.write(line + '\n')
-
+        f.write(songbook_text)
 
 # Example usage:
 if __name__ == "__main__":
-    process_file("MoonRiverIn.txt", "MoonRiverOut.txt")
-
-
+    process_file(
+        input_file="MoonRiverIn.txt",
+        output_file_base="moon_river",  # will become "moon_river.chordpro"
+        title="Moon River",
+        artist="Traditional",
+        key="G",
+        tempo=90
+    )
