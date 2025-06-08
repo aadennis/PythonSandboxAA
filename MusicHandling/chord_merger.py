@@ -31,6 +31,9 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
 
 def clean_spacing(line):
     # Collapse 2+ spaces between visible characters
+    # The regular expression (?<=\S) {2,}(?=\S) matches 2 or more spaces between 
+    # non-space characters. So it doesn’t touch legitimate spacing between [C] and a word.
+    # This keeps alignment OK without crushing [Chord] formatting
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
 
