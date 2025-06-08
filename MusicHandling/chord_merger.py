@@ -27,9 +27,12 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
         output += lyric_line[i]
         i += 1
 
-    # Collapse multiple spaces, but preserve spacing *inside* chord names
-    output = re.sub(r'(?<=\S) {2,}(?=\S)', ' ', output)
-    return output
+    return clean_spacing(output)
+
+def clean_spacing(line):
+    # Collapse 2+ spaces between visible characters
+    return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
+
 
 def process_file(input_file, output_file):
     with open(input_file, "r", encoding="utf-8") as f:
