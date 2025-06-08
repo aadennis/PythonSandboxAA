@@ -2,6 +2,7 @@
 # UltimateGuitar format, merging them into a format suitable for SongBookPro.
 
 import re
+import re
 
 def merge_chords_and_lyrics(chord_line, lyric_line):
     chord_positions = []
@@ -36,27 +37,38 @@ def clean_spacing(line):
     # This keeps alignment OK without crushing [Chord] formatting
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
+def process_multiline_text(input_text):
+    lines = [line.rstrip('\n') for line in input_text.splitlines()]
+    output_lines = []
+    i = 0
+
+    while i < len(lines):
+        line = lines[i].strip()
+        if not line:
+            output_lines.append("")
+            i += 1
+            continue
+
+        if i + 1 < len(lines) and lines[i + 1].strip():
+            merged = merge_chords_and_lyrics(lines[i], lines[i + 1])
+            output_lines.append(merged)
+            i += 2
+        else:
+            output_lines.append(lines[i])
+            i += 1
+
+    return output_lines
 
 def process_file(input_file, output_file):
-    with open(input_file, "r", encoding="utf-8") as f:
-        lines = [line.rstrip('\n') for line in f]
+    with open(input_file, 'r', encoding='utf-8') as f:
+        input_text = f.read()
 
-    with open(output_file, "w", encoding="utf-8") as out:
-        i = 0
-        while i < len(lines):
-            line = lines[i].strip()
-            if not line:
-                out.write("\n")
-                i += 1
-                continue
+    output_lines = process_multiline_text(input_text)
 
-            if i + 1 < len(lines) and lines[i+1].strip():
-                merged = merge_chords_and_lyrics(lines[i], lines[i+1])
-                out.write(merged + "\n")
-                i += 2
-            else:
-                out.write(lines[i] + "\n")
-                i += 1
+    with open(output_file, 'w', encoding='utf-8') as f:
+        for line in output_lines:
+            f.write(line + '\n')
+
 
 # Example usage:
 if __name__ == "__main__":
