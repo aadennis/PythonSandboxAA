@@ -2,7 +2,6 @@
 # UltimateGuitar format, merging them into a format suitable for SongBookPro.
 
 import re
-import re
 
 def merge_chords_and_lyrics(chord_line, lyric_line):
     chord_positions = []
