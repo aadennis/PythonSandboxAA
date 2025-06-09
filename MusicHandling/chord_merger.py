@@ -44,7 +44,14 @@ def process_multiline_text(input_text):
             continue
 
         if i + 1 < len(lines) and lines[i + 1].strip():
-            merged = merge_chords_and_lyrics(lines[i], lines[i + 1])
+            chord_line = lines[i]
+            lyric_line = lines[i + 1]
+
+            # Pad lyric line to match chord line's indentation
+            if len(lyric_line) < len(chord_line):
+                lyric_line = ' ' * (len(chord_line) - len(lyric_line)) + lyric_line
+
+            merged = merge_chords_and_lyrics(chord_line, lyric_line)
             output_lines.append(merged)
             i += 2
         else:
@@ -77,10 +84,10 @@ def process_file(input_file, output_file_base, title, artist, key, tempo):
 # Example usage:
 if __name__ == "__main__":
     process_file(
-        input_file="MoonRiverIn.txt",
-        output_file_base="moon_river",  # will become "moon_river.chordpro"
-        title="Moon River",
-        artist="Traditional",
+        input_file="out.txt",
+        output_file_base="Daydream_Believer",
+        title="Daydream Believer",
+        artist="Monkees",
         key="G",
-        tempo=90
+        tempo=88
     )
