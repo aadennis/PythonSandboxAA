@@ -47,18 +47,19 @@ def process_multiline_text(input_text):
             chord_line = lines[i]
             lyric_line = lines[i + 1]
 
-            # Pad lyric line to match chord line's indentation
+            # Left-align lyric line to match length of chord line
             if len(lyric_line) < len(chord_line):
-                lyric_line = ' ' * (len(chord_line) - len(lyric_line)) + lyric_line
+                lyric_line = lyric_line.ljust(len(chord_line))
 
-            merged = merge_chords_and_lyrics(chord_line, lyric_line)
+            merged = merge_chords_and_lyrics(chord_line, lyric_line).rstrip()
             output_lines.append(merged)
             i += 2
         else:
-            output_lines.append(lines[i])
+            output_lines.append(lines[i].rstrip())
             i += 1
 
     return output_lines
+
 
 def to_songbookpro(title, artist, key, tempo, lyrics_lines):
     header = [
