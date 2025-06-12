@@ -8,7 +8,7 @@ import json
 import zipfile
 import xml.etree.ElementTree as ET
 
-DEBUG_ON = True
+DEBUG_ON = False
 COLOR_GREEN = "\033[92m"
 COLOR_YELLOW = "\033[93m"
 COLOR_BLUE = "\033[94m"
@@ -79,9 +79,9 @@ def get_search_parameters():
         sys.exit(1)
     
     print(
-        f"\n\033[92mSearching for the phrase: \033[93m[{phrase}]\033[0m"
-        f"\n\033[92min the folder: \033[94m[{folder}]\033[0m,"
-        f"\n\033[92musing the cache file: \033[96m[{cache_file}]\033[0m"
+        f"\n{COLOR_YELLOW}Searching for the phrase: [{phrase}]\033[0m"
+        f"\n{COLOR_BLUE}in the folder: [{folder}]\033[0m"
+        f"\n{COLOR_CYAN}using the cache file: [{cache_file}]\033[0m"
     )
     input("Press Enter to continue...")
     return folder, cache_file, phrase
@@ -127,7 +127,7 @@ def process_docx_files(docx_files, cache, phrase) -> list:
             print(f"No text extracted from {file_path}")
 
         if text and phrase.lower() in text.lower():
-            print(f"MATCH: {file_path}")
+            print(f"{COLOR_GREEN}MATCH: {file_path}\033[0m")
             matched_files.append(file_path)
     return matched_files    
 
@@ -158,7 +158,7 @@ def main():
     else:
         for mf in matched_files:
             print(f"{COLOR_GREEN}{mf}\033[0m")
-    input("Press Enter to exit")
+    input("Press Enter to exit\n")
 
 if __name__ == "__main__":
     main()
