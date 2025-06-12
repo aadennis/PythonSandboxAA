@@ -8,6 +8,14 @@ import json
 import zipfile
 import xml.etree.ElementTree as ET
 
+DEBUG_ON = False
+
+# Enable or disable debug output
+def debug(text):
+    if DEBUG_ON:
+        print(text)
+
+# Function to extract text from a .docx file
 def extract_text_from_docx(file_path):
     try:
         with zipfile.ZipFile(file_path) as docx_zip:
@@ -23,6 +31,7 @@ def extract_text_from_docx(file_path):
         print(f"Failed to extract text from {file_path}: {e}")
         return None
 
+# Find all .docx files in a given folder and its subfolders
 def find_docx_files(folder):
     docx_files = []
     for root, _, files in os.walk(folder):
@@ -31,6 +40,7 @@ def find_docx_files(folder):
                 docx_files.append(os.path.join(root, file))
     return docx_files
 
+# Get search parameters from the user
 def get_search_parameters():
     """
     Prompt the user for the folder to search and the phrase to look for.
@@ -47,8 +57,12 @@ def get_search_parameters():
     if not phrase:
         print("No phrase entered. Exiting...")
         sys.exit(1)
+    
+    print(f"Searching for Phrase: {phrase}")
+
     return folder, cache_file, phrase
 
+#  Load the cache from a file if it exists, otherwise return an empty dictionary
 def load_cache(cache_file):
     """
     Loads the cache from the specified file if it exists, otherwise returns an empty dict.
@@ -63,6 +77,7 @@ def load_cache(cache_file):
     else:
         return {}
     
+# Process the list of .docx files, update the cache, and find matches for the phrase    
 def process_docx_files(docx_files, cache, phrase):
     """
     Processes the list of .docx files, updates the cache, and finds matches for the phrase.
@@ -86,7 +101,6 @@ def process_docx_files(docx_files, cache, phrase):
 
         if text:
             print(f"DEBUG: [{file_path}] Text: {text[:100]}...")
-            print(f"DEBUG: Phrase: {phrase}")
         else:
             print(f"No text extracted from {file_path}")
 
@@ -125,7 +139,6 @@ def main():
 
         if text:
             print(f"DEBUG: [{file_path}] Text: {text[:100]}...")
-            print(f"DEBUG: Phrase: {phrase}")
         else:
             print(f"No text extracted from {file_path}")
 
