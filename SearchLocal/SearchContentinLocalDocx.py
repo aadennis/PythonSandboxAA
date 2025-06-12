@@ -64,8 +64,8 @@ def get_search_parameters():
     Returns:
         tuple: (folder, cache_file, phrase)
     """
-    folder_input = input("Enter folder to search (default: D:\\OneDrive): ").strip()
-    folder = folder_input if folder_input else "D:\\OneDrive"
+    folder_input = input("Enter folder to search (default: D:/OneDrive): ").strip()
+    folder = folder_input if folder_input else "D:/OneDrive"
 
     cache_dir = os.environ.get("TEMP", "/tmp")
     cache_file = os.path.join(cache_dir, "DocxTextCache.json")
