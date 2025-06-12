@@ -7,6 +7,7 @@ import sys
 import json
 import zipfile
 import xml.etree.ElementTree as ET
+from typing import Optional, List, Tuple, Dict, Any
 
 DEBUG_ON = False
 COLOR_GREEN = "\033[92m"
@@ -16,7 +17,7 @@ COLOR_CYAN = "\033[96m"
 COLOR_RED = "\033[91m"
 COLOR_RESET = "\033[0m"
 
-def debug(text):
+def debug(text: str) -> None:
     """
     Prints debug information if DEBUG_ON is set to True.    
     Args:
@@ -25,7 +26,7 @@ def debug(text):
     if DEBUG_ON:
         print(f'DEBUG: {text[:150]}...')  
 
-def extract_text_from_docx(file_path):
+def extract_text_from_docx(file_path: str) -> Optional[str]:
     """
     Extracts text from a .docx file.    
     Args:
@@ -47,33 +48,33 @@ def extract_text_from_docx(file_path):
         print(f"Failed to extract text from {file_path}: {e}")
         return None
 
-def find_docx_files(folder):
+def find_docx_files(folder: str) -> List[str]:
     """
     Finds all .docx files in the specified folder and its subfolders.
     Args:  folder (str): The folder to search for .docx files.
     Returns:    
         list: A list of paths to .docx files found in the folder.
     """
-    docx_files = []
+    docx_files: List[str] = []
     for root, _, files in os.walk(folder):
         for file in files:
             if file.lower().endswith('.docx'):
                 docx_files.append(os.path.join(root, file))
     return docx_files
 
-def get_search_parameters():
+def get_search_parameters() -> Tuple[str, str, str]:
     """
     Prompt the user for the folder to search and the phrase to look for.
     Returns:
         tuple: (folder, cache_file, phrase)
     """
-    folder_input = input("Enter folder to search (default: D:/OneDrive): ").strip()
-    folder = folder_input if folder_input else "D:/OneDrive"
+    folder_input: str = input("Enter folder to search (default: D:/OneDrive): ").strip()
+    folder: str = folder_input if folder_input else "D:/OneDrive"
 
-    cache_dir = os.environ.get("TEMP", "/tmp")
-    cache_file = os.path.join(cache_dir, "DocxTextCache.json")
+    cache_dir: str = os.environ.get("TEMP", "/tmp")
+    cache_file: str = os.path.join(cache_dir, "DocxTextCache.json")
 
-    phrase = input("Enter the phrase to search for in .docx files: ").strip()
+    phrase: str = input("Enter the phrase to search for in .docx files: ").strip()
     if not phrase:
         print("No phrase entered. Exiting...")
         sys.exit(1)
@@ -86,7 +87,7 @@ def get_search_parameters():
     input("Press Enter to continue...")
     return folder, cache_file, phrase
 
-def load_cache(cache_file) -> dict:
+def load_cache(cache_file: str) -> Dict[str, Any]:
     """
     Loads the cache from the specified file if it exists, otherwise returns an empty dict.
     """
@@ -100,18 +101,18 @@ def load_cache(cache_file) -> dict:
     else:
         return {}
     
-def process_docx_files(docx_files, cache, phrase) -> list:
+def process_docx_files(docx_files: List[str], cache: Dict[str, Any], phrase: str) -> List[str]:
     """
     Processes the list of .docx files, updates the cache, and finds matches for the phrase.
     Returns a list of matched file paths.
     """
-    matched_files = []
+    matched_files: List[str] = []
     for file_path in docx_files:
-        cache_key = file_path.lower()
-        last_write = str(os.path.getmtime(file_path))
+        cache_key: str = file_path.lower()
+        last_write: str = str(os.path.getmtime(file_path))
 
         cached_entry = cache.get(cache_key)
-        text = None
+        text: Optional[str] = None
         if cached_entry and cached_entry.get("LastWriteTime") == last_write and cached_entry.get("Text"):
             text = cached_entry["Text"]
         else:
@@ -131,7 +132,7 @@ def process_docx_files(docx_files, cache, phrase) -> list:
             matched_files.append(file_path)
     return matched_files    
 
-def main():
+def main() -> None:
     folder, cache_file, phrase = get_search_parameters()
 
     cache = load_cache(cache_file)
