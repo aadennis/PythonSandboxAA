@@ -62,16 +62,50 @@ def load_cache(cache_file):
             return {}
     else:
         return {}
+    
+def process_docx_files(docx_files, cache, phrase):
+    """
+    Processes the list of .docx files, updates the cache, and finds matches for the phrase.
+    Returns a list of matched file paths.
+    """
+    matched_files = []
+    for file_path in docx_files:
+        cache_key = file_path.lower()
+        last_write = str(os.path.getmtime(file_path))
+
+        cached_entry = cache.get(cache_key)
+        text = None
+        if cached_entry and cached_entry.get("LastWriteTime") == last_write and cached_entry.get("Text"):
+            text = cached_entry["Text"]
+        else:
+            text = extract_text_from_docx(file_path)
+            if text:
+                cache[cache_key] = {"Text": text, "LastWriteTime": last_write}
+            elif cache_key in cache:
+                del cache[cache_key]
+
+        if text:
+            print(f"DEBUG: [{file_path}] Text: {text[:100]}...")
+            print(f"DEBUG: Phrase: {phrase}")
+        else:
+            print(f"No text extracted from {file_path}")
+
+        if text and phrase.lower() in text.lower():
+            print(f"MATCH: {file_path}")
+            matched_files.append(file_path)
+    return matched_files    
 
 def main():
     folder, cache_file, phrase = get_search_parameters()
 
     # Load cache if exists
     cache = load_cache(cache_file)
-    
 
     docx_files = find_docx_files(folder)
     print(f"Found {len(docx_files)} .docx files.")
+
+    # Use the new function
+    matched_files = process_docx_files(docx_files, cache, phrase)    
 
     matched_files = []
     for file_path in docx_files:
