@@ -8,7 +8,7 @@ import json
 import zipfile
 import xml.etree.ElementTree as ET
 
-DEBUG_ON = False
+DEBUG_ON = True
 
 # Enable or disable debug output
 def debug(text):
@@ -18,7 +18,7 @@ def debug(text):
         text (str): The debug message to print.
     """
     if DEBUG_ON:
-        print(text)
+        print(f'DEBUG: {text}')
 
 # Function to extract text from a .docx file
 def extract_text_from_docx(file_path):
@@ -115,7 +115,7 @@ def process_docx_files(docx_files, cache, phrase) -> list:
                 del cache[cache_key]
 
         if text:
-            print(f"DEBUG: [{file_path}] Text: {text[:100]}...")
+            debug(f"[{file_path}] Text: {text[:100]}...")
         else:
             print(f"No text extracted from {file_path}")
 
