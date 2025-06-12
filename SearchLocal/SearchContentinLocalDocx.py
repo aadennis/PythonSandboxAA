@@ -1,0 +1,100 @@
+# SearchContentinLocalDocx.py
+# This script searches for a specific phrase in all .docx files within a specified folder.
+# It extracts text from the .docx files, caches the results, and checks for matches with the given phrase.  
+
+import os
+import sys
+import json
+import zipfile
+import xml.etree.ElementTree as ET
+
+def extract_text_from_docx(file_path):
+    try:
+        with zipfile.ZipFile(file_path) as docx_zip:
+            with docx_zip.open('word/document.xml') as doc_xml:
+                xml_content = doc_xml.read()
+                # Parse XML and extract all text nodes
+                tree = ET.fromstring(xml_content)
+                text = ' '.join([node.text for node in tree.iter() if node.text])
+                # Normalize whitespace
+                text = ' '.join(text.split())
+                return text
+    except Exception as e:
+        print(f"Failed to extract text from {file_path}: {e}")
+        return None
+
+def find_docx_files(folder):
+    docx_files = []
+    for root, _, files in os.walk(folder):
+        for file in files:
+            if file.lower().endswith('.docx'):
+                docx_files.append(os.path.join(root, file))
+    return docx_files
+
+def main():
+    folder = input("Enter folder to search (default: D:\\OneDrive): ") or "D:\\OneDrive"
+    cache_file = os.path.join(os.environ.get("TEMP", "/tmp"), "DocxTextCache.json")
+    phrase = input("Enter the phrase to search for in .docx files: ").strip()
+    if not phrase:
+        print("No phrase entered. Exiting...")
+        sys.exit(1)
+
+    # Load cache if exists
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cache = json.load(f)
+        except Exception:
+            print("Failed to load cache file, starting fresh.")
+            cache = {}
+    else:
+        cache = {}
+
+    docx_files = find_docx_files(folder)
+    print(f"Found {len(docx_files)} .docx files.")
+
+    matched_files = []
+    for file_path in docx_files:
+        cache_key = file_path.lower()
+        last_write = str(os.path.getmtime(file_path))
+
+        cached_entry = cache.get(cache_key)
+        text = None
+        if cached_entry and cached_entry.get("LastWriteTime") == last_write and cached_entry.get("Text"):
+            text = cached_entry["Text"]
+        else:
+            text = extract_text_from_docx(file_path)
+            if text:
+                cache[cache_key] = {"Text": text, "LastWriteTime": last_write}
+            elif cache_key in cache:
+                del cache[cache_key]
+
+        if text:
+            print(f"DEBUG: [{file_path}] Text: {text[:100]}...")
+            print(f"DEBUG: Phrase: {phrase}")
+        else:
+            print(f"No text extracted from {file_path}")
+
+        if text and phrase.lower() in text.lower():
+            print(f"MATCH: {file_path}")
+            matched_files.append(file_path)
+
+    # Save updated cache
+    try:
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Failed to save cache file: {e}")
+
+    print("\n=========================")
+    print(f"Matched Files for phrase: '{phrase}'")
+    print("=========================")
+    if not matched_files:
+        print("No matches found.")
+    else:
+        for f in matched_files:
+            print(f)
+    input("Press Enter to exit")
+
+if __name__ == "__main__":
+    main()
