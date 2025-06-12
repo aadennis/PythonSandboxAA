@@ -10,7 +10,6 @@ import xml.etree.ElementTree as ET
 
 DEBUG_ON = True
 
-# Enable or disable debug output
 def debug(text):
     """
     Prints debug information if DEBUG_ON is set to True.    
@@ -20,7 +19,6 @@ def debug(text):
     if DEBUG_ON:
         print(f'DEBUG: {text}')
 
-# Function to extract text from a .docx file
 def extract_text_from_docx(file_path):
     """
     Extracts text from a .docx file.    
@@ -43,7 +41,6 @@ def extract_text_from_docx(file_path):
         print(f"Failed to extract text from {file_path}: {e}")
         return None
 
-# Find all .docx files in a given folder and its subfolders
 def find_docx_files(folder):
     """
     Finds all .docx files in the specified folder and its subfolders.
