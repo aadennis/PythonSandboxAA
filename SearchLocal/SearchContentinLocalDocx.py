@@ -17,7 +17,7 @@ def debug(text):
         text (str): The debug message to print.
     """
     if DEBUG_ON:
-        print(f'DEBUG: {text}')
+        print(f'DEBUG: {text[:150]}...')  
 
 def extract_text_from_docx(file_path):
     """
@@ -112,7 +112,7 @@ def process_docx_files(docx_files, cache, phrase) -> list:
                 del cache[cache_key]
 
         if text:
-            debug(f"[{file_path}] Text: {text[:100]}...")
+            debug(f"[{file_path}] [{text}]")
         else:
             print(f"No text extracted from {file_path}")
 
