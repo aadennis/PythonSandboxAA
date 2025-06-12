@@ -1,5 +1,5 @@
 # SearchContentinLocalDocx.py
-# This script searches for a specific phrase in all .docx files within a specified folder.
+# Searches for a specific phrase in all .docx files within a specified folder.
 # It extracts text from the .docx files, caches the results, and checks for matches with the given phrase.  
 
 import os
@@ -9,6 +9,12 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 DEBUG_ON = True
+COLOR_GREEN = "\033[92m"
+COLOR_YELLOW = "\033[93m"
+COLOR_BLUE = "\033[94m"
+COLOR_CYAN = "\033[96m"
+COLOR_RED = "\033[91m"
+COLOR_RESET = "\033[0m"
 
 def debug(text):
     """
@@ -72,8 +78,12 @@ def get_search_parameters():
         print("No phrase entered. Exiting...")
         sys.exit(1)
     
-    print(f"Searching for Phrase: {phrase}")
-
+    print(
+        f"\n\033[92mSearching for the phrase: \033[93m[{phrase}]\033[0m"
+        f"\n\033[92min the folder: \033[94m[{folder}]\033[0m,"
+        f"\n\033[92musing the cache file: \033[96m[{cache_file}]\033[0m"
+    )
+    input("Press Enter to continue...")
     return folder, cache_file, phrase
 
 def load_cache(cache_file) -> dict:
@@ -139,14 +149,15 @@ def main():
     except Exception as e:
         print(f"Failed to save cache file: {e}")
 
-    print("\n=========================")
+    print(f"\n{COLOR_YELLOW}==================================================")
     print(f"Matched Files for phrase: '{phrase}'")
-    print("=========================")
+    print("==================================================\033[0m")
+
     if not matched_files:
-        print("No matches found.")
+        print(f"{COLOR_RED}No matches found.\033[0m")
     else:
-        for f in matched_files:
-            print(f)
+        for mf in matched_files:
+            print(f"{COLOR_GREEN}{mf}\033[0m")
     input("Press Enter to exit")
 
 if __name__ == "__main__":
