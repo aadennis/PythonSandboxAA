@@ -79,7 +79,7 @@ def get_search_parameters():
 
     return folder, cache_file, phrase
 
-def load_cache(cache_file):
+def load_cache(cache_file) -> dict:
     """
     Loads the cache from the specified file if it exists, otherwise returns an empty dict.
     """
@@ -93,7 +93,7 @@ def load_cache(cache_file):
     else:
         return {}
     
-def process_docx_files(docx_files, cache, phrase):
+def process_docx_files(docx_files, cache, phrase) -> list:
     """
     Processes the list of .docx files, updates the cache, and finds matches for the phrase.
     Returns a list of matched file paths.
