@@ -31,24 +31,44 @@ def find_docx_files(folder):
                 docx_files.append(os.path.join(root, file))
     return docx_files
 
-def main():
-    folder = input("Enter folder to search (default: D:\\OneDrive): ") or "D:\\OneDrive"
-    cache_file = os.path.join(os.environ.get("TEMP", "/tmp"), "DocxTextCache.json")
+def get_search_parameters():
+    """
+    Prompt the user for the folder to search and the phrase to look for.
+    Returns:
+        tuple: (folder, cache_file, phrase)
+    """
+    folder_input = input("Enter folder to search (default: D:\\OneDrive): ").strip()
+    folder = folder_input if folder_input else "D:\\OneDrive"
+
+    cache_dir = os.environ.get("TEMP", "/tmp")
+    cache_file = os.path.join(cache_dir, "DocxTextCache.json")
+
     phrase = input("Enter the phrase to search for in .docx files: ").strip()
     if not phrase:
         print("No phrase entered. Exiting...")
         sys.exit(1)
+    return folder, cache_file, phrase
 
-    # Load cache if exists
+def load_cache(cache_file):
+    """
+    Loads the cache from the specified file if it exists, otherwise returns an empty dict.
+    """
     if os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
-                cache = json.load(f)
+                return json.load(f)
         except Exception:
             print("Failed to load cache file, starting fresh.")
-            cache = {}
+            return {}
     else:
-        cache = {}
+        return {}
+
+def main():
+    folder, cache_file, phrase = get_search_parameters()
+
+    # Load cache if exists
+    cache = load_cache(cache_file)
+    
 
     docx_files = find_docx_files(folder)
     print(f"Found {len(docx_files)} .docx files.")
