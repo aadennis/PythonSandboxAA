@@ -16,6 +16,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
     # Get list of .png files in current folder
     png_files = [f for f in filenames if f.lower().endswith('.png')]
     if png_files:
+        total_candidates += len(png_files)  # Count candidates
         screenshots_dir = os.path.join(dirpath, 'Screenshots')
 
         if DRY_RUN:
@@ -36,3 +37,7 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             else:
                 shutil.move(src, target)
                 print(f"Moved: {src} -> {target}")
+
+print(f"\nTotal PNG files that are candidates for moving: {total_candidates}")
+# ...existing code...
+
