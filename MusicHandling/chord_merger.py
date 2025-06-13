@@ -85,9 +85,9 @@ def process_file(input_file, output_file_base, title, artist, key, tempo):
 # Example usage:
 if __name__ == "__main__":
     process_file(
-        input_file="FlyMeToTheMoon.txt",
-        output_file_base="ChordPro/FlyMeToTheMoon",
-        title="Fly Me To The Moon",
+        input_file="ComeFlyWithMe.txt",
+        output_file_base="ChordPro/ComeFlyWithMe",
+        title="Come Fly With Me.txt",
         artist="Frank Sinatra",
         key="C",
         tempo=88
