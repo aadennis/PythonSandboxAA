@@ -24,8 +24,11 @@ for item in os.listdir(root):
 
         # Move the .html file
         shutil.move(html_path, os.path.join(destination, item))
+        print(f"Moved: {item} → {destination}")
 
         # Move the _files folder if it exists
         if os.path.exists(folder_path) and os.path.isdir(folder_path):
             shutil.move(folder_path, os.path.join(destination, folder_name))
+            print(f"Moved: {folder_name} → {destination}")
 
+input("\nDone. Press Enter to exit...")
