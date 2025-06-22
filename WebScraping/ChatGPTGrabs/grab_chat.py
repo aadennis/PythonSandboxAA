@@ -1,77 +1,63 @@
 import os
 import time
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
-from selenium.webdriver.edge.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from PIL import Image, ImageDraw, ImageFont
 
-# ========== CONFIG ==========
-chat_url = "https://chatgpt.com/share/6857d56a-855c-8011-a8ea-74dd0670967e"  # Replace
-driver_path = "./msedgedriver.exe"  # Update if not in PATH
-screenshot_dir = "screens"
+# ======== CONFIG ========
+chat_url = "https://chat.openai.com/share/67eea10b-2b6c-8011-b43a-47e59d17208b"
+
+driver_path = "./geckodriver.exe"  # Adjust path if needed
+output_image = "fullpage.png"
 pdf_output = "chat_capture.pdf"
 title_text = "My ChatGPT Conversation"
-font_path = "arial.ttf"  # Optional
-scroll_pause = 0.5
-scroll_step = 100  # px per scroll
-viewport_height = 2000  # match browser window size
+font_path = "arial.ttf"  # Optional: set to a font on your system
 
-# ========== SETUP ==========
+# ======== BROWSER SETUP ========
 options = Options()
-options.use_chromium = True
-options.add_argument(f"--window-size=1200,{viewport_height}")
-# No headless — you want to see it
+options.headless = False  # set to True if you want silent capture
+options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"  # <-- Adjust to your Firefox install path
 
 service = Service(driver_path)
-driver = webdriver.Edge(service=service, options=options)
+driver = webdriver.Firefox(service=service, options=options)
+driver.set_window_size(1200, 2000)
 
+print("📄 Opening page...")
 driver.get(chat_url)
-time.sleep(5)  # wait for full load
 
-# ========== SCROLL + SCREENSHOT ==========
-os.makedirs(screenshot_dir, exist_ok=True)
-screens = []
-seen_positions = set()
-screenshot_count = 0
+# ======== WAIT FOR CHAT TO LOAD ========
+try:
+    WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.CLASS_NAME, "markdown"))
+    )
+    print("✅ Chat content detected.")
+except:
+    print("❌ Timeout: Chat content not found.")
+    driver.quit()
+    exit(1)
 
-last_height = driver.execute_script("return document.body.scrollHeight")
-current_scroll = 0
+# Give animation/scripts a bit more time
+time.sleep(3)
 
-while True:
-    pos = driver.execute_script("return window.scrollY")
-    if pos in seen_positions:
-        break
-    seen_positions.add(pos)
-
-    # Screenshot
-    file_path = os.path.join(screenshot_dir, f"screen_{screenshot_count:03}.png")
-    driver.save_screenshot(file_path)
-    screens.append(file_path)
-    screenshot_count += 1
-
-    # Scroll down
-    driver.execute_script(f"window.scrollBy(0, {scroll_step})")
-    time.sleep(scroll_pause)
-
-    new_height = driver.execute_script("return window.scrollY")
-    if new_height + viewport_height >= last_height:
-        # Final scroll and capture
-        time.sleep(1)
-        driver.save_screenshot(os.path.join(screenshot_dir, f"screen_{screenshot_count:03}.png"))
-        break
-
+# ======== FULL PAGE SCREENSHOT ========
+print("📸 Capturing full page screenshot...")
+driver.get_full_page_screenshot_as_file(output_image)
 driver.quit()
 
-# ========== OVERLAY + PDF ==========
-def add_overlays(image_path, page_num, total_pages, title):
+# ======== ADD OVERLAY AND SAVE TO PDF ========
+def add_overlay(image_path, title):
     img = Image.open(image_path).convert("RGB")
     draw = ImageDraw.Draw(img)
     try:
-        font = ImageFont.truetype(font_path, 24)
+        font = ImageFont.truetype(font_path, 28)
     except:
         font = ImageFont.load_default()
 
-    label = f"{title} — Page {page_num + 1} of {total_pages}"
+    label = f"{title} — Page 1 of 1"
     bbox = draw.textbbox((0, 0), label, font=font)
     text_width = bbox[2] - bbox[0]
     text_height = bbox[3] - bbox[1]
@@ -82,9 +68,8 @@ def add_overlays(image_path, page_num, total_pages, title):
     draw.text((x, y), label, font=font, fill="black")
     return img
 
-images = [add_overlays(p, i, len(screens), title_text) for i, p in enumerate(screens)]
-if images:
-    images[0].save(pdf_output, save_all=True, append_images=images[1:])
-    print(f"✅ PDF saved as: {pdf_output}")
-else:
-    print("❌ No screenshots were saved.")
+print("🖋️ Adding footer and saving to PDF...")
+image = add_overlay(output_image, title_text)
+image.save(pdf_output, "PDF")
+
+print(f"✅ Done! PDF saved as: {pdf_output}")
