@@ -1,3 +1,9 @@
+"""
+Organize HTML files and their associated _files folders into separate directories.
+This script assumes that each HTML file has a corresponding folder named <filename>_files
+which contains related resources (like images, stylesheets, etc.). 
+"""
+
 import os
 import shutil
 
