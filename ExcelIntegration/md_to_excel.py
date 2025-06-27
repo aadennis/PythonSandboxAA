@@ -1,3 +1,7 @@
+'''
+ Convert a Markdown file with vocabulary tables into an Excel file with multiple sheets.
+ See welsh_vocab_builder.md for the expected format.
+'''
 import pandas as pd
 import re
 
