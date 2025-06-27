@@ -1,5 +1,4 @@
 import pandas as pd
-from io import StringIO
 import re
 
 # Load the Markdown file content
