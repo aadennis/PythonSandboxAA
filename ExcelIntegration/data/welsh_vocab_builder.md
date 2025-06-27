@@ -94,16 +94,23 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | I am buying a toy for Megan | Dw i'n prynu tegan i Megan    | /du iːn ˈprɨnɨ ˈtɛɡan i ˈmɛɡan/ |
 | I like yoga                | dw i'n hoffi ioga              | /du iːn ˈhɔfɪ ˈjɔɡa/            |
 | I make coffee              | Dw i'n gwneud coffi            | /du iːn ˈɡʊnɛð ˈkɔfi/           |
+| I don't enjoy watching TV  | Dw i ddim yn mwynhau gwylio TV | /du iː ðɪm ən ˈmʊɨnhaɨ ˈɡʊɨljɔ tiː viː/ |
 | no thanks                  | nac ydw, diolch                | /nak ˈədʊ ˈdiːɔχ/               |
 | very well, thanks          | yn dda iawn, diolch            | /ən ðaː ˈjaʊn ˈdiːɔχ/           |
 | welcome                    | croeso                        | /ˈkrɔɪsɔ/                      |
 | who                        | pwy                           | /pʊɨ/                          |
 | you are a woman            | dych chi'n fenyw              | /dɒχ χiːn ˈvɛnɨu/               |
+| I am learning to make cheese | Dw i'n dysgu gwneud caws     | /du iːn ˈdɪsgɪ ˈɡʊnɛð kaʊs/    |
+| I am walking               | Dw i'n cerdded                | /du iːn ˈkɛrðɛd/               |
+| I like driving             | Dw i'n hoffi gyrru             | /du iːn ˈhɔfɪ ˈɡɪrɨ/            |
+| I learn Welsh              | Dw i'n dysgu Cymraeg           | /du iːn ˈdɪsgɪ kəmˈraɨɡ/        |
+| I like ironing             | Dw i'n hoffi sgwrio            | /du iːn ˈhɔfɪ ˈsgʊrɪɔ/           |
 
 ---
 
 #### 🔍 Duolingo Differences / Variants
 
-| Your Term | Duolingo Variant | Notes                                                                                                                                                |
-| --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Your Term | Duolingo Variant | Notes                                                                                                                |
+| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
 | flinedig  | wedi blino       | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots. |
+| sgwrio    | smwddio          | **sgwrio** means "to iron" clothes specifically; **smwddio** means "to smooth" and can imply ironing but is more general. |
