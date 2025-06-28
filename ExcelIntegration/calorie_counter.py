@@ -2,14 +2,14 @@ import pandas as pd
 import re
 from pathlib import Path
 
-# Use relative path for data I/O
+# File paths
 input_file = Path("data/calorie_data.csv")
 output_file = Path("data/calorie_table_with_codes.xlsx")
 
-# Load data from CSV
+# Load data
 df = pd.read_csv(input_file)
 
-# Helper function to generate base code
+# Generate base codes
 def make_base_code(name):
     cleaned = re.sub(r'[^a-zA-Z0-9 ]', '', name).upper().split()
     if not cleaned:
@@ -18,7 +18,7 @@ def make_base_code(name):
         return (cleaned[0][:4] + "XXXX")[:4]
     return "".join(word[0] for word in cleaned[:4]).ljust(4, "X")
 
-# Generate unique 4-char codes
+# Create unique codes
 code_counts = {}
 codes = []
 
@@ -29,10 +29,21 @@ for item in df["Food Item"]:
     code_counts[base] = count + 1
     codes.append(code)
 
-# Insert the Code column after Food Item
+# Reorder and insert Code column
 df.insert(1, "Code", codes)
+df = df[["Food Item", "Code", "Amount", "Unit", "Calories (kcal)"]]
 
-# Save straight to Excel
-df.to_excel(output_file, index=False)
+# Export to Excel with autofit
+with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
+    df.to_excel(writer, sheet_name="Food Items", index=False)
+    
+    # Autofit columns
+    workbook = writer.book
+    worksheet = writer.sheets["Food Items"]
+    
+    for i, col in enumerate(df.columns):
+        max_len = max(df[col].astype(str).map(len).max(), len(col)) + 2
+        worksheet.set_column(i, i, max_len)
 
-print(f"Data with unique codes exported to Excel: {output_file}")
+print(f"Excel file with autofit columns saved to: {output_file}")
+
