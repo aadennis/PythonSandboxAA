@@ -7,12 +7,18 @@
         "SM1M": 1.5,
         "HONE": 1
     },
-    "Lunch": {
-        "HVSX": 1,
+    "Lunch by Jan - full": {
+        "JVSW": 1,
         "SBXX": 1,
         "BUTT": 1,
-        "NCPS": 1,
+        "NCPX": 1,
         "SM5M": 1,
         "PWXX": 2
+    },
+    "Lunch by Jan - minimal": {
+        "JVSX": 1,
+        "NCPX": 1,
+        "SM5M": 1,
+        "PWXX": 1.5
     }
 }

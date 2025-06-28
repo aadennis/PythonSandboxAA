@@ -76,5 +76,17 @@
         "Amount": 1,
         "Unit": "bowl",
         "Calories (kcal)": 198
+    },
+    {
+        "Food Item": "Jan's vegetable soup with cheese",
+        "Amount": 1,
+        "Unit": "bowl",
+        "Calories (kcal)": 140
+    },
+    {
+        "Food Item": "Jan's vegetable soup",
+        "Amount": 1,
+        "Unit": "bowl",
+        "Calories (kcal)": 80
     }
 ]
