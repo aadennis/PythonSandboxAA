@@ -1,74 +1,80 @@
 [
-  {
-    "Food Item": "Frozen Strawberries",
-    "Amount": 100,
-    "Unit": "g",
-    "Calories (kcal)": 32
-  },
-  {
-    "Food Item": "Frozen Bananas",
-    "Amount": 100,
-    "Unit": "g",
-    "Calories (kcal)": 89
-  },
-  {
-    "Food Item": "Lidl Greek Style Yoghurt (Full Fat)",
-    "Amount": 100,
-    "Unit": "g",
-    "Calories (kcal)": 126
-  },
-  {
-    "Food Item": "Brown Sugar (1 tbsp)",
-    "Amount": 1,
-    "Unit": "tbsp",
-    "Calories (kcal)": 52
-  },
-  {
-    "Food Item": "Semi-skimmed Milk (50 ml)",
-    "Amount": 50,
-    "Unit": "ml",
-    "Calories (kcal)": 25
-  },
-  {
-    "Food Item": "Honey",
-    "Amount": 1,
-    "Unit": "tbsp",
-    "Calories (kcal)": 64
-  },
-  {
-    "Food Item": "Homemade Vegetable Soup",
-    "Amount": 1,
-    "Unit": "bowl",
-    "Calories (kcal)": 100
-  },
-  {
-    "Food Item": "Sourdough Bread",
-    "Amount": 1,
-    "Unit": "slice",
-    "Calories (kcal)": 174
-  },
-  {
-    "Food Item": "Butter",
-    "Amount": 1,
-    "Unit": "tbsp",
-    "Calories (kcal)": 102
-  },
-  {
-    "Food Item": "Nespresso coffee pod",
-    "Amount": 1,
-    "Unit": "pod",
-    "Calories (kcal)": 1
-  },
-  {
-    "Food Item": "Semi-skimmed Milk (100 ml)",
-    "Amount": 100,
-    "Unit": "ml",
-    "Calories (kcal)": 50
-  },
-  {
-    "Food Item": "Polish Wafer",
-    "Amount": 1,
-    "Unit": "wafer",
-    "Calories (kcal)": 49
-  }
+    {
+        "Food Item": "Frozen Strawberries",
+        "Amount": 100,
+        "Unit": "g",
+        "Calories (kcal)": 32
+    },
+    {
+        "Food Item": "Frozen Bananas",
+        "Amount": 100,
+        "Unit": "g",
+        "Calories (kcal)": 89
+    },
+    {
+        "Food Item": "Lidl Greek Style Yoghurt (Full Fat)",
+        "Amount": 100,
+        "Unit": "g",
+        "Calories (kcal)": 126
+    },
+    {
+        "Food Item": "Brown Sugar (1 tbsp)",
+        "Amount": 1,
+        "Unit": "tbsp",
+        "Calories (kcal)": 52
+    },
+    {
+        "Food Item": "Semi-skimmed Milk (50 ml)",
+        "Amount": 50,
+        "Unit": "ml",
+        "Calories (kcal)": 25
+    },
+    {
+        "Food Item": "Honey",
+        "Amount": 1,
+        "Unit": "tbsp",
+        "Calories (kcal)": 64
+    },
+    {
+        "Food Item": "Homemade Vegetable Soup",
+        "Amount": 1,
+        "Unit": "bowl",
+        "Calories (kcal)": 100
+    },
+    {
+        "Food Item": "Sourdough Bread",
+        "Amount": 1,
+        "Unit": "slice",
+        "Calories (kcal)": 174
+    },
+    {
+        "Food Item": "Butter",
+        "Amount": 1,
+        "Unit": "tbsp",
+        "Calories (kcal)": 102
+    },
+    {
+        "Food Item": "Nespresso coffee pod",
+        "Amount": 1,
+        "Unit": "pod",
+        "Calories (kcal)": 1
+    },
+    {
+        "Food Item": "Semi-skimmed Milk (100 ml)",
+        "Amount": 100,
+        "Unit": "ml",
+        "Calories (kcal)": 50
+    },
+    {
+        "Food Item": "Polish Wafer",
+        "Amount": 1,
+        "Unit": "wafer",
+        "Calories (kcal)": 49
+    },
+    {
+        "Food Item": "Tesco Leek, Potato & Cheddar Soup (bowl)",
+        "Amount": 1,
+        "Unit": "bowl",
+        "Calories (kcal)": 198
+    }
 ]

@@ -24,7 +24,7 @@ def make_base_code(name):
 # debug: print base codes
 for item in food_data:
     name = item["Food Item"]
-    print(f"{name:<35} → {make_base_code(name)}")
+    print(f"{name:<45} → {make_base_code(name)}")
 
 # Create unique codes
 code_counts = {}
