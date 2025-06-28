@@ -3,16 +3,14 @@ import re
 import json
 from pathlib import Path
 
-# File paths
-input_file = Path("data/calorie_data.csv")
-output_file = Path("data/calorie_table_with_codes.xlsx")
-
-# Load data
-df = pd.read_csv(input_file)
-
-# Load meal definitions from external JSON
+# data paths in and out
+# in 
 with open("data/meals.json", "r") as f:
     meals = json.load(f)
+with open("data/food_items.json", "r") as f:
+    food_data = json.load(f)
+# out    
+output_file = Path("data/calorie_table_with_codes.xlsx")    
 
 # Generate base codes
 def make_base_code(name):
@@ -26,6 +24,8 @@ def make_base_code(name):
 # Create unique codes
 code_counts = {}
 codes = []
+
+df = pd.DataFrame(food_data)
 
 for item in df["Food Item"]:
     base = make_base_code(item)
