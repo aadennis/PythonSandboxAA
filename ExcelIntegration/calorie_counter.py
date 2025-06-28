@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import json
 from pathlib import Path
 
 # File paths
@@ -8,6 +9,10 @@ output_file = Path("data/calorie_table_with_codes.xlsx")
 
 # Load data
 df = pd.read_csv(input_file)
+
+# Load meal definitions from external JSON
+with open("data/meals.json", "r") as f:
+    meals = json.load(f)
 
 # Generate base codes
 def make_base_code(name):
@@ -54,26 +59,6 @@ with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
     header = workbook.add_format({"bold": True, "font_size": 14})
     subhead = workbook.add_format({"bold": True, "font_size": 12})
     num_fmt = workbook.add_format({"num_format": "0.0"})
-
-    # Meal definitions
-    meals = {
-        "Breakfast": {
-            "FSXX": 1,
-            "FBXX": 1,
-            "LGSY": 1,
-            "BS1T": 1,
-            "SM1M": 1.5,
-            "HONE": 1
-        },
-        "Lunch": {
-            "HVSX": 1,
-            "SBXX": 1,
-            "BUTT": 1,
-            "NCPS": 1,
-            "SM5M": 1,
-            "PLWF": 2
-        }
-    }
 
     # Lookup for food names and kcals
     lookup_df = df.set_index("Code")[["Food Item", "Calories (kcal)"]]

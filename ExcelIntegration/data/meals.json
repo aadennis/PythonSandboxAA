@@ -1,0 +1,18 @@
+{
+  "Breakfast": {
+    "FSXX": 1,
+    "FBXX": 1,
+    "LGSY": 1,
+    "BS1T": 1,
+    "SM1M": 1.5,
+    "HONE": 1
+  },
+  "Lunch": {
+    "HVSX": 1,
+    "SBXX": 1,
+    "BUTT": 1,
+    "NCPS": 1,
+    "SM5M": 1,
+    "PLWF": 2
+  }
+}
