@@ -45,53 +45,67 @@ with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
         max_len = max(df[col].astype(str).map(len).max(), len(col)) + 2
         fooditem_sheet.set_column(i, i, max_len)
 
-    # --- Write Meals Sheet ---
+   # --- Write Meals Sheet ---
     meals_sheet = workbook.add_worksheet("Meals")
     writer.sheets["Meals"] = meals_sheet
 
-    # Format definitions
+    # Formatting
     bold = workbook.add_format({"bold": True})
     header = workbook.add_format({"bold": True, "font_size": 14})
     subhead = workbook.add_format({"bold": True, "font_size": 12})
     num_fmt = workbook.add_format({"num_format": "0.0"})
 
-    # Meal definition
-    meal_def = {
-        "FSXX": 1,
-        "FBXX": 1,
-        "LGSY": 1,
-        "BS1T": 1,
-        "SM1M": 1.5,
-        "HONE": 1
+    # Meal definitions
+    meals = {
+        "Breakfast": {
+            "FSXX": 1,
+            "FBXX": 1,
+            "LGSY": 1,
+            "BS1T": 1,
+            "SM1M": 1.5,
+            "HONE": 1
+        },
+        "Lunch": {
+            "HVSX": 1,
+            "SBXX": 1,
+            "BUTT": 1,
+            "NCPS": 1,
+            "SM5M": 1,
+            "PLWF": 2
+        }
     }
-    meal_name = "Breakfast"
 
-    # Lookup and build meal content
+    # Lookup for food names and kcals
     lookup_df = df.set_index("Code")[["Food Item", "Calories (kcal)"]]
-    meal_rows, total_kcal = [], 0
 
-    for code, count in meal_def.items():
-        item = lookup_df.loc[code, "Food Item"] if code in lookup_df.index else "Not Found"
-        kcal = lookup_df.loc[code, "Calories (kcal)"] if code in lookup_df.index else 0
-        total = kcal * count
-        total_kcal += total
-        meal_rows.append([code, item, count, kcal, total])
+    # Start writing
+    current_row = 0
+    meals_sheet.write(current_row, 0, "Meals", header)
+    current_row += 2  # spacing after header
 
-    # Write content
-    meals_sheet.write("A1", "Meals", header)
-    meals_sheet.write("A3", meal_name, subhead)
-    headers = ["Code", "Food Item", "Count", "Calories per Unit", "Total Calories"]
-    for col, title in enumerate(headers):
-        meals_sheet.write(4, col, title, bold)
+    for meal_name, meal_def in meals.items():
+        meals_sheet.write(current_row, 0, meal_name, subhead)
+        current_row += 1
 
-    for row, data in enumerate(meal_rows, start=5):
-        for col, val in enumerate(data):
-            fmt = num_fmt if isinstance(val, float) else None
-            meals_sheet.write(row, col, val, fmt)
+        headers = ["Code", "Food Item", "Count", "Calories per Unit", "Total Calories"]
+        for col, title in enumerate(headers):
+            meals_sheet.write(current_row, col, title, bold)
+        current_row += 1
 
-    # Write total calories
-    meals_sheet.write(row + 2, 3, "Total:", bold)
-    meals_sheet.write(row + 2, 4, total_kcal, num_fmt)        
+        meal_total = 0
+        for code, count in meal_def.items():
+            item = lookup_df.loc[code, "Food Item"] if code in lookup_df.index else "Not Found"
+            kcal = lookup_df.loc[code, "Calories (kcal)"] if code in lookup_df.index else 0
+            total = kcal * count
+            meal_total += total
+            row_data = [code, item, count, kcal, total]
 
-print(f"Excel file with autofit columns saved to: {output_file}")
+            for col, val in enumerate(row_data):
+                fmt = num_fmt if isinstance(val, float) else None
+                meals_sheet.write(current_row, col, val, fmt)
+            current_row += 1
 
+        # Total per meal
+        meals_sheet.write(current_row + 1, 3, "Total:", bold)
+        meals_sheet.write(current_row + 1, 4, meal_total, num_fmt)
+        current_row += 3  # spacing before next meal
