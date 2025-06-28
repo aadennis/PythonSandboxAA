@@ -21,6 +21,11 @@ def make_base_code(name):
         return (cleaned[0][:4] + "XXXX")[:4]
     return "".join(word[0] for word in cleaned[:4]).ljust(4, "X")
 
+# debug: print base codes
+for item in food_data:
+    name = item["Food Item"]
+    print(f"{name:<35} → {make_base_code(name)}")
+
 # Create unique codes
 code_counts = {}
 codes = []
