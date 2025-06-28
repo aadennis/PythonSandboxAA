@@ -39,11 +39,11 @@ with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
     
     # Autofit columns
     workbook = writer.book
-    worksheet = writer.sheets["Food Items"]
+    fooditem_sheet = writer.sheets["Food Items"]
     
     for i, col in enumerate(df.columns):
         max_len = max(df[col].astype(str).map(len).max(), len(col)) + 2
-        worksheet.set_column(i, i, max_len)
+        fooditem_sheet.set_column(i, i, max_len)
 
     # --- Write Meals Sheet ---
     meals_ws = workbook.add_worksheet("Meals")
