@@ -46,8 +46,8 @@ with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
         fooditem_sheet.set_column(i, i, max_len)
 
     # --- Write Meals Sheet ---
-    meals_ws = workbook.add_worksheet("Meals")
-    writer.sheets["Meals"] = meals_ws
+    meals_sheet = workbook.add_worksheet("Meals")
+    writer.sheets["Meals"] = meals_sheet
 
     # Format definitions
     bold = workbook.add_format({"bold": True})
@@ -78,20 +78,20 @@ with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
         meal_rows.append([code, item, count, kcal, total])
 
     # Write content
-    meals_ws.write("A1", "Meals", header)
-    meals_ws.write("A3", meal_name, subhead)
+    meals_sheet.write("A1", "Meals", header)
+    meals_sheet.write("A3", meal_name, subhead)
     headers = ["Code", "Food Item", "Count", "Calories per Unit", "Total Calories"]
     for col, title in enumerate(headers):
-        meals_ws.write(4, col, title, bold)
+        meals_sheet.write(4, col, title, bold)
 
     for row, data in enumerate(meal_rows, start=5):
         for col, val in enumerate(data):
             fmt = num_fmt if isinstance(val, float) else None
-            meals_ws.write(row, col, val, fmt)
+            meals_sheet.write(row, col, val, fmt)
 
     # Write total calories
-    meals_ws.write(row + 2, 3, "Total:", bold)
-    meals_ws.write(row + 2, 4, total_kcal, num_fmt)        
+    meals_sheet.write(row + 2, 3, "Total:", bold)
+    meals_sheet.write(row + 2, 4, total_kcal, num_fmt)        
 
 print(f"Excel file with autofit columns saved to: {output_file}")
 
