@@ -100,5 +100,11 @@
         "Amount": 1,
         "Unit": "scone",
         "Calories (kcal)": 183
+    },
+    {
+        "Food Item": "Loaded Pizza Slice (¼ 12-inch, thin base)",
+        "Amount": 1,
+        "Unit": "slice",
+        "Calories (kcal)": 325
     }
 ]
