@@ -88,5 +88,17 @@
         "Amount": 1,
         "Unit": "bowl",
         "Calories (kcal)": 80
+    },
+    {
+        "Food Item": "Clotted Cream",
+        "Amount": 1,
+        "Unit": "tbsp",
+        "Calories (kcal)": 80
+    },
+    {
+        "Food Item": "Plain Scone (Medium)",
+        "Amount": 1,
+        "Unit": "scone",
+        "Calories (kcal)": 183
     }
 ]
