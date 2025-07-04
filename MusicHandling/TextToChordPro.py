@@ -90,6 +90,6 @@ if __name__ == "__main__":
         output_file_base="ChordPro/ByeByeLove",
         title="Bye Bye Love",
         artist="Everly Brothers",
-        key="C",
+        key="A",
         tempo=88
     )
