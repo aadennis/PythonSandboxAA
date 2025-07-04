@@ -1,4 +1,4 @@
-from chord_merger import merge_chords_and_lyrics, process_multiline_text
+from TextToChordPro import merge_chords_and_lyrics, process_multiline_text
 
 def test_merge_and_clean():
     chord_line1 = "    Em7         A7        Am         D7"
