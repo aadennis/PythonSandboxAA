@@ -1,5 +1,6 @@
-# This script processes a text file containing chords and lyrics of an 
+# Processes a text file containing chords and lyrics of an 
 # UltimateGuitar format, merging them into a format suitable for SongBookPro.
+# That format is ChordPro, which is a text-based format for chord sheets.
 
 import re
 
@@ -85,10 +86,10 @@ def process_file(input_file, output_file_base, title, artist, key, tempo):
 # Example usage:
 if __name__ == "__main__":
     process_file(
-        input_file="CantHelpFalling.txt",
-        output_file_base="ChordPro/CantHelpFalling",
-        title="Cant Help Falling.txt",
-        artist="Elvis Presley",
+        input_file="ByeByeLove.txt",
+        output_file_base="ChordPro/ByeByeLove",
+        title="Bye Bye Love",
+        artist="Everly Brothers",
         key="C",
         tempo=88
     )
