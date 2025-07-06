@@ -1,3 +1,0 @@
-artist: Everly Brothers
-key: A
-tempo: 88
