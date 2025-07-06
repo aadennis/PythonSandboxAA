@@ -2,6 +2,8 @@
 # UltimateGuitar format, merging them into a format suitable for SongBookPro.
 # That format is ChordPro, which is a text-based format for chord sheets.
 
+import os
+import json
 import re
 
 def merge_chords_and_lyrics(chord_line, lyric_line):
@@ -72,24 +74,35 @@ def to_songbookpro(title, artist, key, tempo, lyrics_lines):
     ]
     return "\n".join(header + lyrics_lines)
 
-def process_file(input_file, output_file_base, title, artist, key, tempo):
+def process_file(input_file):
+    # Read metadata from JSON
     with open(input_file, 'r', encoding='utf-8') as f:
+        metadata = json.load(f)
+
+    title = metadata.get("title", "")
+    artist = metadata.get("artist", "")
+    key = metadata.get("key", "")
+    tempo = metadata.get("tempo", "")
+    output_folder = metadata.get("output_folder", "")
+
+    # Derive lyrics file name
+    base_name = os.path.splitext(os.path.basename(input_file))[0]
+    lyrics_file = os.path.join(os.path.dirname(input_file), f"{base_name}_lyrics.txt")
+
+    # Read lyrics
+    with open(lyrics_file, 'r', encoding='utf-8') as f:
         input_text = f.read()
 
     output_lines = process_multiline_text(input_text)
     songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
 
-    output_file = f"{output_file_base}.chordpro"
+    # Build output file path
+    output_file = os.path.join(output_folder, f"{base_name}.chordpro")
+    os.makedirs(output_folder, exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(songbook_text)
 
 # Example usage:
 if __name__ == "__main__":
-    process_file(
-        input_file="ByeByeLove.txt",
-        output_file_base="ChordPro/ByeByeLove",
-        title="Bye Bye Love",
-        artist="Everly Brothers",
-        key="A",
-        tempo=88
-    )
+    process_file(input_file="MoonRiver.json")
+    
