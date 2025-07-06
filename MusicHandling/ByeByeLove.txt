@@ -2,43 +2,48 @@
 Capo:
 no capo
 
+[Intro]
+
+A      C  D * 2
+
+
 [Chorus]
- 
+
 D       A     D       A          D     A
 Bye bye love, bye bye happiness, hello loneliness
-              E     A
+A             E     A
 I think I'm a gonna cry
 D       A     D       A             D     A
 Bye bye love, bye bye sweet caress, hello emptiness
-            E       A               E         A  A  A
+A           E       A               E         A  
 I feel like I could die, bye bye my love, goodbye
 
+
 [Verse 1]
- 
+
 A             E                 A
 There goes my baby with someone new
-               E                A
+A              E                A
 She sure looks happy, I sure am blue
-           D                    E
+A          D                    E
 She was my baby till he stepped in
            E                       A
 Goodbye to romance that might have been
  
- 
+
 [Chorus]
- 
+
 D       A     D       A          D     A
 Bye bye love, bye bye happiness, hello loneliness
-              E     A
+A             E     A
 I think I'm a gonna cry
 D       A     D       A             D     A
 Bye bye love, bye bye sweet caress, hello emptiness
-            E       A               E         A  A  A
+A           E       A               E         A  
 I feel like I could die, bye bye my love, goodbye
  
- 
 [Verse 2]
- 
+
                  E                         A
 I'm through with romance, I'm through with love
                  E                  A
@@ -48,25 +53,21 @@ And here's the reason that I'm so free
           E                    A
 My lovin' baby is through with me
  
- 
 [Chorus]
- 
+
 D       A     D       A          D     A
 Bye bye love, bye bye happiness, hello loneliness
-              E     A
+A             E     A
 I think I'm a gonna cry
 D       A     D       A             D     A
 Bye bye love, bye bye sweet caress, hello emptiness
-            E       A               E         A  A  A
+A           E       A               E         A  
 I feel like I could die, bye bye my love, goodbye
  
- 
 [Outro]
- 
+
     A      E        A
 Bye bye my love, goodbye
     A      E        A
 Bye bye my love, goodbye
-    A      E        A
-Bye bye my love, goodbye...
 
