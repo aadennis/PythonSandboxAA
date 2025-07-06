@@ -1,5 +1,7 @@
-
- 
+artist:Everly Brothers
+key:A
+tempo:88
+lyrics: 
 C    Am      F            C
 Moon River   wider than a mile 
     F               C          Dm   E7
