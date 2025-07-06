@@ -74,12 +74,19 @@ def to_songbookpro(title, artist, key, tempo, lyrics_lines):
     ]
     return "\n".join(header + lyrics_lines)
 
+def camel_case_to_title(name):
+    # Remove extension, insert space before each uppercase letter (except first)
+    base = os.path.splitext(os.path.basename(name))[0]
+    title = re.sub(r'(?<!^)(?=[A-Z])', ' ', base)
+    return title.strip()
+
 def process_file(input_file):
     # Read metadata from JSON
     with open(input_file, 'r', encoding='utf-8') as f:
         metadata = json.load(f)
 
-    title = metadata.get("title", "")
+    # Derive title from file name if not present in metadata
+    title = camel_case_to_title(input_file)
     artist = metadata.get("artist", "")
     key = metadata.get("key", "")
     tempo = metadata.get("tempo", "")
@@ -105,4 +112,4 @@ def process_file(input_file):
 # Example usage:
 if __name__ == "__main__":
     process_file(input_file="MoonRiver.json")
-    
+
