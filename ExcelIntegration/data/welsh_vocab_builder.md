@@ -31,6 +31,8 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | yoga          | ioga         | /ˈjɔɡa/                         |
 | music         | cerddoriaeth | /kɛrðˈɔrjaɨθ/                   |
 | school        | ysgol        | /ˈəskɔl/                        |
+**END**
+
 
 
 ---
@@ -57,7 +59,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | I iron      | dw i'n sgwrio      | /du iːn ˈsgʊrɪɔ/     |
 | you skip    | dych chi'n sgipio  | /dəχ χiːn ˈsgɪpjɔ/   |
 | I skip      | dw i'n sgipio      | /du iːn ˈsgɪpjɔ/     |
-
+**END**
 ---
 
 #### 🎨 Adjectives
@@ -69,7 +71,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | hungry     | newynog    | /ˈnɛwɨnɔɡ/       |
 | blue       | glas       | /ɡlas/           |
 | interesting| diddorol   | /ˈdɪðɔrɔl/       |
-
+**END**
 ---
 
 #### 📐 Noun Phrases
@@ -81,7 +83,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | an interesting school  | ysgol ddiddorol              | /ˈəskɔl ˈdɪðɔrɔl/                        |
 | the blue toy           | y tegan glas                 | /ə ˈtɛɡan ɡlas/                          |
 | a tired man            | dyn flinedig                 | /dɨːn vlɪˈnɛdɪɡ/ (North) or /dɪn vlɪˈnɛdɪɡ/ (South) |
-
+**END**
 
 ---
 
@@ -96,7 +98,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | however   | serch hynny | /sɛrx ˈhənɨ/  |
 | therefore | felly       | /ˈvɛɬi/       |
 | although  | er bod      | /ɛr boːd/     |
-
+**END**
 
 ---
 
@@ -111,36 +113,43 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | out     | allan | /ˈaɬan/   |
 | with    | gyda  | /ˈɡɨða/   |
 | without | heb   | /hɛb/     |
-
+**END**
 
 ---
 
 #### 🧩 Phrases / Sentences
 
-| English                    | Welsh                           | IPA                              |
-|----------------------------|--------------------------------|---------------------------------|
-| bye                        | hwyl                           | /huɨl/                          |
-| do you like eating raspberries?  | dych chi'n hoffi bwyta mafon?  | /dɒχ χiːn ˈhɔfɪ ˈbɪɨta ˈmaːvɔn/  |
-| don't you like vegetables either?| dych chi ddim yn hoffi llysiau ychwaith? | /dɒχ χiː ðɪm ən ˈhɔfɪ ˈɦɪʃaɪ əˈχwaɨθ/ |
-| fine, all right            | iawn                           | /jaʊn/                          |
-| good morning               | bore da                        | /ˈbɔrɛ da/                      |
-| good night                 | nos da                         | /nɔs da/                        |
-| how are you?               | sut dych chi?                  | /sɨt dɒχ χiː/                   |
-| I am a man                 | dw i'n ddyn                    | /du iːn ðɨːn/                   |
-| I am buying a toy for Megan | Dw i'n prynu tegan i Megan    | /du iːn ˈprɨnɨ ˈtɛɡan i ˈmɛɡan/ |
-| I like yoga                | dw i'n hoffi ioga              | /du iːn ˈhɔfɪ ˈjɔɡa/            |
-| I make coffee              | Dw i'n gwneud coffi            | /du iːn ˈɡʊnɛð ˈkɔfi/           |
-| I don't enjoy watching TV  | Dw i ddim yn mwynhau gwylio TV | /du iː ðɪm ən ˈmʊɨnhaɨ ˈɡʊɨljɔ tiː viː/ |
-| no thanks                  | nac ydw, diolch                | /nak ˈədʊ ˈdiːɔχ/               |
-| very well, thanks          | yn dda iawn, diolch            | /ən ðaː ˈjaʊn ˈdiːɔχ/           |
-| welcome                    | croeso                        | /ˈkrɔɪsɔ/                      |
-| who                        | pwy                           | /pʊɨ/                          |
-| you are a woman            | dych chi'n fenyw              | /dɒχ χiːn ˈvɛnɨu/               |
-| I am learning to make cheese | Dw i'n dysgu gwneud caws     | /du iːn ˈdɪsgɪ ˈɡʊnɛð kaʊs/    |
-| I am walking               | Dw i'n cerdded                | /du iːn ˈkɛrðɛd/               |
-| I like driving             | Dw i'n hoffi gyrru             | /du iːn ˈhɔfɪ ˈɡɪrɨ/            |
-| I learn Welsh              | Dw i'n dysgu Cymraeg           | /du iːn ˈdɪsgɪ kəmˈraɨɡ/        |
-| I like ironing             | Dw i'n hoffi sgwrio            | /du iːn ˈhɔfɪ ˈsgʊrɪɔ/           |
+| English                           | Welsh                            | IPA                                      |
+|-----------------------------------|----------------------------------|------------------------------------------|
+| **🗣️ Greetings**                  |                                  |                                          |
+| bye                               | hwyl                             | /huɨl/                                   |
+| fine, all right                   | iawn                             | /jaʊn/                                   |
+| good morning                      | bore da                          | /ˈbɔrɛ da/                               |
+| good night                        | nos da                           | /nɔs da/                                 |
+| very well, thanks                 | yn dda iawn, diolch              | /ən ðaː ˈjaʊn ˈdiːɔχ/                     |
+| no thanks                         | nac ydw, diolch                  | /nak ˈədʊ ˈdiːɔχ/                         |
+| welcome                           | croeso                           | /ˈkrɔɪsɔ/                                |
+
+| **❓ Questions**                   |                                  |                                          |
+| how are you?                      | sut dych chi?                    | /sɨt dɒχ χiː/                            |
+| do you like eating raspberries?   | dych chi'n hoffi bwyta mafon?   | /dɒχ χiːn ˈhɔfɪ ˈbɪɨta ˈmaːvɔn/          |
+| don't you like vegetables either? | dych chi ddim yn hoffi llysiau ychwaith? | /dɒχ χiː ðɪm ən ˈhɔfɪ ˈɦɪʃaɪ əˈχwaɨθ/ |
+| who                               | pwy                              | /pʊɨ/                                    |
+
+| **🧺 Daily Activities**           |                                  |                                          |
+| I am a man                        | dw i'n ddyn                      | /du iːn ðɨːn/                            |
+| you are a woman                   | dych chi'n fenyw                 | /dɒχ χiːn ˈvɛnɨu/                         |
+| I am buying a toy for Megan       | Dw i'n prynu tegan i Megan       | /du iːn ˈprɨnɨ ˈtɛɡan i ˈmɛɡan/           |
+| I like yoga                       | dw i'n hoffi ioga                | /du iːn ˈhɔfɪ ˈjɔɡa/                      |
+| I make coffee                     | Dw i'n gwneud coffi              | /du iːn ˈɡʊnɛð ˈkɔfi/                     |
+| I don't enjoy watching TV         | Dw i ddim yn mwynhau gwylio TV   | /du iː ðɪm ən ˈmʊɨnhaɨ ˈɡʊɨljɔ tiː viː/   |
+| I am learning to make cheese      | Dw i'n dysgu gwneud caws         | /du iːn ˈdɪsgɪ ˈɡʊnɛð kaʊs/              |
+| I am walking                      | Dw i'n cerdded                   | /du iːn ˈkɛrðɛd/                          |
+| I like driving                    | Dw i'n hoffi gyrru               | /du iːn ˈhɔfɪ ˈɡɪrɨ/                      |
+| I learn Welsh                     | Dw i'n dysgu Cymraeg             | /du iːn ˈdɪsgɪ kəmˈraɨɡ/                  |
+| I like ironing                    | Dw i'n hoffi sgwrio              | /du iːn ˈhɔfɪ ˈsgʊrɪɔ/                    |
+**END**
+
 
 ---
 
