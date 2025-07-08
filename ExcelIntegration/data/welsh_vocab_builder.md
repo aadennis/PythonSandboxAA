@@ -70,6 +70,18 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | blue       | glas       | /ɡlas/           |
 | interesting| diddorol   | /ˈdɪðɔrɔl/       |
 
+---
+
+#### 📐 Noun Phrases
+
+| English                 | Welsh                        | IPA                                      |
+|------------------------|------------------------------|------------------------------------------|
+| a hungry dragon        | draig newynog                | /draɪɡ ˈnɛwɨnɔɡ/                         |
+| the happy girl         | y ferch hapus                | /ə vɛrχ ˈhapɨs/                          |
+| an interesting school  | ysgol ddiddorol              | /ˈəskɔl ˈdɪðɔrɔl/                        |
+| the blue toy           | y tegan glas                 | /ə ˈtɛɡan ɡlas/                          |
+| a tired man            | dyn flinedig                 | /dɨːn vlɪˈnɛdɪɡ/ (North) or /dɪn vlɪˈnɛdɪɡ/ (South) |
+
 
 ---
 
