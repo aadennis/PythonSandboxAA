@@ -4,7 +4,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 ---
 
-#### 🐉 Nouns
+#### 1️⃣ 🐉 Nouns
 
 | English       | Welsh        | IPA                             |
 | ------------- | ------------ | ------------------------------- |
@@ -35,9 +35,10 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 
 
+
 ---
 
-#### ⚖️ Verbs (Present Tense)
+#### 2️⃣ ⚖️ Verbs (Present Tense)
 
 | English     | Welsh              | IPA                  |
 | ----------- | ------------------ | -------------------- |
@@ -62,7 +63,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 **END**
 ---
 
-#### 🎨 Adjectives
+#### 3️⃣ 🎨 Adjectives
 
 | English    | Welsh      | IPA             |
 | ---------- | ---------- | --------------- |
@@ -74,7 +75,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 **END**
 ---
 
-#### 📐 Noun Phrases
+#### 5️⃣ 📐 Noun Phrases
 
 | English                 | Welsh                        | IPA                                      |
 |------------------------|------------------------------|------------------------------------------|
@@ -87,7 +88,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 ---
 
-#### 🔗 Connectors / Conjunctions
+#### 4️⃣ 🔗 Connectors / Conjunctions
 
 | English   | Welsh       | IPA           |
 | --------- | ----------- |---------------|
@@ -102,7 +103,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 ---
 
-#### 📍 Prepositions
+#### 6️⃣ 📍 Prepositions
 
 | English | Welsh | IPA       |
 |--------|--------|-----------|
@@ -117,7 +118,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 ---
 
-#### 🧩 Phrases / Sentences
+#### 7️⃣ 🧩 Phrases / Sentences
 
 | English                           | Welsh                            | IPA                                      |
 |-----------------------------------|----------------------------------|------------------------------------------|
@@ -153,7 +154,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 ---
 
-#### 🔍 Duolingo Differences / Variants
+#### 8️⃣ 🔍 Duolingo Differences / Variants
 
 | Your Term         | Duolingo Variant   | Notes                                                                                                                                                      |
 |-------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
