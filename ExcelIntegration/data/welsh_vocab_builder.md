@@ -160,5 +160,9 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | flinedig          | wedi blino         | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots.      |
 | sgwrio            | smwddio            | "sgwrio" means "to iron" clothes specifically; "smwddio" means "to smooth" and can imply ironing but is more general                                      |
 | dw i’n hoffi      | rwy’n hoffi        | Both mean "I like" — "dw i" is commonly taught in spoken Welsh courses, while "rwy’n" appears in more formal or literary contexts including Duolingo.      |
-| coffi             | paned              | Both refer to coffee, but "coffi" means the substance itself; "paned" literally means "a cuppa" or "a cup (of drink)", often used conversationally.         |
+| coffi             | paned              | "coffi" is the drink itself; "paned" means "a cuppa" or "a cup of [drink]", often used conversationally.                                                   |
+| merch             | geneth             | Both mean "girl" — "merch" is more common in South Wales, while "geneth" is used more frequently in Northern dialects.                                     |
+| llefrith          | llaeth             | Both mean "milk" — "llefrith" is preferred in North Wales, while "llaeth" dominates in the South. Some North Walians associate "llaeth" with buttermilk.   |
+| rwan              | nawr               | Both mean "now" — "rwan" is more common in spoken North Welsh; "nawr" is standard and used in signage and formal writing across Wales.                     |
+| allan             | mas                | Both mean "out" — "allan" is used formally and in North Wales; "mas" is informal and more common in South Wales.                                           |
 **END**
