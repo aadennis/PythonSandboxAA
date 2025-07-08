@@ -6,29 +6,32 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### 🐉 Nouns
 
-| English       | Welsh      | IPA                             |
-| ------------- | ---------- | ------------------------------- |
-| breakfast     | brecwast   | /ˈbrɛkʊst/                      |
-| butter        | menyn      | /ˈmɛnɨn/                        |
-| cheese        | caws       | /kaʊs/                          |
-| coffee        | coffi      | /ˈkɔfi/                         |
-| dinner/supper | swper      | /ˈsɪʊpɛr/                       |
-| dragon        | draig      | /draɪɡ/                         |
-| girl          | merch      | /mɛrχ/                          |
-| lunch         | cinio      | /ˈkɪnjo/                        |
-| man           | dyn        | /dɨːn/ (North) or /dɪn/ (South) |
-| oranges       | orennau    | /ɔˈrɛnai/                       |
-| raspberries   | mafon      | /ˈmaːvɔn/                       |
-| strawberry    | mefusen    | /mɛˈvɪsɛn/                      |
-| strawberries  | mefus      | /ˈmɛvɪs/                        |
-| tea           | te         | /te/                            |
-| the afternoon | y prynhawn | /ə prənˈhaʊn/                   |
-| toy           | tegan      | /ˈtɛɡan/                        |
-| toys          | teganau    | /ˈtɛɡanai/                      |
-| vegetable     | llysieuyn  | /ɬəˈʃəɨɨn/                      |
-| vegetables    | llysiau    | /ˈɦɪʃaɪ/                        |
-| woman         | menyw      | /ˈmɛnɨu/ or /ˈmɛnɪw/            |
-| yoga          | ioga       | /ˈjɔɡa/                         |
+| English       | Welsh        | IPA                             |
+| ------------- | ------------ | ------------------------------- |
+| breakfast     | brecwast     | /ˈbrɛkʊst/                      |
+| butter        | menyn        | /ˈmɛnɨn/                        |
+| cheese        | caws         | /kaʊs/                          |
+| coffee        | coffi        | /ˈkɔfi/                         |
+| dinner/supper | swper        | /ˈsɪʊpɛr/                       |
+| dragon        | draig        | /draɪɡ/                         |
+| girl          | merch        | /mɛrχ/                          |
+| lunch         | cinio        | /ˈkɪnjo/                        |
+| man           | dyn          | /dɨːn/ (North) or /dɪn/ (South) |
+| oranges       | orennau      | /ɔˈrɛnai/                       |
+| raspberries   | mafon        | /ˈmaːvɔn/                       |
+| strawberry    | mefusen      | /mɛˈvɪsɛn/                      |
+| strawberries  | mefus        | /ˈmɛvɪs/                        |
+| tea           | te           | /te/                            |
+| the afternoon | y prynhawn   | /ə prənˈhaʊn/                   |
+| toy           | tegan        | /ˈtɛɡan/                        |
+| toys          | teganau      | /ˈtɛɡanai/                      |
+| vegetable     | llysieuyn    | /ɬəˈʃəɨɨn/                      |
+| vegetables    | llysiau      | /ˈɦɪʃaɪ/                        |
+| woman         | menyw        | /ˈmɛnɨu/ or /ˈmɛnɪw/            |
+| yoga          | ioga         | /ˈjɔɡa/                         |
+| music         | cerddoriaeth | /kɛrðˈɔrjaɨθ/                   |
+| school        | ysgol        | /ˈəskɔl/                        |
+
 
 ---
 
