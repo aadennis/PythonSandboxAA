@@ -1,8 +1,4 @@
-### Welsh Vocabulary Builder (Duolingo-based)
 
-Organized by part of speech. All second-person singular forms use the polite "dych chi". IPA included for pronunciation.
-
----
 
 #### 1️⃣ 🐉 Nouns
 
@@ -33,11 +29,6 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | school        | ysgol        | /ˈəskɔl/                        |
 **END**
 
-
-
-
----
-
 #### 2️⃣ ⚖️ Verbs (Present Tense)
 
 | English     | Welsh              | IPA                  |
@@ -59,34 +50,20 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | I swim      | dw i'n nofio       | /du iːn ˈnɔvjɔ/      |
 | I iron      | dw i'n sgwrio      | /du iːn ˈsgʊrɪɔ/     |
 | you skip    | dych chi'n sgipio  | /dəχ χiːn ˈsgɪpjɔ/   |
-| I skip      | dw i'n sgipio      | /du iːn ˈsgɪpjɔ/     |
 **END**
----
+
+
 
 #### 3️⃣ 🎨 Adjectives
 
 | English    | Welsh      | IPA             |
 | ---------- | ---------- | --------------- |
 | tired      | flinedig   | /vlɪˈnɛdɪɡ/     |
-| happy      | hapus      | /ˈhapɨs/         |
-| hungry     | newynog    | /ˈnɛwɨnɔɡ/       |
-| blue       | glas       | /ɡlas/           |
-| interesting| diddorol   | /ˈdɪðɔrɔl/       |
+| happy      | hapus      | /ˈhapɨs/        |
+| hungry     | newynog    | /ˈnɛwɨnɔɡ/      |
+| blue       | glas       | /ɡlas/          |
+| interesting| diddorol   | /ˈdɪðɔrɔl/      |
 **END**
----
-
-#### 5️⃣ 📐 Noun Phrases
-
-| English                 | Welsh                        | IPA                                      |
-|------------------------|------------------------------|------------------------------------------|
-| a hungry dragon        | draig newynog                | /draɪɡ ˈnɛwɨnɔɡ/                         |
-| the happy girl         | y ferch hapus                | /ə vɛrχ ˈhapɨs/                          |
-| an interesting school  | ysgol ddiddorol              | /ˈəskɔl ˈdɪðɔrɔl/                        |
-| the blue toy           | y tegan glas                 | /ə ˈtɛɡan ɡlas/                          |
-| a tired man            | dyn flinedig                 | /dɨːn vlɪˈnɛdɪɡ/ (North) or /dɪn vlɪˈnɛdɪɡ/ (South) |
-**END**
-
----
 
 #### 4️⃣ 🔗 Connectors / Conjunctions
 
@@ -101,22 +78,32 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | although  | er bod      | /ɛr boːd/     |
 **END**
 
----
+#### 5️⃣ 📐 Noun Phrases
+
+| English                 | Welsh                        | IPA                                      |
+|------------------------|------------------------------|------------------------------------------|
+| a hungry dragon        | draig newynog                | /draɪɡ ˈnɛwɨnɔɡ/                         |
+| the happy girl         | y ferch hapus                | /ə vɛrχ ˈhapɨs/                          |
+| an interesting school  | ysgol ddiddorol              | /ˈəskɔl ˈdɪðɔrɔl/                        |
+| the blue toy           | y tegan glas                 | /ə ˈtɛɡan ɡlas/                          |
+| a tired man            | dyn flinedig                 | /dɨːn vlɪˈnɛdɪɡ/ (North) or /dɪn vlɪˈnɛdɪɡ/ (South) |
+**END**
 
 #### 6️⃣ 📍 Prepositions
 
-| English | Welsh | IPA       |
-|--------|--------|-----------|
-| for     | ar    | /ar/      |
-| here    | yma   | /ˈəma/    |
-| in      | yn    | /ən/      |
-| where   | ble   | /blɛ/     |
-| out     | allan | /ˈaɬan/   |
-| with    | gyda  | /ˈɡɨða/   |
-| without | heb   | /hɛb/     |
+| English | Welsh  | IPA       |
+|---------|--------|-----------|
+| for     | ar     | /ar/      |
+| here    | yma    | /ˈəma/    |
+| in      | yn     | /ən/      |
+| where   | ble    | /blɛ/     |
+| out     | allan  | /ˈaɬan/   |
+| with    | gyda   | /ˈɡɨða/   |
+| without | heb    | /hɛb/     |
 **END**
 
----
+##### **END BLOCK 2**
+##### 📦 Block 3 of ?
 
 #### 7️⃣ 🧩 Phrases / Sentences
 
@@ -149,10 +136,10 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | I like driving                    | Dw i'n hoffi gyrru               | /du iːn ˈhɔfɪ ˈɡɪrɨ/                      |
 | I learn Welsh                     | Dw i'n dysgu Cymraeg             | /du iːn ˈdɪsgɪ kəmˈraɨɡ/                  |
 | I like ironing                    | Dw i'n hoffi sgwrio              | /du iːn ˈhɔfɪ ˈsgʊrɪɔ/                    |
+| you love Megan *(familiar)*       | wyt ti’n caru Megan              | /ʊɨt tiːn ˈkarɨ ˈmɛɡan/                   |
 **END**
 
 
----
 
 #### 8️⃣ 🔍 Duolingo Differences / Variants
 
@@ -167,3 +154,5 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | rwan              | nawr               | Both mean "now" — "rwan" is more common in spoken North Welsh; "nawr" is standard and used in signage and formal writing across Wales.                     |
 | allan             | mas                | Both mean "out" — "allan" is used formally and in North Wales; "mas" is informal and more common in South Wales.                                           |
 **END**
+
+
