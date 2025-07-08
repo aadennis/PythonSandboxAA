@@ -11,7 +11,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | breakfast     | brecwast   | /ˈbrɛkʊst/                      |
 | butter        | menyn      | /ˈmɛnɨn/                        |
 | cheese        | caws       | /kaʊs/                          |
-| coffee        | coffi      | /ˈkɔfi/                        |
+| coffee        | coffi      | /ˈkɔfi/                         |
 | dinner/supper | swper      | /ˈsɪʊpɛr/                       |
 | dragon        | draig      | /draɪɡ/                         |
 | girl          | merch      | /mɛrχ/                          |
@@ -21,7 +21,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | raspberries   | mafon      | /ˈmaːvɔn/                       |
 | strawberry    | mefusen    | /mɛˈvɪsɛn/                      |
 | strawberries  | mefus      | /ˈmɛvɪs/                        |
-| tea           | te         | /te/                           |
+| tea           | te         | /te/                            |
 | the afternoon | y prynhawn | /ə prənˈhaʊn/                   |
 | toy           | tegan      | /ˈtɛɡan/                        |
 | toys          | teganau    | /ˈtɛɡanai/                      |
@@ -37,15 +37,21 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 | English     | Welsh            | IPA                |
 | ----------- | ---------------- | ------------------ |
 | I am        | dw i             | /du iː/            |
-| I am going  | dw i'n mynd      | /du iːn mɨnd/      |
 | I am tired  | dw i'n flinedig  | /du iːn vlɪˈnɛdɪɡ/ |
-| I enjoy     | dw i'n mwynhau   | /du iːn ˈmʊɨnhaɨ/  |
 | I like      | dw i'n hoffi     | /du iːn ˈhɔfɪ/     |
 | do you like | dych chi'n hoffi | /dəχ χiːn ˈhɔfɪ/   |
 | to buy      | prynu            | /ˈprɨnɨ/           |
 | to eat      | bwyta            | /ˈbɪɨta/           |
 | to watch    | gwylio           | /ˈɡʊɨljɔ/          |
 | you are     | dych chi         | /dɒχ χiː/          |
+| I enjoy     | dw i'n mwynhau   | /du iːn ˈmʊɨnhaɨ/  |
+| I make      | dw i'n gwneud    | /du iːn ˈɡʊnɛð/    |
+| I walk      | dw i'n cerdded   | /du iːn ˈkɛrðɛd/   |
+| I drive     | dw i'n gyrru     | /du iːn ˈɡɪrɨ/     |
+| I learn     | dw i'n dysgu     | /du iːn ˈdɪsgɪ/    |
+| I live      | dw i'n byw       | /du iːn bɨu̯/      |
+| I swim      | dw i'n nofio     | /du iːn ˈnɔvjɔ/    |
+| I iron      | dw i'n sgwrio    | /du iːn ˈsgʊrɪɔ/   |
 
 ---
 
@@ -110,7 +116,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### 🔍 Duolingo Differences / Variants
 
-| Your Term | Duolingo Variant | Notes                                                                                                                |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Your Term | Duolingo Variant | Notes                                                                                                                                                |
+| --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | flinedig  | wedi blino       | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots. |
-| sgwrio    | smwddio          | **sgwrio** means "to iron" clothes specifically; **smwddio** means "to smooth" and can imply ironing but is more general. |
+| sgwrio    | smwddio          | "sgwrio" means "to iron" clothes specifically; "smwddio" means "to smooth" and can imply ironing but is more general                                 |
