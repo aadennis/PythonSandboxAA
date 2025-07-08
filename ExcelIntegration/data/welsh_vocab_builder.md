@@ -37,32 +37,39 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### ⚖️ Verbs (Present Tense)
 
-| English     | Welsh            | IPA                |
-| ----------- | ---------------- | ------------------ |
-| I am        | dw i             | /du iː/            |
-| I am tired  | dw i'n flinedig  | /du iːn vlɪˈnɛdɪɡ/ |
-| I like      | dw i'n hoffi     | /du iːn ˈhɔfɪ/     |
-| do you like | dych chi'n hoffi | /dəχ χiːn ˈhɔfɪ/   |
-| to buy      | prynu            | /ˈprɨnɨ/           |
-| to eat      | bwyta            | /ˈbɪɨta/           |
-| to watch    | gwylio           | /ˈɡʊɨljɔ/          |
-| you are     | dych chi         | /dɒχ χiː/          |
-| I enjoy     | dw i'n mwynhau   | /du iːn ˈmʊɨnhaɨ/  |
-| I make      | dw i'n gwneud    | /du iːn ˈɡʊnɛð/    |
-| I walk      | dw i'n cerdded   | /du iːn ˈkɛrðɛd/   |
-| I drive     | dw i'n gyrru     | /du iːn ˈɡɪrɨ/     |
-| I learn     | dw i'n dysgu     | /du iːn ˈdɪsgɪ/    |
-| I live      | dw i'n byw       | /du iːn bɨu̯/      |
-| I swim      | dw i'n nofio     | /du iːn ˈnɔvjɔ/    |
-| I iron      | dw i'n sgwrio    | /du iːn ˈsgʊrɪɔ/   |
+| English     | Welsh              | IPA                  |
+| ----------- | ------------------ | -------------------- |
+| I am        | dw i               | /du iː/              |
+| I am tired  | dw i'n flinedig    | /du iːn vlɪˈnɛdɪɡ/   |
+| I like      | dw i'n hoffi       | /du iːn ˈhɔfɪ/       |
+| do you like | dych chi'n hoffi   | /dəχ χiːn ˈhɔfɪ/     |
+| to buy      | prynu              | /ˈprɨnɨ/             |
+| to eat      | bwyta              | /ˈbɪɨta/             |
+| to watch    | gwylio             | /ˈɡʊɨljɔ/            |
+| you are     | dych chi           | /dɒχ χiː/            |
+| I enjoy     | dw i'n mwynhau     | /du iːn ˈmʊɨnhaɨ/    |
+| I make      | dw i'n gwneud      | /du iːn ˈɡʊnɛð/      |
+| I walk      | dw i'n cerdded     | /du iːn ˈkɛrðɛd/     |
+| I drive     | dw i'n gyrru       | /du iːn ˈɡɪrɨ/       |
+| I learn     | dw i'n dysgu       | /du iːn ˈdɪsgɪ/      |
+| I live      | dw i'n byw         | /du iːn bɨu̯/        |
+| I swim      | dw i'n nofio       | /du iːn ˈnɔvjɔ/      |
+| I iron      | dw i'n sgwrio      | /du iːn ˈsgʊrɪɔ/     |
+| you skip    | dych chi'n sgipio  | /dəχ χiːn ˈsgɪpjɔ/   |
+| I skip      | dw i'n sgipio      | /du iːn ˈsgɪpjɔ/     |
 
 ---
 
 #### 🎨 Adjectives
 
-| English | Welsh    | IPA         |
-| ------- | -------- | ----------- |
-| tired   | flinedig | /vlɪˈnɛdɪɡ/ |
+| English    | Welsh      | IPA             |
+| ---------- | ---------- | --------------- |
+| tired      | flinedig   | /vlɪˈnɛdɪɡ/     |
+| happy      | hapus      | /ˈhapɨs/         |
+| hungry     | newynog    | /ˈnɛwɨnɔɡ/       |
+| blue       | glas       | /ɡlas/           |
+| interesting| diddorol   | /ˈdɪðɔrɔl/       |
+
 
 ---
 
