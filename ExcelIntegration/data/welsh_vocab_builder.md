@@ -155,8 +155,10 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### 🔍 Duolingo Differences / Variants
 
-| Your Term | Duolingo Variant | Notes                                                                                                                                                |
-|-----------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| flinedig  | wedi blino       | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots. |
-| sgwrio    | smwddio          | "sgwrio" means "to iron" clothes specifically; "smwddio" means "to smooth" and can imply ironing but is more general                                 |
+| Your Term         | Duolingo Variant   | Notes                                                                                                                                                      |
+|-------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| flinedig          | wedi blino         | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots.      |
+| sgwrio            | smwddio            | "sgwrio" means "to iron" clothes specifically; "smwddio" means "to smooth" and can imply ironing but is more general                                      |
+| dw i’n hoffi      | rwy’n hoffi        | Both mean "I like" — "dw i" is commonly taught in spoken Welsh courses, while "rwy’n" appears in more formal or literary contexts including Duolingo.      |
+| coffi             | paned              | Both refer to coffee, but "coffi" means the substance itself; "paned" literally means "a cuppa" or "a cup (of drink)", often used conversationally.         |
 **END**
