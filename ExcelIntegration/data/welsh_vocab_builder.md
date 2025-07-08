@@ -1,5 +1,4 @@
-
-
+# Welsh Vocabulary Builder
 #### 1️⃣ 🐉 Nouns
 
 | English       | Welsh        | IPA                             |
@@ -52,8 +51,6 @@
 | you skip    | dych chi'n sgipio  | /dəχ χiːn ˈsgɪpjɔ/   |
 **END**
 
-
-
 #### 3️⃣ 🎨 Adjectives
 
 | English    | Welsh      | IPA             |
@@ -78,6 +75,7 @@
 | although  | er bod      | /ɛr boːd/     |
 **END**
 
+
 #### 5️⃣ 📐 Noun Phrases
 
 | English                 | Welsh                        | IPA                                      |
@@ -101,9 +99,6 @@
 | with    | gyda   | /ˈɡɨða/   |
 | without | heb    | /hɛb/     |
 **END**
-
-##### **END BLOCK 2**
-##### 📦 Block 3 of ?
 
 #### 7️⃣ 🧩 Phrases / Sentences
 
@@ -139,8 +134,6 @@
 | you love Megan *(familiar)*       | wyt ti’n caru Megan              | /ʊɨt tiːn ˈkarɨ ˈmɛɡan/                   |
 **END**
 
-
-
 #### 8️⃣ 🔍 Duolingo Differences / Variants
 
 | Your Term         | Duolingo Variant   | Notes                                                                                                                                                      |
@@ -155,4 +148,4 @@
 | allan             | mas                | Both mean "out" — "allan" is used formally and in North Wales; "mas" is informal and more common in South Wales.                                           |
 **END**
 
-
+##### **END BLOCK 2**
