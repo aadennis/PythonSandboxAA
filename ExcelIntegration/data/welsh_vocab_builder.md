@@ -102,12 +102,16 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### 📍 Prepositions
 
-| English | Welsh | IPA   |
-|---------|-------|-------|
-| for     | ar    | /ar/  |
-| here    | yma   | /ˈəma/|
-| in      | yn    | /ən/  |
-| where   | ble   | /blɛ/ |
+| English | Welsh | IPA       |
+|--------|--------|-----------|
+| for     | ar    | /ar/      |
+| here    | yma   | /ˈəma/    |
+| in      | yn    | /ən/      |
+| where   | ble   | /blɛ/     |
+| out     | allan | /ˈaɬan/   |
+| with    | gyda  | /ˈɡɨða/   |
+| without | heb   | /hɛb/     |
+
 
 ---
 
