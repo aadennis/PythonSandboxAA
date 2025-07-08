@@ -156,6 +156,7 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 #### 🔍 Duolingo Differences / Variants
 
 | Your Term | Duolingo Variant | Notes                                                                                                                                                |
-| --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | flinedig  | wedi blino       | "flinedig" is an adjective; "wedi blino" is a verb phrase meaning "have tired". Both translate as "tired" but come from different grammatical roots. |
 | sgwrio    | smwddio          | "sgwrio" means "to iron" clothes specifically; "smwddio" means "to smooth" and can imply ironing but is more general                                 |
+**END**
