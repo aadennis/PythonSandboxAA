@@ -87,12 +87,16 @@ Organized by part of speech. All second-person singular forms use the polite "dy
 
 #### 🔗 Connectors / Conjunctions
 
-| English   | Welsh  | IPA    |
-| --------- | ------ | ------ |
-| and       | a      | /a/    |
-| as well   | hefyd  | /həɨvð/|
-| but       | ond    | /ɔnd/  |
-| or        | neu    | /nɛɨ/  |
+| English   | Welsh       | IPA           |
+| --------- | ----------- |---------------|
+| and       | a           | /a/           |
+| as well   | hefyd       | /həɨvð/       |
+| but       | ond         | /ɔnd/         |
+| or        | neu         | /nɛɨ/         |
+| however   | serch hynny | /sɛrx ˈhənɨ/  |
+| therefore | felly       | /ˈvɛɬi/       |
+| although  | er bod      | /ɛr boːd/     |
+
 
 ---
 
