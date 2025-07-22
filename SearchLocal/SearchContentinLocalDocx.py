@@ -58,7 +58,7 @@ def find_docx_files(folder: str) -> List[str]:
     docx_files: List[str] = []
     for root, _, files in os.walk(folder):
         for file in files:
-            if file.lower().endswith('.docx'):
+            if file.lower().endswith(('.docx', '.docm')):
                 docx_files.append(os.path.join(root, file))
     return docx_files
 
