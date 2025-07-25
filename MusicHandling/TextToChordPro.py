@@ -119,7 +119,53 @@ def process_file(song):
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(songbook_text)
 
+def process_all_songs():
+    lyrics_folder = 'RawLyricsIn'
+    instructions_folder = 'Instructions'
+    output_folder_default = 'ChordPro'
+
+    for filename in os.listdir(lyrics_folder):
+        if filename.endswith('.txt'):
+            song = os.path.splitext(filename)[0]
+            instructions_path = os.path.join(instructions_folder, f"{song}.json")
+            lyrics_file = os.path.join(lyrics_folder, filename)
+
+            # If JSON does not exist, create it with default values
+            if not os.path.exists(instructions_path):
+                default_metadata = {
+                    "artist": "unknown",
+                    "key": "C",
+                    "tempo": 88,
+                    "output_folder": output_folder_default
+                }
+                with open(instructions_path, 'w', encoding='utf-8') as f:
+                    json.dump(default_metadata, f, indent=2)
+
+            # Read metadata from JSON
+            with open(instructions_path, 'r', encoding='utf-8') as f:
+                metadata = json.load(f)
+
+            title = metadata.get("title") or camel_case_to_title(song)
+            artist = metadata.get("artist", "")
+            key = metadata.get("key", "")
+            tempo = metadata.get("tempo", "")
+            output_folder = metadata.get("output_folder", output_folder_default)
+
+            # Read lyrics
+            with open(lyrics_file, 'r', encoding='utf-8') as f:
+                input_text = f.read()
+
+            output_lines = process_multiline_text(input_text)
+            songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
+
+            # Build output file path
+            output_file = os.path.join(output_folder, f"{song}.chordpro")
+            os.makedirs(output_folder, exist_ok=True)
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(songbook_text)
+
 # Example usage:
 if __name__ == "__main__":
-    process_file(song="IWantToHoldYourHand")
+    #process_file(song="IWantToHoldYourHand")
+    process_all_songs()
 
