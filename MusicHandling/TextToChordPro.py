@@ -80,21 +80,23 @@ def camel_case_to_title(name):
     title = re.sub(r'(?<!^)(?=[A-Z])', ' ', base)
     return title.strip()
 
-def process_file(input_file):
+def process_file(song):
     # Read metadata from JSON
-    with open(input_file, 'r', encoding='utf-8') as f:
+    instructions_file = os.path.join('Instructions', song) + '.json'
+    with open(instructions_file, 'r', encoding='utf-8') as f:
         metadata = json.load(f)
 
     # Derive title from file name if not present in metadata
-    title = camel_case_to_title(input_file)
+    title = camel_case_to_title(instructions_file)
     artist = metadata.get("artist", "")
     key = metadata.get("key", "")
     tempo = metadata.get("tempo", "")
     output_folder = metadata.get("output_folder", "")
 
     # Derive lyrics file name
-    base_name = os.path.splitext(os.path.basename(input_file))[0]
-    lyrics_file = os.path.join(os.path.dirname(input_file), f"{base_name}_lyrics.txt")
+    lyrics_file = os.path.join('RawLyricsIn', song) + '.txt'
+    #lyrics_file = os.path.join(os.path.dirname(instructions_file), f"{base_name}_lyrics.txt")
+
 
     # Read lyrics
     with open(lyrics_file, 'r', encoding='utf-8') as f:
@@ -104,12 +106,12 @@ def process_file(input_file):
     songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
 
     # Build output file path
-    output_file = os.path.join(output_folder, f"{base_name}.chordpro")
+    output_file = os.path.join(output_folder, f"{song}.chordpro")
     os.makedirs(output_folder, exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(songbook_text)
 
 # Example usage:
 if __name__ == "__main__":
-    process_file(input_file="SongTextIn/IWantToHoldYourHand.json")
+    process_file(song="IWanttoholdYourHand")
 
