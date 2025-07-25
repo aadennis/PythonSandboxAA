@@ -81,22 +81,30 @@ def camel_case_to_title(name):
     return title.strip()
 
 def process_file(song):
+    instructions_path = os.path.join('Instructions', f"{song}.json")
+    lyrics_file = os.path.join('RawLyricsIn', f"{song}.txt")
+
+    # If JSON does not exist, create it with default values
+    if not os.path.exists(instructions_path):
+        default_metadata = {
+            "artist": "unknown",
+            "key": "C",
+            "tempo": 88,
+            "output_folder": "ChordPro"
+        }
+
+        with open(instructions_path, 'w', encoding='utf-8') as f:
+            json.dump(default_metadata, f, indent=2)
+
     # Read metadata from JSON
-    instructions_file = os.path.join('Instructions', song) + '.json'
-    with open(instructions_file, 'r', encoding='utf-8') as f:
+    with open(instructions_path, 'r', encoding='utf-8') as f:
         metadata = json.load(f)
 
-    # Derive title from file name if not present in metadata
-    title = camel_case_to_title(instructions_file)
+    title = metadata.get("title") or camel_case_to_title(song)
     artist = metadata.get("artist", "")
     key = metadata.get("key", "")
     tempo = metadata.get("tempo", "")
     output_folder = metadata.get("output_folder", "")
-
-    # Derive lyrics file name
-    lyrics_file = os.path.join('RawLyricsIn', song) + '.txt'
-    #lyrics_file = os.path.join(os.path.dirname(instructions_file), f"{base_name}_lyrics.txt")
-
 
     # Read lyrics
     with open(lyrics_file, 'r', encoding='utf-8') as f:
@@ -113,5 +121,5 @@ def process_file(song):
 
 # Example usage:
 if __name__ == "__main__":
-    process_file(song="IWanttoholdYourHand")
+    process_file(song="IWantToHoldYourHand")
 
