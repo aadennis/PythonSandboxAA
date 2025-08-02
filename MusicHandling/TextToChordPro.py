@@ -41,6 +41,12 @@ def process_multiline_text(input_text):
 
     while i < len(lines):
         line = lines[i].strip()
+        # Convert [Verse 1], [Verse 2], etc. to {Verse}
+        if re.match(r"\[Verse\s*\d+\]", line, re.IGNORECASE):
+            output_lines.append("{Verse}")
+            i += 1
+            continue
+
         if not line:
             output_lines.append("")
             i += 1
@@ -166,6 +172,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    #process_file(song="IWantToHoldYourHand")
+    #process_file(song="CantBuyMeLove")
     process_all_songs()
 
