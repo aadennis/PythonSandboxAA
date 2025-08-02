@@ -3,8 +3,7 @@
 {key: G}
 {tempo: 88}
 
-[Verse 1]
-
+{Verse}
 [G]I thought love was [D]only true in [G]fairy tales
 [G]Meant for someone [D]else but not for [G]me.
 [C]Love was out to [G]get me
@@ -12,8 +11,7 @@
 [C]Disappointment [G]haunted all my [D]dreams.[N.C.]
 
 
-[Chorus]
-
+{Chorus}
 Then I saw her [G]face[C], [G]
 now [C]I'm a be[G]liever[C] [G]
 [C]Not a [G]trace [C] [G]
@@ -22,8 +20,7 @@ of [C]doubt in my [G]mind.[C] [G]
 I'm a be[G]liever! I couldn't [F]leave her if I [D]tried.
 
 
-[Verse 2]
-
+{Verse}
 [G]I thought love was [D]more or less a [G]given thing,
 [G]Seems the more I [D]gave the less I [G]got.
 [C]What's the use in [G]tryin'?
@@ -31,8 +28,7 @@ I'm a be[G]liever! I couldn't [F]leave her if I [D]tried.
 [C]When I needed [G]sunshine I got [D]rain. [N.C.]
 
 
-[Chorus]
-
+{Chorus}
 Then I saw her [G]face[C], [G]
 now [C]I'm a be[G]liever[C]. [G]
 [C]Not a [G]trace [C] [G]
@@ -46,15 +42,13 @@ I'm a be[G]liever! I couldn't [F]leave her if I [D]tried.
 [|]| [G]G [|]| [D]D [|]| [G]G [|]| [G]G [|]|
 
 
-[Verse 3]
-
+{Verse}
 [C]Love was out to [G]get me.
 [C]That's the way it [G]seemed.
 [C]Disappointment [G]haunted all my [D]dreams.[N.C.]
 
 
-[Chorus]
-
+{Chorus}
 Then I saw her [G]face[C], [G]
 now [C]I'm a be[G]liever[C]. [G]
 [C]Not a [G]trace [C] [G]
@@ -63,8 +57,7 @@ of [C]doubt in my [G]mind.[C] [G]
 I'm a be[G]liever! I couldn't [F]leave her if I [D]tried.
 
 
-[Outro]
-
+{Outro}
 Yes, I saw her [G]face[C], [G]
 now [C]I'm a be[G]liever[C] [G]
 [C]Not a [G]trace [C] [G]
