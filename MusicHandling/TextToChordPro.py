@@ -67,6 +67,9 @@ def process_multiline_text(input_text):
             if replacement:
                 output_lines.append(replacement)
                 i += 1
+                # Suppress a blank line immediately after a section header
+                if i < len(lines) and lines[i].strip() == "":
+                    i += 1
                 break
         else:
             if not line:
