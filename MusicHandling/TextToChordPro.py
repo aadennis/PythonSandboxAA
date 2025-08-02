@@ -36,11 +36,11 @@ def clean_spacing(line):
 
 def match_and_replace_section(line, section_name, numbered=False):
     """
-    Checks if the line matches a section header like [Chorus], [Intro], [Verse 1], etc.
+    Checks if the line matches a section header like [Chorus], [Intro], [Verse], [Verse 1], etc.
     Returns the replacement string (e.g., "{Chorus}") if matched, else None.
     """
     if numbered:
-        pattern = rf"\[{section_name}\s*\d+\]"
+        pattern = rf"\[{section_name}(?:\s*\d+)?\]"
     else:
         pattern = rf"\[{section_name}\]"
     if re.match(pattern, line, re.IGNORECASE):
