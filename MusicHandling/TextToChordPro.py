@@ -34,6 +34,19 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
 def clean_spacing(line):
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
+def match_and_replace_section(line, section_name, output_name=None, numbered=False):
+    """
+    Checks if the line matches a section header like [Chorus], [Intro], [Verse 1], etc.
+    Returns the replacement string (e.g., "{Chorus}") if matched, else None.
+    """
+    if numbered:
+        pattern = rf"\[{section_name}\s*\d+\]"
+    else:
+        pattern = rf"\[{section_name}\]"
+    if re.match(pattern, line, re.IGNORECASE):
+        return f"{{{output_name or section_name}}}"
+    return None
+
 def process_multiline_text(input_text):
     lines = [line.rstrip('\n') for line in input_text.splitlines()]
     output_lines = []
@@ -41,51 +54,40 @@ def process_multiline_text(input_text):
 
     while i < len(lines):
         line = lines[i].strip()
-        # Convert [Verse 1], [Verse 2], etc. to {Verse}
-        if re.match(r"\[Verse\s*\d+\]", line, re.IGNORECASE):
-            output_lines.append("{Verse}")
-            i += 1
-            continue
-        # Convert [Chorus] to {Chorus}
-        if re.match(r"\[Chorus\]", line, re.IGNORECASE):
-            output_lines.append("{Chorus}")
-            i += 1
-            continue
-        # Convert [Intro] to {Intro}
-        if re.match(r"\[Intro\]", line, re.IGNORECASE):
-            output_lines.append("{Intro}")
-            i += 1
-            continue
-        # Convert [Outro] to {Outro}
-        if re.match(r"\[Outro\]", line, re.IGNORECASE):
-            output_lines.append("{Outro}")
-            i += 1
-            continue
-        # Convert [Solo] to {Solo}
-        if re.match(r"\[Solo\]", line, re.IGNORECASE):
-            output_lines.append("{Solo}")
-            i += 1
-            continue
 
-        if not line:
-            output_lines.append("")
-            i += 1
-            continue
-
-        if i + 1 < len(lines) and lines[i + 1].strip():
-            chord_line = lines[i]
-            lyric_line = lines[i + 1]
-
-            # Left-align lyric line to match length of chord line
-            if len(lyric_line) < len(chord_line):
-                lyric_line = lyric_line.ljust(len(chord_line))
-
-            merged = merge_chords_and_lyrics(chord_line, lyric_line).rstrip()
-            output_lines.append(merged)
-            i += 2
+        # Section header replacements
+        for section, output, numbered in [
+            ("Verse", "Verse", True),
+            ("Chorus", "Chorus", False),
+            ("Intro", "Intro", False),
+            ("Outro", "Outro", False),
+            ("Solo", "Solo", False),
+        ]:
+            replacement = match_and_replace_section(line, section, output, numbered)
+            if replacement:
+                output_lines.append(replacement)
+                i += 1
+                break
         else:
-            output_lines.append(lines[i].rstrip())
-            i += 1
+            if not line:
+                output_lines.append("")
+                i += 1
+                continue
+
+            if i + 1 < len(lines) and lines[i + 1].strip():
+                chord_line = lines[i]
+                lyric_line = lines[i + 1]
+
+                # Left-align lyric line to match length of chord line
+                if len(lyric_line) < len(chord_line):
+                    lyric_line = lyric_line.ljust(len(chord_line))
+
+                merged = merge_chords_and_lyrics(chord_line, lyric_line).rstrip()
+                output_lines.append(merged)
+                i += 2
+            else:
+                output_lines.append(lines[i].rstrip())
+                i += 1
 
     return output_lines
 
