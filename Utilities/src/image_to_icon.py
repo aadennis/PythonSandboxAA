@@ -26,5 +26,5 @@ def convert_to_ico(image_path):
     print(f"Icon saved: {icon_path}")
 
 if __name__ == "__main__":
-    image = "test_input/blox.avif"
+    image = "C:\\temp\\downloads\\vthumb_300.jpg"
     convert_to_ico(image)
