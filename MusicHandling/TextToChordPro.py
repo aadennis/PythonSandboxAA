@@ -34,7 +34,7 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
 def clean_spacing(line):
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
-def match_and_replace_section(line, section_name, output_name=None, numbered=False):
+def match_and_replace_section(line, section_name, numbered=False):
     """
     Checks if the line matches a section header like [Chorus], [Intro], [Verse 1], etc.
     Returns the replacement string (e.g., "{Chorus}") if matched, else None.
@@ -44,7 +44,7 @@ def match_and_replace_section(line, section_name, output_name=None, numbered=Fal
     else:
         pattern = rf"\[{section_name}\]"
     if re.match(pattern, line, re.IGNORECASE):
-        return f"{{{output_name or section_name}}}"
+        return f"{{{section_name}}}"
     return None
 
 def process_multiline_text(input_text):
@@ -56,14 +56,14 @@ def process_multiline_text(input_text):
         line = lines[i].strip()
 
         # Section header replacements
-        for section, output, numbered in [
-            ("Verse", "Verse", True),
-            ("Chorus", "Chorus", False),
-            ("Intro", "Intro", False),
-            ("Outro", "Outro", False),
-            ("Solo", "Solo", False),
+        for section, numbered in [
+            ("Verse", True),
+            ("Chorus", False),
+            ("Intro", False),
+            ("Outro", False),
+            ("Solo", False),
         ]:
-            replacement = match_and_replace_section(line, section, output, numbered)
+            replacement = match_and_replace_section(line, section, numbered=numbered)
             if replacement:
                 output_lines.append(replacement)
                 i += 1
