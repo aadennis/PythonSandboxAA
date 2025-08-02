@@ -46,6 +46,26 @@ def process_multiline_text(input_text):
             output_lines.append("{Verse}")
             i += 1
             continue
+        # Convert [Chorus] to {Chorus}
+        if re.match(r"\[Chorus\]", line, re.IGNORECASE):
+            output_lines.append("{Chorus}")
+            i += 1
+            continue
+        # Convert [Intro] to {Intro}
+        if re.match(r"\[Intro\]", line, re.IGNORECASE):
+            output_lines.append("{Intro}")
+            i += 1
+            continue
+        # Convert [Outro] to {Outro}
+        if re.match(r"\[Outro\]", line, re.IGNORECASE):
+            output_lines.append("{Outro}")
+            i += 1
+            continue
+        # Convert [Solo] to {Solo}
+        if re.match(r"\[Solo\]", line, re.IGNORECASE):
+            output_lines.append("{Solo}")
+            i += 1
+            continue
 
         if not line:
             output_lines.append("")
