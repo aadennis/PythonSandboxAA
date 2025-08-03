@@ -133,7 +133,9 @@ def process_file(song):
 
     title = metadata.get("title") or camel_case_to_title(song)
     artist = metadata.get("artist", "")
-    key = metadata.get("key", "")
+    key_original = metadata.get("key-original", "")
+    key_me = metadata.get("key-me", "")
+    
     tempo = metadata.get("tempo", "")
     output_folder = metadata.get("output_folder", "")
 
@@ -142,7 +144,13 @@ def process_file(song):
         input_text = f.read()
 
     output_lines = process_multiline_text(input_text)
-    songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
+    songbook_text = to_songbookpro(
+        title=title,
+        artist=artist,
+        key=key_me,
+        tempo=tempo,
+        lyrics_lines=output_lines
+    )
 
     # Build output file path
     output_file = os.path.join(output_folder, f"{song}.chordpro")
@@ -197,6 +205,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    #process_file(song="CantBuyMeLove")
+    process_file(song="AHardDaysNight")
     process_all_songs()
 
