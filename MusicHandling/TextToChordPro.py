@@ -62,6 +62,7 @@ def process_multiline_text(input_text):
             ("Intro", False),
             ("Outro", False),
             ("Solo", False),
+            ("Bridge", False),
         ]:
             replacement = match_and_replace_section(line, section, numbered=numbered)
             if replacement:
@@ -173,7 +174,8 @@ def process_all_songs():
             if not os.path.exists(instructions_path):
                 default_metadata = {
                     "artist": "unknown",
-                    "key": "C",
+                    "key-original": "C",
+                    "key-me": "C",
                     "tempo": 88,
                     "output_folder": output_folder_default
                 }
@@ -205,6 +207,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    process_file(song="AHardDaysNight")
+    #process_file(song="AHardDaysNight")
     process_all_songs()
 

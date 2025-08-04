@@ -1,6 +1,6 @@
 {title: A Hard Days Night}
 {artist: Beatles}
-{key: }
+{key: C}
 {tempo: 88}
 
 {Intro}
@@ -20,8 +20,7 @@ it's [G]worth it just to [C]hear you [G]say, you're gonna [F]give me every[G]thi
 So why on [C]earth should I moan, cause when I [D]get you alone, you know I'll [G]feel [C]O.[G]K.
 
 
-[Middle 8]
-
+{Bridge}
 When I'm [Bm]home [Em]everything seems to be [Bm]right
 When I'm [G]home [Em]feeling you holding me [C6]tight, [D]tight, yeah!
 
@@ -39,8 +38,7 @@ rig[G]ht
 So why on [C]earth should I moan, cause when I [D]get you alone, you know I'll [G]feel [C]O.[G]K.
 
 
-[Middle 8]
-
+{Bridge}
 When I'm [Bm]home [Em]everything seems to be [Bm]right
 When I'm [G]home [Em]feeling you holding me [C6]tight, [D]tight, yeah!
 
@@ -52,8 +50,7 @@ But when I [C]get home to you, I find the [D]things that you do, will make me [G
 [G]right
 
 
-[Coda]
-
+{Bridge}
 [C] You know I [G]feel [C]all [G]right
 [C] You know I [G]feel [C]all [D7sus4]right [Dm7]
 
