@@ -2,5 +2,6 @@
   "artist": "Zutons",
   "key": "C",
   "tempo": 88,
+  "capo": 0,
   "output_folder": "ChordPro"
 }

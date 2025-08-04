@@ -2,5 +2,6 @@
   "artist": "Franki Valli",
   "key": "E",
   "tempo": 88,
+  "capo": 0,
   "output_folder": "ChordPro"
 }

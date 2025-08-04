@@ -124,7 +124,7 @@ def process_song(song):
             "artist": "unknown",
             "key-original": "C",
             "key-me": "C",
-            "capo": 1,
+            "capo": 0,
             "tempo": 88,
             "output_folder": output_folder_default
         }
@@ -138,7 +138,7 @@ def process_song(song):
     title = metadata.get("title") or camel_case_to_title(song)
     artist = metadata.get("artist", "")
     key = metadata.get("key-me", "") or metadata.get("key", "")
-    capo = metadata.get("capo", "")
+    capo = int(metadata.get("capo", 0))
     tempo = metadata.get("tempo", "")
     output_folder = metadata.get("output_folder", output_folder_default)
 

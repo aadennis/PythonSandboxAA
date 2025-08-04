@@ -2,5 +2,6 @@
   "artist": "Stealers Wheel",
   "key": "D",
   "tempo": 88,
+  "capo": 0,
   "output_folder": "ChordPro"
 }
