@@ -96,11 +96,12 @@ def process_multiline_text(input_text):
     return output_lines
 
 
-def to_songbookpro(title, artist, key, tempo, lyrics_lines):
+def to_songbookpro(title, artist, key, capo, tempo, lyrics_lines):
     header = [
         f"{{title: {title}}}",
         f"{{artist: {artist}}}",
         f"{{key: {key}}}",
+        f"{{capo: {capo}}}",
         f"{{tempo: {tempo}}}",
         ""
     ]
@@ -123,6 +124,7 @@ def process_song(song):
             "artist": "unknown",
             "key-original": "C",
             "key-me": "C",
+            "capo": 1,
             "tempo": 88,
             "output_folder": output_folder_default
         }
@@ -136,6 +138,7 @@ def process_song(song):
     title = metadata.get("title") or camel_case_to_title(song)
     artist = metadata.get("artist", "")
     key = metadata.get("key-me", "") or metadata.get("key", "")
+    capo = metadata.get("capo", "")
     tempo = metadata.get("tempo", "")
     output_folder = metadata.get("output_folder", output_folder_default)
 
@@ -148,6 +151,7 @@ def process_song(song):
         title=title,
         artist=artist,
         key=key,
+        capo=capo,
         tempo=tempo,
         lyrics_lines=output_lines
     )
