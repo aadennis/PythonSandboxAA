@@ -115,16 +115,17 @@ def camel_case_to_title(name):
 def process_song(song):
     instructions_path = os.path.join('Instructions', f"{song}.json")
     lyrics_file = os.path.join('RawLyricsIn', f"{song}.txt")
+    output_folder_default = "ChordPro"
 
     # If JSON does not exist, create it with default values
     if not os.path.exists(instructions_path):
         default_metadata = {
             "artist": "unknown",
-            "key": "C",
+            "key-original": "C",
+            "key-me": "C",
             "tempo": 88,
-            "output_folder": "ChordPro"
+            "output_folder": output_folder_default
         }
-
         with open(instructions_path, 'w', encoding='utf-8') as f:
             json.dump(default_metadata, f, indent=2)
 
@@ -134,11 +135,9 @@ def process_song(song):
 
     title = metadata.get("title") or camel_case_to_title(song)
     artist = metadata.get("artist", "")
-    key_original = metadata.get("key-original", "")
-    key_me = metadata.get("key-me", "")
-    
+    key = metadata.get("key-me", "") or metadata.get("key", "")
     tempo = metadata.get("tempo", "")
-    output_folder = metadata.get("output_folder", "")
+    output_folder = metadata.get("output_folder", output_folder_default)
 
     # Read lyrics
     with open(lyrics_file, 'r', encoding='utf-8') as f:
@@ -148,7 +147,7 @@ def process_song(song):
     songbook_text = to_songbookpro(
         title=title,
         artist=artist,
-        key=key_me,
+        key=key,
         tempo=tempo,
         lyrics_lines=output_lines
     )
@@ -161,52 +160,13 @@ def process_song(song):
 
 def process_all_songs():
     lyrics_folder = 'RawLyricsIn'
-    instructions_folder = 'Instructions'
-    output_folder_default = 'ChordPro'
-
     for filename in os.listdir(lyrics_folder):
         if filename.endswith('.txt'):
             song = os.path.splitext(filename)[0]
-            instructions_path = os.path.join(instructions_folder, f"{song}.json")
-            lyrics_file = os.path.join(lyrics_folder, filename)
-
-            # If JSON does not exist, create it with default values
-            if not os.path.exists(instructions_path):
-                default_metadata = {
-                    "artist": "unknown",
-                    "key-original": "C",
-                    "key-me": "C",
-                    "tempo": 88,
-                    "output_folder": output_folder_default
-                }
-                with open(instructions_path, 'w', encoding='utf-8') as f:
-                    json.dump(default_metadata, f, indent=2)
-
-            # Read metadata from JSON
-            with open(instructions_path, 'r', encoding='utf-8') as f:
-                metadata = json.load(f)
-
-            title = metadata.get("title") or camel_case_to_title(song)
-            artist = metadata.get("artist", "")
-            key = metadata.get("key", "")
-            tempo = metadata.get("tempo", "")
-            output_folder = metadata.get("output_folder", output_folder_default)
-
-            # Read lyrics
-            with open(lyrics_file, 'r', encoding='utf-8') as f:
-                input_text = f.read()
-
-            output_lines = process_multiline_text(input_text)
-            songbook_text = to_songbookpro(title, artist, key, tempo, output_lines)
-
-            # Build output file path
-            output_file = os.path.join(output_folder, f"{song}.chordpro")
-            os.makedirs(output_folder, exist_ok=True)
-            with open(output_file, 'w', encoding='utf-8') as f:
-                f.write(songbook_text)
+            process_song(song)
 
 # Example usage:
 if __name__ == "__main__":
-    #process_file(song="AHardDaysNight")
+    # process_song("AHardDaysNight")
     process_all_songs()
 
