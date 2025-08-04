@@ -112,7 +112,7 @@ def camel_case_to_title(name):
     title = re.sub(r'(?<!^)(?=[A-Z])', ' ', base)
     return title.strip()
 
-def process_file(song):
+def process_song(song):
     instructions_path = os.path.join('Instructions', f"{song}.json")
     lyrics_file = os.path.join('RawLyricsIn', f"{song}.txt")
 
