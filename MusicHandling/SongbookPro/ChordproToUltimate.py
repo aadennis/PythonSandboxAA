@@ -37,9 +37,11 @@ def process_file(input_file):
         line = line.rstrip('\n')
         # Replace {c: Verse} and {c: Chorus} with [Verse] and [Chorus]
         if line.strip() == "{c: Verse}":
-            line = "[Verse]"
+            output_lines.append("[Verse]")
+            continue
         elif line.strip() == "{c: Chorus}":
-            line = "[Chorus]"
+            output_lines.append("[Chorus]")
+            continue
         chords, lyrics = chordpro_to_chord_lyrics(line)
         if chords.strip():
             output_lines.append(chords)
