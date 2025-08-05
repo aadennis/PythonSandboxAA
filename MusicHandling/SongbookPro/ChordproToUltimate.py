@@ -42,6 +42,10 @@ def process_file(input_file):
         elif line.strip() == "{c: Chorus}":
             output_lines.append("[Chorus]")
             continue
+        elif line.strip() == "{Bridge}":
+            output_lines.append("[Bridge]")
+            continue
+        
         chords, lyrics = chordpro_to_chord_lyrics(line)
         if chords.strip():
             output_lines.append(chords)
@@ -59,7 +63,7 @@ def get_input_output_files(input_file):
     if not ext:
         input_file += ".chordpro"
         ext = ".chordpro"
-    output_file = base + ".ult"
+    output_file = base + ".txt"
     return input_file, output_file
 
 def convert_chordpro_to_ult(input_file):
@@ -70,5 +74,5 @@ def convert_chordpro_to_ult(input_file):
     print(f"Converted file written to: {output_file}")
 
 if __name__ == "__main__":
-    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\Brown-eyed girl.cho"
+    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\BrowneyedGirl.cho"
     convert_chordpro_to_ult(input_file)
