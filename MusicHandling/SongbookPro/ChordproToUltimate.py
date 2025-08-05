@@ -30,7 +30,7 @@ def chordpro_to_chord_lyrics(line):
 
 def process_file(input_file):
     with open(input_file, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+        lines = f.readlines()[5:]  # Skip the first 5 lines (metadata)
 
     output_lines = []
     for line in lines:
