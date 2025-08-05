@@ -1,5 +1,5 @@
 import sys
-
+import os
 import re
 
 def chordpro_to_chord_lyrics(line):
@@ -38,7 +38,25 @@ def process_file(input_file):
 
     return "\n".join(output_lines)
 
-if __name__ == "__main__":
-    input_file = "ChordPro/ImABeliever"
+def get_input_output_files(input_file):
+    """
+    Returns the input file (with .chordpro extension if missing)
+    and the output file path with .ult extension.
+    """
+    base, ext = os.path.splitext(input_file)
+    if not ext:
+        input_file += ".chordpro"
+        ext = ".chordpro"
+    output_file = base + ".ult"
+    return input_file, output_file
+
+def convert_chordpro_to_ult(input_file):
+    input_file, output_file = get_input_output_files(input_file)
     output = process_file(input_file)
-    print(output)
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(output)
+    print(f"Converted file written to: {output_file}")
+
+if __name__ == "__main__":
+    input_file = "ChordPro/DaydreamBeliever"
+    convert_chordpro_to_ult(input_file)
