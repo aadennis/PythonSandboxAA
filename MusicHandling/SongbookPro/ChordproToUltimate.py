@@ -45,7 +45,8 @@ def process_file(input_file):
         chords, lyrics = chordpro_to_chord_lyrics(line)
         if chords.strip():
             output_lines.append(chords)
-        output_lines.append(lyrics)
+        # Left strip any whitespace from the lyric line before writing
+        output_lines.append(lyrics.lstrip())
 
     return "\n".join(output_lines)
 
