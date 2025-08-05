@@ -1,3 +1,7 @@
+# Given a ChordPro file, this script converts it back to a format suitable for Ultimate Guitar.
+# Normally you would have a UG as the source, but not always.
+
+
 import sys
 import os
 import re
@@ -31,6 +35,11 @@ def process_file(input_file):
     output_lines = []
     for line in lines:
         line = line.rstrip('\n')
+        # Replace {c: Verse} and {c: Chorus} with [Verse] and [Chorus]
+        if line.strip() == "{c: Verse}":
+            line = "[Verse]"
+        elif line.strip() == "{c: Chorus}":
+            line = "[Chorus]"
         chords, lyrics = chordpro_to_chord_lyrics(line)
         if chords.strip():
             output_lines.append(chords)
@@ -58,5 +67,5 @@ def convert_chordpro_to_ult(input_file):
     print(f"Converted file written to: {output_file}")
 
 if __name__ == "__main__":
-    input_file = "ChordPro/DaydreamBeliever"
+    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\Brown-eyed girl.cho"
     convert_chordpro_to_ult(input_file)
