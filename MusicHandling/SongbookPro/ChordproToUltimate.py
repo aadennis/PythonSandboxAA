@@ -39,9 +39,6 @@ def process_file(input_file):
     return "\n".join(output_lines)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python ChordproToUltimate.py <input_file>")
-        sys.exit(1)
-    input_file = sys.argv[1]
+    input_file = "ChordPro/ImABeliever"
     output = process_file(input_file)
     print(output)
