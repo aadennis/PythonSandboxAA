@@ -1,0 +1,188 @@
+[
+  {
+    "title": "AHardDaysNight",
+    "artist": "Beatles",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "AllMyLoving",
+    "artist": "Beatles",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "BrowneyedGirl",
+    "artist": "Van Morrison",
+    "key-original": "G",
+    "key-me": "G",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "ByeByeLove",
+    "artist": "unknown",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "CantBuyMeLove",
+    "artist": "Beatles",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "CantHelpFalling",
+    "artist": "Elvis Presley",
+    "key-original": "C",
+    "key-me": "D",
+    "tempo": 88,
+    "capo": 2,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "CantTakeMyEyesOffYou",
+    "artist": "Franki Valli",
+    "key": "E",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "ComeFlyWithMe",
+    "artist": "Frank Sinatra",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "DaydreamBeliever",
+    "artist": "Monkees",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "EightDaysAWeek",
+    "artist": "Beatles",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "FlyMeToTheMoon",
+    "artist": "Frank Sinatra",
+    "key": "Am",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "FromMeToYou",
+    "artist": "Beatles",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "HeyJude",
+    "artist": "Beatles",
+    "key-original": "F",
+    "key-me": "E",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "ImABeliever",
+    "artist": "Monkees",
+    "key": "G",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "IWantToHoldYourHand",
+    "artist": "Beatles",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "LoveMeDo",
+    "artist": "Beatles",
+    "key-original": "C",
+    "key-me": "C",
+    "capo": 0,
+    "tempo": 88,
+    "output_folder": "ChordPro/Eatles"
+  },
+  {
+    "title": "Misty",
+    "artist": "unknown",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "MoonRiver",
+    "artist": "Frank Sinatra",
+    "key": "A",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "StuckInTheMiddle",
+    "artist": "Stealers Wheel",
+    "key": "D",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "The Last Thing on my Mind",
+    "artist": "Tom Paxton",
+    "key-original": "F#",
+    "key-me": "G",
+    "capo": 3,
+    "tempo": 88,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "TooGoodToBeTrue",
+    "artist": "Andy Williams",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  },
+  {
+    "title": "Valerie",
+    "artist": "Zutons",
+    "key": "C",
+    "tempo": 88,
+    "capo": 0,
+    "output_folder": "ChordPro"
+  }
+]

@@ -114,35 +114,24 @@ def camel_case_to_title(name):
     return title.strip()
 
 def process_song(song):
-    instructions_path = os.path.join('Instructions', f"{song}.json")
+    # Load all metadata from consolidated song_metadata.json
+    metadata_path = os.path.join('Instructions', 'song_metadata.json')
+    with open(metadata_path, 'r', encoding='utf-8') as f:
+        all_metadata = json.load(f)
+
+    # Find the metadata for the requested song
+    song_meta = next((m for m in all_metadata if m.get("title") == song), None)
+    if not song_meta:
+        raise ValueError(f"Metadata for song '{song}' not found in song_metadata.json")
+
+    title = song_meta.get("title") or camel_case_to_title(song)
+    artist = song_meta.get("artist", "")
+    key = song_meta.get("key-me", "") or song_meta.get("key", "")
+    capo = int(song_meta.get("capo", 0))
+    tempo = song_meta.get("tempo", "")
+    output_folder = song_meta.get("output_folder", "ChordPro")
+
     lyrics_file = os.path.join('RawLyricsIn', f"{song}.txt")
-    output_folder_default = "ChordPro"
-
-    # If JSON does not exist, create it with default values
-    if not os.path.exists(instructions_path):
-        default_metadata = {
-            "artist": "unknown",
-            "key-original": "C",
-            "key-me": "C",
-            "capo": 0,
-            "tempo": 88,
-            "output_folder": output_folder_default
-        }
-        with open(instructions_path, 'w', encoding='utf-8') as f:
-            json.dump(default_metadata, f, indent=2)
-
-    # Read metadata from JSON
-    with open(instructions_path, 'r', encoding='utf-8') as f:
-        metadata = json.load(f)
-
-    title = metadata.get("title") or camel_case_to_title(song)
-    artist = metadata.get("artist", "")
-    key = metadata.get("key-me", "") or metadata.get("key", "")
-    capo = int(metadata.get("capo", 0))
-    tempo = metadata.get("tempo", "")
-    output_folder = metadata.get("output_folder", output_folder_default)
-
-    # Read lyrics
     with open(lyrics_file, 'r', encoding='utf-8') as f:
         input_text = f.read()
 
@@ -156,7 +145,6 @@ def process_song(song):
         lyrics_lines=output_lines
     )
 
-    # Build output file path
     output_file = os.path.join(output_folder, f"{song}.chordpro")
     os.makedirs(output_folder, exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
