@@ -101,7 +101,7 @@ def to_songbookpro(title, artist, key, capo, tempo, lyrics_lines):
         f"{{title: {title}}}",
         f"{{artist: {artist}}}",
         f"{{key: {key}}}",
-        f"{{capo: {capo}}}",
+        f"[capo: {capo}]",
         f"{{tempo: {tempo}}}",
         ""
     ]
@@ -171,6 +171,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    process_song("BrowneyedGirl")
+    process_song("The Last Thing on my Mind")
     #process_all_songs()
 
