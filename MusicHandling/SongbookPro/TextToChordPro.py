@@ -124,7 +124,13 @@ def process_song(song):
     if not song_meta:
         raise ValueError(f"Metadata for song '{song}' not found in song_metadata.json")
 
-    title = song_meta.get("title") or camel_case_to_title(song)
+    raw_title = song_meta.get("title") or camel_case_to_title(song)
+    # If the title contains whitespace, use as-is; else, split on caps
+    if " " in raw_title:
+        title = raw_title
+    else:
+        title = re.sub(r'(?<!^)(?=[A-Z])', ' ', raw_title).strip()
+
     artist = song_meta.get("artist", "")
     key = song_meta.get("key-me", "") or song_meta.get("key", "")
     capo = int(song_meta.get("capo", 0))
@@ -159,6 +165,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    process_song("The Last Thing on my Mind")
-    #process_all_songs()
+    #process_song("The Last Thing on my Mind")
+    process_all_songs()
 
