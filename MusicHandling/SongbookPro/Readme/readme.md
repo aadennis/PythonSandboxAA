@@ -51,6 +51,11 @@ graph LR
 1. **Prepare your files:**
 
    - Place your chord/lyric `.txt` files in `RawLyricsIn/`.
+   - Metadata
+     - Place your individual song metadata `.json` files in `Metadata/`
+     - Alternatively, for any individual song, you can omit a json file from  `Metadata/` empty if you want the script to generate metadata automatically.
+     - If you have a consolidated metadata file, place it in `Metadata/` as `song_metadata.json`.
+     - If you don't have a consolidated metadata file, the script will create one from the individual metadata files.
    - Place your individual song metadata `.json` files in `Metadata/`.
 
 2. **Consolidate metadata:**
