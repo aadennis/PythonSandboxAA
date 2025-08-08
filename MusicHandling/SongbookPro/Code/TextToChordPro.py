@@ -115,7 +115,7 @@ def camel_case_to_title(name):
 
 def process_song(song):
     # Load all metadata from consolidated song_metadata.json
-    metadata_path = os.path.join('Instructions', 'song_metadata.json')
+    metadata_path = os.path.join('Metadata', 'song_metadata.json')
     with open(metadata_path, 'r', encoding='utf-8') as f:
         all_metadata = json.load(f)
 
