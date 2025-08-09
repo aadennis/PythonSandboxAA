@@ -184,5 +184,14 @@
     "tempo": 88,
     "capo": 0,
     "output_folder": "ChordPro"
+  },
+  {
+    "title": "TakeMeHomeCountryRoads",
+    "artist": "John Denver",
+    "key-original": "A",
+    "key-me": "G",
+    "capo": 2,
+    "tempo": 88,
+    "output_folder": "ChordPro"
   }
 ]
