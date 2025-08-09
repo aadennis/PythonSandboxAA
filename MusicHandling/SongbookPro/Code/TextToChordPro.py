@@ -113,6 +113,30 @@ def camel_case_to_title(name):
     title = re.sub(r'(?<!^)(?=[A-Z])', ' ', base)
     return title.strip()
 
+def get_song_metadata(song):
+    """
+    Returns the metadata for a song, or creates a default metadata file if not found.
+    """
+    metadata_path = os.path.join('Metadata', f"{song}.json")
+    if os.path.exists(metadata_path):
+        with open(metadata_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    else:
+        # Create a default metadata JSON file for the song
+        default_metadata = {
+            "title": camel_case_to_title(song),
+            "artist": "unknown",
+            "key-original": "C",
+            "key-me": "C",
+            "capo": 0,
+            "tempo": 88,
+            "output_folder": "ChordPro"
+        }
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            json.dump(default_metadata, f, indent=2)
+        print(f"Metadata for song '{song}' not found. Default metadata file created at {metadata_path}.")
+        return default_metadata
+
 def process_song(song):
     # Load all metadata from consolidated song_metadata.json
     metadata_path = os.path.join('Metadata', 'song_metadata.json')
@@ -122,7 +146,8 @@ def process_song(song):
     # Find the metadata for the requested song
     song_meta = next((m for m in all_metadata if m.get("title") == song), None)
     if not song_meta:
-        raise ValueError(f"Metadata for song '{song}' not found in song_metadata.json")
+        # Create a default metadata JSON file for the song
+        song_meta = get_song_metadata(song)
 
     raw_title = song_meta.get("title") or camel_case_to_title(song)
     # If the title contains whitespace, use as-is; else, split on caps
@@ -165,6 +190,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    #process_song("The Last Thing on my Mind")
-    process_all_songs()
+    process_song("TakeMeHomeCountryRoads")
+    #process_all_songs()
 
