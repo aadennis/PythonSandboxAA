@@ -190,6 +190,6 @@ def process_all_songs():
 
 # Example usage:
 if __name__ == "__main__":
-    process_song("TakeMeHomeCountryRoads")
-    #process_all_songs()
+    #process_song("TakeMeHomeCountryRoads")
+    process_all_songs()
 
