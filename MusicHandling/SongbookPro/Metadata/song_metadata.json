@@ -193,5 +193,14 @@
     "capo": 2,
     "tempo": 88,
     "output_folder": "ChordPro"
+  },
+  {
+    "title": "SweetCaroline",
+    "artist": "Neil Diamond",
+    "key-original": "B",
+    "key-me": "G",
+    "capo": 3,
+    "tempo": 88,
+    "output_folder": "ChordPro"
   }
 ]
