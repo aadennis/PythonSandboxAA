@@ -59,11 +59,12 @@ def get_input_output_files(input_file):
     Returns the input file (with .chordpro extension if missing)
     and the output file path with .ult extension.
     """
+    basename = os.path.basename(input_file).split('.')[0]
     base, ext = os.path.splitext(input_file)
     if not ext:
         input_file += ".chordpro"
         ext = ".chordpro"
-    output_file = base + ".txt"
+    output_file = f"./RawLyricsIn/{basename}.txt"
     return input_file, output_file
 
 def convert_chordpro_to_ult(input_file):
@@ -74,5 +75,5 @@ def convert_chordpro_to_ult(input_file):
     print(f"Converted file written to: {output_file}")
 
 if __name__ == "__main__":
-    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\BrowneyedGirl.cho"
+    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\Sweet Caroline.cho"
     convert_chordpro_to_ult(input_file)
