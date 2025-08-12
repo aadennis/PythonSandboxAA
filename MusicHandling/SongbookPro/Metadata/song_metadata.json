@@ -2,10 +2,11 @@
   {
     "title": "AHardDaysNight",
     "artist": "Beatles",
-    "key-original": "C",
-    "key-me": "C",
+    "key-original": "G",
+    "key-me": "G",
     "capo": 0,
     "tempo": 88,
+    "scroll_speed": 4.2,
     "output_folder": "ChordPro/Eatles"
   },
   {
