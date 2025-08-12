@@ -1,0 +1,146 @@
+[
+    {
+        "Name":"William I",
+        "Reign_Start":1066,
+        "Reign_End":1087.0,
+        "Dynasty":"Norman",
+        "Notable_Facts":"First Norman king of England",
+        "First_Spouse":"Matilda of Flanders"
+    },
+    {
+        "Name":"William II",
+        "Reign_Start":1087,
+        "Reign_End":1100.0,
+        "Dynasty":"Norman",
+        "Notable_Facts":"Son of William I, died in a hunting accident",
+        "First_Spouse":null
+    },
+    {
+        "Name":"Henry I",
+        "Reign_Start":1100,
+        "Reign_End":1135.0,
+        "Dynasty":"Norman",
+        "Notable_Facts":"Established the Exchequer",
+        "First_Spouse":"Matilda of Scotland"
+    },
+    {
+        "Name":"Stephen",
+        "Reign_Start":1135,
+        "Reign_End":1154.0,
+        "Dynasty":"Blois",
+        "Notable_Facts":"Period of civil war known as The Anarchy",
+        "First_Spouse":"Matilda of Boulogne"
+    },
+    {
+        "Name":"Henry II",
+        "Reign_Start":1154,
+        "Reign_End":1189.0,
+        "Dynasty":"Plantagenet",
+        "Notable_Facts":"First Plantagenet king, reformed legal system",
+        "First_Spouse":"Eleanor of Aquitaine"
+    },
+    {
+        "Name":"Richard I",
+        "Reign_Start":1189,
+        "Reign_End":1199.0,
+        "Dynasty":"Plantagenet",
+        "Notable_Facts":"Known as Richard the Lionheart",
+        "First_Spouse":"Berengaria of Navarre"
+    },
+    {
+        "Name":"John",
+        "Reign_Start":1199,
+        "Reign_End":1216.0,
+        "Dynasty":"Plantagenet",
+        "Notable_Facts":"Signed Magna Carta in 1215",
+        "First_Spouse":"Isabella of Angoul\u00eame"
+    },
+    {
+        "Name":"Edward III",
+        "Reign_Start":1327,
+        "Reign_End":1377.0,
+        "Dynasty":"Plantagenet",
+        "Notable_Facts":"Started the Hundred Years' War",
+        "First_Spouse":"Philippa of Hainault"
+    },
+    {
+        "Name":"Henry VIII",
+        "Reign_Start":1509,
+        "Reign_End":1547.0,
+        "Dynasty":"Tudor",
+        "Notable_Facts":"Famous for six marriages and founding the Church of England",
+        "First_Spouse":"Catherine of Aragon"
+    },
+    {
+        "Name":"Elizabeth I",
+        "Reign_Start":1558,
+        "Reign_End":1603.0,
+        "Dynasty":"Tudor",
+        "Notable_Facts":"Last Tudor monarch, defeated the Spanish Armada",
+        "First_Spouse":null
+    },
+    {
+        "Name":"James I",
+        "Reign_Start":1603,
+        "Reign_End":1625.0,
+        "Dynasty":"Stuart",
+        "Notable_Facts":"First Stuart king, sponsored the King James Bible",
+        "First_Spouse":"Anne of Denmark"
+    },
+    {
+        "Name":"Charles I",
+        "Reign_Start":1625,
+        "Reign_End":1649.0,
+        "Dynasty":"Stuart",
+        "Notable_Facts":"Executed after the English Civil War",
+        "First_Spouse":"Henrietta Maria of France"
+    },
+    {
+        "Name":"Charles II",
+        "Reign_Start":1660,
+        "Reign_End":1685.0,
+        "Dynasty":"Stuart",
+        "Notable_Facts":"Restoration of the monarchy",
+        "First_Spouse":"Catherine of Braganza"
+    },
+    {
+        "Name":"George III",
+        "Reign_Start":1760,
+        "Reign_End":1820.0,
+        "Dynasty":"Hanover",
+        "Notable_Facts":"Lost the American colonies",
+        "First_Spouse":"Charlotte of Mecklenburg-Strelitz"
+    },
+    {
+        "Name":"Victoria",
+        "Reign_Start":1837,
+        "Reign_End":1901.0,
+        "Dynasty":"Hanover",
+        "Notable_Facts":"Second longest reigning monarch",
+        "First_Spouse":"Albert of Saxe-Coburg and Gotha"
+    },
+    {
+        "Name":"George VI",
+        "Reign_Start":1936,
+        "Reign_End":1952.0,
+        "Dynasty":"Windsor",
+        "Notable_Facts":"Led Britain through WWII",
+        "First_Spouse":"Elizabeth Bowes-Lyon"
+    },
+    {
+        "Name":"Elizabeth II",
+        "Reign_Start":1952,
+        "Reign_End":2022.0,
+        "Dynasty":"Windsor",
+        "Notable_Facts":"Longest reigning British monarch",
+        "First_Spouse":"Philip Mountbatten"
+    },
+    {
+        "Name":"Charles III",
+        "Reign_Start":2022,
+        "Reign_End":null,
+        "Dynasty":"Windsor",
+        "Notable_Facts":"Current monarch",
+        "First_Spouse":"Diana Spencer"
+    }
+]
