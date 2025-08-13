@@ -1,4 +1,4 @@
-# This script consolidates song metadata from individual JSON files in the "Instructions" folder
+# This script consolidates song metadata from individual JSON files in the "Metadata" folder
 # into a single JSON file named "song_metadata.json".
 import json
 import os
