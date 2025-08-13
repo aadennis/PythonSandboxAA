@@ -5,6 +5,7 @@ import os
 import datetime
 import re
 import shutil
+import pandas as pd
 
 def consolidate_metadata():
     """
@@ -44,5 +45,24 @@ def consolidate_metadata():
     with open(metadata_file_all_songs, "w", encoding="utf-8") as f:
         json.dump(all_metadata, f, indent=2)
 
+def add_json_attribute(in_file: str):
+    df = pd.read_json(in_file)
+    print(df.head(10))
 
+def set_default_value(in_file: str):
+    """
+    Given a hard-coded (TODO) json attribute, set all records to 
+    a default value.
+    BTW, test data shows that [/] is intentionally escaped to [\/] by pd
+    """
+    df = pd.read_json(in_file)
+    print(df.head(10))
+    df['scroll_speed'] = 2.7
+    print(df.head(10))
+    df.to_json(in_file, orient='records', indent=4, )
+    
+
+if __name__ == '__main__':
+    songs_file = 'Metadata/song_metadata.json'
+    set_default_value(songs_file)
 
