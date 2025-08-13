@@ -13,16 +13,22 @@ def coerce_to_int64(df: pd.DataFrame, *columns: str) -> pd.DataFrame:
     return df
 
 def csv_to_json():
-
     df = pd.read_csv('rulers2.csv') 
-    # Optional: inspect the DataFrame
-    print(df.head())
+    #print(df.head())
 
     df = coerce_to_int64(df, 'Reign_Start', 'Reign_End')
-    print(df.head(10))
+    #print(df.head(10))
 
-    # Write the DataFrame to a JSON file
     df.to_json('rulers2.json', orient='records', indent=4)
+
+def add_attribute_to_json():
+    df = pd.read_json('rulers2.json')
+    print(df.head(10))
+    df['newcol'] = "some default value"
+    print(df.head(10))
+    df.to_json('rulers3.json', orient='records', indent=2)
+    
 
 if __name__ == '__main__':
     csv_to_json()
+    add_attribute_to_json()

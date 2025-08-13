@@ -1,0 +1,398 @@
+[
+  {
+    "Name":"William I",
+    "Reign_Start":1066,
+    "Reign_End":1087.0,
+    "Dynasty":"Norman",
+    "Notable_Facts":"First Norman king of England",
+    "First_Spouse":"Matilda of Flanders",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"William II",
+    "Reign_Start":1087,
+    "Reign_End":1100.0,
+    "Dynasty":"Norman",
+    "Notable_Facts":"Son of William I, died in a hunting accident",
+    "First_Spouse":null,
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry I",
+    "Reign_Start":1100,
+    "Reign_End":1135.0,
+    "Dynasty":"Norman",
+    "Notable_Facts":"Established the Exchequer",
+    "First_Spouse":"Matilda of Scotland",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Stephen",
+    "Reign_Start":1135,
+    "Reign_End":1154.0,
+    "Dynasty":"Blois",
+    "Notable_Facts":"Period of civil war known as The Anarchy",
+    "First_Spouse":"Matilda of Boulogne",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry II",
+    "Reign_Start":1154,
+    "Reign_End":1189.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"First Plantagenet king, legal reforms",
+    "First_Spouse":"Eleanor of Aquitaine",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Richard I",
+    "Reign_Start":1189,
+    "Reign_End":1199.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Crusader king, rarely in England",
+    "First_Spouse":"Berengaria of Navarre",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"John",
+    "Reign_Start":1199,
+    "Reign_End":1216.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Signed Magna Carta in 1215",
+    "First_Spouse":"Isabella of Angoul\u00eame",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry III",
+    "Reign_Start":1216,
+    "Reign_End":1272.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Built Westminster Abbey",
+    "First_Spouse":"Eleanor of Provence",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward I",
+    "Reign_Start":1272,
+    "Reign_End":1307.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Conquered Wales, expelled Jews",
+    "First_Spouse":"Eleanor of Castile",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward II",
+    "Reign_Start":1307,
+    "Reign_End":1327.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Deposed by wife and son",
+    "First_Spouse":"Isabella of France",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward III",
+    "Reign_Start":1327,
+    "Reign_End":1377.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Hundred Years' War began",
+    "First_Spouse":"Philippa of Hainault",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Richard II",
+    "Reign_Start":1377,
+    "Reign_End":1399.0,
+    "Dynasty":"Plantagenet",
+    "Notable_Facts":"Deposed by Henry IV",
+    "First_Spouse":"Isabella of Valois",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry IV",
+    "Reign_Start":1399,
+    "Reign_End":1413.0,
+    "Dynasty":"Lancaster",
+    "Notable_Facts":"Usurped throne from Richard II",
+    "First_Spouse":"Mary de Bohun",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry V",
+    "Reign_Start":1413,
+    "Reign_End":1422.0,
+    "Dynasty":"Lancaster",
+    "Notable_Facts":"Victory at Agincourt",
+    "First_Spouse":"Catherine of Valois",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry VI",
+    "Reign_Start":1422,
+    "Reign_End":1461.0,
+    "Dynasty":"Lancaster",
+    "Notable_Facts":"Lost throne in Wars of the Roses",
+    "First_Spouse":"Margaret of Anjou",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward IV",
+    "Reign_Start":1461,
+    "Reign_End":1470.0,
+    "Dynasty":"York",
+    "Notable_Facts":"Restored monarchy after civil war",
+    "First_Spouse":"Elizabeth Woodville",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry VI",
+    "Reign_Start":1470,
+    "Reign_End":1471.0,
+    "Dynasty":"Lancaster",
+    "Notable_Facts":"Brief restoration before death",
+    "First_Spouse":"Margaret of Anjou",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward IV",
+    "Reign_Start":1471,
+    "Reign_End":1483.0,
+    "Dynasty":"York",
+    "Notable_Facts":"Restored after Henry VI's death",
+    "First_Spouse":"Elizabeth Woodville",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward V",
+    "Reign_Start":1483,
+    "Reign_End":1483.0,
+    "Dynasty":"York",
+    "Notable_Facts":"One of the Princes in the Tower",
+    "First_Spouse":null,
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Richard III",
+    "Reign_Start":1483,
+    "Reign_End":1485.0,
+    "Dynasty":"York",
+    "Notable_Facts":"Killed at Battle of Bosworth",
+    "First_Spouse":"Anne Neville",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry VII",
+    "Reign_Start":1485,
+    "Reign_End":1509.0,
+    "Dynasty":"Tudor",
+    "Notable_Facts":"Founded Tudor dynasty",
+    "First_Spouse":"Elizabeth of York",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Henry VIII",
+    "Reign_Start":1509,
+    "Reign_End":1547.0,
+    "Dynasty":"Tudor",
+    "Notable_Facts":"Six marriages, English Reformation",
+    "First_Spouse":"Catherine of Aragon",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward VI",
+    "Reign_Start":1547,
+    "Reign_End":1553.0,
+    "Dynasty":"Tudor",
+    "Notable_Facts":"Protestant reforms, died young",
+    "First_Spouse":null,
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Mary I",
+    "Reign_Start":1553,
+    "Reign_End":1558.0,
+    "Dynasty":"Tudor",
+    "Notable_Facts":"Restored Catholicism",
+    "First_Spouse":"Philip II of Spain",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Elizabeth I",
+    "Reign_Start":1558,
+    "Reign_End":1603.0,
+    "Dynasty":"Tudor",
+    "Notable_Facts":"Defeated Spanish Armada, never married",
+    "First_Spouse":null,
+    "newcol":"some default value"
+  },
+  {
+    "Name":"James I",
+    "Reign_Start":1603,
+    "Reign_End":1625.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Gunpowder Plot, first Stuart king",
+    "First_Spouse":"Anne of Denmark",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Charles I",
+    "Reign_Start":1625,
+    "Reign_End":1649.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Executed after Civil War",
+    "First_Spouse":"Henrietta Maria of France",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Charles II",
+    "Reign_Start":1660,
+    "Reign_End":1685.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Restoration of monarchy",
+    "First_Spouse":"Catherine of Braganza",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"James II",
+    "Reign_Start":1685,
+    "Reign_End":1688.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Deposed in Glorious Revolution",
+    "First_Spouse":"Anne Hyde",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"William III",
+    "Reign_Start":1689,
+    "Reign_End":1702.0,
+    "Dynasty":"Orange",
+    "Notable_Facts":"Ruled jointly with Mary II",
+    "First_Spouse":"Mary II of England",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Mary II",
+    "Reign_Start":1689,
+    "Reign_End":1694.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Ruled jointly with William III",
+    "First_Spouse":"William III of Orange",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Anne",
+    "Reign_Start":1702,
+    "Reign_End":1714.0,
+    "Dynasty":"Stuart",
+    "Notable_Facts":"Last Stuart monarch, Act of Union",
+    "First_Spouse":"Prince George of Denmark",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George I",
+    "Reign_Start":1714,
+    "Reign_End":1727.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"First Hanoverian king",
+    "First_Spouse":"Sophia Dorothea of Celle",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George II",
+    "Reign_Start":1727,
+    "Reign_End":1760.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"Last British king born outside Britain",
+    "First_Spouse":"Caroline of Ansbach",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George III",
+    "Reign_Start":1760,
+    "Reign_End":1820.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"American Revolution, mental illness",
+    "First_Spouse":"Charlotte of Mecklenburg-Strelitz",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George IV",
+    "Reign_Start":1820,
+    "Reign_End":1830.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"Regency era, extravagant lifestyle",
+    "First_Spouse":"Caroline of Brunswick",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"William IV",
+    "Reign_Start":1830,
+    "Reign_End":1837.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"Reform Act 1832",
+    "First_Spouse":"Adelaide of Saxe-Meiningen",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Victoria",
+    "Reign_Start":1837,
+    "Reign_End":1901.0,
+    "Dynasty":"Hanover",
+    "Notable_Facts":"Longest reigning monarch until Elizabeth II",
+    "First_Spouse":"Prince Albert of Saxe-Coburg and Gotha",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward VII",
+    "Reign_Start":1901,
+    "Reign_End":1910.0,
+    "Dynasty":"Saxe-Coburg and Gotha",
+    "Notable_Facts":"Modernized monarchy",
+    "First_Spouse":"Alexandra of Denmark",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George V",
+    "Reign_Start":1910,
+    "Reign_End":1936.0,
+    "Dynasty":"Windsor",
+    "Notable_Facts":"Changed dynasty name to Windsor",
+    "First_Spouse":"Mary of Teck",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Edward VIII",
+    "Reign_Start":1936,
+    "Reign_End":1936.0,
+    "Dynasty":"Windsor",
+    "Notable_Facts":"Abdicated to marry Wallis Simpson",
+    "First_Spouse":"Wallis Simpson",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"George VI",
+    "Reign_Start":1936,
+    "Reign_End":1952.0,
+    "Dynasty":"Windsor",
+    "Notable_Facts":"WWII leadership, father of Elizabeth II",
+    "First_Spouse":"Elizabeth Bowes-Lyon",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Elizabeth II",
+    "Reign_Start":1952,
+    "Reign_End":2022.0,
+    "Dynasty":"Windsor",
+    "Notable_Facts":"Longest reigning British monarch",
+    "First_Spouse":"Philip Mountbatten",
+    "newcol":"some default value"
+  },
+  {
+    "Name":"Charles III",
+    "Reign_Start":2022,
+    "Reign_End":null,
+    "Dynasty":"Windsor",
+    "Notable_Facts":"Current monarch",
+    "First_Spouse":"Diana Spencer",
+    "newcol":"some default value"
+  }
+]
