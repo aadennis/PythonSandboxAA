@@ -130,6 +130,7 @@ def get_song_metadata(song):
             "key-me": "C",
             "capo": 0,
             "tempo": 88,
+            "scroll_speed":2.7,
             "output_folder": "ChordPro"
         }
         with open(metadata_path, 'w', encoding='utf-8') as f:
