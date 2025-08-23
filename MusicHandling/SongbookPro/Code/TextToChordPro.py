@@ -5,6 +5,7 @@
 import os
 import json
 import re
+import zipfile
 
 def merge_chords_and_lyrics(chord_line, lyric_line):
     chord_positions = []
@@ -189,8 +190,26 @@ def process_all_songs():
             song = os.path.splitext(filename)[0]
             process_song(song)
 
+def zip_chordpro_files(zip_name="AllChordProFiles.zip", root_folder="ChordPro"):
+    """
+    Impressively, SongbookPro can read a zip file. The zip produced here can 
+    be transferred from PC (which I use for development), via say Whatsapp to 
+    iPad. From there, save to Files, and then Share to SBP. 
+    """
+    with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for foldername, _, filenames in os.walk(root_folder):
+            for filename in filenames:
+                if filename.endswith(".chordpro"):
+                    filepath = os.path.join(foldername, filename)
+                    arcname = os.path.relpath(filepath, root_folder)
+                    zipf.write(filepath, arcname)
+    print(f"✅ All .chordpro files zipped into '{zip_name}'.")
+
+
 # Example usage:
 if __name__ == "__main__":
     #process_song("TakeMeHomeCountryRoads")
     process_all_songs()
+    zip_chordpro_files()
+
 
