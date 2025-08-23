@@ -1,5 +1,5 @@
 [Intro]
-G        Am Cm  G D
+G        Am Cm   D  D7
 
     G                         B7
 Des yeux qui font baisser les miens
@@ -37,12 +37,12 @@ Cm
 C'est toi pour moi, 
          G
 moi pour toi dans la vie
-A                                   D
-Tu me l'as dit, l'a juré, pour la vie
+A                   Am            D  D7
+Tu me l'as dit, l'a juré, pour la vi-e
 
 G                Gmaj7
 Et dès que je t’aperçois
-                      Em
+                  Em
 Alors, je sens en moi
     Am   D   G
 Mon cœur qui bat
