@@ -11,4 +11,4 @@ def test_get_weather_calls_requests_correctly():
         result = get_weather("London")
         #assert
         assert result == mock_response
-        mock_get.assert_called_once_with("https://api.weather.com/Londonx")
+        mock_get.assert_called_once_with("https://api.weather.com/London")
