@@ -1,10 +1,8 @@
 # Given a ChordPro file, this script converts it back to a format suitable for Ultimate Guitar.
 # Normally you would have a UG as the source, but not always.
 
-
-import sys
+import json
 import os
-import re
 
 def chordpro_to_chord_lyrics(line):
     chord_line = ""
@@ -74,6 +72,12 @@ def convert_chordpro_to_ult(input_file):
         f.write(output)
     print(f"Converted file written to: {output_file}")
 
+
+def load_config(path="code/config.json"):
+    with open(path, "r") as f:
+        return json.load(f)
+
 if __name__ == "__main__":
-    input_file = r"D:\onedrive\Music\MusicMaking\SongbookPro\songs\Sweet Caroline.cho"
+    config = load_config()
+    input_file = config.get("input_file")
     convert_chordpro_to_ult(input_file)
