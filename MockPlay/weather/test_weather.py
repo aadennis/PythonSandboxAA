@@ -12,6 +12,6 @@ def test_get_weather_calls_requests_correctly():
         assert result == mock_response
 
         # ✅ Assert the correct URL was called
-        mock_get.assert_called_once_with("https://api.weather.com/xLondon")
+        mock_get.assert_called_once_with("https://api.weather.com/London")
 
 
