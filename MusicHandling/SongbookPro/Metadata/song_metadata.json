@@ -283,5 +283,15 @@
         "tempo": 88,
         "scroll_speed": 2.7,
         "output_folder": "ChordPro"
+    },
+    {
+        "title": "LetItBe",
+        "artist": "Beatles",
+        "key-original": "C",
+        "key-me": "C",
+        "capo": 0,
+        "tempo": 88,
+        "scroll_speed": 2.7,
+        "output_folder": "ChordPro\/Eatles"
     }
 ]
