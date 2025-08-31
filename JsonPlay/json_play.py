@@ -27,8 +27,24 @@ def add_attribute_to_json():
     df['newcol'] = "some default value"
     print(df.head(10))
     df.to_json('rulers3.json', orient='records', indent=2)
+
+def add_dictionary_to_json():
+    """
+    
+    """
+    df = pd.read_json('rulers2.json')
+    print(df.head(10))
+    default_children = [
+        {"Name": None},
+        {"Name": None}
+]
+
+    df['children'] = [default_children for _ in range(len(df))]
+
+    print(df.head(10))
+    df.to_json('rulers4.json', orient='records', indent=2)
     
 
 if __name__ == '__main__':
     csv_to_json()
-    add_attribute_to_json()
+    add_dictionary_to_json()
