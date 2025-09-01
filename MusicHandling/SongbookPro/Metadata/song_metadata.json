@@ -132,10 +132,10 @@
         "tested":null,
         "complex_chords":[
             {
-                "Chord":null
+                "Chord":"[Emaj7]"
             },
             {
-                "Chord":null
+                "Chord":"[F#m7b5]"
             }
         ]
     },
@@ -512,7 +512,7 @@
         "tested":null,
         "complex_chords":[
             {
-                "Chord":null
+                "Chord":"[Gmaj7]"
             },
             {
                 "Chord":null
