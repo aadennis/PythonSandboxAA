@@ -1,5 +1,4 @@
-# This script consolidates song metadata from individual JSON files in the "Metadata" folder
-# into a single JSON file named "song_metadata.json".
+# This module manages song metadata
 import json
 import os
 import datetime
