@@ -1,10 +1,10 @@
  
 [Intro]
-A            D         D*
+A            D         D
   Shalala lala lala la
-A*           E         E*
+A           E         E
   Shalala lala lala la
-D*           A
+D           A
   Shalala lala lala la
  
 | E   | E   | E   | E   |
@@ -17,34 +17,33 @@ When the day is dawning on a Texas Sunday morning
 A             D
 How I long to be there
 A                E
-With Marie who`s waiting for me there
+With Marie who's waiting for me there
 F            C    F               C
 Every lonely city where I hang my hat
 F                C      Bm                 E
-Ain`t as half as pretty as where my baby`s at
+Ain't as half as pretty as where my baby's at
  
  
 [Chorus]
 A                    D
   Is this the way to Amarillo
 A                       E
-  Every night I`ve been hugging my pillow
+  Every night I've been hugging my pillow
 A                    D        A          E          A
   Dreaming dreams of Amarillo  and sweet Marie who waits for me
 A                    D
   Show me the way to Amarillo
 A                   E
-  I`ve been weeping like a willow
+  I've been weeping like a willow
 A             D        A          E          A
   Crying over Amarillo  and sweet Marie who waits for me
  
  
-[Interlude]
-A            D         D*
+A            D         D
   Shalala lala lala la
-A*           E         E*
+A*           E         E
   Shalala lala lala la
-D*           A
+D           A
   Shalala lala lala la
 E                A
   and Marie who waits for me
@@ -52,13 +51,13 @@ E                A
  
 [Verse 2]
 A                     D
-There`s a church bell ringing
+There's a church bell ringing
 A                E
-Hear the song of joy that it`s singing
+Hear the song of joy that it's singing
 A             D     A                 E
-For the sweet Maria and the guy who`s coming to see her
+For the sweet Maria and the guy who's coming to see her
 F               C       F               C
-Just beyond the highway there`s an open plain
+Just beyond the highway there's an open plain
 F               C     Bm                    E
 and it keeps me going through the wind and rain
  
@@ -67,21 +66,20 @@ and it keeps me going through the wind and rain
 A                    D
   Is this the way to Amarillo
 A                       E
-  Every night I`ve been hugging my pillow
+  Every night I've been hugging my pillow
 A                    D        A          E          A
   Dreaming dreams of Amarillo  and sweet Marie who waits for me
 A                    D
   Show me the way to Amarillo
 A                   E
-  I`ve been weeping like a willow
+  I've been weeping like a willow
 A             D        A          E          A
   Crying over Amarillo  and sweet Marie who waits for me
  
  
-[Interlude]
-A            D         D*
+A            D         D
   Shalala lala lala la
-A*           E         E*
+A           E         E
   Shalala lala lala la
 D*           A
   Shalala lala lala la
@@ -90,29 +88,15 @@ E                A
  
  
 [Outro] (key change)
-Bb            Eb        Eb*
+Bb            Eb        Eb
    Shalala lala lala la
-Bb*           F         F*
+Bb            F         F
    Shalala lala lala la
-Eb*           Bb
-   Shalala lala lala la
-F                Bb
-  and Marie who waits for me
- 
-Bb            Eb        Eb*
-   Shalala lala lala la
-Bb*           F         F*
-   Shalala lala lala la
-Eb*           Bb
+Eb            Bb
    Shalala lala lala la
 F                Bb
   and Marie who waits for me
  
-Bb            Eb        Eb*
-   Shalala lala lala la
-Bb*           F         F*
-   Shalala lala lala la
-Eb*           Bb
-   Shalala lala lala la
+| F   Bb  | repeat
  
 (fade out)
