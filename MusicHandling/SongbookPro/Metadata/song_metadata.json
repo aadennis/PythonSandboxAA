@@ -1,297 +1,542 @@
 [
     {
-        "title": "AHardDaysNight",
-        "artist": "Beatles",
-        "key-original": "G",
-        "key-me": "G",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"AHardDaysNight",
+        "artist":"Beatles",
+        "key-original":"G",
+        "key-me":"G",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "AllMyLoving",
-        "artist": "Beatles",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"AllMyLoving",
+        "artist":"Beatles",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "BrowneyedGirl",
-        "artist": "Van Morrison",
-        "key-original": "G",
-        "key-me": "G",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"BrowneyedGirl",
+        "artist":"Van Morrison",
+        "key-original":"G",
+        "key-me":"G",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "ByeByeLove",
-        "artist": "unknown",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "C"
+        "title":"ByeByeLove",
+        "artist":"unknown",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "CantBuyMeLove",
-        "artist": "Beatles",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": "C"
+        "title":"CantBuyMeLove",
+        "artist":"Beatles",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "CantHelpFalling",
-        "artist": "Elvis Presley",
-        "key-original": "C",
-        "key-me": "D",
-        "capo": 2,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"CantHelpFalling",
+        "artist":"Elvis Presley",
+        "key-original":"C",
+        "key-me":"D",
+        "capo":2,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "CantTakeMyEyesOffYou",
-        "artist": "Franki Valli",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "E"
+        "title":"CantTakeMyEyesOffYou",
+        "artist":"Franki Valli",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"E",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "ComeFlyWithMe",
-        "artist": "Frank Sinatra",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "C"
+        "title":"ComeFlyWithMe",
+        "artist":"Frank Sinatra",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "DaydreamBeliever",
-        "artist": "Monkees",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"DaydreamBeliever",
+        "artist":"Monkees",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "EightDaysAWeek",
-        "artist": "Beatles",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"EightDaysAWeek",
+        "artist":"Beatles",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "FlyMeToTheMoon",
-        "artist": "Frank Sinatra",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "Am"
+        "title":"FlyMeToTheMoon",
+        "artist":"Frank Sinatra",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"Am",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "FromMeToYou",
-        "artist": "Beatles",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"FromMeToYou",
+        "artist":"Beatles",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "HeyJude",
-        "artist": "Beatles",
-        "key-original": "F",
-        "key-me": "E",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"HeyJude",
+        "artist":"Beatles",
+        "key-original":"F",
+        "key-me":"E",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "ImABeliever",
-        "artist": "Monkees",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "G"
+        "title":"ImABeliever",
+        "artist":"Monkees",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"G",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "IWantToHoldYourHand",
-        "artist": "Beatles",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": "C"
+        "title":"IWantToHoldYourHand",
+        "artist":"Beatles",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "LoveMeDo",
-        "artist": "Beatles",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles",
-        "key": null
+        "title":"LoveMeDo",
+        "artist":"Beatles",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "Misty",
-        "artist": "unknown",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "C"
+        "title":"Misty",
+        "artist":"unknown",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "MoonRiver",
-        "artist": "Frank Sinatra",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "A"
+        "title":"MoonRiver",
+        "artist":"Frank Sinatra",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"A",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "StuckInTheMiddle",
-        "artist": "Stealers Wheel",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "D"
+        "title":"StuckInTheMiddle",
+        "artist":"Stealers Wheel",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"D",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "The Last Thing on my Mind",
-        "artist": "Tom Paxton",
-        "key-original": "F#",
-        "key-me": "G",
-        "capo": 3,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"The Last Thing on my Mind",
+        "artist":"Tom Paxton",
+        "key-original":"F#",
+        "key-me":"G",
+        "capo":3,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "TooGoodToBeTrue",
-        "artist": "Andy Williams",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "C"
+        "title":"TooGoodToBeTrue",
+        "artist":"Andy Williams",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "Valerie",
-        "artist": "Zutons",
-        "key-original": null,
-        "key-me": null,
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": "C"
+        "title":"Valerie",
+        "artist":"Zutons",
+        "key-original":null,
+        "key-me":null,
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":"C",
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "TakeMeHomeCountryRoads",
-        "artist": "John Denver",
-        "key-original": "A",
-        "key-me": "G",
-        "capo": 2,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"TakeMeHomeCountryRoads",
+        "artist":"John Denver",
+        "key-original":"A",
+        "key-me":"G",
+        "capo":2,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "Amarillo",
-        "artist": "Tony Christie",
-        "key-original": "A",
-        "key-me": "A",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 3.0,
-        "output_folder": "ChordPro",
-        "tested": "Yes"
+        "title":"Amarillo",
+        "artist":"Tony Christie",
+        "key-original":"A",
+        "key-me":"A",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":3.0,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":"Yes",
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "SweetCaroline",
-        "artist": "Neil Diamond",
-        "key-original": "B",
-        "key-me": "G",
-        "capo": 3,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro",
-        "key": null
+        "title":"SweetCaroline",
+        "artist":"Neil Diamond",
+        "key-original":"B",
+        "key-me":"G",
+        "capo":3,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "La Vie En Rose",
-        "artist": "Edith Piaf",
-        "key-original": "G",
-        "key-me": "G",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro"
+        "title":"La Vie En Rose",
+        "artist":"Edith Piaf",
+        "key-original":"G",
+        "key-me":"G",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     },
     {
-        "title": "LetItBe",
-        "artist": "Beatles",
-        "key-original": "C",
-        "key-me": "C",
-        "capo": 0,
-        "tempo": 88,
-        "scroll_speed": 2.7,
-        "output_folder": "ChordPro\/Eatles"
+        "title":"LetItBe",
+        "artist":"Beatles",
+        "key-original":"C",
+        "key-me":"C",
+        "capo":0,
+        "tempo":88,
+        "scroll_speed":2.7,
+        "output_folder":"ChordPro\/Eatles",
+        "key":null,
+        "tested":null,
+        "complex_chords":[
+            {
+                "Chord":null
+            },
+            {
+                "Chord":null
+            }
+        ]
     }
 ]

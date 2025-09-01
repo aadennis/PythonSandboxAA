@@ -60,9 +60,24 @@ def set_default_value(in_file: str):
     df['scroll_speed'] = 2.7
     print(df.head(10))
     df.to_json(in_file, orient='records', indent=4, )
+
+def set_default_dictvalue(in_file: str):
+    """
+    Given a hard-coded (TODO) json attribute, set all records to 
+    a default value.
+    """
+    df = pd.read_json(in_file)
+    print(df.head(10))
+    complex_chords = [
+        {"Chord": None},
+        {"Chord": None},
+    ]
+    df['complex_chords'] = [complex_chords for _ in range(len(df))]
+    print(df.head(10))
+    df.to_json(in_file, orient='records', indent=4, )
     
 
 if __name__ == '__main__':
     songs_file = 'Metadata/song_metadata.json'
-    set_default_value(songs_file)
+    set_default_dictvalue(songs_file)
 
