@@ -100,11 +100,9 @@ def get_complex_chords(in_file: str):
         data = json.load(f)
 
     rows = extract_complex_chords(data)
-    for row in rows:
-        print(f"{row['title']:10} | {row['Chord']}")
-
     with open("complex_chords.txt","w",encoding="utf-8") as wf:
         for row in rows:
+            print(f"{row['title']:10} | {row['Chord']}")
             wf.writelines(f"{row['title']:10} | {row['Chord']}\n")
         
 if __name__ == '__main__':
