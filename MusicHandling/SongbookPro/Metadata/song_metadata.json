@@ -532,10 +532,10 @@
         "tested":null,
         "complex_chords":[
             {
-                "Chord":null
+                "Chord":"[Fmaj7]"
             },
             {
-                "Chord":null
+                "Chord":"[F6]"
             }
         ]
     }
