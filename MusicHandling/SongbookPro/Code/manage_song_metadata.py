@@ -52,7 +52,7 @@ def set_default_value(in_file: str):
     """
     Given a hard-coded (TODO) json attribute, set all records to 
     a default value.
-    BTW, test data shows that [/] is intentionally escaped to [\/] by pd
+    BTW, test data shows that [/] is intentionally escaped to ['\'/] by pd
     """
     df = pd.read_json(in_file)
     print(df.head(10))
@@ -74,9 +74,36 @@ def set_default_dictvalue(in_file: str):
     df['complex_chords'] = [complex_chords for _ in range(len(df))]
     print(df.head(10))
     df.to_json(in_file, orient='records', indent=4, )
+
+def extract_complex_chords(data):
+    """
+    Extracts non-null chords from a JSON structure and flattens them into a list of dicts.
     
+    Parameters:
+        data (list): Parsed JSON data (list of dicts) from json.load().
+    
+    Returns:
+        List[Dict[str, str]]: Flattened list of {'title': ..., 'Chord': ...} entries.
+    """
+    flat_rows = []
+    for entry in data:
+        title = entry.get("title")
+        for chord_entry in entry.get("complex_chords", []):
+            chord = chord_entry.get("Chord")
+            if chord is not None:
+                flat_rows.append({"title": title, "Chord": chord})
+    return flat_rows    
+    
+def get_complex_chords(in_file: str):
+    # Extract and display those songs that have complex(e.g. F6) chords
+    with open(in_file,"r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    rows = extract_complex_chords(data)
+    for row in rows:
+        print(f"{row['title']:10} | {row['Chord']}")
 
 if __name__ == '__main__':
     songs_file = 'Metadata/song_metadata.json'
-    set_default_dictvalue(songs_file)
+    get_complex_chords(songs_file)
 
