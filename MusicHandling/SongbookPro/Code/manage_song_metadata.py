@@ -103,6 +103,10 @@ def get_complex_chords(in_file: str):
     for row in rows:
         print(f"{row['title']:10} | {row['Chord']}")
 
+    with open("complex_chords.txt","w",encoding="utf-8") as wf:
+        for row in rows:
+            wf.writelines(f"{row['title']:10} | {row['Chord']}\n")
+        
 if __name__ == '__main__':
     songs_file = 'Metadata/song_metadata.json'
     get_complex_chords(songs_file)
