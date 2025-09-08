@@ -8,9 +8,20 @@ import re
 import zipfile
 
 def merge_chords_and_lyrics(chord_line, lyric_line):
+    """
+    Merges chords and lyrics into a single line in ChordPro format.
+
+    Args:
+        chord_line (str): The line containing chords.
+        lyric_line (str): The line containing lyrics.
+
+    Returns:
+        str: A single line with chords embedded in the lyrics.
+    """
     chord_positions = []
+    # Identify positions of chords in the chord line
     for index, char in enumerate(chord_line):
-        if char.strip():
+        if char.strip():  # Check if the character is not whitespace
             if index == 0 or chord_line[index - 1] == ' ':
                 chord_positions.append(index)
 
@@ -18,6 +29,7 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
     chord_index = 0
     i = 0
 
+    # Merge chords into the lyrics line
     while i < len(lyric_line):
         if chord_index < len(chord_positions) and i == chord_positions[chord_index]:
             j = chord_positions[chord_index]
@@ -25,7 +37,7 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
             while j < len(chord_line) and chord_line[j] != ' ':
                 chord += chord_line[j]
                 j += 1
-            output += f"[{chord}]"
+            output += f"[{chord}]"  # Embed the chord in square brackets
             chord_index += 1
         output += lyric_line[i]
         i += 1
@@ -33,12 +45,29 @@ def merge_chords_and_lyrics(chord_line, lyric_line):
     return clean_spacing(output)
 
 def clean_spacing(line):
+    """
+    Cleans up extra spaces between words or chords.
+
+    Args:
+        line (str): The line to clean.
+
+    Returns:
+        str: The cleaned line.
+    """
     return re.sub(r'(?<=\S) {2,}(?=\S)', ' ', line)
 
 def match_and_replace_section(line, section_name, numbered=False):
     """
-    Checks if the line matches a section header like [Chorus], [Intro], [Verse], [Verse 1], etc.
-    Returns the replacement string (e.g., "{Chorus}") if matched, else None.
+    Checks if the line matches a section header like [Chorus], [Intro], etc.,
+    and replaces it with a ChordPro-style section header.
+
+    Args:
+        line (str): The line to check.
+        section_name (str): The name of the section (e.g., "Chorus").
+        numbered (bool): Whether the section can have a number (e.g., "Verse 1").
+
+    Returns:
+        str or None: The replacement string if matched, else None.
     """
     if numbered:
         pattern = rf"\[{section_name}(?:\s*\d+)?\]"
@@ -49,6 +78,15 @@ def match_and_replace_section(line, section_name, numbered=False):
     return None
 
 def process_multiline_text(input_text):
+    """
+    Processes multiline text, converting it into ChordPro format.
+
+    Args:
+        input_text (str): The input text containing chords and lyrics.
+
+    Returns:
+        list: A list of lines in ChordPro format.
+    """
     lines = [line.rstrip('\n') for line in input_text.splitlines()]
     output_lines = []
     i = 0
@@ -56,7 +94,7 @@ def process_multiline_text(input_text):
     while i < len(lines):
         line = lines[i].strip()
 
-        # Section header replacements
+        # Replace section headers with ChordPro-style headers
         for section, numbered in [
             ("Verse", True),
             ("Chorus", False),
@@ -69,7 +107,7 @@ def process_multiline_text(input_text):
             if replacement:
                 output_lines.append(replacement)
                 i += 1
-                # Suppress a blank line immediately after a section header
+                # Skip a blank line immediately after a section header
                 if i < len(lines) and lines[i].strip() == "":
                     i += 1
                 break
@@ -79,6 +117,7 @@ def process_multiline_text(input_text):
                 i += 1
                 continue
 
+            # Merge chords and lyrics if both lines are present
             if i + 1 < len(lines) and lines[i + 1].strip():
                 chord_line = lines[i]
                 lyric_line = lines[i + 1]
@@ -98,6 +137,20 @@ def process_multiline_text(input_text):
 
 
 def to_songbookpro(title, artist, key, capo, tempo, lyrics_lines):
+    """
+    Converts song metadata and lyrics into SongBookPro format.
+
+    Args:
+        title (str): The song title.
+        artist (str): The artist name.
+        key (str): The song key.
+        capo (int): The capo position.
+        tempo (int): The tempo of the song.
+        lyrics_lines (list): The lyrics in ChordPro format.
+
+    Returns:
+        str: The song in SongBookPro format.
+    """
     header = [
         f"{{title: {title}}}",
         f"{{artist: {artist}}}",
@@ -109,7 +162,15 @@ def to_songbookpro(title, artist, key, capo, tempo, lyrics_lines):
     return "\n".join(header + lyrics_lines)
 
 def camel_case_to_title(name):
-    # Remove extension, insert space before each uppercase letter (except first)
+    """
+    Converts a CamelCase string to a title with spaces.
+
+    Args:
+        name (str): The CamelCase string.
+
+    Returns:
+        str: The title with spaces.
+    """
     base = os.path.splitext(os.path.basename(name))[0]
     title = re.sub(r'(?<!^)(?=[A-Z])', ' ', base)
     return title.strip()
@@ -117,6 +178,12 @@ def camel_case_to_title(name):
 def get_song_metadata(song):
     """
     Returns the metadata for a song, or creates a default metadata file if not found.
+
+    Args:
+        song (str): The song name.
+
+    Returns:
+        dict: The metadata for the song.
     """
     metadata_path = os.path.join('Metadata', f"{song}.json")
     if os.path.exists(metadata_path):
@@ -131,7 +198,7 @@ def get_song_metadata(song):
             "key-me": "C",
             "capo": 0,
             "tempo": 88,
-            "scroll_speed":2.7,
+            "scroll_speed": 2.7,
             "output_folder": "ChordPro"
         }
         with open(metadata_path, 'w', encoding='utf-8') as f:
@@ -140,6 +207,12 @@ def get_song_metadata(song):
         return default_metadata
 
 def process_song(song):
+    """
+    Processes a single song, converting it to ChordPro format.
+
+    Args:
+        song (str): The song name.
+    """
     # Load all metadata from consolidated song_metadata.json
     metadata_path = os.path.join('Metadata', 'song_metadata.json')
     with open(metadata_path, 'r', encoding='utf-8') as f:
@@ -184,6 +257,9 @@ def process_song(song):
         f.write(songbook_text)
 
 def process_all_songs():
+    """
+    Processes all songs in the RawLyricsIn folder.
+    """
     lyrics_folder = 'RawLyricsIn'
     for filename in os.listdir(lyrics_folder):
         if filename.endswith('.txt'):
@@ -192,9 +268,11 @@ def process_all_songs():
 
 def zip_chordpro_files(zip_name="AllChordProFiles.zip", root_folder="ChordPro"):
     """
-    Impressively, SongbookPro can read a zip file. The zip produced here can 
-    be transferred from PC (which I use for development), via say Whatsapp to 
-    iPad. From there, save to Files, and then Share to SBP. 
+    Zips all .chordpro files into a single archive for easy transfer.
+
+    Args:
+        zip_name (str): The name of the zip file.
+        root_folder (str): The folder containing .chordpro files.
     """
     with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for foldername, _, filenames in os.walk(root_folder):
@@ -208,7 +286,10 @@ def zip_chordpro_files(zip_name="AllChordProFiles.zip", root_folder="ChordPro"):
 
 # Example usage:
 if __name__ == "__main__":
-    #process_song("TakeMeHomeCountryRoads")
+    # Uncomment the following line to process a single song
+    # process_song("TakeMeHomeCountryRoads")
+    
+    # Process all songs and zip them
     process_all_songs()
     zip_chordpro_files()
 
