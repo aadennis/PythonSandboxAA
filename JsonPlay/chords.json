@@ -1,0 +1,23 @@
+[
+    {
+        "chord_id": "c_pf",
+        "name": "C Perfect Fifth",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c",
+        "name": "C Major",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            }
+        ]
+    }
+]
