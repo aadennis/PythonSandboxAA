@@ -18,7 +18,9 @@ In other words,    please be true!
    Dm7         G7         Fm     C
 In other words     I love you
  
-Am Dm7 G7 Cmaj7  F Dm E Am   Dm7 G7 Em A7 E7   Dm7 G7 C
+Am Dm7 G7 Cmaj7  F Dm E Am A7
+
+Dm7 G7 Em A7   Dm7 G7 C E7
  
 Am                 Dm7              G7           Cmaj7
 Fill my heart with song, and let me sing forever more
@@ -32,21 +34,3 @@ In other words
    Dm7          G       G7   C
 In other words  I love  you!
  
-
- 
-  Alternates:
- 
-Capo III
- 
-Am    = F#m
-Dm7   = Bm7 
-G7    = E7
-Fm    = Dm
-C     = A
-E     = C#
-Cmaj7 = Amaj7
-F     = D
-Dm    = Bm
-E7    = C#7
-A7    = F#7
-G     = E
