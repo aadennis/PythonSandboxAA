@@ -2,10 +2,9 @@
     {
         "chord_id": "c_pf",
         "name": "C Perfect Fifth",
+        "comments": "only the root is played",
+        "tested": "null",
         "sa_notes": [
-            {
-                "sa_note": "only the root is played"
-            },
             {
                 "sa_note": "C3"
             }
@@ -14,6 +13,8 @@
     {
         "chord_id": "c_maj",
         "name": "C Major",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -24,20 +25,10 @@
         ]
     },
     {
-        "chord_id": "c_min",
-        "name": "C Minor",
-        "sa_notes": [
-            {
-                "sa_note": "C3"
-            },
-            {
-                "sa_note": "D#3"
-            }
-        ]
-    },
-    {
         "chord_id": "c_maj7",
         "name": "C Major 7",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -53,6 +44,8 @@
     {
         "chord_id": "c_6",
         "name": "C6",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -71,6 +64,8 @@
     {
         "chord_id": "c_7",
         "name": "C7",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -86,6 +81,8 @@
     {
         "chord_id": "c_9",
         "name": "C9",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -102,32 +99,10 @@
         ]
     },
     {
-        "chord_id": "c_sus2",
-        "name": "C sus2",
-        "sa_notes": [
-            {
-                "sa_note": "C3"
-            },
-            {
-                "sa_note": "D3"
-            }
-        ]
-    },
-    {
-        "chord_id": "c_sus4",
-        "name": "C sus4",
-        "sa_notes": [
-            {
-                "sa_note": "C3"
-            },
-            {
-                "sa_note": "F3"
-            }
-        ]
-    },
-    {
         "chord_id": "c_add2",
         "name": "C add2",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -143,6 +118,8 @@
     {
         "chord_id": "c_add4",
         "name": "C add4",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -158,6 +135,8 @@
     {
         "chord_id": "c_aug",
         "name": "C aug",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -173,6 +152,8 @@
     {
         "chord_id": "c_dim",
         "name": "C dim",
+        "comments": "null",
+        "tested": "null",
         "sa_notes": [
             {
                 "sa_note": "C3"
@@ -182,6 +163,48 @@
             },
             {
                 "sa_note": "F#3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_sus2",
+        "name": "C sus2",
+        "comments": "null",
+        "tested": "null",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "D3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_sus4",
+        "name": "C sus4",
+        "comments": "null",
+        "tested": "null",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "F3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_min",
+        "name": "C Minor",
+        "comments": "null",
+        "tested": "null",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "D#3"
             }
         ]
     }
