@@ -4,12 +4,15 @@
         "name": "C Perfect Fifth",
         "sa_notes": [
             {
+                "sa_note": "only the root is played"
+            },
+            {
                 "sa_note": "C3"
             }
         ]
     },
     {
-        "chord_id": "c",
+        "chord_id": "c_maj",
         "name": "C Major",
         "sa_notes": [
             {
@@ -17,6 +20,168 @@
             },
             {
                 "sa_note": "E3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_min",
+        "name": "C Minor",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "D#3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_maj7",
+        "name": "C Major 7",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "B2"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_6",
+        "name": "C6",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "G3"
+            },
+            {
+                "sa_note": "A3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_7",
+        "name": "C7",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "A#2"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_9",
+        "name": "C9",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "A#3"
+            },
+            {
+                "sa_note": "D4"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_sus2",
+        "name": "C sus2",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "D3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_sus4",
+        "name": "C sus4",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "F3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_add2",
+        "name": "C add2",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "D3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_add4",
+        "name": "C add4",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "F3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_aug",
+        "name": "C aug",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "G#3"
+            }
+        ]
+    },
+    {
+        "chord_id": "c_dim",
+        "name": "C dim",
+        "sa_notes": [
+            {
+                "sa_note": "C3"
+            },
+            {
+                "sa_note": "E3"
+            },
+            {
+                "sa_note": "F#3"
             }
         ]
     }
