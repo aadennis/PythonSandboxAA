@@ -2,6 +2,7 @@
     Play with DataFrames, switching off copilot!
 """
 import pandas as pd
+import json
 
 def coerce_to_int64(df: pd.DataFrame, *columns: str) -> pd.DataFrame:
     """
@@ -43,8 +44,14 @@ def add_dictionary_to_json():
 
     print(df.head(10))
     df.to_json('rulers4.json', orient='records', indent=2)
-    
+
+def get_sa_chords():
+    with open('chords.json', 'r') as f:
+        chord_map = json.load(f)
+
+    print(chord_map)
 
 if __name__ == '__main__':
-    csv_to_json()
-    add_dictionary_to_json()
+    # csv_to_json()
+    # add_dictionary_to_json()
+    get_sa_chords()
