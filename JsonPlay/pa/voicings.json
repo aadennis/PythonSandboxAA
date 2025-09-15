@@ -1,0 +1,421 @@
+[
+    {
+        "WWA__01": {
+            "pattern_id": "WWA",
+            "voicing_number": 1,
+            "intervals": {
+                "r": "C3",
+                "3": "E3",
+                "5": "G3",
+                "octave": "C4"
+            },
+            "metadata": {
+                "voicing_type": "triad_plus_octave",
+                "ergonomic_profile": "full"
+            }
+        },
+        "WWA__02": {
+            "pattern_id": "WWA",
+            "voicing_number": 2,
+            "intervals": {
+                "r": "C3",
+                "3": "E3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "triad",
+                "ergonomic_profile": "compact"
+            }
+        },
+        "WWA__03": {
+            "pattern_id": "WWA",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "power_chord",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWA__04": {
+            "pattern_id": "WWA",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "9": "D4",
+                "min_tenth": "Eb4",
+                "12fifth": "G4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor",
+                "ergonomic_profile": "spread"
+            }
+        },
+        "WWA__05": {
+            "pattern_id": "WWA",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "tenth": "E4"
+            },
+            "metadata": {
+                "voicing_type": "major_tenth",
+                "ergonomic_profile": "intervallic"
+            }
+        },
+        "WWB__01": {
+            "pattern_id": "WWB",
+            "voicing_number": 1,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth",
+                "ergonomic_profile": "spread"
+            }
+        },
+        "WWB__02": {
+            "pattern_id": "WWB",
+            "voicing_number": 2,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWB__03": {
+            "pattern_id": "WWB",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "9": "D4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWB__04": {
+            "pattern_id": "WWB",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "power_chord",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWB__05": {
+            "pattern_id": "WWB",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "9": "D4",
+                "min_tenth": "Eb4",
+                "11": "F4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor_cluster",
+                "ergonomic_profile": "dense"
+            }
+        },
+        "WWC__01": {
+            "pattern_id": "WWC",
+            "voicing_number": 1,
+            "intervals": {
+                "2down": "Bb2",
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "9": "D4"
+            },
+            "metadata": {
+                "voicing_type": "extended_with_pedal",
+                "ergonomic_profile": "spread"
+            }
+        },
+        "WWC__02": {
+            "pattern_id": "WWC",
+            "voicing_number": 2,
+            "intervals": {
+                "2down": "Bb2",
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4"
+            },
+            "metadata": {
+                "voicing_type": "triad_with_pedal",
+                "ergonomic_profile": "compact"
+            }
+        },
+        "WWC__03": {
+            "pattern_id": "WWC",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3"
+            },
+            "metadata": {
+                "voicing_type": "single_note",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWC__04": {
+            "pattern_id": "WWC",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "power_chord",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWC__05": {
+            "pattern_id": "WWC",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "tenth": "E4"
+            },
+            "metadata": {
+                "voicing_type": "major_tenth",
+                "ergonomic_profile": "intervallic"
+            }
+        },
+        "WWD__01": {
+            "pattern_id": "WWD",
+            "voicing_number": 1,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth",
+                "ergonomic_profile": "spread"
+            }
+        },
+        "WWD__02": {
+            "pattern_id": "WWD",
+            "voicing_number": 2,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWD__03": {
+            "pattern_id": "WWD",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "9": "D4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWD__04": {
+            "pattern_id": "WWD",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "power_chord",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWD__05": {
+            "pattern_id": "WWD",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "9": "D4",
+                "min_tenth": "Eb4",
+                "11": "F4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor_cluster",
+                "ergonomic_profile": "dense"
+            }
+        },
+        "WWE__01": {
+            "pattern_id": "WWE",
+            "voicing_number": 1,
+            "intervals": {
+                "r": "C3",
+                "*3": "E3",
+                "*5": "G3",
+                "*octave": "C4"
+            },
+            "metadata": {
+                "voicing_type": "triad_emphasized",
+                "ergonomic_profile": "full",
+                "layering_flags": [
+                    "*"
+                ]
+            }
+        },
+        "WWE__02": {
+            "pattern_id": "WWE",
+            "voicing_number": 2,
+            "intervals": {
+                "r": "C3",
+                "3": "E3",
+                "*5": "G3",
+                "*octave": "C4",
+                "*12fifth": "G4"
+            },
+            "metadata": {
+                "voicing_type": "triad_plus_layered_12th",
+                "ergonomic_profile": "spread",
+                "layering_flags": [
+                    "*"
+                ]
+            }
+        },
+        "WWE__03": {
+            "pattern_id": "WWE",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4"
+            },
+            "metadata": {
+                "voicing_type": "power_chord_plus_octave",
+                "ergonomic_profile": "compact"
+            }
+        },
+        "WWE__04": {
+            "pattern_id": "WWE",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "min7": "Bb3",
+                "octave": "C4",
+                "9": "D4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor_seventh",
+                "ergonomic_profile": "dense"
+            }
+        },
+        "WWE__05": {
+            "pattern_id": "WWE",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "tenth": "E4"
+            },
+            "metadata": {
+                "voicing_type": "major_tenth",
+                "ergonomic_profile": "intervallic"
+            }
+        },
+        "WWF_Mtd__01": {
+            "pattern_id": "WWF_Mtd",
+            "voicing_number": 1,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWF_Mtd__02": {
+            "pattern_id": "WWF_Mtd",
+            "voicing_number": 2,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "min_tenth": "Eb4",
+                "12fifth": "G4"
+            },
+            "metadata": {
+                "voicing_type": "minor_tenth_plus_12th",
+                "ergonomic_profile": "close_position"
+            }
+        },
+        "WWF_Mtd__03": {
+            "pattern_id": "WWF_Mtd",
+            "voicing_number": 3,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "9": "D4",
+                "min_tenth": "Eb4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor",
+                "ergonomic_profile": "spread"
+            }
+        },
+        "WWF_Mtd__04": {
+            "pattern_id": "WWF_Mtd",
+            "voicing_number": 4,
+            "intervals": {
+                "r": "C3",
+                "5": "G3"
+            },
+            "metadata": {
+                "voicing_type": "power_chord",
+                "ergonomic_profile": "minimal"
+            }
+        },
+        "WWF_Mtd__05": {
+            "pattern_id": "WWF_Mtd",
+            "voicing_number": 5,
+            "intervals": {
+                "r": "C3",
+                "5": "G3",
+                "octave": "C4",
+                "9": "D4",
+                "min_tenth": "Eb4",
+                "11": "F4"
+            },
+            "metadata": {
+                "voicing_type": "extended_minor_cluster",
+                "ergonomic_profile": "dense"
+            }
+        }
+    }
+]
