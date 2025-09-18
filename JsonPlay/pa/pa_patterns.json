@@ -1,0 +1,115 @@
+[
+    {
+        "AB": {
+            "name": "Autobahn"
+        },
+        "BR": {
+            "name": "Breathing"
+        },
+        "BU": {
+            "name": "Busker"
+        },
+        "CS": {
+            "name": "Clear All Slots"
+        },
+        "CO": {
+            "name": "Countryside"
+        },
+        "CR": {
+            "name": "Crescendos"
+        },
+        "DH": {
+            "name": "Driving Home"
+        },
+        "FS": {
+            "name": "Fast Strum"
+        },
+        "FL": {
+            "name": "Flageolets"
+        },
+        "FM": {
+            "name": "Funky Mutes"
+        },
+        "HY": {
+            "name": "Hymn"
+        },
+        "LP": {
+            "name": "Latin Pop"
+        },
+        "LS": {
+            "name": "Light and Shadow"
+        },
+        "MY": {
+            "name": "Mystic"
+        },
+        "OC": {
+            "name": "Old Castle"
+        },
+        "OS": {
+            "name": "Old Street"
+        },
+        "OT": {
+            "name": "On Top"
+        },
+        "PG": {
+            "name": "Pawnshop Guitar"
+        },
+        "PB": {
+            "name": "Picking Ballad"
+        },
+        "PW": {
+            "name": "Power Ballad"
+        },
+        "RL": {
+            "name": "Ray of Light"
+        },
+        "RO": {
+            "name": "Right On"
+        },
+        "RS": {
+            "name": "Rising Sun"
+        },
+        "RB": {
+            "name": "RnB Backbeat"
+        },
+        "SS": {
+            "name": "Simple Strum"
+        },
+        "ST": {
+            "name": "Simple Things"
+        },
+        "SD": {
+            "name": "Standard Strum"
+        },
+        "SC": {
+            "name": "Standing Close"
+        },
+        "SP": {
+            "name": "Sunny Porch"
+        },
+        "SY": {
+            "name": "Syncopation"
+        },
+        "TH": {
+            "name": "Take Me Higher"
+        },
+        "TY": {
+            "name": "Thinking of You"
+        },
+        "TN": {
+            "name": "Tonight"
+        },
+        "TS": {
+            "name": "Triplet Strum"
+        },
+        "UP": {
+            "name": "Uphill"
+        },
+        "WA": {
+            "name": "Wanderer"
+        },
+        "WW": {
+            "name": "West Wind"
+        }
+    }
+]
