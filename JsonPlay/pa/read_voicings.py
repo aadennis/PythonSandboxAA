@@ -6,7 +6,7 @@ def read_voicings():
     #     voicings_map = json.load(f)
     # print(voicings_map)
 
-    df = pd.read_json("pa/voicings.json")
+    df = pd.read_json("pa/pa_patterns.json")
     print(df)
 
 read_voicings()    
