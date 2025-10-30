@@ -22,7 +22,7 @@ reforms @ git+http://github.com/boardpack/reforms@34121cf4d140ed5753e6b2f5b4a408
 requests>=2.32.0
 six==1.16.0
 sniffio==1.2.0
-starlette==0.36.2
+starlette==0.49.1
 typing_extensions==4.1.1
 ujson==5.4.0
 urllib3==1.26.19
