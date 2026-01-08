@@ -24,8 +24,9 @@ trio==0.29.0
 trio-websocket==0.12.1
 typing_extensions==4.12.2
 undetected-chromedriver==3.5.5
-urllib3==2.3.0
+urllib3>=2.6.3
 websocket-client==1.8.0
 websockets==15.0
 wsproto==1.2.0
 yarl==1.18.3
+
