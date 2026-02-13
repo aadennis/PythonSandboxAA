@@ -6,10 +6,11 @@ iniconfig==2.0.0
 numpy==1.26.4
 opencv-python==4.9.0.80
 packaging==24.0
-pillow==10.3.0
+pillow>=12.1.1
 pluggy==1.4.0
 pycodestyle==2.11.1
 pytest==8.1.1
 setuptools>=78.1.1
 wheel==0.43.0
+
 
